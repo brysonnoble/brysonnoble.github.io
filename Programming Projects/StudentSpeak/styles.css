@@ -2,16 +2,19 @@ body {
     margin: 0;
 }
 
-h2 {
-    font-family: "Geologica", sans-serif;
-    font-weight: 600;
-    font-style: normal;
-}
-
 p {
     font-family: "Poppins", sans-serif;
     font-weight: 300;
     font-style: normal;
+}
+
+#output {
+    font-family: "Geologica", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    background-color: green;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 input {
