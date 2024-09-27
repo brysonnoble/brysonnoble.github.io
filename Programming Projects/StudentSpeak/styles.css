@@ -44,15 +44,23 @@ input {
 
 input[type=button] {
     position: relative;
-    width: 0%;
+    width: 100%;
+    border-radius: 100;
 }
 
 input[type=number] {
     position: inherit;
     width: 100%;
-    background: transparent;
+    background-color: #eaeaea;
     border: transparent;
     border-radius: 100px;
+    padding-left: 2%;
+    padding-right: 2%;
+    font-size: 20px;
+}
+
+input:focus {
+    outline: none;
 }
 
 #controlhub {
@@ -62,9 +70,4 @@ input[type=number] {
     width: 95vw;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-}
-
-#interactable {
-    background-color: #eaeaea;
-    border-radius: 100px;
 }
