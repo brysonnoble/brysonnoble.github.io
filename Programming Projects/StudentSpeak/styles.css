@@ -35,7 +35,6 @@ p, input {
     height: 90vh;
     overflow-x: hidden;
     overflow-y: auto;
-    text-align: justify;
 }
 
 input {
