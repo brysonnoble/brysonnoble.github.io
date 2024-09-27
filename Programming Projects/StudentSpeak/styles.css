@@ -1,5 +1,5 @@
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 1px;
 }
 
 ::-webkit-scrollbar-track {
@@ -32,7 +32,7 @@ p, input {
     font-style: normal;
     margin: 4px, 4px;
     padding: 4px;
-    height: 90vh;
+    height: 85vh;
     overflow-x: hidden;
     overflow-y: auto;
     position: relative;
@@ -104,5 +104,13 @@ input:focus {
 }
 
 #info {
-    pointer: cursor;
+    text-align: center;
+    font-size: 15px;
+    position: relative;
+    height: 1vh;
+    bottom: 10px;
+}
+
+#info:hover {
+    cursor: pointer;
 }
