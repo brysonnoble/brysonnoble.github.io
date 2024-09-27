@@ -43,14 +43,19 @@ input {
 }
 
 input[type=button] {
-    position: relative;
-    width: 100%;
-    border-radius: 100;
+    position: absolute;
+    right: 0;
+    width: 70px;
+    height: 70px;
+    border-radius: 100px;
+    background: transparent;
+    border: 0;
 }
 
 input[type=number] {
     position: inherit;
     width: 100%;
+    height: 70px;
     background-color: #eaeaea;
     border: transparent;
     border-radius: 100px;
