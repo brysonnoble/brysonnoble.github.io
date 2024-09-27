@@ -8,18 +8,7 @@
     <body>
         <div id="controlHub">
             <h2>
-                <?php
-                    $file = new SplFileObject("samples.txt");
-
-                    // Loop until we reach the end of the file.
-                    while (!$file->eof()) {
-                        // Echo one line from the file.
-                        echo $file->fgets();
-                    }
-
-                    // Unset the file to call __destruct(), closing the file handle.
-                    $file = null;
-                ?>
+                samples
             </h2>
             <div id="interactable">
                 <input type="number" placeholder="Number of responses"/>
