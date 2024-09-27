@@ -27,7 +27,7 @@ p, input {
 }
 
 #output {
-    font-family: "Geologica", sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 600;
     font-style: normal;
     margin: 4px, 4px;
@@ -35,6 +35,8 @@ p, input {
     height: 90vh;
     overflow-x: hidden;
     overflow-y: auto;
+    position: relative;
+    width: 100%;
 }
 
 input {
@@ -82,11 +84,6 @@ input:hover {
 
 input:focus {
     outline: none;
-}
-
-#output {
-    position: relative;
-    width: 100%;
 }
 
 #controlhub {
