@@ -1,4 +1,4 @@
-function Generate () {
+function Generate (num) {
   document.getElementById("output").value = "test";
 
   alert(num);
