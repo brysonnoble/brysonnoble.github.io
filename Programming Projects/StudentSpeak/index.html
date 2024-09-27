@@ -8,12 +8,10 @@
     </head>
     <body>
         <div id="controlHub">
-            <h2>
-                samples
-            </h2>
+            <h2 id="output"></h2>
             <div id="interactable">
-                <input type="number" placeholder="Number of responses"/>
-                <input type="button" value="Generate!"/>
+                <input type="number" id="num" placeholder="Number of responses"/>
+                <input type="button" onclick="Generate(document.getElementById("num").value)" value="Generate!"/>
             </div>
         </div>
     </body>
