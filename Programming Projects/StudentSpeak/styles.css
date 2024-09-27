@@ -102,3 +102,7 @@ input:focus {
     left: 20%;
     bottom: 10px;
 }
+
+#info {
+    pointer: cursor;
+}
