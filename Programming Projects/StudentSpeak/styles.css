@@ -31,7 +31,6 @@ p {
     font-style: normal;
     margin: 4px, 4px;
     padding: 4px;
-    background-color: #eaeaea;
     height: 90vh;
     overflow-x: hidden;
     overflow-y: auto;
@@ -44,11 +43,16 @@ input {
 }
 
 input[type=button] {
-    width: 15%;
+    position: relative;
+    width: 0%;
 }
 
 input[type=number] {
-    width: 45%;
+    position: inherit;
+    width: 100%;
+    background: transparent;
+    border: transparent;
+    border-radius: 100px;
 }
 
 #controlhub {
@@ -58,4 +62,9 @@ input[type=number] {
     width: 95vw;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+}
+
+#interactable {
+    background-color: #eaeaea;
+    border-radius: 100px;
 }
