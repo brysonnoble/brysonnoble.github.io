@@ -1,9 +1,5 @@
 function Generate (resNum) {
-  document.getElementById("output").innerHTML = "test";
-
-  alert(resNum);
-  
-  //for (var i = 0; i < resNum; i++) {
-  //  document.getElementById('output').value = samples[0];
-  //}
+  for (let i = 0; i < resNum; i++) {
+    document.getElementById("output").innerHTML = document.getElementById("output").innerHTML + "\n" + samples[Math.floor(Math.random()*items.length)];
+  }
 }
