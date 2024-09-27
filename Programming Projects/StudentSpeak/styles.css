@@ -1,18 +1,19 @@
 ::-webkit-scrollbar {
-  width: 10px;
+    width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+    background: transparent;
 }
  
 ::-webkit-scrollbar-thumb {
-  background: #e6e6e6; 
-  border-radius: 10px;
+    background: #e6e6e6; 
+    border-radius: 10px;
+    transition: .2s;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #c7c7c7;
+    background: #c7c7c7;
 }
 
 body {
@@ -84,11 +85,23 @@ input:focus {
     outline: none;
 }
 
+#output {
+    position: relative;
+    width: 50%;
+    left: 25%;
+}
+
 #controlhub {
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 95vw;
+    width: 100%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+}
+
+#interactable {
+    position: relative;
+    width: 50%;
+    left: 25%;
 }
