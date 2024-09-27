@@ -19,7 +19,7 @@ body {
     margin: 0;
 }
 
-p {
+p, input {
     font-family: "Poppins", sans-serif;
     font-weight: 300;
     font-style: normal;
