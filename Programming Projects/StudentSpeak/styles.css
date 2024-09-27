@@ -9,30 +9,33 @@ p {
 }
 
 #output {
-    font-family: "Geologica", sans-serif;
-    font-weight: 600;
-    font-style: normal;
-    background-color: green;
+    margin: 4px, 4px;
+    padding: 4px;
+    background-color: #eaeaea;
+    height: 90vh;
     overflow-x: hidden;
     overflow-y: auto;
+    text-align: justify;
 }
 
 input {
+    margin-top: 10px;
     height: 50px;
 }
 
 input[type=button] {
-    width: 5vw;
+    width: 49%;
 }
 
 input[type=number] {
-    width: 30vw;
+    width: 49%;
 }
 
 #controlhub {
     position: absolute;
     left: 50%;
     top: 50%;
+    width: 35vw;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
