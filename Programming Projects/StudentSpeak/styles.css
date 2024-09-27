@@ -9,6 +9,9 @@ p {
 }
 
 #output {
+    font-family: "Geologica", sans-serif;
+    font-weight: 600;
+    font-style: normal;
     margin: 4px, 4px;
     padding: 4px;
     background-color: #eaeaea;
