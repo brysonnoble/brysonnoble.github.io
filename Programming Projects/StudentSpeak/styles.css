@@ -36,7 +36,8 @@ p, input {
     overflow-x: hidden;
     overflow-y: auto;
     position: relative;
-    width: 100%;
+    width: 60%;
+    left: 20%
 }
 
 input {
