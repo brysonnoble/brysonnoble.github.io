@@ -12,7 +12,7 @@
             <h2 id="output"></h2>
             <div id="interactable">
                 <input type="number" id="num" placeholder="Number of responses"/>
-                <input type="button" onclick="Generate()" value="Generate!"/>
+                <input type="button" onclick="Generate(document.getElementById('num').value)" value="Generate!"/>
             </div>
         </div>
     </body>
