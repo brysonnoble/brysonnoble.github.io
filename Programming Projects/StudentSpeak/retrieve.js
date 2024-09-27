@@ -1,5 +1,5 @@
 function Generate (resNum) {
-  document.getElementById("output").value = "test";
+  document.getElementById("output").innerHTML = "test";
 
   alert(resNum);
   
