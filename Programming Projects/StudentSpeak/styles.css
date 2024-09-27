@@ -122,3 +122,12 @@ input:focus {
     backdrop-filter: blur(6px);
     display: block;
 }
+
+#content {
+    position: relative;
+    width: 60%;
+    height: 60%;
+    left: 20%;
+    top: 20%;
+    background: black;
+}
