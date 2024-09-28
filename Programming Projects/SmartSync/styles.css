@@ -44,7 +44,7 @@ h2 {
     height: 100%;
     display: inline-block;
     border: 10px solid;
-    border-image-source: linear-gradient(to left, #FD2D00, #DF007C);
+    border-image-source: radial-gradient(circle, rgba(57,47,218,1) 32%, rgba(98,98,126,1) 35%, rgba(0,212,255,1) 100%);
     border-image-slice: 1;
     border-width: 1px;
     cursor: pointer;
@@ -52,5 +52,6 @@ h2 {
 }
 
 #song:hover {
-    background-color: #041114;
+    border-image-source: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    background-color:  #041114;
 }
