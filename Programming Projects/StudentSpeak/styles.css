@@ -129,5 +129,7 @@ input:focus {
     height: 60%;
     left: 20%;
     top: 20%;
-    background: black;
+    background: white;
+    border-radius: 5px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
