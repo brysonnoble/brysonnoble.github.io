@@ -29,7 +29,9 @@
                     <pre>
 <span style="color:red">from</span> openai <span style="color:red">import</span> <span style="color:orange">OpenAI</span>
  
-client <span style="color:cornflowerblue">=</span> <span style="color:orange">OpenAI</span>(api_key<span style="color:cornflowerblue">=</span><span style="color:lightblue">"KEY"</span>)
+client <span style="color:cornflowerblue">=</span> <span style="color:orange">OpenAI</span>(
+    api_key <span style="color:cornflowerblue">=</span> <span style="color:lightblue">"KEY"</span>
+)
  
 <span style="color:red">while</span> <span style="color:cornflowerblue">True</span>:
     messageNum <span style="color:cornflowerblue">=</span> <span style="color:lightpurple">input</span>(<span style="color:lightblue">"How many messages do you want?"</span>)
