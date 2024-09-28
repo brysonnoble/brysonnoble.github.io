@@ -143,9 +143,13 @@ input:focus {
     margin: 4px, 4px;
     padding: 4px;
     background-color: #1f1f1f;
+    color: white;
     width: 80%;
     height: 50%;
     overflow-x: auto;
     overflow-y: auto;
     text-align: justify;
+    position: relative;
+    border-radius: 5px;
+    left: 10%;
 }
