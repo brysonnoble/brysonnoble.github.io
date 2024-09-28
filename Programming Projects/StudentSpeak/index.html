@@ -28,26 +28,26 @@
                 <div id="code">
                     <span>
                         <pre>
- 1. from openai import OpenAI
- 2. 
- 3. client = OpenAI(api_key="KEY")
- 4. 
- 5. while True:
- 6.     messageNum = input("How many messages do you want?")
- 7. 
- 8.     system_data = [
- 9.         {"role": "system", "content": "You are a bot that simulates messages that would be posted to a university's group chat app by students that attend the university. Among other things, you can comment on how well you're doing in your classes, the state of campus, different buildings on campus, study group requests, etc. They can be up to 3 sentences in length. Feel free to use slightly mature language. Use a maximum of one emoji per response. Depending on the number inputted, send that number of unique messages, separated by newline characters. Do not number the responses or do anything to separate them other than the newline characters."},
-10.         {"role": "user", "content": messageNum}
-11.     ]
-12.     
-13.     response = client.chat.completions.create(
-14.         model="gpt-3.5-turbo",
-15.         messages=system_data
-16.     )
-17.     
-18.     res = response.choices[0].message.content
-19.     system_data.append({"role": "assistant", "content": res})
-20.     print(res)
+<span style="color:red">from openai import OpenAI</span>
+ 
+client = OpenAI(api_key="KEY")
+ 
+while True:
+    messageNum = input("How many messages do you want?")
+
+    system_data = [
+        {"role": "system", "content": "You are a bot that simulates messages that would be posted to a university's group chat app by students that attend the university. Among other things, you can comment on how well you're doing in your classes, the state of campus, different buildings on campus, study group requests, etc. They can be up to 3 sentences in length. Feel free to use slightly mature language. Use a maximum of one emoji per response. Depending on the number inputted, send that number of unique messages, separated by newline characters. Do not number the responses or do anything to separate them other than the newline characters."},
+        {"role": "user", "content": messageNum}
+    ]
+    
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=system_data
+    )
+    
+    res = response.choices[0].message.content
+    system_data.append({"role": "assistant", "content": res})
+    print(res)
                         </pre>
                     </span>
                 </div>
