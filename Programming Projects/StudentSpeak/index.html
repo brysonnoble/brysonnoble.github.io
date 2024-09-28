@@ -27,28 +27,28 @@
                 <h2>The Code</h2>
                 <div id="code">
                     <pre>
-<span style="color:red">from</span> openai <span style="color:red">import</span> <span style="color:orange">OpenAI</span>
+<span style="color:tomato">from</span> openai <span style="color:tomato">import</span> <span style="color:orange">OpenAI</span>
  
 client <span style="color:cornflowerblue">=</span> <span style="color:orange">OpenAI</span>(
     api_key <span style="color:cornflowerblue">=</span> <span style="color:lightblue">"KEY"</span>
 )
  
-<span style="color:red">while</span> <span style="color:cornflowerblue">True</span>:
-    messageNum <span style="color:cornflowerblue">=</span> <span style="color:lightpurple">input</span>(<span style="color:lightblue">"How many messages do you want?"</span>)
+<span style="color:tomato">while</span> <span style="color:cornflowerblue">True</span>:
+    messageNum <span style="color:cornflowerblue">=</span> <span style="color:plum">input</span>(<span style="color:lightblue">"How many messages do you want?"</span>)
 
     system_data <span style="color:cornflowerblue">=</span> [
         {<span style="color:lightblue">"role"</span>: <span style="color:lightblue">"system"</span>, <span style="color:lightblue">"content"</span>: <span style="color:lightblue">"You are a bot that simulates messages that would be posted to a university's group chat app by students that attend the university. Among other things, you can comment on how well you're doing in your classes, the state of campus, different buildings on campus, study group requests, etc. They can be up to 3 sentences in length. Feel free to use slightly mature language. Use a maximum of one emoji per response. Depending on the number inputted, send that number of unique messages, separated by newline characters. Do not number the responses or do anything to separate them other than the newline characters."</span>},
         {<span style="color:lightblue">"role"</span>: <span style="color:lightblue">"user"</span>, <span style="color:lightblue">"content"</span>: messageNum}
     ]
     
-    response <span style="color:cornflowerblue">=</span> client.chat.completions.<span style="color:lightpurple">create</span>(
+    response <span style="color:cornflowerblue">=</span> client.chat.completions.<span style="color:plum">create</span>(
         model <span style="color:cornflowerblue">=</span> <span style="color:lightblue">"gpt-3.5-turbo"</span>,
         messages <span style="color:cornflowerblue">=</span> system_data
     )
     
     res <span style="color:cornflowerblue">=</span> response.choices[<span style="color:lightblue">0</span>].message.content
-    system_data.<span style="color:lightpurple">append</span>({<span style="color:lightblue">"role"</span>: <span style="color:lightblue">"assistant"</span>, <span style="color:lightblue">"content"</span>: res})
-    <span style="color:lightpurple">print</span>(res)
+    system_data.<span style="color:plum">append</span>({<span style="color:lightblue">"role"</span>: <span style="color:lightblue">"assistant"</span>, <span style="color:lightblue">"content"</span>: res})
+    <span style="color:plum">print</span>(res)
                     </pre>
                 </div>
             </div>
