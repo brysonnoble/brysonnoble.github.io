@@ -3,6 +3,6 @@ function toggleVis() {
   if (element.style.display === "none") {
     element.style.display = "block";
   } else {
-    x.style.display = "none";
+    element.style.display = "none";
   }
 }
