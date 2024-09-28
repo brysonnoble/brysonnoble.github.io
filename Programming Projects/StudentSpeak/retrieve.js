@@ -1,4 +1,4 @@
-function Generate (resNum) {
+function Generate(resNum) {
   for (let i = 0; i < resNum; i++) {
     const newTextElement = document.createElement('span');
     newTextElement.textContent = samples[Math.floor(Math.random() * samples.length)];
@@ -9,6 +9,7 @@ function Generate (resNum) {
 
     // Add the element to the DOM
     document.getElementById("outputText").appendChild(newTextElement);
+    document.getElementById("outputText").appendChild(document.createElement('br')); // Add a break after each element
 
     // Trigger the transition by setting opacity to 1
     setTimeout(() => {
