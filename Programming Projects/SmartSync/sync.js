@@ -19,6 +19,6 @@ function PlaySample (file) {
       break;
     default:
       break;
-*/
   }
+*/
 }
