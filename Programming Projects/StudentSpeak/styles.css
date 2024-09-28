@@ -141,6 +141,7 @@ input:focus {
     padding: 10px;
     overflow-x: hidden;
     overflow-y: auto;
+    text-align: justify;
 }
 
 #code {
