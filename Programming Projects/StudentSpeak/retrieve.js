@@ -1,4 +1,4 @@
-function Generate(resNum) {
+function Generate (resNum) {
   for (let i = 0; i < resNum; i++) {
     const newTextElement = document.createElement('span');
     newTextElement.textContent = samples[Math.floor(Math.random() * samples.length)];
@@ -14,4 +14,9 @@ function Generate(resNum) {
       newTextElement.style.opacity = 1;
     }, 10);
   }
+}
+
+function HideSplash () {
+  var element = document.getElementById("splash");
+  element.style.display = "none";
 }
