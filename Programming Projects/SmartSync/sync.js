@@ -1,7 +1,6 @@
 function PlaySample (file) {
   alert("test");
-/*
-  switch (parseInt(file)) {
+  switch (file) {
     case 0:
       import sound from 'https://brysonnoble.github.io/Programming%20Projects/SmartSync/Sample_Audio/a0.mp3'
       const audio = new Audio(sound)
@@ -20,5 +19,4 @@ function PlaySample (file) {
     default:
       break;
   }
-*/
 }
