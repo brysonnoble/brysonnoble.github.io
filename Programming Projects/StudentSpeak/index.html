@@ -27,26 +27,28 @@
                 <h2>The Code</h2>
                 <div id="code">
                     <span>
-                        from openai import OpenAI&#13;&#10;
-                        &#13;&#10;
-                        client = OpenAI(&#13;&#10;
-                        &#9;api_key = "KEY"&#13;&#10;
-                        )&#13;&#10;
-                        &#13;&#10;
-                        while True:&#13;&#10;
-                        &#9;messageNum = input("How many messages do you want?")&#13;&#10;
-                        &#13;&#10;
-                        &#9;system_data = [&#13;&#10;
-                        &#9;&#9;{"role": "system", "content": "You are a bot that simulates messages that would be posted to a university's group chat app by students that attend the university. Among other things, you can comment on how well you're doing in your classes, the state of campus, different buildings on campus, study group requests, etc. They can be up to 3 sentences in length. Feel free to use slightly mature language. Use a maximum of one emoji per response. Depending on the number inputted, send that number of unique messages, separated by newline characters. Do not number the responses or do anything to separate them other than the newline characters."},&#13;&#10;
-                        &#9;&#9;{"role": "user", "content": messageNum}&#13;&#10;
-                        &#9;]&#13;&#10;
-                        &#9;response = client.chat.completions.create(&#13;&#10;
-                        &#9;&#9;model="gpt-3.5-turbo",&#13;&#10;
-                        &#9;&#9;messages=system_data&#13;&#10;
-                        &#9;)&#13;&#10;
-                        &#9;res = response.choices[0].message.content&#13;&#10;
-                        &#9;system_data.append({"role": "assistant", "content": res})&#13;&#10;
-                        &#9;print(res)
+                        <pre>
+                            from openai import OpenAI
+                            
+                            client = OpenAI(api_key="KEY")
+                            
+                            while True:
+                                messageNum = input("How many messages do you want?")
+                            
+                                system_data = [
+                                    {"role": "system", "content": "You are a bot that simulates messages that would be posted to a university's group chat app by students that attend the university. Among other things, you can comment on how well you're doing in your classes, the state of campus, different buildings on campus, study group requests, etc. They can be up to 3 sentences in length. Feel free to use slightly mature language. Use a maximum of one emoji per response. Depending on the number inputted, send that number of unique messages, separated by newline characters. Do not number the responses or do anything to separate them other than the newline characters."},
+                                    {"role": "user", "content": messageNum}
+                                ]
+                                
+                                response = client.chat.completions.create(
+                                    model="gpt-3.5-turbo",
+                                    messages=system_data
+                                )
+                                
+                                res = response.choices[0].message.content
+                                system_data.append({"role": "assistant", "content": res})
+                                print(res)
+                        </pre>
                     </span>
                 </div>
             </div>
