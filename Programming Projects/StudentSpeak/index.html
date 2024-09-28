@@ -26,8 +26,7 @@
                 <p></p>
                 <h2>The Code</h2>
                 <div id="code">
-                    <span>
-                        <pre>
+                    <pre>
 <span style="color:red">from</span> openai <span style="color:red">import</span> <span style="color:orange">OpenAI</span>
  
 client <span style="color:cornflowerblue">=</span> <span style="color:orange">OpenAI</span>(api_key<span style="color:cornflowerblue">=</span><span style="color:lightblue">"KEY"</span>)
@@ -48,8 +47,7 @@ client <span style="color:cornflowerblue">=</span> <span style="color:orange">Op
     res <span style="color:cornflowerblue">=</span> response.choices[<span style="color:lightblue">0</span>].message.content
     system_data.<span style="color:lightpurple">append</span>({<span style="color:lightblue">"role"</span>: <span style="color:lightblue">"assistant"</span>, <span style="color:lightblue">"content"</span>: res})
     <span style="color:lightpurple">print</span>(res)
-                        </pre>
-                    </span>
+                    </pre>
                 </div>
             </div>
         </div>
