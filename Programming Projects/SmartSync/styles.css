@@ -8,6 +8,7 @@ body {
 h1 {
     font-family: 'Geologica', sans-serif;
     text-align: center;
+    font-size-adjust: 1;
 }
 
 h2 {
@@ -22,11 +23,11 @@ h3 {
 }
 
 #header {
-    height: 20%;
+    height: 10%;
 }
 
 #footer {
-    height: 20%;
+    height: 30%;
 }
 
 #musicSelectContainer {
