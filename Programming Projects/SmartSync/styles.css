@@ -33,13 +33,13 @@ h3 {
 #musicSelectContainer {
     position: absolute;
     height: 100%;
+    width: 100%;
 }
 
 #musicContainer {
     padding-left: 10px;
     padding-right: 10px;
     height: 60%;
-    width: 100%;
 }
 
 #song {
