@@ -17,6 +17,6 @@ function Generate (resNum) {
 }
 
 function HideSplash () {
-  var splashText = document.getElementById("splash");
+  var splashText = document.getElementById('splash');
   splashText.style.display = "none";
 }
