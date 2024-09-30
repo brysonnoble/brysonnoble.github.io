@@ -3,97 +3,98 @@
 }
 
 body {
-    margin: 0;
-    font-family: 'Lato', sans-serif;
-    color: white;
-    background-image: linear-gradient(to bottom right, #06191D, #1D1B26);
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  color: white;
+  background-image: linear-gradient(to bottom right, #06191D, #1D1B26);
 }
 
 h1 {
-    font-family: 'Geologica', sans-serif;
-    text-align: center;
-    font-size-adjust: 1;
+  font-family: 'Geologica', sans-serif;
+  text-align: center;
+  font-size-adjust: 1;
 }
 
 h2 {
-    text-align: center;
+  text-align: center;
 }
 
 h3 {
-    position: relative;
-    top: 37.5%;
-    font-size: 160%;
-    text-align: center;
+  position: relative;
+  top: 37.5%;
+  font-size: 160%;
+  text-align: center;
 }
 
 #headerTextContainer {
-    position: relative;
-    top: 27.5%;
+  position: relative;
+  top: 27.5%;
 }
 
 #artist {
-    font-size: 70%;
-    font-style: italic;
+  font-size: 70%;
+  font-style: italic;
 }
 
 #header {
-    height: 20%;
+  height: 20%;
 }
 
 #footer {
-    height: 20%;
+  height: 20%;
 }
 
 #musicSelectContainer {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 #musicContainer {
-    padding-left: 10px;
-    padding-right: 10px;
-    height: 60%;
-    transition: 0.3s;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 60%;
+  transition: 0.3s;
 }
 
 #song {
-    margin: 1%;
-    position: relative;
-    left: 5%;
-    width: 27.5%;
-    height: 100%;
-    display: inline-block;
-    border: 10px solid;
-    border-image-source: radial-gradient(circle, rgba(57,47,218,1) 32%, rgba(98,98,126,1) 35%, rgba(0,212,255,1) 100%);
-    border-image-slice: 1;
-    border-width: 1px;
-    cursor: pointer;
-    transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+  margin: 1%;
+  position: relative;
+  left: 5%;
+  width: 27.5%;
+  height: 100%;
+  display: inline-block;
+  border: 10px solid;
+  border-image-source: radial-gradient(circle, rgba(57,47,218,1) 32%, rgba(98,98,126,1) 35%, rgba(0,212,255,1) 100%);
+  border-image-slice: 1;
+  border-width: 1px;
+  cursor: pointer;
+  transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 #song:hover {
-    border-image-source: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
-    background-color:  #041114;
+  border-image-source: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  background-color:  #041114;
 }
 
 #track {
-    position: relative;
-    top: 50%;
-    left: 5%;
-    width: 90%;
-    height: 3px;
-    background-image: linear-gradient(to left, rgba(57,47,218,1) 33%, rgba(98,98,126,1) 66%, rgba(0,212,255,1) 100%);
-    cursor: not-allowed;
-    border-radius: 5px;
+  position: relative;
+  top: 50%;
+  left: 5%;
+  width: 90%;
+  height: 3px;
+  background-image: linear-gradient(to left, rgba(57,47,218,1) 33%, rgba(98,98,126,1) 66%, rgba(0,212,255,1) 100%);
+  cursor: not-allowed;
+  border-radius: 5px;
 }
 
 #playhead {
-    position: relative;
-    left: var(--playheadPos);
-    bottom: 6px;
-    width: 15px;
-    height: 15px;
-    background-image: radial-gradient(circle, rgba(57,47,218,1) 32%, rgba(98,98,126,1) 35%, rgba(0,212,255,1) 100%);
-    cursor: not-allowed;
-    border-radius: 15px;
+  position: relative;
+  left: var(--playheadPos);
+  bottom: 6px;
+  width: 15px;
+  height: 15px;
+  background-image: radial-gradient(circle, rgba(57,47,218,1) 32%, rgba(98,98,126,1) 35%, rgba(0,212,255,1) 100%);
+  cursor: not-allowed;
+  border-radius: 15px;
+  transition: left 0.1s linear;
 }
