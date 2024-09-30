@@ -9,6 +9,10 @@ body {
   font-family: 'Lovelo', sans-serif;
 }
 
+#logo {
+  display: inline-block;
+}
+
 #logo > img {
   position: relative;
   height: 100%;
@@ -16,15 +20,25 @@ body {
 }
 
 #name {
+  position: relative;
+  height: 100%;
   display: inline-block;
+  color: white;
+  font-weight: 900;
+  font-size: 50px;
+  bottom: 32.5px;
+  left: 1%;
 }
 
 #linkContainer {
+  position: relative;
+  height: 100%;
   display: inline-block;
 }
 
 #splash {
-  position: absolute
+  position: absolute;
+  height: calc(100% - 100px);
 }
 
 #content {
