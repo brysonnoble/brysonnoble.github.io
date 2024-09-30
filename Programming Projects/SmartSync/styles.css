@@ -1,5 +1,6 @@
 :root {
   --playheadPos: 49.5%;
+  --playheadVis: none;
 }
 
 body {
@@ -83,6 +84,7 @@ h3 {
 }
 
 #playhead {
+    display: var(--playheadVis);
     position: relative;
     left: var(--playheadPos);
     bottom: 6px;
