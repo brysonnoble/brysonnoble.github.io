@@ -14,8 +14,25 @@
 
 }
 
+#header {
+  background-color: #cb5454;
+  height: 140px;
+}
+
 #splash {
   position: absolute
+}
+
+#sticky {
+  display: none;
+  background-color: #546bcb;
+  height: 70px;
+}
+#sticky.fixed {
+  display: block;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 #content {
