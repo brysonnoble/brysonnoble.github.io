@@ -1,3 +1,7 @@
+:root {
+  --playheadPos: 49.5%;
+}
+
 body {
     margin: 0;
     font-family: 'Lato', sans-serif;
@@ -80,7 +84,7 @@ h3 {
 
 #playhead {
     position: relative;
-    left: 49.5%;
+    left: var(--playheadPos);
     bottom: 6px;
     width: 15px;
     height: 15px;
