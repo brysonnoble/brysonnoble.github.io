@@ -99,6 +99,14 @@ h3 {
   transition: left 0.1s linear;
 }
 
+#info {
+  text-align: center;
+  font-size: 15px;
+  position: relative;
+  height: 1vh;
+  bottom: -120px;
+}
+
 u:hover {
     cursor: pointer;
 }
