@@ -41,6 +41,9 @@ body {
   height: calc(100% - 100px);
   width: 100%;
   background-size: auto;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
 }
 
 #content {
