@@ -27,5 +27,6 @@ function PlaySample (file) {
 }
 
 function PlayheadPos (audioLen) {
+  alert(Date.now() % audioLen0);
   return Date.now() % audioLen;
 }
