@@ -39,6 +39,7 @@ h3 {
     padding-left: 10px;
     padding-right: 10px;
     height: 60%;
+    transition: 0.3s;
 }
 
 #song {
@@ -63,14 +64,22 @@ h3 {
 
 #track {
     position: relative;
-    bottom: 50%;
-    left: 20%;
-    width: 80%;
-    height: 5px;
-    background-image: linear-gradient(to bottom right, rgba(57,47,218,1) 32%, rgba(98,98,126,1) 35%, rgba(0,212,255,1) 100%);
+    top: 50%;
+    left: 5%;
+    width: 90%;
+    height: 3px;
+    background-image: linear-gradient(to left, rgba(57,47,218,1) 33%, rgba(98,98,126,1) 66%, rgba(0,212,255,1) 100%);
     cursor: not-allowed;
+    border-radius: 5px;
 }
 
 #playhead {
+    position: relative;
+    left: 49.5%;
+    bottom: 6px;
+    width: 15px;
+    height: 15px;
+    background-image: radial-gradient(circle, rgba(57,47,218,1) 32%, rgba(98,98,126,1) 35%, rgba(0,212,255,1) 100%);
     cursor: not-allowed;
+    border-radius: 15px;
 }
