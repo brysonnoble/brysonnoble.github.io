@@ -11,19 +11,23 @@ function PlaySample(file) {
   switch (file) {
     case 0:
       audio0.addEventListener('loadedmetadata', () => {
-        audio0.currentTime = PlayheadPos(audio0.duration * 1000);
+        // Set currentTime in seconds, but calculate PlayheadPos in milliseconds
+        let playheadTimeInMs = PlayheadPos(audio0.duration * 1000);
+        audio0.currentTime = playheadTimeInMs / 1000; // Convert ms to seconds
         audio0.play();
       });
       break;
     case 1:
       audio1.addEventListener('loadedmetadata', () => {
-        audio1.currentTime = PlayheadPos(audio1.duration * 1000);
+        let playheadTimeInMs = PlayheadPos(audio1.duration * 1000);
+        audio1.currentTime = playheadTimeInMs / 1000; // Convert ms to seconds
         audio1.play();
       });
       break;
     case 2:
       audio2.addEventListener('loadedmetadata', () => {
-        audio2.currentTime = PlayheadPos(audio2.duration * 1000);
+        let playheadTimeInMs = PlayheadPos(audio2.duration * 1000);
+        audio2.currentTime = playheadTimeInMs / 1000; // Convert ms to seconds
         audio2.play();
       });
       break;
@@ -34,5 +38,5 @@ function PlaySample(file) {
 
 function PlayheadPos(audioLen) {
   alert(Date.now() % audioLen);
-  return Date.now() % audioLen;
+  return Date.now() % audioLen;  // Returning milliseconds
 }
