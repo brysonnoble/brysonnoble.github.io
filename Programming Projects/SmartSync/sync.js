@@ -1,4 +1,4 @@
-function updatePlayhead(audio) {
+function updatePlayhead (audio) {
   const track = document.getElementById('track');
   const playhead = document.getElementById('playhead');
   
@@ -14,7 +14,7 @@ function updatePlayhead(audio) {
   movePlayhead();
 }
 
-function PlaySample(file) {  
+function PlaySample (file) {  
   const audio0 = new Audio('https://brysonnoble.github.io/Programming%20Projects/SmartSync/Sample_Audio/a0.mp3');
   const audio1 = new Audio('https://brysonnoble.github.io/Programming%20Projects/SmartSync/Sample_Audio/a1.mp3');
   const audio2 = new Audio('https://brysonnoble.github.io/Programming%20Projects/SmartSync/Sample_Audio/a2.mp3');
@@ -43,6 +43,6 @@ function PlaySample(file) {
   });
 }
 
-function PlayheadPos(audioLen) {
+function PlayheadPos (audioLen) {
   return Date.now() % audioLen;
 }
