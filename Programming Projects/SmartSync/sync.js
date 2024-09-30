@@ -37,3 +37,8 @@ function PlaySample(file) {
 function PlayheadPos(audioLen) {
   return Date.now() % audioLen;
 }
+
+audioElement.addEventListener('ended', function() {
+    this.currentTime = 0;
+    this.play();
+}, false);
