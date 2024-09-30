@@ -63,8 +63,10 @@ h3 {
 
 #track {
     position: relative;
+    bottom: 50%;
+    left: 20%;
     width: 80%;
-    height: 10px;
+    height: 5px;
     background-image: linear-gradient(to bottom right, rgba(57,47,218,1) 32%, rgba(98,98,126,1) 35%, rgba(0,212,255,1) 100%);
     cursor: not-allowed;
 }
