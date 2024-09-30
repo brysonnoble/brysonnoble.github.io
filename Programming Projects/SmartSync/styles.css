@@ -60,3 +60,14 @@ h3 {
     border-image-source: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
     background-color:  #041114;
 }
+
+#track {
+    position: relative;
+    width: 80%;
+    height: 10px;
+    background-image: linear-gradient(to bottom right, rgba(57,47,218,1) 32%, rgba(98,98,126,1) 35%, rgba(0,212,255,1) 100%);
+}
+
+#playhead {
+    
+}
