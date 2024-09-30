@@ -3,11 +3,11 @@ $(document).ready(function() {
     var distanceFromTop = $(document).scrollTop();
     if (distanceFromTop >= $('#header').height())
     {
-      $('#sticky').fadeIn(400).addClass('fixed');
+      $('#sticky').fadeIn(200).addClass('fixed');
     }
     else
     {
-      $('#sticky').fadeOut(400).removeClass('fixed');
+      $('#sticky').fadeOut(200).removeClass('fixed');
     }
   });
 });
