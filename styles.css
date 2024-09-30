@@ -2,7 +2,7 @@
   position: fixed;
 }
 
-#logo {
+#logo > img {
   position: relative;
   height: 100%;
 }
