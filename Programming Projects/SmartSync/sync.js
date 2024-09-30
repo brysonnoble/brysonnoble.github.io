@@ -6,14 +6,12 @@ function PlaySample (file) {
       audio.play();
       break;
     case 1:
-      import sound from 'https://brysonnoble.github.io/Programming%20Projects/SmartSync/Sample_Audio/a1.mp3'
-      const audio = new Audio(sound)
-      audio.play()
+      const audio = new Audio('https://brysonnoble.github.io/Programming%20Projects/SmartSync/Sample_Audio/a1.mp3');
+      audio.play();
       break;
     case 2:
-      import sound from 'https://brysonnoble.github.io/Programming%20Projects/SmartSync/Sample_Audio/a2.mp3'
-      const audio = new Audio(sound)
-      audio.play()
+      const audio = new Audio('https://brysonnoble.github.io/Programming%20Projects/SmartSync/Sample_Audio/a2.mp3');
+      audio.play();
       break;
     default:
       break;
