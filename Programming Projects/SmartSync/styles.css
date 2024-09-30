@@ -27,6 +27,11 @@ h3 {
     text-align: center;
 }
 
+#headerTextContainer {
+    position: relative;
+    top: 50%;
+}
+
 #artist {
     font-size: 70%;
     font-style: italic;
