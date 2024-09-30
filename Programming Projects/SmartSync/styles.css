@@ -111,9 +111,9 @@ h3 {
   position: relative;
   left: var(--playheadPos);
   bottom: 6px;
-  width: 15px;
+  width: 5px;
   height: 15px;
-  background-image: radial-gradient(circle, rgba(57,47,218,1) 32%, rgba(98,98,126,1) 35%, rgba(0,212,255,1) 100%);
+  background: white;
   cursor: not-allowed;
   border-radius: 15px;
   transition: left 0.1s linear;
