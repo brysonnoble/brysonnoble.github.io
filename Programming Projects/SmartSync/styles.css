@@ -136,7 +136,7 @@ u:hover {
   width: 100%;
   height: 100%;
   backdrop-filter: blur(6px);
-  display: block;
+  display: none;
   background-image: linear-gradient(to bottom right, #06191D, #1D1B26);
 }
 
