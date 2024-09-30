@@ -51,21 +51,21 @@
   <span style="color:tomato">switch</span> (file) {
     <span style="color:tomato">case</span> <span style="color:cornflowerblue">0</span>:
       audio0.<span style="color:plum">addEventListener</span>(<span style="color:lightblue">'loadedmetadata'</span>, () <span style="color:gainsboro">=></span> {
-        <span style="color:tomato">let</span> playheadTimeInMs <span style="color:gainsboro">=</span> PlayheadPos(audio0<span style="color:cornflowerblue">.duration</span> <span style="color:gainsboro">*</span> <span style="color:cornflowerblue">1000</span>);
+        <span style="color:tomato">let</span> playheadTimeInMs <span style="color:gainsboro">=</span> <span style="color:orange">PlayheadPos</span>(audio0<span style="color:cornflowerblue">.duration</span> <span style="color:gainsboro">*</span> <span style="color:cornflowerblue">1000</span>);
         audio0<span style="color:cornflowerblue">.currentTime</span> <span style="color:gainsboro">=</span> playheadTimeInMs <span style="color:gainsboro">/</span> <span style="color:cornflowerblue">1000</span>;
         audio0.<span style="color:plum">play()</span>;
       });
       <span style="color:tomato">break</span>;
     <span style="color:tomato">case</span> <span style="color:cornflowerblue">1</span>:
       audio1.<span style="color:plum">addEventListener</span>(<span style="color:lightblue">'loadedmetadata'</span>, () <span style="color:gainsboro">=></span> {
-        <span style="color:tomato">let</span> playheadTimeInMs <span style="color:gainsboro">=</span> PlayheadPos(audio1<span style="color:cornflowerblue">.duration</span> <span style="color:gainsboro">*</span> <span style="color:cornflowerblue">1000</span>);
+        <span style="color:tomato">let</span> playheadTimeInMs <span style="color:gainsboro">=</span> <span style="color:orange">PlayheadPos</span>(audio1<span style="color:cornflowerblue">.duration</span> <span style="color:gainsboro">*</span> <span style="color:cornflowerblue">1000</span>);
         audio1<span style="color:cornflowerblue">.currentTime</span> <span style="color:gainsboro">=</span> playheadTimeInMs <span style="color:gainsboro">/</span> <span style="color:cornflowerblue">1000</span>;
         audio1.<span style="color:plum">play</span>();
       });
       <span style="color:tomato">break</span>;
     <span style="color:tomato">case</span> <span style="color:cornflowerblue">2</span>:
       audio2.<span style="color:plum">addEventListener</span>(<span style="color:lightblue">'loadedmetadata'</span>, () <span style="color:gainsboro">=> {
-        <span style="color:tomato">let</span> playheadTimeInMs <span style="color:gainsboro">=</span> PlayheadPos(audio2.<span style="color:cornflowerblue">duration</span> <span style="color:gainsboro">*</span> <span style="color:cornflowerblue">1000</span>);
+        <span style="color:tomato">let</span> playheadTimeInMs <span style="color:gainsboro">=</span> <span style="color:orange">PlayheadPos</span>(audio2.<span style="color:cornflowerblue">duration</span> <span style="color:gainsboro">*</span> <span style="color:cornflowerblue">1000</span>);
         audio2<span style="color:cornflowerblue">.currentTime</span> <span style="color:gainsboro">=</span> playheadTimeInMs <span style="color:gainsboro">/</span> <span style="color:cornflowerblue">1000</span>;
         audio2.<span style="color:plum">play</span>();
       });
@@ -76,7 +76,7 @@
 }
 
 <span style="color:tomato">function</span> <span style="color:orange">PlayheadPos</span> (audioLen) {
-  <span style="color:tomato">return</span> <span style="color:orange">Date</span>.now() <span style="color:gainsboro">%</span> audioLen;
+  <span style="color:tomato">return</span> <span style="color:orange">Date</span>.<span style="color:plum">now</span>() <span style="color:gainsboro">%</span> audioLen;
 }
                 </pre>
             </div>
