@@ -39,6 +39,7 @@ body {
 #splash {
   position: absolute;
   height: calc(100% - 100px);
+  background-size: auto;
 }
 
 #content {
