@@ -7,7 +7,6 @@ function PlaySample (file) {
   audio1.pause();
   audio2.pause();
   
-  
   switch (file) {
     case 0:
       audio0.currentTime = PlayheadPos(audio0.duration * 1000);
