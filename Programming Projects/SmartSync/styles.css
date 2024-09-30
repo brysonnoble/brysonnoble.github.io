@@ -22,6 +22,11 @@ h3 {
     text-align: center;
 }
 
+#artist {
+    font-size: 20px;
+    font-style: italic;
+}
+
 #header {
     height: 10%;
 }
