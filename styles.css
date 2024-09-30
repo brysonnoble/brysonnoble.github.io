@@ -1,5 +1,11 @@
+body {
+  margin: 0;
+}
+
 #header {
-  position: fixed;
+  background-color: #cb5454;
+  height: 140px;
+  width: 100%;
 }
 
 #logo > img {
@@ -13,11 +19,6 @@
 
 #linkContainer {
 
-}
-
-#header {
-  background-color: #cb5454;
-  height: 140px;
 }
 
 #splash {
