@@ -1,3 +1,19 @@
+function updatePlayhead(audio) {
+  const track = document.getElementById('track');
+  const playhead = document.getElementById('playhead');
+  
+  function movePlayhead() {
+    const percentage = (audio.currentTime / audio.duration) * 100;
+    document.documentElement.style.setProperty('--playheadPos', `${percentage}%`);
+    
+    if (!audio.paused && !audio.ended) {
+      requestAnimationFrame(movePlayhead);
+    }
+  }
+
+  movePlayhead();
+}
+
 function PlaySample(file) {  
   const audio0 = new Audio('https://brysonnoble.github.io/Programming%20Projects/SmartSync/Sample_Audio/a0.mp3');
   const audio1 = new Audio('https://brysonnoble.github.io/Programming%20Projects/SmartSync/Sample_Audio/a1.mp3');
@@ -7,31 +23,28 @@ function PlaySample(file) {
   audio1.pause();
   audio2.pause();
 
+  let selectedAudio;
+
   switch (file) {
     case 0:
-      audio0.addEventListener('loadedmetadata', () => {
-        let playheadTimeInMs = PlayheadPos(audio0.duration * 1000);
-        audio0.currentTime = playheadTimeInMs / 1000;
-        audio0.play();
-      });
+      selectedAudio = audio0;
       break;
     case 1:
-      audio1.addEventListener('loadedmetadata', () => {
-        let playheadTimeInMs = PlayheadPos(audio1.duration * 1000);
-        audio1.currentTime = playheadTimeInMs / 1000;
-        audio1.play();
-      });
+      selectedAudio = audio1;
       break;
     case 2:
-      audio2.addEventListener('loadedmetadata', () => {
-        let playheadTimeInMs = PlayheadPos(audio2.duration * 1000);
-        audio2.currentTime = playheadTimeInMs / 1000;
-        audio2.play();
-      });
+      selectedAudio = audio2;
       break;
     default:
-      break;
+      return;
   }
+
+  selectedAudio.addEventListener('loadedmetadata', () => {
+    let playheadTimeInMs = PlayheadPos(selectedAudio.duration * 1000);
+    selectedAudio.currentTime = playheadTimeInMs / 1000;
+    selectedAudio.play();
+    updatePlayhead(selectedAudio);
+  });
 }
 
 function PlayheadPos(audioLen) {
