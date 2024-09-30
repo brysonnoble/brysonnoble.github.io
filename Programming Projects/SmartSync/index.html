@@ -43,40 +43,40 @@
                 <h2>The Code</h2>
                 <div id="code">
                     <pre>
-function PlaySample (file) {  
-  const audio0 = new Audio('https://brysonnoble.github.io/Programming%20Projects/SmartSync/Sample_Audio/a0.mp3');
-  const audio1 = new Audio('https://brysonnoble.github.io/Programming%20Projects/SmartSync/Sample_Audio/a1.mp3');
-  const audio2 = new Audio('https://brysonnoble.github.io/Programming%20Projects/SmartSync/Sample_Audio/a2.mp3');
+<span style="color:tomato">function</span> <span style="color:orange">PlaySample</span> (file) {  
+  <span style="color:tomato">const</span> audio0 <span style="color:gainsboro">=</span> <span style="color:tomato">new</span> <span style="color:orange">Audio</span>('https://brysonnoble.github.io/Programming%20Projects/SmartSync/Sample_Audio/a0.mp3');
+  <span style="color:tomato">const</span> audio1 <span style="color:gainsboro">=</span> <span style="color:tomato">new</span> <span style="color:orange">Audio</span>('https://brysonnoble.github.io/Programming%20Projects/SmartSync/Sample_Audio/a1.mp3');
+  <span style="color:tomato">const</span> audio2 <span style="color:gainsboro">=</span> <span style="color:tomato">new</span> <span style="color:orange">Audio</span>('https://brysonnoble.github.io/Programming%20Projects/SmartSync/Sample_Audio/a2.mp3');
 
-  switch (file) {
-    case 0:
-      audio0.addEventListener('loadedmetadata', () => {
-        let playheadTimeInMs = PlayheadPos(audio0.duration * 1000);
-        audio0.currentTime = playheadTimeInMs / 1000;
-        audio0.play();
+  <span style="color:tomato">switch</span> (file) {
+    <span style="color:tomato">case</span> 0:
+      audio0.<span style="color:plum">addEventListener</span>('loadedmetadata', () <span style="color:gainsboro">=></span> {
+        <span style="color:tomato">let</span> playheadTimeInMs <span style="color:gainsboro">=</span> PlayheadPos(audio0.duration <span style="color:gainsboro">*</span> 1000);
+        audio0.currentTime <span style="color:gainsboro">=</span> playheadTimeInMs <span style="color:gainsboro">/</span> 1000;
+        audio0.<span style="color:plum">play()</span>;
       });
-      break;
-    case 1:
-      audio1.addEventListener('loadedmetadata', () => {
-        let playheadTimeInMs = PlayheadPos(audio1.duration * 1000);
-        audio1.currentTime = playheadTimeInMs / 1000;
-        audio1.play();
+      <span style="color:tomato">break</span>;
+    <span style="color:tomato">case</span> 1:
+      audio1.<span style="color:plum">addEventListener</span>('loadedmetadata', () <span style="color:gainsboro">=></span> {
+        <span style="color:tomato">let</span> playheadTimeInMs <span style="color:gainsboro">=</span> PlayheadPos(audio1.duration <span style="color:gainsboro">*</span> 1000);
+        audio1.currentTime <span style="color:gainsboro">=</span> playheadTimeInMs <span style="color:gainsboro">/</span> 1000;
+        audio1.<span style="color:plum">play</span>();
       });
-      break;
-    case 2:
-      audio2.addEventListener('loadedmetadata', () => {
-        let playheadTimeInMs = PlayheadPos(audio2.duration * 1000);
-        audio2.currentTime = playheadTimeInMs / 1000;
-        audio2.play();
+      <span style="color:tomato">break</span>;
+    <span style="color:tomato">case</span> 2:
+      audio2.<span style="color:plum">addEventListener</span>('loadedmetadata', () <span style="color:gainsboro">=> {
+        <span style="color:tomato">let</span> playheadTimeInMs <span style="color:gainsboro">=</span> PlayheadPos(audio2.duration <span style="color:gainsboro">*</span> 1000);
+        audio2.currentTime <span style="color:gainsboro">=</span> playheadTimeInMs <span style="color:gainsboro">/</span> 1000;
+        audio2.<span style="color:plum">play</span>();
       });
-      break;
-    default:
-      break;
+      <span style="color:tomato">break</span>;
+    <span style="color:tomato">default</span>:
+      <span style="color:tomato">break</span>;
   }
 }
 
 function PlayheadPos (audioLen) {
-  return Date.now() % audioLen;
+  return Date.now() <span style="color:gainsboro">%</span> audioLen;
 }
                 </pre>
             </div>
