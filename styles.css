@@ -52,6 +52,7 @@ h1 {
   background-repeat: no-repeat;
   background-position: center center; 
   background-blend-mode: overlay;
+  background-attachment: fixed;
 }
 
 #splashContent {
