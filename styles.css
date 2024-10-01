@@ -4,6 +4,11 @@ body {
   color: white;
 }
 
+h1 {
+  font-family: 'Lovelo', sans-serif;
+  font-weight: 900;
+}
+
 #header {
   background-color: black;
   height: 100px;
@@ -46,6 +51,14 @@ body {
   background-repeat: no-repeat;
   background-position: center center; 
   background-blend-mode: overlay;
+}
+
+#splashContent {
+  backdrop-filter: blur(8px);
+  position: relative;
+  left: 10%;
+  width: 80%;
+  font-size: -webkit-xxx-large;
 }
 
 #content {
