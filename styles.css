@@ -56,7 +56,6 @@ h1 {
 }
 
 #splashContent {
-  padding: 15% 0;
   backdrop-filter: blur(8px);
   position: relative;
   left: 10%;
