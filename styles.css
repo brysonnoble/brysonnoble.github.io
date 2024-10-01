@@ -66,7 +66,8 @@ h1 {
 
 #splash {
   position: absolute;
-  height: calc(100% - 100px);
+  padding-top: 50px;
+  padding-bottom: 50px;
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -76,14 +77,13 @@ h1 {
 }
 
 #splashContent {
+  padding: 20px;
   backdrop-filter: blur(8px);
   position: relative;
   left: 10%;
   top: 5%;
   width: 80%;
-  height: 80%;
   font-size: -webkit-xxx-large;
-  overflow-y: auto;
 }
 
 #selectContainer {
