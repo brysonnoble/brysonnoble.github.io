@@ -180,6 +180,14 @@ a {
   height: 600px;
 }
 
+#projectTitle {
+  font-size: 50px;
+}
+
+#projectDesc {
+  font-size: 30px;
+}
+
 #footer {
   flex-flow: row wrap;
   display: flex;
