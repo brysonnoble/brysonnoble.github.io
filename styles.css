@@ -113,7 +113,6 @@ a {
   display: inline-block;
   font-size: -webkit-xxx-large;
   cursor: pointer;
-  transition: .3s;
 }
 
 #option:hover {
