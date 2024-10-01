@@ -147,6 +147,7 @@ a {
 #about {
   flex-wrap: wrap;
   display: flex;
+  border-bottom: 5px solid white;
 }
 
 #about > span {
@@ -165,6 +166,7 @@ a {
 #projects {
   flex-flow: row wrap;
   display: flex;
+  border-bottom: 5px solid white;
 }
 
 #demo {
