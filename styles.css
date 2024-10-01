@@ -167,6 +167,17 @@ a {
   display: flex;
 }
 
+#demo {
+  width: 100%;
+  height: 300px;
+  transition: .3s;
+}
+
+#demo:hover {
+  width: 100%;
+  height: 600px;
+}
+
 #footer {
   flex-flow: row wrap;
   display: flex;
