@@ -179,6 +179,7 @@ a {
   border-top: 1px solid white;
   cursor: pointer;
   transition: .3s;
+  background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7);
 }
 
 #demo:hover {
