@@ -198,6 +198,7 @@ a {
 
 #demoText {
   padding-left: 20px;
+  padding-right: 20px;
   position: relative;
   top: calc(100% - 150px);
 }
