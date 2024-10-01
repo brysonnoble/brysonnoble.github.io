@@ -129,10 +129,17 @@ h1 {
   height: 0;
 }
 
-#projects {
+#about {
+  flex-flow: row wrap;
+  display:flex;
+}
 
+#projects {
+  flex-flow: row wrap;
+  display:flex;
 }
 
 #footer {
-
+  flex-flow: row wrap;
+  display:flex;
 }
