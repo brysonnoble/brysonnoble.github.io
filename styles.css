@@ -183,7 +183,7 @@ a {
   height: 600px;
 }
 
-#demo > span {
+#demoText {
   position: relative;
   bottom: 0;
 }
