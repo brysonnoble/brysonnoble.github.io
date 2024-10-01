@@ -19,6 +19,7 @@
 
 html {
   scroll-behavior: smooth;
+  transition: .3s;
 }
 
 body {
@@ -113,7 +114,6 @@ a {
   display: inline-block;
   font-size: -webkit-xxx-large;
   cursor: pointer;
-  transition: 0.3s;
 }
 
 #option:hover {
@@ -175,10 +175,9 @@ a {
   height: 300px;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center top; 
+  background-position: center center; 
   border-top: 1px solid white;
   cursor: pointer;
-  transition: .3s;
 }
 
 #demo:hover {
@@ -190,7 +189,6 @@ a {
   height: 100%;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.8);
-  transition: .3s;
 }
 
 #overlay:hover {
