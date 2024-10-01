@@ -186,7 +186,19 @@ a {
   height: 600px;
 }
 
+#overlay {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: .3s;
+}
+
+#overlay:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
 #demoText {
+  padding-left: 20px;
   position: relative;
   top: calc(100% - 150px);
 }
