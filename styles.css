@@ -175,6 +175,7 @@ a {
   background-position: center center; 
   border-top: 1px solid white;
   border-bottom: 1px solid white;
+  cursor: pointer;
   transition: .3s;
 }
 
