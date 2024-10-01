@@ -113,6 +113,11 @@ a {
   display: inline-block;
   font-size: -webkit-xxx-large;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+#option:hover {
+  border: 1px solid white;
 }
 
 #divider {
