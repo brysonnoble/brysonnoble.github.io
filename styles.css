@@ -131,6 +131,7 @@ h1 {
 }
 
 #about > span {
+  text-indent: 40px;
   flex: 2;
   display: block;
 }
