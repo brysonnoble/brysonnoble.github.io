@@ -136,7 +136,7 @@ h1 {
 }
 
 #about > span {
-  flex: 2;
+  flex: 5;
   display: block;
 }
 
@@ -150,10 +150,10 @@ h1 {
 
 #projects {
   flex-flow: row wrap;
-  display:flex;
+  display: flex;
 }
 
 #footer {
   flex-flow: row wrap;
-  display:flex;
+  display: flex;
 }
