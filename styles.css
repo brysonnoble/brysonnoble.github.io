@@ -67,6 +67,17 @@ h1 {
   font-family: 'Lovelo', sans-serif;
 }
 
+#option {
+  display: inline-block;
+}
+
+#divider {
+  display: inline-block;
+  background-color: white;
+  width: 3px;
+  height: 80%;
+}
+
 #projects {
 
 }
