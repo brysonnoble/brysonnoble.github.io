@@ -91,13 +91,13 @@ a {
   background-position: center center; 
   background-blend-mode: overlay;
   background-attachment: fixed;
+  filter: blur(8px);
 }
 
 #splashContent {
   padding: 20px;
   padding-bottom: 110px;
   padding-top: 20px;
-  backdrop-filter: blur(8px);
   position: relative;
   left: 10%;
   width: 80%;
