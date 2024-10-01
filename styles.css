@@ -145,6 +145,7 @@ a {
 }
 
 #about {
+  padding-bottom: 20px;
   flex-wrap: wrap;
   display: flex;
   border-bottom: 5px solid white;
@@ -164,6 +165,7 @@ a {
 }
 
 #projects {
+  padding-bottom: 20px;
   flex-flow: row wrap;
   display: flex;
   border-bottom: 5px solid white;
@@ -200,6 +202,7 @@ a {
 }
 
 #footer {
+  padding-bottom: 20px;
   flex-flow: row wrap;
   display: flex;
 }
