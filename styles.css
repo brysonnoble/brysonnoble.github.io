@@ -149,7 +149,6 @@ a {
   flex-wrap: wrap;
   display: flex;
   border-bottom: 5px solid white;
-  border-style: dotted;
 }
 
 #about > span {
@@ -169,7 +168,6 @@ a {
   flex-flow: row wrap;
   display: flex;
   border-bottom: 5px solid white;
-  border-style: dotted;
 }
 
 #demo {
