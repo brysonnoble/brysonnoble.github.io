@@ -75,6 +75,7 @@ h1 {
 #option {
   display: inline-block;
   font-size: 3vw;
+  cursor: pointer;
 }
 
 #divider {
