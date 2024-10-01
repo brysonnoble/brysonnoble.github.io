@@ -3,6 +3,7 @@ body {
   padding: 0;
   font-family: "Lato", sans-serif;
   color: white;
+  background-color: black;
 }
 
 h1 {
@@ -59,25 +60,30 @@ h1 {
   backdrop-filter: blur(8px);
   position: relative;
   left: 10%;
-  top: 10%;
+  top: 5%;
   width: 80%;
-  height: 100%;
+  height: 80%;
   font-size: -webkit-xxx-large;
+  overflow-y: auto;
 }
 
 #selectContainer {
+  position: relative;
   font-family: 'Lovelo', sans-serif;
 }
 
 #option {
   display: inline-block;
+  font-size: 3vw;
 }
 
 #divider {
   display: inline-block;
   background-color: white;
   width: 3px;
-  height: 80%;
+  height: 80px;
+  position: relative;
+  top: 20px;
 }
 
 #projects {
