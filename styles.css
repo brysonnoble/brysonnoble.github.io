@@ -215,3 +215,7 @@ a {
   flex-flow: row wrap;
   display: flex;
 }
+
+#footer > span {
+  font-size: 30px;
+}
