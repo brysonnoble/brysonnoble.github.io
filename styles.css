@@ -120,18 +120,27 @@ h1 {
   padding: 30px;
 }
 
-.flexItem {
-  flex-grow: 1;
-}
-
 #break {
   flex-basis: 100%;
   height: 0;
 }
 
 #about {
-  flex-flow: row wrap;
-  display:flex;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+#about > span {
+  flex: 2;
+  display: block;
+}
+
+#about > img {
+  flex: 1;
+  align-self: center;
+  margin-right: 20px;
+  max-height: 100%;
+  height: auto; 
 }
 
 #projects {
