@@ -73,12 +73,14 @@ h1 {
 }
 
 #option {
+  position: relative;
   display: inline-block;
   font-size: 3vw;
   cursor: pointer;
 }
 
 #divider {
+  position: relative;
   display: inline-block;
   background-color: white;
   width: 3px;
