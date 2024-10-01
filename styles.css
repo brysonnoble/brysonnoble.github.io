@@ -91,7 +91,6 @@ a {
   background-position: center center; 
   background-blend-mode: overlay;
   background-attachment: fixed;
-  filter: blur(8px);
 }
 
 #splashContent {
@@ -102,6 +101,7 @@ a {
   left: 10%;
   width: 80%;
   font-size: -webkit-xxx-large;
+  backdrop-filter: blur(8px);
 }
 
 #selectContainer {
