@@ -121,7 +121,7 @@ h1 {
   padding-top: 0;
 }
 
-#content > h1 {
+#content > * > h1 {
   font-size: 100px;
 }
 
