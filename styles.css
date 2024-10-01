@@ -180,6 +180,11 @@ a {
   height: 600px;
 }
 
+#demo > span {
+  position: relative;
+  bottom: 0;
+}
+
 #projectTitle {
   font-size: 50px;
 }
