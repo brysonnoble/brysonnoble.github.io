@@ -75,7 +75,7 @@ h1 {
 #option {
   position: relative;
   display: inline-block;
-  font-size: 3vw;
+  font-size: -webkit-xxx-large;
   cursor: pointer;
 }
 
