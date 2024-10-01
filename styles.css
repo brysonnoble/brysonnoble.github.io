@@ -185,7 +185,7 @@ a {
 
 #demoText {
   position: relative;
-  bottom: 0;
+  top: calc(100% - 150px);
 }
 
 #projectTitle {
