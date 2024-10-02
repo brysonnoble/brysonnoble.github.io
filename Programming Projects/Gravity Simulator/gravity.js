@@ -115,8 +115,8 @@ function toggleLoop () {
   const button = document.getElementById('toggle');
   
   if (nextSim) {
-    button.value = "SIMULATE";
-  } else {
     button.value = "STOP";
+  } else {
+    button.value = "SIMULATE";
   }
 }
