@@ -72,7 +72,7 @@ function Direction (x1, y1, x2, y2) {
 }
 
 function Vector2Translate (p, force, direction) {
-  return (p + (direction * force)) / 100;
+  return (p + (direction * force));
 }
 
 function Move (id, x, y) {
