@@ -13,8 +13,14 @@ body {
   position: absolute;
 }
 
+#controlPanel {
+  position: absolute;
+  bottom: 0;
+  width: fit-content;
+}
+
 #controlPanel > input {
-  width: 40%;
+  width: 100vw;
   height: 80px;
   color: white;
   font-size: 50px;
