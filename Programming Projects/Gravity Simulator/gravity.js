@@ -79,7 +79,7 @@ function Distance (x1, y1, x2, y2) {
 }
 
 function Force (m1, m2, dist) {
-  return ((10000) * m1 * m2) / (dist ** 2);
+  return ((1000) * m1 * m2) / (dist ** 2);
 }
 
 function Direction (x1, y1, x2, y2) {
@@ -88,7 +88,7 @@ function Direction (x1, y1, x2, y2) {
 
 function Vector2Translate (p, force, direction) {
   console.log(`f = ${force}, d = ${direction} // before: ${p} | after: ${(p + ((direction * force) / 10))}`);
-  return (p + ((direction * force) / 10));
+  return (p + ((direction * force)));
 }
 
 function Move (id, Tx, Ty) {
