@@ -88,10 +88,10 @@ function Distance (x1, y1, x2, y2) {
 
 function Force (m1, m2, dist) {
   if (Math.abs(dist) < 10) {
-    return ((100) * m1 * m2) / (10 ** 2);
+    return ((6.67) * m1 * m2) / (10 ** 2);
     // merge
   } else {
-    return ((100) * m1 * m2) / (dist ** 2);
+    return ((6.67) * m1 * m2) / (dist ** 2);
   }
 }
 
