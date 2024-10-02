@@ -50,7 +50,8 @@ let G = 6.67 * (10 ** -11);
 function Simulate (circlesList) {
   for (let i = 0; i < circlesList.length; i++) {
     for (let j = i + 1; j < circlesList.length; j++) {
-      Move(circlesList[i].id, circlesList[i].x, circlesList[i].y, circlesList[j].id, circlesList[j].x, circlesList[j].y, Force(1, 1, Distance(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y))), Direction(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y));
+      Move(circlesList[i].id, Vector2Translate(circlesList[i].x), Vector2Translate(circlesList[i].y), Force(1, 1, Distance(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y))), Direction(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y));
+      Move(circlesList[j].id, Vector2Translate(circlesList[j].x), Vector2Translate(circlesList[j].y), Force(1, 1, Distance(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y))), -Direction(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y));
     }
   }
 }
@@ -60,13 +61,18 @@ function Distance (x1, y1, x2, y2) {
 }
 
 function Force (m1, m2, dist) {
-  return (G * m1 * m2)/(dist ** 2);
+  return (G * m1 * m2) / (dist ** 2);
 }
 
 function Direction (x1, y1, x2, y2) {
   return (Math.atan((x2 - x1) / (y2 - y1))) * (180 / Math.PI);
 }
 
-function Move (c1, x1, y1, c2, x2, y2, force, direction) {
+function Vector2Translate (x, force, direction) {
   
+}
+
+function Move (id, x, y) {
+  removeCircleFromList(id);
+  createCircle(x, y);
 }
