@@ -76,9 +76,9 @@ function Simulate (circlesList) {
     }
   }
 
-  if (nextSim) {
-    setTimeout(Simulate(circlesList), 2000);
-  }
+  setTimeout(function() {
+    Simulate(circlesList);
+  }, 2000);
 }
 
 function Distance (x1, y1, x2, y2) {
