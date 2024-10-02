@@ -14,6 +14,10 @@ function Distance (x1, y1, x2, y2) {
   return (((x2 - x1) ** 2) + ((y2 - y1) ** 2)) ** 0.5;
 }
 
+function Force (m1, m2, dist) {
+  return (G * m1 * m2)/(dist ** 2);
+}
+
 function Move () {
   
 }
