@@ -5,6 +5,7 @@ function Simulate (circlesList) {
   for (let i = 0; i < circlesList.length; i++) {
     for (let j = 0; j < circlesList.length; j++) {
       console.log(`Calculating distance between ${circlesList[i].id} and ${circlesList[j].id}:` Distance(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y));
+      console.log(`Calculating force between ${circlesList[i].id} and ${circlesList[j].id}:` Force(1, 1, Distance(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y)));
     }
   }
 }
@@ -17,6 +18,11 @@ function Force (m1, m2, dist) {
   return (G * m1 * m2)/(dist ** 2);
 }
 
+function Direction (x1, y1, x2, y2) {
+
+}
+
 function Move () {
   
 }
+
