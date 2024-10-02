@@ -105,3 +105,9 @@ function Move (id, Tx, Ty) {
     Simulate(circlesList);
   }
 }
+
+// toggle loop
+
+function toggleLoop () {
+  nextSim = !nextSim;
+}
