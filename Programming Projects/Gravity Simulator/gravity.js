@@ -112,4 +112,11 @@ function Move (id, Tx, Ty) {
 
 function toggleLoop () {
   nextSim = !nextSim;
+  const button = document.getElementById('toggle');
+  
+  if (nextSim) {
+    button.value = "SIMULATE";
+  } else {
+    button.value = "STOP";
+  }
 }
