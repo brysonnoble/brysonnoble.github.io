@@ -96,7 +96,7 @@ function Distance (x1, y1, x2, y2) {
 }
 
 function Force (m1, m2, dist) {
-  return ((6.67 * (10 ** -11)) * m1 * m2) / (dist ** 2);
+  return ((10000) * m1 * m2) / (dist ** 2);
 }
 
 function Direction (x1, y1, x2, y2) {
