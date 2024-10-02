@@ -75,6 +75,10 @@ function Simulate (circlesList) {
       );
     }
   }
+
+  if (nextSim) {
+    Simulate(circlesList);
+  }
 }
 
 function Distance (x1, y1, x2, y2) {
@@ -101,9 +105,6 @@ function Vector2Translate (p, force, direction) {
 
 function Move (id, Tx, Ty) {
   moveCircle(id, Tx, Ty);
-  if (nextSim) {
-    Simulate(circlesList);
-  }
 }
 
 // toggle loop
