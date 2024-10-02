@@ -72,12 +72,6 @@ document.addEventListener('click', function(event) {
   }
 });
 
-// Example of moving a circle after 2 seconds
-setTimeout(() => {
-  // Replace 'circle-0' with the ID of the circle you want to move
-  moveCircle('circle-0', 300, 300); // Move the first created circle
-}, 2000);
-
 // simulation (initially had these in different scripts but i did NOT feel like dealing with that)
 
 function Simulate (circlesList) {
@@ -115,6 +109,5 @@ function Vector2Translate (p, force, direction) {
 }
 
 function Move (id, Tx, Ty) {
-  removeCircleById(id);
-  addCircle(id, Tx, Ty);
+  moveCircle(id, Tx, Ty);
 }
