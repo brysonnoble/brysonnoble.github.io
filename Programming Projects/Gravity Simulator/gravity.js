@@ -57,7 +57,10 @@ document.addEventListener('click', function(event) {
 
 // simulation (initially had these in different scripts but i did NOT feel like dealing with that)
 
+let nextSim = true;
+
 function Simulate (circlesList) {
+  nextSim = true;
   for (let i = 0; i < circlesList.length; i++) {
     for (let j = i + 1; j < circlesList.length; j++) {      
       Move(
@@ -98,4 +101,7 @@ function Vector2Translate (p, force, direction) {
 
 function Move (id, Tx, Ty) {
   moveCircle(id, Tx, Ty);
+  if (nextSim) {
+    Simulate(circlesList);
+  }
 }
