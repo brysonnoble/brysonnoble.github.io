@@ -79,11 +79,16 @@ function Distance (x1, y1, x2, y2) {
 }
 
 function Force (m1, m2, dist) {
+  const MIN_DIST = 10;
+  if (dist < MIN_DIST) dist = MIN_DIST;
   return ((1000) * m1 * m2) / (dist ** 2);
 }
 
 function Direction (x1, y1, x2, y2) {
-  return [(x2 - x1), (y2 - y1)];
+  const dx = x2 - x1;
+  const dy = y2 - y1;
+  const magnitude = Math.sqrt(dx * dx + dy * dy);
+  return [dx / magnitude, dy / magnitude];
 }
 
 function Vector2Translate (p, force, direction) {
