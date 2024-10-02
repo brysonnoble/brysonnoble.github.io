@@ -13,6 +13,19 @@ body {
   position: absolute;
 }
 
-#controlPanel {
+#controlPanel > input {
+  width: 40%;
+  height: 80px;
+  color: white;
+  font-size: 50px;
+  background-color: rgb(42, 168, 42, 0.25);
+  border: 1px solid rgb(42, 168, 42);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: .3s;
+}
 
+#controlPanel > input:hover {
+  background-color: rgb(0, 255, 0, 0.25);
+  border: 1px solid rgb(0, 255, 0);
 }
