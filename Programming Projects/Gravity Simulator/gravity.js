@@ -45,8 +45,6 @@ document.addEventListener('click', function(event) {
 
 // simulation (initially had these in different scripts but i did NOT feel like dealing with that)
 
-let G = 6.67 * (10 ** -11);
-
 function Simulate (circlesList) {
   for (let i = 0; i < circlesList.length; i++) {
     for (let j = i + 1; j < circlesList.length; j++) {      
@@ -69,7 +67,7 @@ function Distance (x1, y1, x2, y2) {
 }
 
 function Force (m1, m2, dist) {
-  return (G * m1 * m2) / (dist ** 2);
+  return ((6.67 * (10 ** -11)) * m1 * m2) / (dist ** 2);
 }
 
 function Direction (x1, y1, x2, y2) {
@@ -82,7 +80,6 @@ function Vector2Translate (p, force, direction) {
 }
 
 function Move (id, Tx, Ty) {
-  removeCircleFromList(id);
-  console.log(`x: ${Tx}, y: ${Ty}`);
+  removeCircleFromList(`circle-${circleIdCounter++}`);
   createCircle(Tx, Ty);
 }
