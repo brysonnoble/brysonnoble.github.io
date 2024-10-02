@@ -57,7 +57,7 @@ document.addEventListener('click', function(event) {
 
 // simulation (initially had these in different scripts but i did NOT feel like dealing with that)
 
-let nextSim = true;
+let nextSim = false;
 
 function Simulate (circlesList) {
   nextSim = true;
