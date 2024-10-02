@@ -3,7 +3,7 @@
 let circleIdCounter = 0;
 const circlesList = [];
 
-function createCircle (x, y) {
+function createCircle(x, y) {
   const circle = document.createElement('div');
   circle.classList.add('circle');
   
@@ -25,11 +25,33 @@ function createCircle (x, y) {
   document.body.appendChild(circle);
 }
 
-function removeCircleFromList (circleId) {
+function removeCircleFromList(circleId) {
   const index = circlesList.findIndex(circle => circle.id === circleId);
   if (index !== -1) {
     circlesList.splice(index, 1);
-    console.log(circlesList);
+    console.log(circlesList); 
+  }
+}
+
+function addCircle(id, x, y) {
+  createCircle(x, y);
+
+  const exists = circlesList.some(circle => circle.id === id);
+  if (!exists) {
+    // Add the new circle's details to the list
+    circlesList.push({ id: id, x: x, y: y });
+    console.log(`Added circle with ID: ${id}`);
+  }
+}
+
+function removeCircleById(circleId) {
+  const circle = document.getElementById(circleId);
+  if (circle) {
+    document.body.removeChild(circle);
+    removeCircleFromList(circleId);
+    console.log(`Removed circle with ID: ${circleId}`);
+  } else {
+    console.log(`Circle with ID: ${circleId} not found.`);
   }
 }
 
@@ -80,6 +102,6 @@ function Vector2Translate (p, force, direction) {
 }
 
 function Move (id, Tx, Ty) {
-  removeCircleFromList(`circle-${circleIdCounter++}`);
-  createCircle(Tx, Ty);
+  removeCircleById(id);
+  addCircle(id, Tx, Ty);
 }
