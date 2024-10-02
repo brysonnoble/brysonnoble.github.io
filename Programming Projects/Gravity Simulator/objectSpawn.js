@@ -39,5 +39,13 @@ function removeCircleFromList(circleId) {
 
 // Listen for clicks on the document to create circles
 document.addEventListener('click', function(event) {
-  createCircle(event.clientX, event.clientY);
+  const controlPanel = document.getElementById('controlPanel');
+
+  // Check if the click happened inside the control panel
+  const isClickInsideControlPanel = controlPanel.contains(event.target);
+
+  // If the click is outside the control panel, create a circle
+  if (!isClickInsideControlPanel) {
+    createCircle(event.clientX, event.clientY);
+  }
 });
