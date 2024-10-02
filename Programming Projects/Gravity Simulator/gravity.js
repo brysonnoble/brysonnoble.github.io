@@ -5,7 +5,8 @@ function Simulate (circlesList) {
   for (let i = 0; i < circlesList.length; i++) {
     for (let j = i + 1; j < circlesList.length; j++) {
       //console.log(`Calculating distance between ${circlesList[i].id} and ${circlesList[j].id}:`, Distance(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y));
-      console.log(`Calculating force between ${circlesList[i].id} and ${circlesList[j].id}:`, Force(1, 1, Distance(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y)));
+      //console.log(`Calculating force between ${circlesList[i].id} and ${circlesList[j].id}:`, Force(1, 1, Distance(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y)));
+      console.log(`Calculating angle between ${circlesList[i].id} and ${circlesList[j].id}:`, Direction(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y);
     }
   }
 }
