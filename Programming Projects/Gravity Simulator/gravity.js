@@ -3,21 +3,26 @@
 let circleIdCounter = 0;
 const circlesList = [];
 
+// Function to create a circle
 function createCircle(x, y) {
   const circle = document.createElement('div');
   circle.classList.add('circle');
   
+  // Set unique ID
   const circleId = `circle-${circleIdCounter++}`;
   circle.setAttribute('id', circleId);
   
-  circle.style.left = `${x - 10}px`;
-  circle.style.top = `${y - 10}px`;
+  // Set position
+  circle.style.left = `${x - 10}px`; // Adjust to center
+  circle.style.top = `${y - 10}px`;  // Adjust to center
 
+  // Add the circle's details to the list
   circlesList.push({ id: circleId, x: x, y: y });
-  console.log(circlesList);
+  console.log(circlesList); // Display the updated list in the console
 
+  // Add click event to delete the circle
   circle.addEventListener('click', function(e) {
-    e.stopPropagation();
+    e.stopPropagation(); // Prevent event from bubbling to document
     document.body.removeChild(circle);
     removeCircleFromList(circleId);
   });
@@ -25,45 +30,53 @@ function createCircle(x, y) {
   document.body.appendChild(circle);
 }
 
+// Function to remove circle from the list by id
 function removeCircleFromList(circleId) {
   const index = circlesList.findIndex(circle => circle.id === circleId);
   if (index !== -1) {
     circlesList.splice(index, 1);
-    console.log(circlesList); 
+    console.log(circlesList); // Display the updated list in the console
   }
 }
 
-function addCircle(id, x, y) {
-  createCircle(x, y);
-
-  const exists = circlesList.some(circle => circle.id === id);
-  if (!exists) {
-    // Add the new circle's details to the list
-    circlesList.push({ id: id, x: x, y: y });
-    console.log(`Added circle with ID: ${id}`);
-  }
-}
-
-function removeCircleById(circleId) {
+// Function to move a circle by its ID
+function moveCircle(circleId, newX, newY) {
   const circle = document.getElementById(circleId);
-  if (circle) {
-    document.body.removeChild(circle);
-    removeCircleFromList(circleId);
-    console.log(`Removed circle with ID: ${circleId}`);
+  const circleData = circlesList.find(circle => circle.id === circleId);
+  
+  if (circle && circleData) {
+    // Update the position of the circle
+    circle.style.left = `${newX - 10}px`; // Adjust to center
+    circle.style.top = `${newY - 10}px`;  // Adjust to center
+
+    // Update the coordinates in the circlesList
+    circleData.x = newX;
+    circleData.y = newY;
+
+    console.log(`Moved circle ${circleId} to X: ${newX}, Y: ${newY}`);
   } else {
-    console.log(`Circle with ID: ${circleId} not found.`);
+    console.log('Circle not found.');
   }
 }
 
+// Listen for clicks on the document to create circles
 document.addEventListener('click', function(event) {
   const controlPanel = document.getElementById('controlPanel');
 
+  // Check if the click happened inside the control panel
   const isClickInsideControlPanel = controlPanel.contains(event.target);
 
+  // If the click is outside the control panel, create a circle
   if (!isClickInsideControlPanel) {
     createCircle(event.clientX, event.clientY);
   }
 });
+
+// Example of moving a circle after 2 seconds
+setTimeout(() => {
+  // Replace 'circle-0' with the ID of the circle you want to move
+  moveCircle('circle-0', 300, 300); // Move the first created circle
+}, 2000);
 
 // simulation (initially had these in different scripts but i did NOT feel like dealing with that)
 
