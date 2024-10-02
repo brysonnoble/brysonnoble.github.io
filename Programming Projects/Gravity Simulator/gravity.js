@@ -77,7 +77,7 @@ function Simulate (circlesList) {
   }
 
   if (nextSim) {
-    Simulate(circlesList);
+    setTimeout(Simulate(circlesList), 2000);
   }
 }
 
