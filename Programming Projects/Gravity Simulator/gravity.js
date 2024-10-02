@@ -60,7 +60,6 @@ document.addEventListener('click', function(event) {
 let nextSim = false;
 
 function Simulate (circlesList) {
-  nextSim = true;
   for (let i = 0; i < circlesList.length; i++) {
     for (let j = i + 1; j < circlesList.length; j++) {      
       Move(
