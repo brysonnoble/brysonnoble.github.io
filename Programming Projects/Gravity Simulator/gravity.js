@@ -28,7 +28,6 @@ function removeCircleFromList (circleId) {
   const index = circlesList.findIndex(circle => circle.id === circleId);
   if (index !== -1) {
     circlesList.splice(index, 1);
-    console.log(circlesList);
   }
 }
 
@@ -100,7 +99,6 @@ function Direction (x1, y1, x2, y2) {
 }
 
 function Vector2Translate (p, force, direction) {
-  console.log(`f = ${force}, d = ${direction} // before: ${p} | after: ${(p + ((direction * force) / 10))}`);
   return (p + ((direction * force)));
 }
 
