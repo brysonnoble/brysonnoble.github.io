@@ -3,7 +3,7 @@
 let circleIdCounter = 0;
 const circlesList = [];
 
-function createCircle(x, y) {
+function createCircle (x, y) {
   const circle = document.createElement('div');
   circle.classList.add('circle');
   
@@ -25,7 +25,7 @@ function createCircle(x, y) {
   document.body.appendChild(circle);
 }
 
-function removeCircleFromList(circleId) {
+function removeCircleFromList (circleId) {
   const index = circlesList.findIndex(circle => circle.id === circleId);
   if (index !== -1) {
     circlesList.splice(index, 1);
@@ -49,9 +49,12 @@ let G = 6.67 * (10 ** -11);
 
 function Simulate (circlesList) {
   for (let i = 0; i < circlesList.length; i++) {
-    for (let j = i + 1; j < circlesList.length; j++) {
-      Move(circlesList[i].id, Vector2Translate(circlesList[i].x, Force(1, 1, Distance(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y)), Vector2Translate(circlesList[i].y, Force(1, 1, Distance(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y)), Direction(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y));
-      Move(circlesList[j].id, Vector2Translate(circlesList[j].x, Force(1, 1, Distance(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y)), Vector2Translate(circlesList[j].y, Force(1, 1, Distance(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y)), (Direction(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y)) - 180);
+    for (let j = i + 1; j < circlesList.length; j++) {      
+      Move(
+        circlesList[i].id, 
+        Vector2Translate(circlesList[i].x, Force(1, 1, Distance(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y)), Direction(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y)[0]),
+        Vector2Translate(circlesList[i].y, Force(1, 1, Distance(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y)), Direction(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y)[1])
+      );
     }
   }
 }
@@ -65,11 +68,11 @@ function Force (m1, m2, dist) {
 }
 
 function Direction (x1, y1, x2, y2) {
-  return (x2 - x1), (y2 - y1);
+  return [(x2 - x1), (y2 - y1)];
 }
 
 function Vector2Translate (p, force, direction) {
-  
+  return (p + (direction * force)) / 100;
 }
 
 function Move (id, x, y) {
