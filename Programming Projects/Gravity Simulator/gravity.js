@@ -45,7 +45,8 @@ document.addEventListener('click', function(event) {
 
 // simulation (initially had these in different scripts but i did NOT feel like dealing with that)
 
-let G = 6.67 * (10 ** -11);
+//let G = 6.67 * (10 ** -11);
+let G = 6.67 * (10 ** 11);
 
 function Simulate (circlesList) {
   for (let i = 0; i < circlesList.length; i++) {
