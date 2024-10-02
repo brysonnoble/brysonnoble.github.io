@@ -75,8 +75,8 @@ function Vector2Translate (p, force, direction) {
   return (p + ((direction * force) / 10));
 }
 
-function Move (id, x, y) {
+function Move (id, Tx, Ty) {
   removeCircleFromList(id);
-  console.log(`x: ${x}, y: ${y}`);
-  createCircle(x, y);
+  console.log(`x: ${Tx}, y: ${Ty}`);
+  createCircle(Tx, Ty);
 }
