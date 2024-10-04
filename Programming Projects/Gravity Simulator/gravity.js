@@ -28,10 +28,9 @@ function createCircle (x, y, mass = 1) {
   circle.style.left = `${x - 10}px`;
   circle.style.top = `${y - 10}px`;
 
-  // Add mass display
   circle.innerHTML = `<span class="mass-display">${mass}</span>`;
 
-  circlesList.push({ id: circleId, x: x, y: y, mass: mass });
+  circlesList.push({ id: circleId, x: x, y: y, prevX: x, prevY: y, mass: mass });
 
   circle.addEventListener('click', function(e) {
     e.stopPropagation();
@@ -52,8 +51,11 @@ function removeCircleFromList (circleId) {
 function moveCircle (circleId, newX, newY) {
   const circle = document.getElementById(circleId);
   const circleData = circlesList.find(circle => circle.id === circleId);
-  
+
   if (circle && circleData) {
+    circleData.prevX = circleData.x;
+    circleData.prevY = circleData.y;
+
     circle.style.left = `${newX - 10}px`;
     circle.style.top = `${newY - 10}px`;
 
@@ -71,7 +73,7 @@ document.addEventListener('click', function(event) {
   }
 });
 
-function Simulate() {
+function Simulate () {
   if (!nextSim) return;
 
   for (let i = 0; i < circlesList.length; i++) {
