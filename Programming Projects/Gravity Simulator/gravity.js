@@ -66,12 +66,20 @@ function Simulate () {
         mergeCircles(i, j);
         break;
       } else {
-        Move(circlesList[i].id, Vector2Translate(circlesList[i].x, Force(1, 1, dist), Direction(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y)[0]),
-          Vector2Translate(circlesList[i].y, Force(1, 1, dist), Direction(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y)[1])
-        );
-        Move(circlesList[j].id, Vector2Translate(circlesList[j].x, Force(1, 1, dist), Direction(circlesList[j].x, circlesList[j].y, circlesList[i].x, circlesList[i].y)[0]),
-          Vector2Translate(circlesList[j].y, Force(1, 1, dist), Direction(circlesList[j].x, circlesList[j].y, circlesList[i].x, circlesList[i].y)[1])
-        );
+        const force = Force(circlesList[i].mass, circlesList[j].mass, dist);
+        const dir1to2 = Direction(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y);
+        const dir2to1 = Direction(circlesList[j].x, circlesList[j].y, circlesList[i].x, circlesList[i].y);
+        
+        const acc1 = force / circlesList[i].mass;
+        const acc2 = force / circlesList[j].mass;
+        
+        const newXi = Vector2Translate(circlesList[i].x, acc1, dir1to2[0]);
+        const newYi = Vector2Translate(circlesList[i].y, acc1, dir1to2[1]);
+        Move(circlesList[i].id, newXi, newYi);
+        
+        const newXj = Vector2Translate(circlesList[j].x, acc2, dir2to1[0]);
+        const newYj = Vector2Translate(circlesList[j].y, acc2, dir2to1[1]);
+        Move(circlesList[j].id, newXj, newYj);
       }
     }
   }
@@ -79,6 +87,7 @@ function Simulate () {
   // Keep the loop going
   setTimeout(Simulate, 1);
 }
+
 
 function mergeCircles (index1, index2) {
   const circle1 = circlesList[index1];
@@ -119,8 +128,8 @@ function Direction (x1, y1, x2, y2) {
   return [(x2 - x1), (y2 - y1)];
 }
 
-function Vector2Translate (p, force, direction) {
-  return (p + (direction * force));
+function Vector2Translate (p, acc, direction) {
+  return (p + (direction * acc));
 }
 
 function Move (id, Tx, Ty) {
