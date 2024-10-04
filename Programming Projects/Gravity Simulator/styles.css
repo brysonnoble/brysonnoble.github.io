@@ -11,7 +11,17 @@ body {
   border-radius: 50%;
   background-color: white;
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black; /* Color for the mass number */
+  font-size: 12px;
 }
+
+.mass-display {
+  font-weight: bold;
+}
+
 
 #controlPanel {
   position: absolute;
