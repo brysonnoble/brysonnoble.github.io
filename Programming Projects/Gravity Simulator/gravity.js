@@ -28,7 +28,6 @@ function createCircle (x, y, mass = 1) {
   circle.style.left = `${x - 10}px`;
   circle.style.top = `${y - 10}px`;
 
-  // Add mass display
   circle.innerHTML = `<span class="mass-display">${mass}</span>`;
 
   circlesList.push({ id: circleId, x: x, y: y, mass: mass });
@@ -108,16 +107,13 @@ function mergeCircles (index1, index2) {
   const circle1 = circlesList[index1];
   const circle2 = circlesList[index2];
   
-  // Calculate new mass and position (center of mass)
   const newMass = circle1.mass + circle2.mass;
   const newX = (circle1.x * circle1.mass + circle2.x * circle2.mass) / newMass;
   const newY = (circle1.y * circle1.mass + circle2.y * circle2.mass) / newMass;
   
-  // Remove the old circles
   removeCircle(circle1.id);
   removeCircle(circle2.id);
   
-  // Create the new merged circle
   createCircle(newX, newY, newMass);
 }
 
@@ -136,11 +132,7 @@ function Distance (x1, y1, x2, y2) {
 }
 
 function Force (m1, m2, dist) {
-  if (Math.abs(dist) < 10) {
-    return (G * m1 * m2) / (10 ** 2);
-  } else {
     return (G * m1 * m2) / (dist ** 2);
-  }
 }
 
 function Direction (x1, y1, x2, y2) {
