@@ -1,4 +1,6 @@
-document.getElementById("gSlider").oninput = function() { console.log(this.value) };
+$("#gSlider").bind("change", function() {
+    console.log(this.value)
+});
 
 let circleIdCounter = 0;
 let circlesList = [];
