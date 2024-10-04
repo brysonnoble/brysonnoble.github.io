@@ -57,12 +57,14 @@ document.addEventListener('click', function(event) {
 
 function Simulate () {
   if (!nextSim) return; // Stop simulation if nextSim is false
+  console.log("Simulation running...");
 
   for (let i = 0; i < circlesList.length; i++) {
     for (let j = i + 1; j < circlesList.length; j++) {
       const dist = Distance(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y);
 
       if (dist < 10) {  // merge threshold
+        console.log(`Merging circles ${i} and ${j}`);
         mergeCircles(i, j);
         break;  // Exit loop after merging
       } else {
@@ -71,11 +73,9 @@ function Simulate () {
         
         const force = Force(circlesList[i].mass, circlesList[j].mass, dist);
 
-        // Calculate accelerations based on their masses
         const accelI = force / circlesList[i].mass;
         const accelJ = force / circlesList[j].mass;
 
-        // Move circles relative to their accelerations
         Move(circlesList[i].id,
           Vector2Translate(circlesList[i].x, accelI, directionIJ[0]),
           Vector2Translate(circlesList[i].y, accelI, directionIJ[1])
@@ -89,7 +89,6 @@ function Simulate () {
     }
   }
 
-  // Keep the loop going
   setTimeout(Simulate, 16); // Roughly 60 FPS
 }
 
