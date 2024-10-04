@@ -136,7 +136,11 @@ function Distance (x1, y1, x2, y2) {
 }
 
 function Force (m1, m2, dist) {
-  return (G * m1 * m2) / (dist ** 2);
+  if (Math.abs(dist) < 10) {
+    return (G * m1 * m2) / (10 ** 2);
+  } else {
+    return (G * m1 * m2) / (dist ** 2);
+  }
 }
 
 function Direction (x1, y1, x2, y2) {
