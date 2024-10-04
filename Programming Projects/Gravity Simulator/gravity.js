@@ -60,17 +60,19 @@ let nextSim = false;
 
 function Simulate (circlesList) {
   for (let i = 0; i < circlesList.length; i++) {
-    for (let j = i + 1; j < circlesList.length; j++) {      
-      Move(
-        circlesList[i].id, 
-        Vector2Translate(circlesList[i].x, Force(1, 1, Distance(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y)), Direction(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y)[0]),
-        Vector2Translate(circlesList[i].y, Force(1, 1, Distance(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y)), Direction(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y)[1])
-      );
-      Move(
-        circlesList[j].id, 
-        Vector2Translate(circlesList[j].x, Force(1, 1, Distance(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y)), Direction(circlesList[j].x, circlesList[j].y, circlesList[i].x, circlesList[i].y)[0]),
-        Vector2Translate(circlesList[j].y, Force(1, 1, Distance(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y)), Direction(circlesList[j].x, circlesList[j].y, circlesList[i].x, circlesList[i].y)[1])
-      );
+    for (let j = i + 1; j < circlesList.length; j++) {
+      const dist = Distance(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y);
+      
+      if (dist < 10) {
+        mergeCircles(i, j);
+      } else {
+        Move(circlesList[i].id, Vector2Translate(circlesList[i].x, Force(1, 1, dist), Direction(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y)[0]),
+          Vector2Translate(circlesList[i].y, Force(1, 1, dist), Direction(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y)[1])
+        );
+        Move(circlesList[j].id, Vector2Translate(circlesList[j].x, Force(1, 1, dist), Direction(circlesList[j].x, circlesList[j].y, circlesList[i].x, circlesList[i].y)[0]),
+          Vector2Translate(circlesList[j].y, Force(1, 1, dist), Direction(circlesList[j].x, circlesList[j].y, circlesList[i].x, circlesList[i].y)[1])
+        );
+      }
     }
   }
 
@@ -108,11 +110,7 @@ function Distance (x1, y1, x2, y2) {
 }
 
 function Force (m1, m2, dist) {
-  if (Math.abs(dist) < 10) {
-    mergeCircles(i, j);
-  } else {
-    return ((6.67) * m1 * m2) / (dist ** 2);
-  }
+  return ((6.67) * m1 * m2) / (dist ** 2);
 }
 
 function Direction (x1, y1, x2, y2) {
