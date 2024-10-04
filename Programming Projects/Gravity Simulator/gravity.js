@@ -155,8 +155,12 @@ function toggleLoop () {
   
   if (nextSim) {
     button.value = "STOP";
+    button.style.backgroundColor = "rgba(255, 0, 0, 0.25)";
+    button.style.border = "1px solid red";
     Simulate();
   } else {
     button.value = "SIMULATE";
+    button.style.backgroundColor = "rgba(42, 168, 42, 0.25)";
+    button.style.border = "1px solid rgb(42, 168, 42)";
   }
 }
