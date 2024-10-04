@@ -100,7 +100,7 @@ function Simulate () {
     }
   }
 
-  setTimeout(Simulate, 1);
+  requestAnimationFrame(Simulate, 1);
 }
 
 
