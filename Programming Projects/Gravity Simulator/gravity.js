@@ -78,7 +78,7 @@ function Simulate () {
     for (let j = i + 1; j < circlesList.length; j++) {
       const dist = Distance(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y);
       
-      if (dist < 10) {
+      if (Math.abs(dist) < 10) {
         mergeCircles(i, j);
         break;
       } else {
