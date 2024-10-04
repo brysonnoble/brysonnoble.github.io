@@ -56,28 +56,35 @@ document.addEventListener('click', function(event) {
 });
 
 function Simulate () {
-  if (!nextSim) return; // Stop simulation if nextSim is false
+  if (!nextSim) return;
 
   for (let i = 0; i < circlesList.length; i++) {
     for (let j = i + 1; j < circlesList.length; j++) {
       const dist = Distance(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y);
-      
-      if (dist < 10) {  // merge threshold
+
+      if (dist < 10) {
         mergeCircles(i, j);
-        break;  // Exit loop after merging
+        break;
       } else {
-        Move(circlesList[i].id, Vector2Translate(circlesList[i].x, Force(circlesList[i].mass, circlesList[j].mass, dist), Direction(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y)[0]),
-          Vector2Translate(circlesList[i].y, Force(circlesList[i].mass, circlesList[j].mass, dist), Direction(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y)[1])
+        const force = Force(circlesList[i].mass, circlesList[j].mass, dist);
+
+        const dirToJ = Direction(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y);
+        Move(circlesList[i].id,
+          Vector2Translate(circlesList[i].x, force / circlesList[i].mass, dirToJ[0]),
+          Vector2Translate(circlesList[i].y, force / circlesList[i].mass, dirToJ[1])
         );
-        Move(circlesList[j].id, Vector2Translate(circlesList[j].x, Force(circlesList[i].mass, circlesList[j].mass, dist), Direction(circlesList[j].x, circlesList[j].y, circlesList[i].x, circlesList[i].y)[0]),
-          Vector2Translate(circlesList[j].y, Force(circlesList[i].mass, circlesList[j].mass, dist), Direction(circlesList[j].x, circlesList[j].y, circlesList[i].x, circlesList[i].y)[1])
+
+        const dirToI = Direction(circlesList[j].x, circlesList[j].y, circlesList[i].x, circlesList[i].y);
+        Move(circlesList[j].id,
+          Vector2Translate(circlesList[j].x, force / circlesList[j].mass, dirToI[0]),
+          Vector2Translate(circlesList[j].y, force / circlesList[j].mass, dirToI[1])
         );
       }
     }
   }
 
   // Keep the loop going
-  setTimeout(Simulate, 16); // Roughly 60 FPS
+  setTimeout(Simulate, 1);
 }
 
 function mergeCircles (index1, index2) {
@@ -105,8 +112,6 @@ function removeCircle (circleId) {
   }
 }
 
-// Helper functions (same as before)
-
 function Distance (x1, y1, x2, y2) {
   return Math.sqrt(((x2 - x1) ** 2) + ((y2 - y1) ** 2));
 }
@@ -120,7 +125,9 @@ function Direction (x1, y1, x2, y2) {
 }
 
 function Vector2Translate (p, force, direction) {
-  return (p + (direction * force));
+  const magnitude = Math.sqrt(direction[0] ** 2 + direction[1] ** 2);
+  const normDirection = [direction[0] / magnitude, direction[1] / magnitude];
+  return p + (force * normDirection);
 }
 
 function Move (id, Tx, Ty) {
