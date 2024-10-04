@@ -3,19 +3,21 @@
 let circleIdCounter = 0;
 const circlesList = [];
 
-function createCircle (x, y, mass = 1) {
+function createCircle(x, y, mass = 1) {
   const circle = document.createElement('div');
   circle.classList.add('circle');
   
   const circleId = `circle-${circleIdCounter++}`;
   circle.setAttribute('id', circleId);
-  
-  const radius = Math.sqrt(mass) * 10;
-  circle.style.width = `${radius * 2}px`;
-  circle.style.height = `${radius * 2}px`;
 
-  circle.style.left = `${x - radius}px`;
-  circle.style.top = `${y - radius}px`;
+  circle.style.left = `${x - 10}px`;
+  circle.style.top = `${y - 10}px`;
+
+  const massDisplay = document.createElement('span');
+  massDisplay.classList.add('mass-display');
+  massDisplay.innerText = mass;
+
+  circle.appendChild(massDisplay);
 
   circlesList.push({ id: circleId, x: x, y: y, mass: mass });
 
@@ -26,13 +28,6 @@ function createCircle (x, y, mass = 1) {
   });
 
   document.body.appendChild(circle);
-}
-
-function removeCircleFromList (circleId) {
-  const index = circlesList.findIndex(circle => circle.id === circleId);
-  if (index !== -1) {
-    circlesList.splice(index, 1);
-  }
 }
 
 function moveCircle (circleId, newX, newY) {
@@ -129,7 +124,7 @@ function toggleLoop () {
 
 // merge circles
 
-function mergeCircles (i, j) {
+function mergeCircles(i, j) {
   const circleA = circlesList[i];
   const circleB = circlesList[j];
 
