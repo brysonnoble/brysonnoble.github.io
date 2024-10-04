@@ -1,3 +1,5 @@
+document.getElementById("gSlider").oninput = function() { console.log(this.value) };
+
 let circleIdCounter = 0;
 let circlesList = [];
 let nextSim = false;
