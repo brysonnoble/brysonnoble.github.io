@@ -1,6 +1,16 @@
-$("#gSlider").bind("change", function() {
-    console.log(this.value)
-});
+// get G
+
+const slider = document.getElementById("gSlider");
+const output = document.getElementById("gValue");
+
+function handleSliderChange() {
+  output.textContent = slider.value;
+  console.log("Slider value:", slider.value);
+}
+
+slider.addEventListener("input", handleSliderChange);
+
+// instantiate particles
 
 let circleIdCounter = 0;
 let circlesList = [];
