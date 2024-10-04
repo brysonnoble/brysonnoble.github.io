@@ -1,11 +1,13 @@
 // get G
 
+let G = 6.67;
+
 const slider = document.getElementById("gSlider");
 const output = document.getElementById("gValue");
 
 function handleSliderChange() {
   output.textContent = slider.value;
-  console.log("Slider value:", slider.value);
+  G = slider.value;
 }
 
 slider.addEventListener("input", handleSliderChange);
@@ -134,7 +136,7 @@ function Distance (x1, y1, x2, y2) {
 }
 
 function Force (m1, m2, dist) {
-  return ((6.67) * m1 * m2) / (dist ** 2);
+  return (G * m1 * m2) / (dist ** 2);
 }
 
 function Direction (x1, y1, x2, y2) {
