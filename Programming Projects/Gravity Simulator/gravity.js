@@ -149,7 +149,7 @@ function toggleLoop () {
   
   if (nextSim) {
     button.value = "STOP";
-    Simulate(); // Start simulation
+    Simulate();
   } else {
     button.value = "SIMULATE";
   }
