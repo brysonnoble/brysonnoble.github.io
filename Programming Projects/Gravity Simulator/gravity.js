@@ -56,15 +56,15 @@ document.addEventListener('click', function(event) {
 });
 
 function Simulate () {
-  if (!nextSim) return; // Stop simulation if nextSim is false
+  if (!nextSim) return;
 
   for (let i = 0; i < circlesList.length; i++) {
     for (let j = i + 1; j < circlesList.length; j++) {
       const dist = Distance(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y);
       
-      if (dist < 10) {  // merge threshold
+      if (dist < 10) {
         mergeCircles(i, j);
-        break;  // Exit loop after merging
+        break;
       } else {
         Move(circlesList[i].id, Vector2Translate(circlesList[i].x, Force(1, 1, dist), Direction(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y)[0]),
           Vector2Translate(circlesList[i].y, Force(1, 1, dist), Direction(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y)[1])
@@ -77,7 +77,7 @@ function Simulate () {
   }
 
   // Keep the loop going
-  setTimeout(Simulate, 16); // Roughly 60 FPS
+  setTimeout(Simulate, 1);
 }
 
 function mergeCircles (index1, index2) {
