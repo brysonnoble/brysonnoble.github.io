@@ -71,14 +71,15 @@ document.addEventListener('click', function(event) {
   }
 });
 
-function Simulate () {
+function Simulate() {
   if (!nextSim) return;
 
   for (let i = 0; i < circlesList.length; i++) {
     for (let j = i + 1; j < circlesList.length; j++) {
       const dist = Distance(circlesList[i].x, circlesList[i].y, circlesList[j].x, circlesList[j].y);
-      
-      if (Math.abs(dist) < 10) {
+      const futureDist = FutureDistance(circlesList[i], circlesList[j]);
+
+      if (Math.abs(futureDist) < 10) {
         mergeCircles(i, j);
         break;
       } else {
@@ -88,7 +89,7 @@ function Simulate () {
         
         const acc1 = force / circlesList[i].mass;
         const acc2 = force / circlesList[j].mass;
-        
+
         const newXi = Vector2Translate(circlesList[i].x, acc1, dir1to2[0]);
         const newYi = Vector2Translate(circlesList[i].y, acc1, dir1to2[1]);
         Move(circlesList[i].id, newXi, newYi);
@@ -100,7 +101,7 @@ function Simulate () {
     }
   }
 
-  setTimeout(Simulate, 1);
+  requestAnimationFrame(Simulate);
 }
 
 
@@ -133,6 +134,24 @@ function removeCircle (circleId) {
 
 function Distance (x1, y1, x2, y2) {
   return Math.sqrt(((x2 - x1) ** 2) + ((y2 - y1) ** 2));
+}
+
+function FutureDistance(circle1, circle2) {
+  const deltaT = 0.1;
+
+  const vX1 = (circle1.x - circle1.prevX) / deltaT;
+  const vY1 = (circle1.y - circle1.prevY) / deltaT;
+  
+  const vX2 = (circle2.x - circle2.prevX) / deltaT;
+  const vY2 = (circle2.y - circle2.prevY) / deltaT;
+
+  const futureX1 = circle1.x + vX1 * deltaT;
+  const futureY1 = circle1.y + vY1 * deltaT;
+  
+  const futureX2 = circle2.x + vX2 * deltaT;
+  const futureY2 = circle2.y + vY2 * deltaT;
+
+  return Distance(futureX1, futureY1, futureX2, futureY2);
 }
 
 function Force (m1, m2, dist) {
