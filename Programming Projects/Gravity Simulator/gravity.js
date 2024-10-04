@@ -81,14 +81,35 @@ function Simulate (circlesList) {
   }
 }
 
+function mergeCircles (index1, index2) {
+  const circle1 = circlesList[index1];
+  const circle2 = circlesList[index2];
+
+  const newMass = circle1.mass + circle2.mass;
+  const newX = (circle1.x * circle1.mass + circle2.x * circle2.mass) / newMass;
+  const newY = (circle1.y * circle1.mass + circle2.y * circle2.mass) / newMass;
+
+  removeCircle(circle1.id);
+  removeCircle(circle2.id);
+
+  createCircle(newX, newY, newMass);
+}
+
+function removeCircle (circleId) {
+  const circle = document.getElementById(circleId);
+  if (circle) {
+    document.body.removeChild(circle);
+    removeCircleFromList(circleId);
+  }
+}
+
 function Distance (x1, y1, x2, y2) {
   return (((x2 - x1) ** 2) + ((y2 - y1) ** 2)) ** 0.5;
 }
 
 function Force (m1, m2, dist) {
   if (Math.abs(dist) < 10) {
-    return ((6.67) * m1 * m2) / (10 ** 2);
-    // merge
+    mergeCircles(i, j);
   } else {
     return ((6.67) * m1 * m2) / (dist ** 2);
   }
