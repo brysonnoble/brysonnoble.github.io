@@ -10,10 +10,13 @@
   </head>
   <body>
     <div id="controlPanel">
-      <span>G</span>
-      <input type="range" id="gSlider" min="0.01" max="10" step="0.01" value="6.67">
-      <span id="gValue">6.67</span>
-      <br>
+      <div id="gravAdjust">
+        <span>Gravitational Constant</span>
+        <br>
+        <input type="range" id="gSlider" min="0.01" max="10" step="0.01" value="6.67">
+        <span id="gValue">6.67</span>
+      </div>
+      <br><br>
       <input type="button" id="toggle" value="SIMULATE" onclick="toggleLoop()">
       <script src="gravity.js" type="text/javascript"></script>
     </div>
