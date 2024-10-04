@@ -1,15 +1,3 @@
-// adjust G
-
-const gSlider = document.getElementById('gSlider');
-const gValueDisplay = document.getElementById('gValue');
-
-let G = parseFloat(gSlider.value);
-
-gSlider.addEventListener('input', function () {
-  G = parseFloat(gSlider.value); // Update G based on the slider value
-  gValueDisplay.textContent = G.toFixed(2); // Display the updated value of G
-});
-
 let circleIdCounter = 0;
 let circlesList = [];
 let nextSim = false;
@@ -24,6 +12,7 @@ function createCircle (x, y, mass = 1) {
   circle.style.left = `${x - 10}px`;
   circle.style.top = `${y - 10}px`;
 
+  // Add mass display
   circle.innerHTML = `<span class="mass-display">${mass}</span>`;
 
   circlesList.push({ id: circleId, x: x, y: y, mass: mass });
@@ -66,8 +55,6 @@ document.addEventListener('click', function(event) {
   }
 });
 
-// simulation
-
 function Simulate () {
   if (!nextSim) return;
 
@@ -97,7 +84,6 @@ function Simulate () {
     }
   }
 
-  // Keep the loop going
   setTimeout(Simulate, 1);
 }
 
@@ -134,7 +120,7 @@ function Distance (x1, y1, x2, y2) {
 }
 
 function Force (m1, m2, dist) {
-  return (G * m1 * m2) / (dist ** 2);
+  return ((6.67) * m1 * m2) / (dist ** 2);
 }
 
 function Direction (x1, y1, x2, y2) {
@@ -157,7 +143,7 @@ function toggleLoop () {
   
   if (nextSim) {
     button.value = "STOP";
-    Simulate(); // Start simulation
+    Simulate();
   } else {
     button.value = "SIMULATE";
   }
