@@ -7,6 +7,13 @@
     <style>
         :root {
             --indent: 36px;
+            --pBackground: #f7f5e9; /* Page background */
+            --bBackground: #ffffff; /* Body background */
+            --nBackground: #66a5ad; /* Nav bar background */
+            --hfBackground: #92b4a7; /* Header/footer background */
+            --border: #66a5ad; /* Border color */
+            --header: #066a7c; /* Header text */
+            --text: #333; /* Body text */
         }
         html {
             scroll-behavior: smooth;
@@ -16,17 +23,17 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f7f5e9; /* Cream background */
-            color: #333; /* Clean black text */
+            background-color: var(--cBackground);
+            color: var(--text); 
         }
         header {
-            background-color: #92b4a7; /* Matcha green */
+            background-color: var(--hfBackground);
             color: white;
             padding: 1em 0;
             text-align: center;
         }
         nav {
-            background-color: #66a5ad; /* Light blue */
+            background-color: var(--nBackground);
             display: flex;
             justify-content: center;
             padding: 0.5em 0;
@@ -42,29 +49,32 @@
             transition: color 0.3s ease;
         }
         nav a:hover {
-            color: #f7f5e9; /* Cream on hover */
+            color: var(--pBackground);
         }
         main {
             padding: 2em;
             max-width: 800px;
             margin: 1em auto;
-            background: #ffffff; /* White background */
+            background: var(--wBackground);
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
         }
         h1, h2 {
-            color: #066a7c; /* Deep matcha green */
+            color: var(--header);
         }
         h2 {
-            border-bottom: 2px solid #66a5ad; /* Light blue accent */
+            border-bottom: 2px solid var(--border);
             padding-bottom: 0.5em;
         }
         p.content {
             text-indent: 50px;
         }
         table, th, td {
-            border: 1px solid black;
+            border: 1px solid var(--bBackground);
             border-collapse: collapse;
+        }
+        th, td {
+            background-color: var(--border);
         }
         .references {
             margin: 0;
@@ -74,8 +84,8 @@
         .references li {
             margin: 0 0 10px 0;
             padding: 0;
-            text-indent: -50px;
-            margin-left: 50px;
+            text-indent: -var(--indent);
+            margin-left: var(--indent);
         }
         section {
             margin-bottom: 2em;
@@ -83,7 +93,7 @@
         footer {
             text-align: center;
             padding: 1em 0;
-            background-color: #92b4a7; /* Matcha green */
+            background-color: var(--hfBackground);
             color: white;
         }
         .disclaimer {
