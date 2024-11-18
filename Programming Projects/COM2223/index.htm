@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADHD Research Report</title>
     <style>
+        :root {
+            --indent: 36px;
+        }
         html {
             scroll-behavior: smooth;
         }
@@ -63,6 +66,17 @@
             border: 1px solid black;
             border-collapse: collapse;
         }
+        .references {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        .references li {
+            margin: 0 0 10px 0;
+            padding: 0;
+            text-indent: -50px;
+            margin-left: 50px;
+        }
         section {
             margin-bottom: 2em;
         }
@@ -110,7 +124,7 @@
             <i>Diagnosis of ADHD Within the Student Body at Florida Institute of Technology</i>
             <p class="content">Of course, we must take this number with a grain of salt, given that the sample size is small, but the 16.4% difference between our numbers and those measured in 2016 seems too significant to chalk up to sampling errors.</p>
             <p class="content">To put these numbers into perspective, the history of ADHD is to be considered. It is important to understand how the disorder is diagnosed, and how the definition of the disorder has changed over time. Two significant reasons why ADHD diagnoses have increased dramatically more recently are because of the broadening of ADHD diagnostically and increased awareness of physicians and the public (Abdelnour et al., 2022.). According to the study by Abdelnour, Jansen, and Gold, the earliest account of ADHD is recorded in the book “On Attention and its Diseases” by Sir Alexander Crichton, in which he described “‘morbid alterations’ of attention that ‘render [individuals] incapable of attending with constancy to any one object of education’.” Although Sir Chrichton identified and recorded the disorder as early as the 18th century, ADHD was not globally recognized or treated until 1968, when it “made its first appearance in the Diagnostic and Statistical Manual of Mental Disorders,” or DSM for short. The disorder was known as “Hyperkinetic Reaction of Childhood” and did not earn the name “Attention Deficit Disorder,” or ADD, until the publication of DSM-III in 1980. This publication also included a list of symptoms to diagnose ADD, whereas previously, the disorder was noted to have unclear parameters for diagnosis. The parameters for diagnosing ADD and ADHD continued to evolve in subsequent publications of the DSM, which allowed for the diagnosis in more people with milder symptoms. For example, in DSM-IV, ADHD could be diagnosed by “evidence of impairment in 2 or more settings,” while in DSM-V, ADHD could be diagnosed by “evidence of symptoms in 2 or more settings” (Abdelnour et al., 2022.). Other changes between the two publications are outlined in Figure 4 below.</p>
-            <br><br>
+            <br>
             <table style="width:100%">
                 <tr>
                     <th> </th>
@@ -145,7 +159,7 @@
             </table>
             <br>
             <i>Note. From Changes in diagnostic determination for ADHD between the Diagnostic and Statistical Manual of Mental Disorders (DSM) IV and V editions. Data from ADHD Diagnostic Trends Over Time. Data from Abdelnour, Elie, et al. 2022.</i>
-            <br><br>
+            <br>
             <p class="content">We observe a similar theme of diagnosis broadening throughout the time leading up to the present day, which plays a key role in the increase of ADHD and ADD diagnoses. Although Sir Crichton recorded the first form of ADD over 225 years ago, ADD is still a very new disease and has been evolving rapidly over recent years. ADHD and ADD are unique diseases because they are only indicated by behavioral observations, biomarkers cannot be employed for further evaluation. (Abdelnour et al., 2022.). The lack of solid criteria makes it difficult classify the disease and draw clear boundaries to whether an individual should be diagnosed with the disease, leaving much up to the clinician's interpretation.</p>
             <p class="content">Symptoms of ADHD and ADD heavily overlap with symptoms of other mental disorders, such as anxiety or depression, which have increased drastically following the COVID-19 pandemic. Shown in Figure 1:</p>
             <br>
@@ -158,7 +172,24 @@
         </section>
         <section id="references">
             <h2>References</h2>
-            <p class="content">...</p>
+            <ul class="references">
+                <li>Abdelnour, E., Jansen, M. O., & Gold, J. A. (2022). ADHD diagnostic trends: Increased recognition or overdiagnosis? <i>Missouri Medicine, 119</i>(5), 467–473. Retrieved from <a href="https://www.ncbi.nlm.nih.gov/pubmed/36337990">https://www.ncbi.nlm.nih.gov/pubmed/36337990</a></li>
+                <li>Adult attention-deficit/hyperactivity disorder (ADHD). (n.d.). Retrieved 18 November 2024, from Mayo Clinic website: <a href="https://www.mayoclinic.org/diseases-conditions/adult-adhd/symptoms-causes/syc-20350878">https://www.mayoclinic.org/diseases-conditions/adult-adhd/symptoms-causes/syc-20350878</a></li>
+                <li>Attention deficit hyperactivity disorder (ADHD) - Symptoms. (n.d.). Retrieved 18 November 2024, from nhs.uk website: <a href="https://www.nhs.uk/conditions/attention-deficit-hyperactivity-disorder-adhd/symptoms/">https://www.nhs.uk/conditions/attention-deficit-hyperactivity-disorder-adhd/symptoms/</a></li>
+                <li>CDC. (2024, October 23). Data and statistics on ADHD. Retrieved 18 November 2024, from Attention-Deficit / Hyperactivity Disorder (ADHD) website: <a href="https://www.cdc.gov/adhd/data/index.html">https://www.cdc.gov/adhd/data/index.html</a></li>
+                <li>Danielson, M. L., Claussen, A. H., Bitsko, R. H., Katz, S. M., Newsome, K., Blumberg, S. J., … Ghandour, R. (2024). ADHD prevalence among U.S. children and adolescents in 2022: Diagnosis, severity, co-occurring disorders, and treatment. <i>Journal of Clinical Child and Adolescent Psychology</i>, <i>53</i>(3), 343–360. <a href="https://doi.org/10.1080/15374416.2024.2335625">doi:10.1080/15374416.2024.2335625</a></li>
+                <li>DSM. (n.d.). Retrieved 18 November 2024, from <a href="https://www.psychiatry.org:443/psychiatrists/practice/dsm">https://www.psychiatry.org:443/psychiatrists/practice/dsm</a></li>
+                <li>General prevalence of ADHD in adults. (2024, October 17). Retrieved 18 November 2024, from CHADD website: <a href="https://chadd.org/about-adhd/general-prevalence-adults/">https://chadd.org/about-adhd/general-prevalence-adults/</a></li>
+                <li>Jangmo, A., Stålhandske, A., Chang, Z., Chen, Q., Almqvist, C., Feldman, I., … Larsson, H. (2019). Attention-deficit/hyperactivity disorder, school performance, and effect of medication. <i>Journal of the American Academy of Child and Adolescent Psychiatry</i>, <i>58</i>(4), 423–432. <a href="https://doi.org/10.1016/j.jaac.2018.11.014">doi:10.1016/j.jaac.2018.11.014</a></li>
+                <li>Office of the Surgeon General (OSG). (2023). Social media and youth mental health. Retrieved from <a href="https://www.ncbi.nlm.nih.gov/books/NBK594759/">https://www.ncbi.nlm.nih.gov/books/NBK594759/</a></li>
+                <li>Patel, M. P. (2018, June 1). ADHD history. Retrieved 18 November 2024, from News-Medical website: <a href="https://www.news-medical.net/health/ADHD-History.aspx">https://www.news-medical.net/health/ADHD-History.aspx</a></li>
+                <li>Racine, N., McArthur, B. A., Cooke, J. E., Eirich, R., Zhu, J., & Madigan, S. (2021). Global prevalence of depressive and anxiety symptoms in children and adolescents during COVID-19: A meta-analysis. <i>JAMA Pediatrics</i>, <i>175</i>(11), 1142–1150. <a href="https://doi.org/10.1001/jamapediatrics.2021.2482">doi:10.1001/jamapediatrics.2021.2482</a></li>
+                <li>(N.d.). Retrieved 18 November 2024, from <a href="https://stacks.cdc.gov/view/cdc/148043">https://stacks.cdc.gov/view/cdc/148043</a></li>
+                <li>Rosenthal, E., Fu, Q., DuPaul, G. J., Reid, R., Anastopoulos, A. D., & Power, T. J. (2024). Assessing attention-deficit/hyperactivity disorder-related impairment: Differential item functioning based on child demographic characteristics. <i>School Psychology (Washington, D.C.)</i>. <a href="https://doi.org/10.1037/spq0000643">doi:10.1037/spq0000643</a></li>
+                <li>Tam, L. Y. C., Taechameekietichai, Y., & Allen, J. L. (2024). Individual child factors affecting the diagnosis of attention deficit hyperactivity disorder (ADHD) in children and adolescents: a systematic review. <i>European Child & Adolescent Psychiatry</i>. <a href="https://doi.org/10.1007/s00787-024-02590-9">doi:10.1007/s00787-024-02590-9</a></li>
+                <li>Workplace issues. (2018, May 14). Retrieved 18 November 2024, from CHADD website: <a href="https://chadd.org/for-adults/workplace-issues/">https://chadd.org/for-adults/workplace-issues/</a></li>
+                <li>Zhang, N., Gao, M., Yu, J., Zhang, Q., Wang, W., Zhou, C., … Wang, J. (2022). Understanding the association between adverse childhood experiences and subsequent attention deficit hyperactivity disorder: A systematic review and meta-analysis of observational studies. <i>Brain and Behavior, 12</i>(10), e32748. <a href="https://doi.org/10.1002/brb3.2748">doi:10.1002/brb3.2748</a></li>
+            </ul>
         </section>
     </main>
     <footer>
