@@ -3,55 +3,122 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dynamic Parking Form</title>
+  <title>Parking Visualization</title>
+  <style>
+    .parking-row {
+      display: flex;
+      margin-bottom: 10px;
+    }
+    .parking-space {
+      width: 40px;
+      height: 40px;
+      border: 1px solid #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 5px;
+    }
+    .unblocked {
+      border: 2px dashed red;
+    }
+  </style>
   <script>
-    function generateRows() {
-      const rowContainer = document.getElementById('rowContainer');
-      rowContainer.innerHTML = '';
-      const numRows = parseInt(document.getElementById('numRows').value) || 0;
+    function processForm(event) {
+      event.preventDefault();
 
+      // Parse the inputs
+      const numRows = parseInt(document.getElementById('numRows').value);
+      const numCars = parseInt(document.getElementById('numCars').value);
+      const unblockedAllowed = document.querySelector('input[name="unblocked"]:checked').value === 'yes';
+      const unblockedSpaces = unblockedAllowed ? parseInt(document.querySelector('[name="unblockedSpaces"]').value) || 0 : 0;
+
+      const rows = [];
       for (let i = 1; i <= numRows; i++) {
-        const rowDiv = document.createElement('div');
-        rowDiv.innerHTML = `
-          <label>How many spaces in row ${i}?</label>
-          <input type="number" name="spacesInRow${i}" min="0"><br>
-        `;
-        rowContainer.appendChild(rowDiv);
+        rows.push({ rowNum: i, spaces: parseInt(document.querySelector(`[name="spacesInRow${i}"]`).value) || 0 });
       }
-    }
 
-    function toggleUnblockedParking() {
-      const isUnblocked = document.querySelector('input[name="unblocked"]:checked').value === 'yes';
-      const unblockedContainer = document.getElementById('unblockedContainer');
-      unblockedContainer.style.display = isUnblocked ? 'block' : 'none';
-    }
-
-    function generateCars() {
-      const carContainer = document.getElementById('carContainer');
-      carContainer.innerHTML = '';
-      const numCars = parseInt(document.getElementById('numCars').value) || 0;
-      const times = Array.from({ length: 48 }, (_, i) => `${Math.floor(i / 2)}:${i % 2 === 0 ? '00' : '30'} ${i < 24 ? 'AM' : 'PM'}`);
-
+      const cars = [];
       for (let i = 1; i <= numCars; i++) {
-        const carDiv = document.createElement('div');
-        carDiv.innerHTML = `
-          <h4>Car ${i}</h4>
-          <label>Create a nickname for car ${i}:</label>
-          <input type="text" name="nicknameCar${i}"><br>
-          ${['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].map(day => `
-            <label>What time does car ${i} have to leave on ${day}?</label>
-            <select name="car${i}_${day.toLowerCase()}">
-              ${times.map(time => `<option value="${time}">${time}</option>`).join('')}
-            </select><br>
-          `).join('')}
-        `;
-        carContainer.appendChild(carDiv);
+        const nickname = document.querySelector(`[name="nicknameCar${i}"]`).value || `Car ${i}`;
+        const leaveTimes = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].map(day =>
+          document.querySelector(`[name="car${i}_${day.toLowerCase()}"]`).value
+        );
+        const latestLeaveTime = Math.max(...leaveTimes.map(time => convertTimeToMinutes(time))); // Use the latest leave time
+        cars.push({ nickname, latestLeaveTime, index: i });
       }
+
+      // Sort cars by latest leave time (descending), then by index
+      cars.sort((a, b) => b.latestLeaveTime - a.latestLeaveTime || a.index - b.index);
+
+      // Arrange cars into rows
+      const layout = [];
+      let unblockedParking = [];
+      for (let car of cars) {
+        let parked = false;
+        for (let row of rows) {
+          if (layout[row.rowNum - 1] === undefined) layout[row.rowNum - 1] = [];
+          const rowCars = layout[row.rowNum - 1];
+          if (
+            rowCars.length < row.spaces &&
+            rowCars.every(rowCar => rowCar.latestLeaveTime >= car.latestLeaveTime) // Ensure no blocking
+          ) {
+            rowCars.push(car);
+            parked = true;
+            break;
+          }
+        }
+        if (!parked && unblockedParking.length < unblockedSpaces) {
+          unblockedParking.push(car);
+        }
+      }
+
+      // Render the layout
+      renderVisualization(rows, layout, unblockedParking);
+    }
+
+    function renderVisualization(rows, layout, unblockedParking) {
+      const container = document.getElementById('visualization');
+      container.innerHTML = ''; // Clear previous visualization
+
+      rows.forEach((row, index) => {
+        const rowDiv = document.createElement('div');
+        rowDiv.className = 'parking-row';
+        rowDiv.innerHTML = `<strong>Row ${row.rowNum}:</strong> `;
+
+        for (let i = 0; i < row.spaces; i++) {
+          const spaceDiv = document.createElement('div');
+          spaceDiv.className = 'parking-space';
+          const car = (layout[row.rowNum - 1] || [])[i];
+          if (car) spaceDiv.textContent = car.nickname;
+          rowDiv.appendChild(spaceDiv);
+        }
+
+        container.appendChild(rowDiv);
+      });
+
+      if (unblockedParking.length > 0) {
+        const unblockedDiv = document.createElement('div');
+        unblockedDiv.innerHTML = '<strong>Unblocked Parking:</strong>';
+        unblockedParking.forEach(car => {
+          const carDiv = document.createElement('div');
+          carDiv.className = 'parking-space unblocked';
+          carDiv.textContent = car.nickname;
+          unblockedDiv.appendChild(carDiv);
+        });
+        container.appendChild(unblockedDiv);
+      }
+    }
+
+    function convertTimeToMinutes(time) {
+      const [hour, rest] = time.split(':');
+      const [minutes, period] = rest.split(' ');
+      const totalMinutes = parseInt(hour) * 60 + parseInt(minutes);
+      return period === 'PM' && hour !== '12' ? totalMinutes + 720 : totalMinutes;
     }
   </script>
 </head>
 <body>
-  <form>
+  <form onsubmit="processForm(event)">
     <h2>Parking Form</h2>
     <label>How many rows of parking?</label>
     <input type="number" id="numRows" name="numRows" min="0" oninput="generateRows()"><br>
@@ -74,5 +141,7 @@
 
     <button type="submit">Submit</button>
   </form>
+
+  <div id="visualization"></div>
 </body>
 </html>
