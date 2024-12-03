@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dynamic Parking Form with Visualization</title>
+  <title>Parking Visualization</title>
   <style>
     .parking-row {
       display: flex;
@@ -21,11 +21,15 @@
     .unblocked {
       border: 2px dashed red;
     }
+    .car-label {
+      font-size: 12px;
+    }
   </style>
   <script>
+    // Generate rows based on user input
     function generateRows() {
       const rowContainer = document.getElementById('rowContainer');
-      rowContainer.innerHTML = ''; // Clear existing rows
+      rowContainer.innerHTML = '';
       const numRows = parseInt(document.getElementById('numRows').value) || 0;
 
       for (let i = 1; i <= numRows; i++) {
@@ -38,15 +42,17 @@
       }
     }
 
+    // Toggle unblocked parking question
     function toggleUnblockedParking() {
       const isUnblocked = document.querySelector('input[name="unblocked"]:checked')?.value === 'yes';
       const unblockedContainer = document.getElementById('unblockedContainer');
       unblockedContainer.style.display = isUnblocked ? 'block' : 'none';
     }
 
+    // Generate car fields dynamically
     function generateCars() {
       const carContainer = document.getElementById('carContainer');
-      carContainer.innerHTML = ''; // Clear existing cars
+      carContainer.innerHTML = '';
       const numCars = parseInt(document.getElementById('numCars').value) || 0;
       const times = Array.from({ length: 48 }, (_, i) => {
         const hour = Math.floor(i / 2);
@@ -72,9 +78,98 @@
       }
     }
 
+    // Handle form submission and visualize parking
     function processForm(event) {
       event.preventDefault();
-      // Logic for processing and visualization goes here
+
+      const numRows = parseInt(document.getElementById('numRows').value) || 0;
+      const numCars = parseInt(document.getElementById('numCars').value) || 0;
+      const unblockedAllowed = document.querySelector('input[name="unblocked"]:checked')?.value === 'yes';
+      const unblockedSpaces = unblockedAllowed ? parseInt(document.querySelector('[name="unblockedSpaces"]').value) || 0 : 0;
+
+      const rows = [];
+      for (let i = 1; i <= numRows; i++) {
+        rows.push({ rowNum: i, spaces: parseInt(document.querySelector(`[name="spacesInRow${i}"]`)?.value) || 0 });
+      }
+
+      const cars = [];
+      for (let i = 1; i <= numCars; i++) {
+        const nickname = document.querySelector(`[name="nicknameCar${i}"]`)?.value || `Car ${i}`;
+        const leaveTimes = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].map(day =>
+          document.querySelector(`[name="car${i}_${day.toLowerCase()}"]`)?.value
+        );
+        const latestLeaveTime = Math.max(...leaveTimes.map(time => convertTimeToMinutes(time)));
+        cars.push({ nickname, latestLeaveTime, index: i });
+      }
+
+      // Sort cars by leave time (latest first), then by index
+      cars.sort((a, b) => b.latestLeaveTime - a.latestLeaveTime || a.index - b.index);
+
+      // Assign cars to rows
+      const layout = [];
+      let unblockedParking = [];
+      for (let car of cars) {
+        let parked = false;
+        for (let row of rows) {
+          if (!layout[row.rowNum - 1]) layout[row.rowNum - 1] = [];
+          const rowCars = layout[row.rowNum - 1];
+          if (
+            rowCars.length < row.spaces &&
+            rowCars.every(existingCar => existingCar.latestLeaveTime >= car.latestLeaveTime)
+          ) {
+            rowCars.push(car);
+            parked = true;
+            break;
+          }
+        }
+        if (!parked && unblockedParking.length < unblockedSpaces) {
+          unblockedParking.push(car);
+        }
+      }
+
+      // Render visualization
+      renderVisualization(rows, layout, unblockedParking);
+    }
+
+    // Render parking visualization
+    function renderVisualization(rows, layout, unblockedParking) {
+      const container = document.getElementById('visualization');
+      container.innerHTML = ''; // Clear previous visualization
+
+      rows.forEach((row, index) => {
+        const rowDiv = document.createElement('div');
+        rowDiv.className = 'parking-row';
+        rowDiv.innerHTML = `<strong>Row ${row.rowNum}:</strong> `;
+        for (let i = 0; i < row.spaces; i++) {
+          const spaceDiv = document.createElement('div');
+          spaceDiv.className = 'parking-space';
+          const car = (layout[row.rowNum - 1] || [])[i];
+          if (car) spaceDiv.innerHTML = `<span class="car-label">${car.nickname}</span>`;
+          rowDiv.appendChild(spaceDiv);
+        }
+        container.appendChild(rowDiv);
+      });
+
+      if (unblockedParking.length > 0) {
+        const unblockedDiv = document.createElement('div');
+        unblockedDiv.innerHTML = '<strong>Unblocked Parking:</strong>';
+        unblockedParking.forEach(car => {
+          const carDiv = document.createElement('div');
+          carDiv.className = 'parking-space unblocked';
+          carDiv.innerHTML = `<span class="car-label">${car.nickname}</span>`;
+          unblockedDiv.appendChild(carDiv);
+        });
+        container.appendChild(unblockedDiv);
+      }
+    }
+
+    function convertTimeToMinutes(time) {
+      const [hour, rest] = time.split(':');
+      const [minutes, period] = rest.split(' ');
+      let totalMinutes = parseInt(hour) * 60 + parseInt(minutes);
+      if (period === 'PM' && hour !== '12') totalMinutes += 720;
+      if (period === 'AM' && hour === '12') totalMinutes -= 720;
+      return totalMinutes;
     }
   </script>
 </head>
@@ -103,6 +198,7 @@
     <button type="submit">Submit</button>
   </form>
 
+  <h2>Parking Visualization</h2>
   <div id="visualization"></div>
 </body>
 </html>
