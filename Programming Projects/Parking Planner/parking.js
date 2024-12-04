@@ -99,21 +99,26 @@ function navigateDay(offset) {
   updateDayView();
 }
 
-// Update the day view
 function updateDayView() {
   const previousIndex = (currentDayIndex - 1 + daysOfWeek.length) % daysOfWeek.length;
   const nextIndex = (currentDayIndex + 1) % daysOfWeek.length;
 
-  document.getElementById('previous-day').innerHTML = `<h3>${daysOfWeek[previousIndex]}</h3>`;
-  document.getElementById('current-day').innerHTML = `<h2>${daysOfWeek[currentDayIndex]}</h2>`;
-  document.getElementById('next-day').innerHTML = `<h3>${daysOfWeek[nextIndex]}</h3>`;
-
-  // Generate parking visualization for the current day
-  document.getElementById('current-day').innerHTML += generateParkingHTML(currentDayIndex);
+  document.getElementById('previous-day').innerHTML = `
+    <h3>${daysOfWeek[previousIndex]}</h3>
+    <div class="small-parking">${generateParkingHTML(previousIndex, true)}</div>
+  `;
+  document.getElementById('current-day').innerHTML = `
+    <h2>${daysOfWeek[currentDayIndex]}</h2>
+    ${generateParkingHTML(currentDayIndex)}
+  `;
+  document.getElementById('next-day').innerHTML = `
+    <h3>${daysOfWeek[nextIndex]}</h3>
+    <div class="small-parking">${generateParkingHTML(nextIndex, true)}</div>
+  `;
 }
 
-// Generate parking layout for a specific day
-function generateParkingHTML(dayIndex) {
+// Modified generateParkingHTML to handle both full-size and small versions
+function generateParkingHTML(dayIndex, isSmall = false) {
   const layout = [];
   const unblockedParking = [];
 
@@ -143,18 +148,18 @@ function generateParkingHTML(dayIndex) {
   // Generate HTML
   let html = '<div>';
   rows.forEach((row, index) => {
-    html += `<div class="parking-row"><strong>Row ${index + 1}:</strong>`;
+    html += `<div class="${isSmall ? 'small-parking-row' : 'parking-row'}">`;
     for (let i = 0; i < row.spaces; i++) {
       const car = (layout[index] || [])[i];
-      html += `<div class="parking-space">${car ? car.nickname : ''}</div>`;
+      html += `<div class="${isSmall ? 'small-parking-space' : 'parking-space'}">${car ? car.nickname : ''}</div>`;
     }
     html += '</div>';
   });
 
   if (unblockedParking.length > 0) {
-    html += '<div><strong>Unblocked Parking:</strong>';
+    html += '<div><strong>Unblocked:</strong>';
     unblockedParking.forEach(car => {
-      html += `<div class="parking-space unblocked">${car.nickname}</div>`;
+      html += `<div class="${isSmall ? 'small-parking-space unblocked' : 'parking-space unblocked'}">${car.nickname}</div>`;
     });
     html += '</div>';
   }
