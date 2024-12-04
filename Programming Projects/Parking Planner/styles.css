@@ -10,10 +10,6 @@ h1 {
   font-size: 46px;
 }
 
-button {
-  display: none;
-}
-
 .splash {
   position: absolute;
   top: 20%;
@@ -53,6 +49,10 @@ button {
   align-items: center;
   justify-content: space-around;
   gap: 20px;
+}
+
+#day-navigation {
+  display: none;
 }
 
 .parking-day {
