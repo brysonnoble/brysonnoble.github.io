@@ -3,7 +3,7 @@ const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Sat
 // Get the current day index
 function getCurrentDayIndex() {
   const today = new Date();
-  return today.getDay() === 0 ? 6 : today.getDay() - 1; // JavaScript `getDay()` returns 0 for Sunday, adjust to make Monday = 0.
+  return today.getDay() === 0 ? 6 : today.getDay() - 1; // Adjust so Monday = 0, Sunday = 6
 }
 
 // Generate rows based on user input
@@ -63,7 +63,27 @@ function displayParkingVisualization(currentDayIndex, cars, rows, unblockedSpace
   const visualization = document.getElementById('visualization');
   visualization.innerHTML = '';
 
-  // Get previous, current, and next day indices
+  // Add Previous and Next buttons
+  const controls = document.createElement('div');
+  controls.className = 'controls';
+  controls.innerHTML = `
+    <button id="prevDayButton">Previous</button>
+    <button id="nextDayButton">Next</button>
+  `;
+  visualization.appendChild(controls);
+
+  // Event listeners for buttons
+  document.getElementById('prevDayButton').addEventListener('click', () => {
+    const prevDayIndex = (currentDayIndex - 1 + daysOfWeek.length) % daysOfWeek.length;
+    displayParkingVisualization(prevDayIndex, cars, rows, unblockedSpaces);
+  });
+
+  document.getElementById('nextDayButton').addEventListener('click', () => {
+    const nextDayIndex = (currentDayIndex + 1) % daysOfWeek.length;
+    displayParkingVisualization(nextDayIndex, cars, rows, unblockedSpaces);
+  });
+
+  // Create sections for Previous, Current, and Next days
   const prevDayIndex = (currentDayIndex - 1 + daysOfWeek.length) % daysOfWeek.length;
   const nextDayIndex = (currentDayIndex + 1) % daysOfWeek.length;
 
@@ -71,7 +91,6 @@ function displayParkingVisualization(currentDayIndex, cars, rows, unblockedSpace
     const dayDiv = document.createElement('div');
     dayDiv.className = `day-section ${sizeClass}`;
     dayDiv.innerHTML = `<h2>${daysOfWeek[dayIndex]}</h2>`;
-
     const layout = [];
     const unblockedParking = [];
     cars
@@ -125,7 +144,7 @@ function displayParkingVisualization(currentDayIndex, cars, rows, unblockedSpace
     return dayDiv;
   };
 
-  // Add previous, current, and next day sections
+  // Add sections to visualization
   visualization.appendChild(createDaySection(prevDayIndex, 'small'));
   visualization.appendChild(createDaySection(currentDayIndex, 'main'));
   visualization.appendChild(createDaySection(nextDayIndex, 'small'));
@@ -141,7 +160,7 @@ function convertTimeToMinutes(time) {
   return totalMinutes;
 }
 
-// On form submission, initialize visualization for the current day
+// Handle form submission and show visualization
 function processForm(event) {
   document.getElementById("form").style.display = "none";
   document.getElementById("visualization").style.display = "flex";
@@ -166,7 +185,7 @@ function processForm(event) {
     cars.push({ nickname, leaveTimes, index: i });
   }
 
-  // Get the current day index and display the visualization
+  // Get current day index
   const currentDayIndex = getCurrentDayIndex();
   displayParkingVisualization(currentDayIndex, cars, rows, unblockedSpaces);
 }
