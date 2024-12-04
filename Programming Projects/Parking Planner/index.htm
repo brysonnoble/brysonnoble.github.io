@@ -1,39 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daily Parking Visualization</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="parking.js"></script>
-  <script src="display.js"></script>
-</head>
-<body>
-  <form onsubmit="processForm(event)">
-    <h2>Parking Form</h2>
-    <label>How many rows of parking?</label>
-    <input type="number" id="numRows" name="numRows" min="0" oninput="generateRows()"><br>
-
-    <div id="rowContainer"></div>
-
-    <label>Is there any unblocked parking?</label>
-    <input type="radio" name="unblocked" value="yes" onclick="toggleUnblockedParking()"> Yes
-    <input type="radio" name="unblocked" value="no" onclick="toggleUnblockedParking()"> No<br>
-
-    <div id="unblockedContainer" style="display:none;">
-      <label>How many spaces of unblocked parking?</label>
-      <input type="number" name="unblockedSpaces" min="0"><br>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Parking Visualization</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="parking.js"></script>
+    <script src="display.js"></script>
+  </head>
+  <body>
+    <div id="form">
+      <form onsubmit="processForm(event)">
+        <label>How many rows of parking?</label>
+        <input type="number" id="numRows" name="numRows" min="0" oninput="generateRows()"><br>
+    
+        <div id="rowContainer"></div>
+    
+        <label>Is there any unblocked parking?</label>
+        <input type="radio" name="unblocked" value="yes" onclick="toggleUnblockedParking()"> Yes
+        <input type="radio" name="unblocked" value="no" onclick="toggleUnblockedParking()"> No<br>
+    
+        <div id="unblockedContainer" style="display:none;">
+          <label>How many spaces of unblocked parking?</label>
+          <input type="number" name="unblockedSpaces" min="0"><br>
+        </div>
+    
+        <label>How many cars will be parked?</label>
+        <input type="number" id="numCars" name="numCars" min="0" oninput="generateCars()"><br>
+    
+        <div id="carContainer"></div>
+    
+        <button type="submit">Submit</button>
+      </form>
     </div>
-
-    <label>How many cars will be parked?</label>
-    <input type="number" id="numCars" name="numCars" min="0" oninput="generateCars()"><br>
-
-    <div id="carContainer"></div>
-
-    <button type="submit">Submit</button>
-  </form>
-
-  <h2>Parking Visualization</h2>
-  <div id="visualization"></div>
-</body>
+    <div id="visualization"></div>
+  </body>
 </html>
