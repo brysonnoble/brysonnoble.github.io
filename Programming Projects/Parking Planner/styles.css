@@ -17,10 +17,10 @@ h1 {
   background: linear-gradient(90deg, rgba(66,40,139,1) 0%, rgba(43,134,174,1) 50%, rgba(217,251,95,1) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: splash-animation 2s ease-in-out 1 forwards;
+  animation: splash-anim 2s ease-in-out 1 forwards;
 }
 
-@keyframes splash-animation {
+@keyframes splash-anim {
   50% {
     transform: translateY(0%);
     opacity: 1;
@@ -32,8 +32,16 @@ h1 {
 }
 
 #form {
-  opacity: 1;
-  transition: opacity 3s;
+  animation: form-anim 2s ease-in-out 1 forwards;
+}
+
+@keyframes form-anim {
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 #visualization {
