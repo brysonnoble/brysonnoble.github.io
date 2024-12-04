@@ -75,3 +75,26 @@ h1 {
 .car-label {
   font-size: 16px;
 }
+
+#day-view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.day-small {
+  width: 30%;
+  opacity: 0.5;
+  font-size: 14px;
+  text-align: center;
+}
+
+.day-large {
+  width: 40%;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 20px;
+}
+
