@@ -129,6 +129,10 @@ function displayParkingVisualization(currentDayIndex, cars, rows, unblockedSpace
   visualization.appendChild(createDaySection(prevDayIndex, 'small'));
   visualization.appendChild(createDaySection(currentDayIndex, 'main'));
   visualization.appendChild(createDaySection(nextDayIndex, 'small'));
+
+  // Show navigation buttons only when the visualization is displayed
+  document.getElementById('prevButton').style.display = 'inline-block';
+  document.getElementById('nextButton').style.display = 'inline-block';
 }
 
 // Convert time to minutes
