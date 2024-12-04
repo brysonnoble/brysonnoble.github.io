@@ -1,4 +1,4 @@
-#splash {
+.splash {
   position: absolute;
   top: 20%;
   width: 100%;
@@ -7,7 +7,6 @@
   background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: 1.5s fadeInUp;
 }
 
 @keyframes splash {
@@ -19,6 +18,10 @@
     transform: translateY(0%);
     opacity: 1;
   }
+}
+
+.splash-animation {
+  animation: 1.5s fadeInUp;
 }
 
 #form {
