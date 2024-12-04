@@ -1,20 +1,25 @@
+body {
+  font-family: Muli, sans-serif;
+  font-size: 16px;
+  color: white;
+  background: linear-gradient(164deg, rgba(32,28,105,1) 0%, rgba(9,9,121,1) 37%, rgba(2,116,139,1) 100%);
+}
+
+h1 {
+  font-family: "Space Mono", monospace;
+  font-size: 46px;
+}
+
 .splash {
   position: absolute;
   top: 20%;
   width: 100%;
   font-size: 500%;
   text-align: center;
-  background: linear-gradient(90deg, rgba(66,40,139,1) 0%, rgba(43,134,174,1) 50%, rgba(217,251,95,1) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: splash-animation 2s ease-in-out 1 forwards;
+  animation: splash-anim 2s ease-in-out 1 forwards;
 }
 
-@keyframes splash-animation {
-  0% {
-    transform: translateY(0%);
-    opacity: 1;
-  }
+@keyframes splash-anim {
   50% {
     transform: translateY(0%);
     opacity: 1;
@@ -26,12 +31,24 @@
 }
 
 #form {
-  opacity: 1;
-  transition: opacity 3s;
+  opacity: 0;
+  animation: form-anim 2s ease-in-out 1 forwards;
+}
+
+@keyframes form-anim {
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 #visualization {
-  display: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 20px;
 }
 
 .parking-day {
@@ -44,9 +61,10 @@
 }
 
 .parking-space {
-  width: 40px;
-  height: 40px;
-  border: 1px solid #000;
+  width: 100px;
+  height: 100px;
+  border: 1px solid white;
+  border-radius: 2px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,9 +72,98 @@
 }
 
 .unblocked {
-  border: 2px dashed red;
+  border: 2px dashed white;
 }
 
 .car-label {
+  font-size: 16px;
+}
+
+#day-view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.day-small {
+  width: 30%;
+  opacity: 0.5;
+  font-size: 14px;
+  text-align: center;
+}
+
+.day-large {
+  width: 40%;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 20px;
+}
+
+.small-parking {
+  margin-top: 10px;
   font-size: 12px;
+}
+
+.small-parking-row {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.small-parking-space {
+  width: 50px;
+  height: 50px;
+  border: 1px solid white;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 3px;
+  font-size: 10px;
+}
+
+.day-section {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.day-section.small h2 {
+  font-size: 14px;
+}
+
+.day-section.main h2 {
+  font-size: 24px;
+}
+
+.parking-row, .small-parking-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.parking-space, .small-parking-space {
+  width: 100px;
+  height: 100px;
+  border: 1px solid white;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  background: rgba(255, 255, 255, 0.1); /* Slight background for visibility */
+}
+
+.small-parking-space {
+  width: 50px;
+  height: 50px;
+  font-size: 10px;
+}
+
+.unblocked {
+  border: 2px dashed white;
 }
