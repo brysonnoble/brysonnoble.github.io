@@ -84,7 +84,7 @@ function processForm(event) {
   daysOfWeek.forEach((day, dayIndex) => {
     const dayDiv = document.createElement('div');
     dayDiv.className = 'parking-day';
-    dayDiv.innerHTML = `<h3>${day}</h3>`;
+    dayDiv.innerHTML = `<h2>${day}</h2>`;
     const layout = [];
     const unblockedParking = [];
     cars.sort((a, b) => b.leaveTimes[dayIndex] - a.leaveTimes[dayIndex] || a.index - b.index);
@@ -112,7 +112,6 @@ function processForm(event) {
     rows.forEach(row => {
       const rowDiv = document.createElement('div');
       rowDiv.className = 'parking-row';
-      rowDiv.innerHTML = `<strong>Row ${row.rowNum}:</strong> `;
       for (let i = 0; i < row.spaces; i++) {
         const spaceDiv = document.createElement('div');
         spaceDiv.className = 'parking-space';
@@ -126,7 +125,7 @@ function processForm(event) {
     // Render unblocked parking
     if (unblockedParking.length > 0) {
       const unblockedDiv = document.createElement('div');
-      unblockedDiv.innerHTML = '<strong>Unblocked Parking:</strong>';
+      unblockedDiv.innerHTML = 'Unblocked Parking:';
       unblockedParking.forEach(car => {
         const carDiv = document.createElement('div');
         carDiv.className = 'parking-space unblocked';
