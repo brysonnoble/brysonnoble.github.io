@@ -11,10 +11,6 @@
 }
 
 @keyframes splash-animation {
-  0% {
-    transform: translateY(0%);
-    opacity: 1;
-  }
   50% {
     transform: translateY(0%);
     opacity: 1;
