@@ -10,6 +10,10 @@ h1 {
   font-size: 46px;
 }
 
+input[type=button] {
+  display: none;
+}
+
 .splash {
   position: absolute;
   top: 20%;
