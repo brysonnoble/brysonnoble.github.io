@@ -54,6 +54,8 @@ function generateCars() {
 
 // Handle form submission and visualize parking
 function processForm(event) {
+  document.getElementById("form").style.display = "none";
+  document.getElementById("visualization").style.display = "block";
   event.preventDefault();
 
   const numRows = parseInt(document.getElementById('numRows').value) || 0;
