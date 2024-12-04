@@ -1,89 +1,43 @@
-const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+// Create global variables for the current day index and the parking data
+let currentDayIndex;
+let cars = [];
+let rows = [];
+let unblockedSpaces = 0;
 
-// Get the current day index
-function getCurrentDayIndex() {
-  const today = new Date();
-  return today.getDay() === 0 ? 6 : today.getDay() - 1; // Adjust so Monday = 0, Sunday = 6
+// Initialize the visualization container and buttons
+function initVisualization() {
+  const visualizationContainer = document.getElementById('visualization');
+  const prevButton = document.createElement('button');
+  const nextButton = document.createElement('button');
+
+  prevButton.id = 'prevButton';
+  nextButton.id = 'nextButton';
+
+  prevButton.textContent = 'Previous Day';
+  nextButton.textContent = 'Next Day';
+
+  prevButton.onclick = () => navigateDay(-1);
+  nextButton.onclick = () => navigateDay(1);
+
+  visualizationContainer.appendChild(prevButton);
+  visualizationContainer.appendChild(nextButton);
 }
 
-// Generate rows based on user input
-function generateRows() {
-  const rowContainer = document.getElementById('rowContainer');
-  rowContainer.innerHTML = '';
-  const numRows = parseInt(document.getElementById('numRows').value) || 0;
-
-  for (let i = 1; i <= numRows; i++) {
-    const rowDiv = document.createElement('div');
-    rowDiv.innerHTML = `
-      <label>How many spaces in row ${i}?</label>
-      <input type="number" name="spacesInRow${i}" min="0"><br>
-    `;
-    rowContainer.appendChild(rowDiv);
-  }
-}
-
-// Toggle unblocked parking question
-function toggleUnblockedParking() {
-  const isUnblocked = document.querySelector('input[name="unblocked"]:checked')?.value === 'yes';
-  const unblockedContainer = document.getElementById('unblockedContainer');
-  unblockedContainer.style.display = isUnblocked ? 'block' : 'none';
-}
-
-// Generate car fields dynamically
-function generateCars() {
-  const carContainer = document.getElementById('carContainer');
-  carContainer.innerHTML = '';
-  const numCars = parseInt(document.getElementById('numCars').value) || 0;
-  const times = Array.from({ length: 48 }, (_, i) => {
-    const hour = Math.floor(i / 2);
-    const minute = i % 2 === 0 ? '00' : '30';
-    const period = hour < 12 ? 'AM' : 'PM';
-    return `${hour % 12 === 0 ? 12 : hour % 12}:${minute} ${period}`;
-  });
-
-  for (let i = 1; i <= numCars; i++) {
-    const carDiv = document.createElement('div');
-    carDiv.innerHTML = `
-      <h4>Car ${i}</h4>
-      <label>Create a nickname for car ${i}:</label>
-      <input type="text" name="nicknameCar${i}"><br>
-      ${daysOfWeek.map(day => `
-        <label>What time does car ${i} have to leave on ${day}?</label>
-        <select name="car${i}_${day.toLowerCase()}">
-          ${times.map(time => `<option value="${time}">${time}</option>`).join('')}
-        </select><br>
-      `).join('')}
-    `;
-    carContainer.appendChild(carDiv);
-  }
+// Navigate to a different day
+function navigateDay(direction) {
+  currentDayIndex = (currentDayIndex + direction + daysOfWeek.length) % daysOfWeek.length;
+  displayParkingVisualization(currentDayIndex, cars, rows, unblockedSpaces);
 }
 
 // Display parking layout for the current day and adjacent days
 function displayParkingVisualization(currentDayIndex, cars, rows, unblockedSpaces) {
   const visualization = document.getElementById('visualization');
-  visualization.innerHTML = '';
 
-  // Add Previous and Next buttons
-  const controls = document.createElement('div');
-  controls.className = 'controls';
-  controls.innerHTML = `
-    <button id="prevDayButton">Previous</button>
-    <button id="nextDayButton">Next</button>
-  `;
-  visualization.appendChild(controls);
+  // Remove all previous parking layouts
+  const existingLayouts = visualization.querySelectorAll('.day-section');
+  existingLayouts.forEach(layout => layout.remove());
 
-  // Event listeners for buttons
-  document.getElementById('prevDayButton').addEventListener('click', () => {
-    const prevDayIndex = (currentDayIndex - 1 + daysOfWeek.length) % daysOfWeek.length;
-    displayParkingVisualization(prevDayIndex, cars, rows, unblockedSpaces);
-  });
-
-  document.getElementById('nextDayButton').addEventListener('click', () => {
-    const nextDayIndex = (currentDayIndex + 1) % daysOfWeek.length;
-    displayParkingVisualization(nextDayIndex, cars, rows, unblockedSpaces);
-  });
-
-  // Create sections for Previous, Current, and Next days
+  // Get previous, current, and next day indices
   const prevDayIndex = (currentDayIndex - 1 + daysOfWeek.length) % daysOfWeek.length;
   const nextDayIndex = (currentDayIndex + 1) % daysOfWeek.length;
 
@@ -91,6 +45,7 @@ function displayParkingVisualization(currentDayIndex, cars, rows, unblockedSpace
     const dayDiv = document.createElement('div');
     dayDiv.className = `day-section ${sizeClass}`;
     dayDiv.innerHTML = `<h2>${daysOfWeek[dayIndex]}</h2>`;
+
     const layout = [];
     const unblockedParking = [];
     cars
@@ -144,10 +99,43 @@ function displayParkingVisualization(currentDayIndex, cars, rows, unblockedSpace
     return dayDiv;
   };
 
-  // Add sections to visualization
+  // Add previous, current, and next day sections
   visualization.appendChild(createDaySection(prevDayIndex, 'small'));
   visualization.appendChild(createDaySection(currentDayIndex, 'main'));
   visualization.appendChild(createDaySection(nextDayIndex, 'small'));
+}
+
+// On form submission, initialize visualization for the current day
+function processForm(event) {
+  event.preventDefault();
+
+  // Hide the form and show the visualization container
+  document.getElementById('form').style.display = 'none';
+  document.getElementById('visualization').style.display = 'flex';
+
+  // Get user inputs
+  const numRows = parseInt(document.getElementById('numRows').value) || 0;
+  const numCars = parseInt(document.getElementById('numCars').value) || 0;
+  const unblockedAllowed = document.querySelector('input[name="unblocked"]:checked')?.value === 'yes';
+  unblockedSpaces = unblockedAllowed ? parseInt(document.querySelector('[name="unblockedSpaces"]').value) || 0 : 0;
+
+  rows = [];
+  for (let i = 1; i <= numRows; i++) {
+    rows.push({ rowNum: i, spaces: parseInt(document.querySelector(`[name="spacesInRow${i}"]`)?.value) || 0 });
+  }
+
+  cars = [];
+  for (let i = 1; i <= numCars; i++) {
+    const nickname = document.querySelector(`[name="nicknameCar${i}"]`)?.value || `Car ${i}`;
+    const leaveTimes = daysOfWeek.map(day =>
+      document.querySelector(`[name="car${i}_${day.toLowerCase()}"]`)?.value
+    ).map(convertTimeToMinutes);
+    cars.push({ nickname, leaveTimes, index: i });
+  }
+
+  // Initialize current day and display
+  currentDayIndex = getCurrentDayIndex();
+  displayParkingVisualization(currentDayIndex, cars, rows, unblockedSpaces);
 }
 
 // Convert time to minutes
@@ -160,32 +148,5 @@ function convertTimeToMinutes(time) {
   return totalMinutes;
 }
 
-// Handle form submission and show visualization
-function processForm(event) {
-  document.getElementById("form").style.display = "none";
-  document.getElementById("visualization").style.display = "flex";
-  event.preventDefault();
-
-  const numRows = parseInt(document.getElementById('numRows').value) || 0;
-  const numCars = parseInt(document.getElementById('numCars').value) || 0;
-  const unblockedAllowed = document.querySelector('input[name="unblocked"]:checked')?.value === 'yes';
-  const unblockedSpaces = unblockedAllowed ? parseInt(document.querySelector('[name="unblockedSpaces"]').value) || 0 : 0;
-
-  const rows = [];
-  for (let i = 1; i <= numRows; i++) {
-    rows.push({ rowNum: i, spaces: parseInt(document.querySelector(`[name="spacesInRow${i}"]`)?.value) || 0 });
-  }
-
-  const cars = [];
-  for (let i = 1; i <= numCars; i++) {
-    const nickname = document.querySelector(`[name="nicknameCar${i}"]`)?.value || `Car ${i}`;
-    const leaveTimes = daysOfWeek.map(day =>
-      document.querySelector(`[name="car${i}_${day.toLowerCase()}"]`)?.value
-    ).map(convertTimeToMinutes);
-    cars.push({ nickname, leaveTimes, index: i });
-  }
-
-  // Get current day index
-  const currentDayIndex = getCurrentDayIndex();
-  displayParkingVisualization(currentDayIndex, cars, rows, unblockedSpaces);
-}
+// Initialize buttons when the script loads
+document.addEventListener('DOMContentLoaded', initVisualization);
