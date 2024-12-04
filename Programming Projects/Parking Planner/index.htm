@@ -34,6 +34,16 @@
         <button type="submit">Submit</button>
       </form>
     </div>
-    <div id="visualization"></div>
+    <div id="visualization">
+      <div id="day-navigation">
+        <button onclick="navigateDay(-1)">Previous</button>
+        <button onclick="navigateDay(1)">Next</button>
+      </div>
+      <div id="day-view">
+        <div id="previous-day" class="day-small"></div>
+        <div id="current-day" class="day-large"></div>
+        <div id="next-day" class="day-small"></div>
+      </div>
+    </div>
   </body>
 </html>
