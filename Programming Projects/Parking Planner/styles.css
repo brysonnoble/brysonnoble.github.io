@@ -45,7 +45,10 @@ h1 {
 }
 
 #visualization {
-  display: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 20px;
 }
 
 .parking-day {
@@ -120,8 +123,8 @@ h1 {
   font-size: 10px;
 }
 
-/* Center-align the parking layouts */
 .day-section {
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -129,14 +132,20 @@ h1 {
   margin-bottom: 20px;
 }
 
-/* Center the parking rows within each day */
+.day-section.small h2 {
+  font-size: 14px;
+}
+
+.day-section.main h2 {
+  font-size: 24px;
+}
+
 .parking-row, .small-parking-row {
   display: flex;
   justify-content: center;
   margin-bottom: 10px;
 }
 
-/* Space styling */
 .parking-space, .small-parking-space {
   width: 100px;
   height: 100px;
