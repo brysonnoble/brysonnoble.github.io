@@ -45,10 +45,7 @@ h1 {
 }
 
 #visualization {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  gap: 20px;
+  display: none;
 }
 
 .parking-day {
@@ -99,71 +96,4 @@ h1 {
   font-weight: bold;
   text-align: center;
   margin: 0 20px;
-}
-
-.small-parking {
-  margin-top: 10px;
-  font-size: 12px;
-}
-
-.small-parking-row {
-  display: flex;
-  margin-bottom: 5px;
-}
-
-.small-parking-space {
-  width: 50px;
-  height: 50px;
-  border: 1px solid white;
-  border-radius: 2px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 3px;
-  font-size: 10px;
-}
-
-.day-section {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.day-section.small h2 {
-  font-size: 14px;
-}
-
-.day-section.main h2 {
-  font-size: 24px;
-}
-
-.parking-row, .small-parking-row {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 10px;
-}
-
-.parking-space, .small-parking-space {
-  width: 100px;
-  height: 100px;
-  border: 1px solid white;
-  border-radius: 2px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 5px;
-  background: rgba(255, 255, 255, 0.1); /* Slight background for visibility */
-}
-
-.small-parking-space {
-  width: 50px;
-  height: 50px;
-  font-size: 10px;
-}
-
-.unblocked {
-  border: 2px dashed white;
 }
