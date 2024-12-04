@@ -1,5 +1,6 @@
 #form {
-  
+  opacity: 1;
+  transition: opacity 3s;
 }
 #visualization {
   display: none;
