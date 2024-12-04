@@ -98,3 +98,24 @@ h1 {
   margin: 0 20px;
 }
 
+.small-parking {
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.small-parking-row {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.small-parking-space {
+  width: 50px;
+  height: 50px;
+  border: 1px solid white;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 3px;
+  font-size: 10px;
+}
