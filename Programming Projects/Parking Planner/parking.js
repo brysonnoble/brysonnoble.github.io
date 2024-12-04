@@ -1,38 +1,126 @@
 const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-let currentDayIndex = 0; // Start at the first day (Monday)
+let currentDayIndex = 0; // Start at Monday
+let rows = [];
+let cars = [];
+let unblockedSpaces = 0;
 
-// Function to navigate between days
-function navigateDay(offset) {
-  currentDayIndex = (currentDayIndex + offset + daysOfWeek.length) % daysOfWeek.length; // Loop around
+// Generate rows based on user input
+function generateRows() {
+  const rowContainer = document.getElementById('rowContainer');
+  rowContainer.innerHTML = '';
+  const numRows = parseInt(document.getElementById('numRows').value) || 0;
+
+  rows = [];
+  for (let i = 1; i <= numRows; i++) {
+    rows.push({ rowNum: i, spaces: 0 }); // Reset spaces for rows
+    const rowDiv = document.createElement('div');
+    rowDiv.innerHTML = `
+      <label>How many spaces in row ${i}?</label>
+      <input type="number" name="spacesInRow${i}" min="0" onchange="updateRowSpaces(${i}, this.value)"><br>
+    `;
+    rowContainer.appendChild(rowDiv);
+  }
+}
+
+// Update the spaces for a specific row
+function updateRowSpaces(rowNum, value) {
+  const index = rows.findIndex(row => row.rowNum === rowNum);
+  if (index >= 0) {
+    rows[index].spaces = parseInt(value) || 0;
+  }
+}
+
+// Toggle unblocked parking question
+function toggleUnblockedParking() {
+  const isUnblocked = document.querySelector('input[name="unblocked"]:checked')?.value === 'yes';
+  const unblockedContainer = document.getElementById('unblockedContainer');
+  unblockedContainer.style.display = isUnblocked ? 'block' : 'none';
+}
+
+// Generate car fields dynamically
+function generateCars() {
+  const carContainer = document.getElementById('carContainer');
+  carContainer.innerHTML = '';
+  const numCars = parseInt(document.getElementById('numCars').value) || 0;
+
+  cars = [];
+  for (let i = 1; i <= numCars; i++) {
+    cars.push({ index: i, nickname: `Car ${i}`, leaveTimes: Array(7).fill(0) }); // Reset cars
+    const carDiv = document.createElement('div');
+    carDiv.innerHTML = `
+      <h4>Car ${i}</h4>
+      <label>Create a nickname for car ${i}:</label>
+      <input type="text" name="nicknameCar${i}" oninput="updateCarNickname(${i}, this.value)"><br>
+      ${daysOfWeek.map(day => `
+        <label>What time does car ${i} have to leave on ${day}?</label>
+        <input type="time" name="car${i}_${day.toLowerCase()}" onchange="updateCarLeaveTime(${i}, '${day}', this.value)"><br>
+      `).join('')}
+    `;
+    carContainer.appendChild(carDiv);
+  }
+}
+
+// Update car nickname
+function updateCarNickname(carIndex, value) {
+  const car = cars.find(car => car.index === carIndex);
+  if (car) {
+    car.nickname = value || `Car ${carIndex}`;
+  }
+}
+
+// Update car leave time
+function updateCarLeaveTime(carIndex, day, time) {
+  const car = cars.find(car => car.index === carIndex);
+  if (car) {
+    const dayIndex = daysOfWeek.indexOf(day);
+    car.leaveTimes[dayIndex] = convertTimeToMinutes(time);
+  }
+}
+
+// Handle form submission and initialize visualization
+function processForm(event) {
+  event.preventDefault();
+
+  // Retrieve unblocked parking spaces
+  const unblockedAllowed = document.querySelector('input[name="unblocked"]:checked')?.value === 'yes';
+  unblockedSpaces = unblockedAllowed ? parseInt(document.querySelector('[name="unblockedSpaces"]').value) || 0 : 0;
+
+  // Hide form and display visualization
+  document.getElementById("form").style.display = "none";
+  document.getElementById("visualization").style.display = "block";
+
+  // Initialize day visualization
   updateDayView();
 }
 
-// Function to update the view with the current, previous, and next days
+// Navigate between days
+function navigateDay(offset) {
+  currentDayIndex = (currentDayIndex + offset + daysOfWeek.length) % daysOfWeek.length;
+  updateDayView();
+}
+
+// Update the day view
 function updateDayView() {
   const previousIndex = (currentDayIndex - 1 + daysOfWeek.length) % daysOfWeek.length;
   const nextIndex = (currentDayIndex + 1) % daysOfWeek.length;
 
-  const previousDayContainer = document.getElementById('previous-day');
-  const currentDayContainer = document.getElementById('current-day');
-  const nextDayContainer = document.getElementById('next-day');
+  document.getElementById('previous-day').innerHTML = `<h3>${daysOfWeek[previousIndex]}</h3>`;
+  document.getElementById('current-day').innerHTML = `<h2>${daysOfWeek[currentDayIndex]}</h2>`;
+  document.getElementById('next-day').innerHTML = `<h3>${daysOfWeek[nextIndex]}</h3>`;
 
-  previousDayContainer.innerHTML = `<h3>${daysOfWeek[previousIndex]}</h3>`;
-  currentDayContainer.innerHTML = `<h2>${daysOfWeek[currentDayIndex]}</h2>`;
-  nextDayContainer.innerHTML = `<h3>${daysOfWeek[nextIndex]}</h3>`;
-
-  // Clear existing visualization and render new one for the current day
-  currentDayContainer.innerHTML += generateParkingHTML(currentDayIndex);
+  // Generate parking visualization for the current day
+  document.getElementById('current-day').innerHTML += generateParkingHTML(currentDayIndex);
 }
 
-// Function to generate the parking layout for a specific day
+// Generate parking layout for a specific day
 function generateParkingHTML(dayIndex) {
-  const layout = []; // Array for parking layout
-  const unblockedParking = []; // Array for unblocked parking
+  const layout = [];
+  const unblockedParking = [];
 
-  // Sort cars by leave time for the current day
+  // Sort cars by leave time
   cars.sort((a, b) => b.leaveTimes[dayIndex] - a.leaveTimes[dayIndex] || a.index - b.index);
 
-  // Organize cars into rows
+  // Place cars into rows and unblocked parking
   cars.forEach(car => {
     let parked = false;
     for (let row of rows) {
@@ -52,7 +140,7 @@ function generateParkingHTML(dayIndex) {
     }
   });
 
-  // Build HTML for rows and unblocked parking
+  // Generate HTML
   let html = '<div>';
   rows.forEach((row, index) => {
     html += `<div class="parking-row"><strong>Row ${index + 1}:</strong>`;
@@ -63,7 +151,6 @@ function generateParkingHTML(dayIndex) {
     html += '</div>';
   });
 
-  // Add unblocked parking visualization
   if (unblockedParking.length > 0) {
     html += '<div><strong>Unblocked Parking:</strong>';
     unblockedParking.forEach(car => {
@@ -76,15 +163,8 @@ function generateParkingHTML(dayIndex) {
   return html;
 }
 
-// Helper function to convert a time string to minutes
+// Convert time string to minutes
 function convertTimeToMinutes(time) {
-  const [hour, rest] = time.split(':');
-  const [minutes, period] = rest.split(' ');
-  let totalMinutes = parseInt(hour) * 60 + parseInt(minutes);
-  if (period === 'PM' && hour !== '12') totalMinutes += 720;
-  if (period === 'AM' && hour === '12') totalMinutes -= 720;
-  return totalMinutes;
+  const [hour, minute] = time.split(':').map(Number);
+  return hour * 60 + minute;
 }
-
-// Initialize the day view on page load
-updateDayView();
