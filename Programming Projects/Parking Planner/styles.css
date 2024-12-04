@@ -31,7 +31,7 @@ h1 {
 }
 
 #form {
-  animation: form-anim 2s ease-in-out 1 forwards;
+  animation: form-anim 2s ease-in-out 0 forwards;
 }
 
 @keyframes form-anim {
