@@ -1,6 +1,8 @@
 body {
   font-family: Muli, sans-serif;
   font-size: 16px;
+  color: white;
+  background: linear-gradient(164deg, rgba(32,28,105,1) 0%, rgba(9,9,121,1) 37%, rgba(2,116,139,1) 100%);
 }
 
 h1 {
@@ -14,9 +16,6 @@ h1 {
   width: 100%;
   font-size: 500%;
   text-align: center;
-  background: linear-gradient(90deg, rgba(66,40,139,1) 0%, rgba(43,134,174,1) 50%, rgba(217,251,95,1) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   animation: splash-anim 2s ease-in-out 1 forwards;
 }
 
