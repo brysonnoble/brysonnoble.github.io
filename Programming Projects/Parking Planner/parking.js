@@ -119,6 +119,7 @@ function updateDayView() {
 
 // Modified generateParkingHTML to handle both full-size and small versions
 function generateParkingHTML(dayIndex, isSmall = false) {
+  document.getElementById("day-navigation").style.display = "inline-block";
   const layout = [];
   const unblockedParking = [];
 
