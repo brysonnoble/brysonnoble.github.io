@@ -1,0 +1,65 @@
+/* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+header {
+  background-color: #002D62; /* Chi Phi's blue color */
+  color: #FFD700; /* Chi Phi's gold color */
+  text-align: center;
+  padding: 1rem;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+header p {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+main {
+  padding: 1rem;
+}
+
+h2 {
+  text-align: center;
+  color: #002D62;
+}
+
+.event-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.event {
+  border: 2px solid #FFD700;
+  border-radius: 8px;
+  padding: 1rem;
+  background: #FFF;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.event h3 {
+  margin-top: 0;
+  color: #002D62;
+}
+
+.event p {
+  margin: 0.5rem 0;
+}
+
+footer {
+  text-align: center;
+  background: #002D62;
+  color: #FFD700;
+  padding: 1rem;
+  margin-top: 1rem;
+}
