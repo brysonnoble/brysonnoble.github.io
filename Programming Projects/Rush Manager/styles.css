@@ -39,12 +39,22 @@ h2 {
   margin-top: 1rem;
 }
 
+/* Add transition for event expansion */
 .event {
   border: 2px solid #FFD700;
   border-radius: 8px;
   padding: 1rem;
   background: #FFF;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease; /* Smooth animation */
+  cursor: pointer;
+  overflow: hidden;
+  max-height: 80px; /* Default height for collapsed state */
+}
+
+.event.expanded {
+  max-height: 300px; /* Height for expanded state */
+  padding: 1.5rem;
 }
 
 .event h3 {
@@ -54,6 +64,15 @@ h2 {
 
 .event p {
   margin: 0.5rem 0;
+}
+
+.event .description {
+  display: none; /* Initially hidden */
+  margin-top: 1rem;
+}
+
+.event.expanded .description {
+  display: block; /* Displayed when expanded */
 }
 
 footer {
