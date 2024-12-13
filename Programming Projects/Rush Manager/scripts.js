@@ -1,25 +1,59 @@
-// Event Data
 const events = [
-  { 
-    title: "Welcome Back BBQ", 
-    date: "2024-12-15", 
-    time: "3:00 PM", 
-    location: "Chi Phi House, Main Lawn",
-    description: "Join us for a fun BBQ to kick off the semester! Meet the brothers and enjoy great food." 
+  {
+    title: "Meet the Greeks",
+    date: "2025-01-13",
+    time: "10:00 AM - 2:00 PM",
+    location: "Crawford Green",
+    description: "Connect with all fraternities and learn more about Greek life on campus."
   },
-  { 
-    title: "Charity Fun Run", 
-    date: "2025-01-10", 
-    time: "8:00 AM", 
-    location: "Downtown Park",
-    description: "Participate in our charity fun run to raise funds for local communities. Bring your friends!" 
+  {
+    title: "Lawn Games",
+    date: "2025-01-13",
+    time: "4:00 PM - 5:30 PM",
+    location: "Crawford Green",
+    description: "Enjoy lawn games with the Chi Phi brothers."
   },
-  { 
-    title: "Alumni Networking Night", 
-    date: "2025-02-05", 
-    time: "6:00 PM", 
-    location: "University Hall, Room 203",
-    description: "A special night to connect with Chi Phi alumni and explore career opportunities." 
+  {
+    title: "Games at the Ratskeller",
+    date: "2025-01-13",
+    time: "6:00 PM - 7:30 PM",
+    location: "The Ratskeller",
+    description: "Wrap up Monday with exciting games and free grub at the Ratskeller."
+  },
+  {
+    title: "Casino Night",
+    date: "2025-01-14",
+    time: "6:00 PM - 8:30 PM",
+    location: "Chi Phi Manor",
+    description: "Test your luck at our Casino Night, hosted at the Chi Phi Manor."
+  },
+  {
+    title: "Basketball in Harris Courts",
+    date: "2025-01-15",
+    time: "4:30 PM - 5:30 PM",
+    location: "Harris Courts",
+    description: "Join us for a friendly game of basketball with the brothers."
+  },
+  {
+    title: "Glizzys with the Boys",
+    date: "2025-01-15",
+    time: "6:00 PM - 7:30 PM",
+    location: "Chi Phi Manor",
+    description: "Relax and grab some glizzys with the Chi Phi brothers."
+  },
+  {
+    title: "House Tours + BBQ + Highlander Games",
+    date: "2025-01-16",
+    time: "5:00 PM - 7:00 PM",
+    location: "Chi Phi Manor",
+    description: "Take a tour of our 3.5 beautiful acres and enjoy BBQ while participating in fun Highlander games."
+  },
+  {
+    title: "Invite-Only Event",
+    date: "2025-01-17",
+    time: "4:00 PM - 6:00 PM",
+    location: "Spessard Holland South Beach Park",
+    description: "INVITE ONLY at Spessard Holland South Beach Park."
   }
 ];
 
