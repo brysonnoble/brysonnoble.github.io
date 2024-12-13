@@ -74,6 +74,60 @@ h2 {
   display: block; /* Displayed when expanded */
 }
 
+.instagram-section {
+  margin-top: 2rem;
+  text-align: center;
+  background-color: #F5F5F5;
+  padding: 2rem;
+  border: 2px solid #FFD700;
+  border-radius: 8px;
+}
+
+.instagram-section h2 {
+  color: #002D62;
+  margin-bottom: 1rem;
+}
+
+.instagram-embed iframe {
+  border: none;
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mission-vision-section {
+  margin-top: 2rem;
+  padding: 2rem;
+  background-color: #F5F5F5;
+  text-align: center;
+  border: 2px solid #FFD700;
+  border-radius: 8px;
+}
+
+.mission-vision-section h2 {
+  color: #002D62;
+  margin-bottom: 1.5rem;
+}
+
+.statements {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.statement h3 {
+  color: #002D62;
+  margin-bottom: 0.5rem;
+}
+
+.statement p {
+  color: #444444;
+  max-width: 600px;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
 footer {
   text-align: center;
   background: #002D62;
