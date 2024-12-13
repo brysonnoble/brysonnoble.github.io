@@ -36,6 +36,15 @@ h2 {
   color: #002D62;
 }
 
+section {
+  margin-top: 2rem;
+  text-align: center;
+  background-color: #F5F5F5;
+  padding: 2rem;
+  border: 2px solid #FFD700;
+  border-radius: 8px;
+}
+
 .event-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -78,15 +87,6 @@ h2 {
   display: block; /* Displayed when expanded */
 }
 
-.instagram-section {
-  margin-top: 2rem;
-  text-align: center;
-  background-color: #F5F5F5;
-  padding: 2rem;
-  border: 2px solid #FFD700;
-  border-radius: 8px;
-}
-
 .instagram-section h2 {
   color: #002D62;
   margin-bottom: 1rem;
@@ -97,15 +97,6 @@ h2 {
   max-width: 100%;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.mission-vision-section {
-  margin-top: 2rem;
-  padding: 2rem;
-  background-color: #F5F5F5;
-  text-align: center;
-  border: 2px solid #FFD700;
-  border-radius: 8px;
 }
 
 .mission-vision-section h2 {
@@ -130,38 +121,6 @@ h2 {
   max-width: 600px;
   line-height: 1.6;
   font-size: 1rem;
-}
-
-/* General section styles */
-section {
-  padding: 2rem 1rem;
-  margin: 2rem 0;
-  text-align: center;
-  border: none;
-  background: none;
-}
-
-/* Separator line styles */
-section + section {
-  border-top: 2px solid #A31F34; /* Chi Phi Scarlet */
-  padding-top: 2rem;
-}
-
-/* Title styles */
-section h2 {
-  font-size: 1.8rem;
-  color: #002D62; /* Chi Phi Blue */
-  margin-bottom: 1rem;
-}
-
-/* Paragraph or content text styles */
-section p,
-section h3 {
-  color: #444444;
-  font-size: 1rem;
-  line-height: 1.6;
-  margin: 0 auto;
-  max-width: 800px; /* Ensures readable width */
 }
 
 footer {
