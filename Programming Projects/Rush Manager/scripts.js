@@ -80,3 +80,27 @@ document.addEventListener('DOMContentLoaded', () => {
     eventList.appendChild(eventDiv);
   });
 });
+
+// Load gallery images dynamically
+document.addEventListener('DOMContentLoaded', () => {
+  const gallery = document.getElementById('gallery');
+
+  // Image paths
+  const imagePaths = [
+    'Images/image1.jpg',
+    'Images/image2.jpg',
+    'Images/image3.jpg',
+    'Images/image4.jpg',
+    'Images/image5.jpg'
+  ];
+
+  imagePaths.forEach(path => {
+    const img = document.createElement('img');
+    img.src = path;
+    img.alt = 'Gallery Image';
+    img.addEventListener('click', () => {
+      img.classList.toggle('enlarged'); // Toggle enlargement on click
+    });
+    gallery.appendChild(img);
+  });
+});
