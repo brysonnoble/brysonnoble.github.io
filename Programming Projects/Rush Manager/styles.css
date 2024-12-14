@@ -87,12 +87,37 @@ section {
   display: block; /* Displayed when expanded */
 }
 
-.gallery-section h2 {
+/* Gallery Layout */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-items: center;
+}
+
+.gallery img {
+  width: 100px; /* Thumbnail size */
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.gallery img.enlarged {
+  transform: scale(2); /* Double size on click */
+  z-index: 10;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.content-section h2 {
   color: #002D62;
   margin-bottom: 1rem;
 }
 
-.gallery-section h3 {
+.content-section h3 {
   color: #002D62;
   margin-bottom: 0.5rem;
 }
