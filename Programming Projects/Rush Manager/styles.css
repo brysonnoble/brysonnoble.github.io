@@ -112,6 +112,11 @@ section {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
+.content-section iframe {
+  width: 90vw;
+  height: 160vw;
+}
+
 .content-section h2 {
   color: #002D62;
   margin-bottom: 1rem;
