@@ -87,16 +87,14 @@ section {
   display: block; /* Displayed when expanded */
 }
 
-.instagram-section h2 {
+.gallery-section h2 {
   color: #002D62;
   margin-bottom: 1rem;
 }
 
-.instagram-embed iframe {
-  border: none;
-  max-width: 100%;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.gallery-section h3 {
+  color: #002D62;
+  margin-bottom: 0.5rem;
 }
 
 .mission-vision-section h2 {
