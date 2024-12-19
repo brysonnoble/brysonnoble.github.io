@@ -9,83 +9,83 @@ function versionCheck () {
   if (charCount <= 17) {
     alert(generateCharCount(1, charCount));
   } else if (charCount <= 32) {
-    alert('version 2');
+    alert(generateCharCount(2, charCount));
   } else if (charCount <= 53) {
-    alert('version 3');
+    alert(generateCharCount(3, charCount));
   } else if (charCount <= 78) {
-    alert('version 4');
+    alert(generateCharCount(4, charCount));
   } else if (charCount <= 106) {
-    alert('version 5');
+    alert(generateCharCount(5, charCount));
   } else if (charCount <= 134) {
-    alert('version 6');
+    alert(generateCharCount(6, charCount));
   } else if (charCount <= 154) {
-    alert('version 7');
+    alert(generateCharCount(7, charCount));
   } else if (charCount <= 192) {
-    alert('version 8');
+    alert(generateCharCount(8, charCount));
   } else if (charCount <= 230) {
-    alert('version 9');
+    alert(generateCharCount(9, charCount));
   } else if (charCount <= 271) {
-    alert('version 10');
+    alert(generateCharCount(10, charCount));
   } else if (charCount <= 321) {
-    alert('version 11');
+    alert(generateCharCount(11, charCount));
   } else if (charCount <= 367) {
-    alert('version 12');
+    alert(generateCharCount(12, charCount));
   } else if (charCount <= 425) {
-    alert('version 13');
+    alert(generateCharCount(13, charCount));
   } else if (charCount <= 458) {
-    alert('version 14');
+    alert(generateCharCount(14, charCount));
   } else if (charCount <= 520) {
-    alert('version 15');
+    alert(generateCharCount(15, charCount));
   } else if (charCount <= 586) {
-    alert('version 16');
+    alert(generateCharCount(16, charCount));
   } else if (charCount <= 644) {
-    alert('version 17');
+    alert(generateCharCount(17, charCount));
   } else if (charCount <= 718) {
-    alert('version 18');
+    alert(generateCharCount(18, charCount));
   } else if (charCount <= 792) {
-    alert('version 19');
+    alert(generateCharCount(19, charCount));
   } else if (charCount <= 858) {
-    alert('version 20');
+    alert(generateCharCount(20, charCount));
   } else if (charCount <= 929) {
-    alert('version 21');
+    alert(generateCharCount(21, charCount));
   } else if (charCount <= 1003) {
-    alert('version 22');
+    alert(generateCharCount(22, charCount));
   } else if (charCount <= 1091) {
-    alert('version 23');
+    alert(generateCharCount(23, charCount));
   } else if (charCount <= 1171) {
-    alert('version 24');
+    alert(generateCharCount(24, charCount));
   } else if (charCount <= 1273) {
-    alert('version 25');
+    alert(generateCharCount(25, charCount));
   } else if (charCount <= 1367) {
-    alert('version 26');
+    alert(generateCharCount(26, charCount));
   } else if (charCount <= 1465) {
-    alert('version 27');
+    alert(generateCharCount(27, charCount));
   } else if (charCount <= 1528) {
-    alert('version 28');
+    alert(generateCharCount(28, charCount));
   } else if (charCount <= 1628) {
-    alert('version 29');
+    alert(generateCharCount(29, charCount));
   } else if (charCount <= 1732) {
-    alert('version 30');
+    alert(generateCharCount(30, charCount));
   } else if (charCount <= 1840) {
-    alert('version 31');
+    alert(generateCharCount(31, charCount));
   } else if (charCount <= 1952) {
-    alert('version 32');
+    alert(generateCharCount(32, charCount));
   } else if (charCount <= 2068) {
-    alert('version 33');
+    alert(generateCharCount(33, charCount));
   } else if (charCount <= 2188) {
-    alert('version 34');
+    alert(generateCharCount(34, charCount));
   } else if (charCount <= 2303) {
-    alert('version 35');
+    alert(generateCharCount(35, charCount));
   } else if (charCount <= 2431) {
-    alert('version 36');
+    alert(generateCharCount(36, charCount));
   } else if (charCount <= 2563) {
-    alert('version 37');
+    alert(generateCharCount(37, charCount));
   } else if (charCount <= 2699) {
-    alert('version 38');
+    alert(generateCharCount(38, charCount));
   } else if (charCount <= 2809) {
-    alert('version 39');
+    alert(generateCharCount(39, charCount));
   } else if (charCount <= 2953) {
-    alert('version 40');
+    alert(generateCharCount(40, charCount));
   } else {
     alert('invalid number of characters');
   }
