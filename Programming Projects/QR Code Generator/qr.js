@@ -27,9 +27,9 @@ function versionCheck () {
   } else if (charCount <= 271) {
     document.getElementById("QRData").innerHTML = generateCharCount(10, charCount);
   } else if (charCount <= 321) {
-    document.getElementById("QRData").innerHTML = document.getElementById("QRData").innerHTML = generateCharCount(11, charCount);
+    document.getElementById("QRData").innerHTML = generateCharCount(11, charCount);
   } else if (charCount <= 367) {
-    document.getElementById("QRData").innerHTML = document.getElementById("QRData").innerHTML = generateCharCount(12, charCount);
+    document.getElementById("QRData").innerHTML = generateCharCount(12, charCount);
   } else if (charCount <= 425) {
     document.getElementById("QRData").innerHTML = generateCharCount(13, charCount);
   } else if (charCount <= 458) {
