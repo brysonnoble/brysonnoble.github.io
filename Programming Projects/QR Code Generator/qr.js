@@ -2,9 +2,15 @@
 // Character Count: Versions 1-9: 8 bits, Versions 10-40: 16 bits
 // Encoded Data: convert to ISO 8859-1, then to binary
 
+function dynamic () {
+  const input = document.getElementById("QRString").value;
+  
+  versionCheck(input.length);
+  document.getElementById("QRData").innerHTML = encode(input);
+}
+
 // change between versions depending on character count
-function versionCheck () {
-  const charCount = document.getElementById("QRString").value.length;
+function versionCheck (charCount) {
   let version = 0;
   
   if (charCount <= 17) {
@@ -92,7 +98,6 @@ function versionCheck () {
   }
 
   document.getElementById("QRCharCount").innerHTML = generateCharCount(version, charCount);
-  document.getElementById("QRData").innerHTML = encode();
 }
 
 // generate binary character count
@@ -111,8 +116,7 @@ function pad (n, width, z) {
 }
 
 // convert input to binary
-function encode () {
-  const str = document.getElementById("QRString").value;
+function encode (str) {
   let output = "";
   for (let i = 0; i < str.length; i++) {
     const binaryChar = str[i].charCodeAt(0).toString(2);
