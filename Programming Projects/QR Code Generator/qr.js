@@ -4,5 +4,5 @@
 
 // switch to change between versions depending on character count
 function versionCheck () {
-  alert($("#QRString").val().length);
+  alert(document.getElementById("QRString").value);
 }
