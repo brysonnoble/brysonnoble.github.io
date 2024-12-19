@@ -5,7 +5,7 @@
 // change between versions depending on character count
 function versionCheck () {
   if (document.getElementById("QRString").value.length <= 17) {
-    alert('version 1');
+    alert(charCount(1));
   } else if (document.getElementById("QRString").value.length <= 32) {
     alert('version 2');
   } else if (document.getElementById("QRString").value.length <= 53) {
@@ -87,4 +87,9 @@ function versionCheck () {
   } else {
     alert('invalid number of characters');
   }
+}
+
+// generate binary character count
+function charCount (const version) {
+  return version;
 }
