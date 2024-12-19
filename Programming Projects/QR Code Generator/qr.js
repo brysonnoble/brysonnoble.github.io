@@ -115,7 +115,9 @@ function encode () {
   const str = document.getElementById("QRString").value;
   let output = "";
   for (let i = 0; i < str.length; i++) {
-      output += str[i].charCodeAt(0).toString(2) + " ";
+    const binaryChar = str[i].charCodeAt(0).toString(2);
+    output += pad(binaryChar, 8) + " ";
   }
-  return pad(output, 8);
+  return output.trim();
 }
+
