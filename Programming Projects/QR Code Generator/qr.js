@@ -93,5 +93,8 @@ function versionCheck () {
 
 // generate binary character count
 function generateCharCount (version, charCount) {
-  return version;
+  if (version > 9) {
+    return charCount.toString(2);
+  }
+  return charCount.toString(2);
 }
