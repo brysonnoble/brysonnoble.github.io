@@ -2,7 +2,8 @@
 Byte Mode: 0100
 Character Count: Versions 1-9: 8 bits, Versions 10-40: 16 bits
 Encoded Data: convert to ISO 8859-1, then to binary
-Size: (((V-1)*4)+21) x (((V-1)*4)+21)
+Required Bits: version max * 8
+Size: (((V-1)*4)+21)
 Finder Patterns: (0, 0) ([(((V-1)*4)+21) - 7], 0) (0,[(((V-1)*4)+21) - 7])
 */
 
