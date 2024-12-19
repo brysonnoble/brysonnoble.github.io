@@ -7,85 +7,85 @@ function versionCheck () {
   const charCount = document.getElementById("QRString").value.length;
   
   if (charCount <= 17) {
-    alert(generateCharCount(1, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(1, charCount);
   } else if (charCount <= 32) {
-    alert(generateCharCount(2, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(2, charCount);
   } else if (charCount <= 53) {
-    alert(generateCharCount(3, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(3, charCount);
   } else if (charCount <= 78) {
-    alert(generateCharCount(4, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(4, charCount);
   } else if (charCount <= 106) {
-    alert(generateCharCount(5, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(5, charCount);
   } else if (charCount <= 134) {
-    alert(generateCharCount(6, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(6, charCount);
   } else if (charCount <= 154) {
-    alert(generateCharCount(7, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(7, charCount);
   } else if (charCount <= 192) {
-    alert(generateCharCount(8, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(8, charCount);
   } else if (charCount <= 230) {
-    alert(generateCharCount(9, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(9, charCount);
   } else if (charCount <= 271) {
-    alert(generateCharCount(10, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(10, charCount);
   } else if (charCount <= 321) {
-    alert(generateCharCount(11, charCount));
+    document.getElementById("QRData").innerHTML = document.getElementById("QRData").innerHTML = generateCharCount(11, charCount);
   } else if (charCount <= 367) {
-    alert(generateCharCount(12, charCount));
+    document.getElementById("QRData").innerHTML = document.getElementById("QRData").innerHTML = generateCharCount(12, charCount);
   } else if (charCount <= 425) {
-    alert(generateCharCount(13, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(13, charCount);
   } else if (charCount <= 458) {
-    alert(generateCharCount(14, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(14, charCount);
   } else if (charCount <= 520) {
-    alert(generateCharCount(15, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(15, charCount);
   } else if (charCount <= 586) {
-    alert(generateCharCount(16, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(16, charCount);
   } else if (charCount <= 644) {
-    alert(generateCharCount(17, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(17, charCount);
   } else if (charCount <= 718) {
-    alert(generateCharCount(18, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(18, charCount);
   } else if (charCount <= 792) {
-    alert(generateCharCount(19, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(19, charCount);
   } else if (charCount <= 858) {
-    alert(generateCharCount(20, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(20, charCount);
   } else if (charCount <= 929) {
-    alert(generateCharCount(21, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(21, charCount);
   } else if (charCount <= 1003) {
-    alert(generateCharCount(22, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(22, charCount);
   } else if (charCount <= 1091) {
-    alert(generateCharCount(23, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(23, charCount);
   } else if (charCount <= 1171) {
-    alert(generateCharCount(24, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(24, charCount);
   } else if (charCount <= 1273) {
-    alert(generateCharCount(25, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(25, charCount);
   } else if (charCount <= 1367) {
-    alert(generateCharCount(26, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(26, charCount);
   } else if (charCount <= 1465) {
-    alert(generateCharCount(27, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(27, charCount);
   } else if (charCount <= 1528) {
-    alert(generateCharCount(28, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(28, charCount);
   } else if (charCount <= 1628) {
-    alert(generateCharCount(29, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(29, charCount);
   } else if (charCount <= 1732) {
-    alert(generateCharCount(30, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(30, charCount);
   } else if (charCount <= 1840) {
-    alert(generateCharCount(31, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(31, charCount);
   } else if (charCount <= 1952) {
-    alert(generateCharCount(32, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(32, charCount);
   } else if (charCount <= 2068) {
-    alert(generateCharCount(33, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(33, charCount);
   } else if (charCount <= 2188) {
-    alert(generateCharCount(34, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(34, charCount);
   } else if (charCount <= 2303) {
-    alert(generateCharCount(35, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(35, charCount);
   } else if (charCount <= 2431) {
-    alert(generateCharCount(36, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(36, charCount);
   } else if (charCount <= 2563) {
-    alert(generateCharCount(37, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(37, charCount);
   } else if (charCount <= 2699) {
-    alert(generateCharCount(38, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(38, charCount);
   } else if (charCount <= 2809) {
-    alert(generateCharCount(39, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(39, charCount);
   } else if (charCount <= 2953) {
-    alert(generateCharCount(40, charCount));
+    document.getElementById("QRData").innerHTML = generateCharCount(40, charCount);
   } else {
     alert('invalid number of characters');
   }
