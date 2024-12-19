@@ -141,7 +141,7 @@ function resize (V) {
 // calls functions to add all function patterns
 function functionPatterns (input, V) {
   finderPatterns(V);
-  (V >= 2) ? alignmentPatterns(V) : ;
+  V >= 2 && alignmentPatterns(V);
   timingPatterns(V);
 }
 
