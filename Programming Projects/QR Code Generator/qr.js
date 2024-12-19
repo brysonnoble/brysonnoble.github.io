@@ -94,7 +94,14 @@ function versionCheck () {
 // generate binary character count
 function generateCharCount (version, charCount) {
   if (version > 9) {
-    return charCount.toString(2);
+    return pad(charCount.toString(2), 16);
   }
-  return charCount.toString(2);
+  return pad(charCount.toString(2), 8);
+}
+
+// add leading zeros
+function pad(n, width, z) {
+  z = z || '0';
+  n = n + '';
+  return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
 }
