@@ -7,90 +7,91 @@ function versionCheck () {
   const charCount = document.getElementById("QRString").value.length;
   
   if (charCount <= 17) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(1, charCount);
+    const version = 1;
   } else if (charCount <= 32) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(2, charCount);
+    const version = 2;
   } else if (charCount <= 53) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(3, charCount);
+    const version = 3;
   } else if (charCount <= 78) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(4, charCount);
+    const version = 4;
   } else if (charCount <= 106) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(5, charCount);
+    const version = 5;
   } else if (charCount <= 134) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(6, charCount);
+    const version = 6;
   } else if (charCount <= 154) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(7, charCount);
+    const version = 7;
   } else if (charCount <= 192) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(8, charCount);
+    const version = 8;
   } else if (charCount <= 230) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(9, charCount);
+    const version = 9;
   } else if (charCount <= 271) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(10, charCount);
+    const version = 10;
   } else if (charCount <= 321) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(11, charCount);
+    const version = 11;
   } else if (charCount <= 367) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(12, charCount);
+    const version = 12;
   } else if (charCount <= 425) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(13, charCount);
+    const version = 13;
   } else if (charCount <= 458) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(14, charCount);
+    const version = 14;
   } else if (charCount <= 520) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(15, charCount);
+    const version = 15;
   } else if (charCount <= 586) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(16, charCount);
+    const version = 16;
   } else if (charCount <= 644) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(17, charCount);
+    const version = 17;
   } else if (charCount <= 718) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(18, charCount);
+    const version = 18;
   } else if (charCount <= 792) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(19, charCount);
+    const version = 19;
   } else if (charCount <= 858) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(20, charCount);
+    const version = 20;
   } else if (charCount <= 929) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(21, charCount);
+    const version = 21;
   } else if (charCount <= 1003) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(22, charCount);
+    const version = 22;
   } else if (charCount <= 1091) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(23, charCount);
+    const version = 23;
   } else if (charCount <= 1171) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(24, charCount);
+    const version = 24;
   } else if (charCount <= 1273) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(25, charCount);
+    const version = 25;
   } else if (charCount <= 1367) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(26, charCount);
+    const version = 26;
   } else if (charCount <= 1465) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(27, charCount);
+    const version = 27;
   } else if (charCount <= 1528) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(28, charCount);
+    const version = 28;
   } else if (charCount <= 1628) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(29, charCount);
+    const version = 29;
   } else if (charCount <= 1732) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(30, charCount);
+    const version = 30;
   } else if (charCount <= 1840) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(31, charCount);
+    const version = 31;
   } else if (charCount <= 1952) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(32, charCount);
+    const version = 32;
   } else if (charCount <= 2068) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(33, charCount);
+    const version = 33;
   } else if (charCount <= 2188) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(34, charCount);
+    const version = 34;
   } else if (charCount <= 2303) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(35, charCount);
+    const version = 35;
   } else if (charCount <= 2431) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(36, charCount);
+    const version = 36;
   } else if (charCount <= 2563) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(37, charCount);
+    const version = 37;
   } else if (charCount <= 2699) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(38, charCount);
+    const version = 38;
   } else if (charCount <= 2809) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(39, charCount);
+    const version = 39;
   } else if (charCount <= 2953) {
-    document.getElementById("QRCharCount").innerHTML = generateCharCount(40, charCount);
+    const version = 40;
   } else {
     alert('invalid number of characters');
   }
 
-  encode();
+  document.getElementById("QRCharCount").innerHTML = generateCharCount(version, charCount);
+  document.getElementById("QRData").innerHTML = encode();
 }
 
 // generate binary character count
@@ -111,9 +112,9 @@ function pad (n, width, z) {
 // convert input to binary
 function encode () {
   const str = document.getElementById("QRString").value;
-  let output = document.getElementById("QRData");
-  output.value = "";
+  let output = "";
   for (let i = 0; i < str.length; i++) {
-      output.value += str[i].charCodeAt(0).toString(2) + " ";
+      output += str[i].charCodeAt(0).toString(2) + " ";
   }
+  return output;
 }
