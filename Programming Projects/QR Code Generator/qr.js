@@ -132,7 +132,7 @@ function encode (str) {
 }
 
 function resize (V) {
-  document.getElementById('QRContainer').setAttribute("style","width:(((V-1)*4)+21)");
-  document.getElementById('QRContainer').setAttribute("style","height:(((V-1)*4)+21)");
+  document.getElementById('QRContainer').setAttribute("style","width:" + (((V-1)*4)+21));
+  document.getElementById('QRContainer').setAttribute("style","height:" + (((V-1)*4)+21));
 }
 
