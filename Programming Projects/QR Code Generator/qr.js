@@ -1,13 +1,18 @@
-// Byte Mode: 0100
-// Character Count: Versions 1-9: 8 bits, Versions 10-40: 16 bits
-// Encoded Data: convert to ISO 8859-1, then to binary
+/*
+Byte Mode: 0100
+Character Count: Versions 1-9: 8 bits, Versions 10-40: 16 bits
+Encoded Data: convert to ISO 8859-1, then to binary
+Size: (((V-1)*4)+21) x (((V-1)*4)+21)
+Finder Patterns: (0, 0) ([(((V-1)*4)+21) - 7], 0) (0,[(((V-1)*4)+21) - 7])
+*/
 
 // run all functions to update qr
 function dynamic () {
   const input = document.getElementById("QRString").value;
   
-  versionCheck(input.length);
+  document.getElementById("QRCharCount").innerHTML = generateCharCount(versionCheck(input.length), input.length);
   document.getElementById("QRData").innerHTML = encode(input);
+  resize(versionCheck(input.length));
 }
 
 // change between versions depending on character count
@@ -98,7 +103,7 @@ function versionCheck (charCount) {
     alert('invalid number of characters');
   }
 
-  document.getElementById("QRCharCount").innerHTML = generateCharCount(version, charCount);
+  return version;
 }
 
 // generate binary character count
@@ -124,5 +129,10 @@ function encode (str) {
     output += pad(binaryChar, 8) + " ";
   }
   return output.trim();
+}
+
+function resize (V) {
+  document.getElementById('QRContainer').setAttribute("style","width:(((V-1)*4)+21)");
+  document.getElementById('QRContainer').setAttribute("style","height:(((V-1)*4)+21)");
 }
 
