@@ -89,6 +89,8 @@ function versionCheck () {
   } else {
     alert('invalid number of characters');
   }
+
+  encode();
 }
 
 // generate binary character count
@@ -104,4 +106,14 @@ function pad (n, width, z) {
   z = z || '0';
   n = n + '';
   return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+}
+
+// convert input to binary
+function encode () {
+  const str = document.getElementById("QRString").value;
+  let output = document.getElementById("QRData");
+  output.value = "";
+  for (let i = 0; i < str.length; i++) {
+      output.value += str[i].charCodeAt(0).toString(2) + " ";
+  }
 }
