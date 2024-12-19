@@ -2,6 +2,7 @@
 // Character Count: Versions 1-9: 8 bits, Versions 10-40: 16 bits
 // Encoded Data: convert to ISO 8859-1, then to binary
 
+// run all functions to update qr
 function dynamic () {
   const input = document.getElementById("QRString").value;
   
