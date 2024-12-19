@@ -6,13 +6,14 @@ Size: (((V-1)*4)+21) x (((V-1)*4)+21)
 Finder Patterns: (0, 0) ([(((V-1)*4)+21) - 7], 0) (0,[(((V-1)*4)+21) - 7])
 */
 
-// run all functions to update qr
+// calls all functions to update qr
 function dynamic () {
   const input = document.getElementById("QRString").value;
   
   document.getElementById("QRCharCount").innerHTML = generateCharCount(versionCheck(input.length), input.length);
   document.getElementById("QRData").innerHTML = encode(input);
   resize(versionCheck(input.length));
+  functionPatterns(input, versionCheck(input.length));
 }
 
 // change between versions depending on character count
@@ -107,8 +108,8 @@ function versionCheck (charCount) {
 }
 
 // generate binary character count
-function generateCharCount (version, charCount) {
-  if (version > 9) {
+function generateCharCount (V, charCount) {
+  if (V > 9) {
     return pad(charCount.toString(2), 16);
   }
   return pad(charCount.toString(2), 8);
@@ -131,7 +132,30 @@ function encode (str) {
   return output.trim();
 }
 
+// resize QR code based on version
 function resize (V) {
   const size = (((V - 1) * 4) + 21);
   document.getElementById('QRContainer').setAttribute("style", `width:${size}px; height:${size}px;`);
+}
+
+// calls functions to add all function patterns
+function functionPatterns (input, V) {
+  finderPatterns(V);
+  (V >= 2) ? alignmentPatterns(V);
+  timingPatterns(V);
+}
+
+// add finder patterns, incl. seperators, dark module
+function finderPatterns (V) {
+
+}
+
+// add alignment pattern(s)
+function alignmentPatterns (V) {
+
+}
+
+// add timing patterns
+function timingPatterns (V) {
+
 }
