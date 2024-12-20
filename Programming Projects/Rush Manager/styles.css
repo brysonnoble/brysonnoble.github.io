@@ -138,7 +138,7 @@ section {
 }
 
 .gallery img.enlarged {
-  transform: scale(5); /* Grow 5x on click */
+  transform: scale(2); /* Grow 2x on click */
   z-index: 10;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
