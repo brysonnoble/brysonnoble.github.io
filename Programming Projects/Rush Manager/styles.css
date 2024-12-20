@@ -89,12 +89,12 @@ section {
 }
 
 .event .description {
-  display: block; /* Initially hidden */
+  color: #3A3A3A;
   margin-top: 1rem;
 }
 
 .event.expanded .description {
-  display: block; /* Displayed when expanded */
+  color: #fff
 }
 
 .add-to-calendar {
