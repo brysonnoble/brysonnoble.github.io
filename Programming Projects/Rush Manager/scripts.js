@@ -87,9 +87,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Image paths
   const imagePaths = [
-    "https://brysonnoble.github.io/Programming Projects/Rush Manager/Images/IMG_1130.JPG",
-    "https://brysonnoble.github.io/Programming Projects/Rush Manager/Images/IMG_1491.JPG",
-    "https://brysonnoble.github.io/Programming Projects/Rush Manager/Images/IMG_1721.JPG",
+    "https://brysonnoble.github.io/Programming Projects/Rush Manager/Images/IMG_1130.jpg",
+    "https://brysonnoble.github.io/Programming Projects/Rush Manager/Images/IMG_1491.jpg",
+    "https://brysonnoble.github.io/Programming Projects/Rush Manager/Images/IMG_1721.jpg",
     "https://brysonnoble.github.io/Programming Projects/Rush Manager/Images/IMG_2135.JPG",
     "https://brysonnoble.github.io/Programming Projects/Rush Manager/Images/IMG_2385.JPG",
     "https://brysonnoble.github.io/Programming Projects/Rush Manager/Images/IMG_2410.JPG",
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "https://brysonnoble.github.io/Programming Projects/Rush Manager/Images/IMG_5013.JPG",
     "https://brysonnoble.github.io/Programming Projects/Rush Manager/Images/IMG_5158.JPG",
     "https://brysonnoble.github.io/Programming Projects/Rush Manager/Images/IMG_5173.JPG",
-    "https://brysonnoble.github.io/Programming Projects/Rush Manager/Images/IMG_7254.JPG"
+    "https://brysonnoble.github.io/Programming Projects/Rush Manager/Images/IMG_7254.jpg"
   ];
 
   imagePaths.forEach(path => {
