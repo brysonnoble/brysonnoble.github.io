@@ -146,7 +146,7 @@ section {
 
 .content-section iframe {
   width: 100%;
-  max-width: 600px;
+  max-height: 600px;
   aspect-ratio: 9 / 16;
 }
 
