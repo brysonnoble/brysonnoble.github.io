@@ -91,6 +91,7 @@ section {
 .event .description {
   color: #3A3A3A;
   margin-top: 1rem;
+  transition: .1s;
 }
 
 .event.expanded .description {
