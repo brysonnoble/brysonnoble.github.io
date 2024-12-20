@@ -142,8 +142,9 @@ section {
 }
 
 .content-section iframe {
-  width: 27vw;
-  height: 48vw;
+  width: 100%;
+  max-width: 600px;
+  padding-top: 56.25%;
 }
 
 .content-section h2 {
