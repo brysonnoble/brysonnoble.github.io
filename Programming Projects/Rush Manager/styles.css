@@ -87,6 +87,35 @@ section {
   display: block; /* Displayed when expanded */
 }
 
+.add-to-calendar {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.icloud-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #007aff;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.icloud-button:hover {
+  background-color: #005bb5;
+}
+
+.apple-logo {
+  width: 24px;
+  height: 24px;
+  margin-right: 0.5rem;
+}
+
 /* Gallery Layout */
 .gallery {
   display: grid;
