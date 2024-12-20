@@ -1,6 +1,6 @@
 /* General Styling */
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Raleway", serif;
   margin: 0;
   padding: 0;
   color: #FFF;
@@ -15,7 +15,7 @@ header {
 }
 
 header h1 {
-  font-family: 'Great Vibes', cursive;
+  font-family: "Bonheur Royale", serif;
   font-size: 3rem; /* Adjust as needed */
   color: #FFD700; /* Gold color to match Chi Phi's theme */
   text-align: center;
@@ -33,6 +33,7 @@ main {
 }
 
 h2 {
+  font-family: "Caveat Brush", serif;
   text-align: center;
   color: #FFD700;
 }
