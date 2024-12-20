@@ -3,11 +3,12 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #FFF; /* Text color for contrast */
+  background-color: #121212; /* Dark background for the page */
 }
 
 header {
-  background-color: #002D62; /* Chi Phi's blue color */
+  background-color: rgba(0, 45, 98, 0.8);
   color: #FFD700; /* Chi Phi's gold color */
   text-align: center;
   padding: 1rem;
@@ -27,24 +28,46 @@ header p {
   font-size: 1.2rem;
 }
 
+/* Dark Theme for Main Sections */
 main {
   padding: 1rem;
-}
-
-h2 {
-  text-align: center;
-  color: #002D62;
 }
 
 section {
   margin-top: 2rem;
   text-align: center;
-  background-color: #F5F5F5;
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
   padding: 2rem;
-  border: 2px solid #FFD700;
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Soft border */
   border-radius: 8px;
+  backdrop-filter: blur(10px); /* Glass effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Soft shadow */
 }
 
+/* Styling for Text and Headings */
+h2 {
+  text-align: center;
+  color: #FFD700; /* Chi Phi's gold */
+}
+
+h3 {
+  color: #FFD700; /* Consistent heading color */
+}
+
+p {
+  color: #EEE; /* Light text for contrast */
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background: rgba(0, 45, 98, 0.8); /* Match header styling */
+  color: #FFD700;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+/* Additional Styles for Event List */
 .event-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -53,56 +76,52 @@ section {
 }
 
 .event {
-  border: 2px solid #FFD700;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 8px;
   padding: 1rem;
-  background: #FFF;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
   cursor: pointer;
-  overflow: hidden;
-  max-height: 120px;
-}
-
-.event.expanded {
-  max-height: 300px; /* Height for expanded state */
-  padding: 1.5rem;
 }
 
 .event h3 {
   margin-top: 0;
-  color: #002D62;
+  color: #FFD700;
 }
 
-.event p {
-  margin: 0.5rem 0;
+.event.expanded {
+  max-height: 300px;
+  padding: 1.5rem;
 }
 
-.event .description {
-  display: none; /* Initially hidden */
-  margin-top: 1rem;
+/* Gallery Images */
+.gallery img {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.event.expanded .description {
-  display: block; /* Displayed when expanded */
+/* Video Container */
+.video-container iframe {
+  width: 100%;
+  max-width: 800px;
+  height: 56.25%; /* 16:9 Aspect Ratio */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.add-to-calendar {
-  text-align: center;
-  margin-top: 2rem;
-}
-
+/* iCloud Button Styling */
 .icloud-button {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  background-color: #007aff;
-  color: white;
+  padding: 0.5rem 1rem;
+  background-color: #007aff; /* iCloud blue */
+  color: #FFF;
   text-decoration: none;
-  font-size: 1.2rem;
   font-weight: bold;
-  padding: 0.8rem 1.5rem;
   border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   transition: background-color 0.3s ease;
 }
 
@@ -113,78 +132,5 @@ section {
 .apple-logo {
   width: 24px;
   height: 24px;
-  margin-right: 0.5rem;
-}
-
-/* Gallery Layout */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
-  justify-items: center;
-}
-
-.gallery img {
-  width: 100px; /* Thumbnail size */
-  height: 100px;
-  object-fit: cover;
-  border-radius: 8px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.gallery img.enlarged {
-  transform: scale(2); /* Double size on click */
-  z-index: 10;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
-
-.content-section iframe {
-  width: 100%;
-  max-width: 600px;
-  padding-top: 56.25%;
-}
-
-.content-section h2 {
-  color: #002D62;
-  margin-bottom: 1rem;
-}
-
-.content-section h3 {
-  color: #002D62;
-  margin-bottom: 0.5rem;
-}
-
-.mission-vision-section h2 {
-  color: #002D62;
-  margin-bottom: 1.5rem;
-}
-
-.statements {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.statement h3 {
-  color: #002D62;
-  margin-bottom: 0.5rem;
-}
-
-.statement p {
-  color: #444444;
-  max-width: 600px;
-  line-height: 1.6;
-  font-size: 1rem;
-}
-
-footer {
-  text-align: center;
-  background: #002D62;
-  color: #FFD700;
-  padding: 1rem;
-  margin-top: 1rem;
+  margin-right: 8px;
 }
