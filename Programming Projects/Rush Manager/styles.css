@@ -12,6 +12,7 @@ header {
   color: #FFD700; /* Chi Phi's gold color */
   text-align: center;
   padding: 1rem;
+  line-height: 20px;
 }
 
 header h1 {
