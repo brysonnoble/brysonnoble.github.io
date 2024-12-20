@@ -81,7 +81,7 @@ section {
 
 .event h3 {
   margin-top: 0;
-  color: #FFD700;
+  color: #FFD700; /* Lazy way to hide it for no resizing issues */
 }
 
 .event p {
