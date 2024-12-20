@@ -1,120 +1,192 @@
-const events = [
-  {
-    title: "Meet the Greeks",
-    date: "2025-01-13",
-    time: "10:00 AM - 2:00 PM",
-    location: "Crawford Green",
-    description: "Connect with all fraternities and learn more about Greek life on campus."
-  },
-  {
-    title: "Lawn Games",
-    date: "2025-01-13",
-    time: "4:00 PM - 5:30 PM",
-    location: "Crawford Green",
-    description: "Enjoy lawn games with the Chi Phi brothers."
-  },
-  {
-    title: "Games at the Ratskeller",
-    date: "2025-01-13",
-    time: "6:00 PM - 7:30 PM",
-    location: "The Ratskeller",
-    description: "Wrap up Monday with exciting games and free grub at the Ratskeller."
-  },
-  {
-    title: "Casino Night",
-    date: "2025-01-14",
-    time: "6:00 PM - 8:30 PM",
-    location: "Chi Phi Manor",
-    description: "Test your luck at our Casino Night, hosted at the Chi Phi Manor."
-  },
-  {
-    title: "Basketball in Harris Courts",
-    date: "2025-01-15",
-    time: "4:30 PM - 5:30 PM",
-    location: "Harris Courts",
-    description: "Join us for a friendly game of basketball with the brothers."
-  },
-  {
-    title: "Glizzys with the Boys",
-    date: "2025-01-15",
-    time: "6:00 PM - 7:30 PM",
-    location: "Chi Phi Manor",
-    description: "Relax and grab some glizzys with the Chi Phi brothers."
-  },
-  {
-    title: "House Tours + BBQ + Highlander Games",
-    date: "2025-01-16",
-    time: "5:00 PM - 7:00 PM",
-    location: "Chi Phi Manor",
-    description: "Take a tour of our 3.5 beautiful acres and enjoy BBQ while participating in fun Highlander games."
-  },
-  {
-    title: "Invite-Only Event",
-    date: "2025-01-17",
-    time: "4:00 PM - 6:00 PM",
-    location: "Spessard Holland South Beach Park",
-    description: "INVITE ONLY at Spessard Holland South Beach Park."
-  }
-];
+/* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #FFF;
+  background-color: #1A1A1A; /* Dark background for the page */
+}
 
-// Dynamically Populate Events with Click-to-Expand Feature
-document.addEventListener('DOMContentLoaded', () => {
-  const eventList = document.getElementById('event-list');
+header {
+  background-color: #002D62; /* Chi Phi's blue color */
+  color: #FFD700; /* Chi Phi's gold color */
+  text-align: center;
+  padding: 1rem;
+}
 
-  events.forEach(event => {
-    const eventDiv = document.createElement('div');
-    eventDiv.classList.add('event');
-    eventDiv.innerHTML = `
-      <h3>${event.title}</h3>
-      <p><strong>Date:</strong> ${event.date}</p>
-      <p><strong>Time:</strong> ${event.time}</p>
-      <p><strong>Location:</strong> ${event.location}</p>
-      <div class="description">${event.description}</div>
-    `;
+header h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem; /* Adjust as needed */
+  color: #FFD700; /* Gold color to match Chi Phi's theme */
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-top: 1rem;
+}
 
-    // Add click event to toggle expansion
-    eventDiv.addEventListener('click', () => {
-      eventDiv.classList.toggle('expanded');
-    });
+header p {
+  margin: 0;
+  font-size: 1.2rem;
+}
 
-    eventList.appendChild(eventDiv);
-  });
-});
+main {
+  padding: 1rem;
+}
 
-// Load gallery images dynamically
-document.addEventListener('DOMContentLoaded', () => {
-  const gallery = document.getElementById('gallery');
+h2 {
+  text-align: center;
+  color: #FFD700;
+}
 
-  // Image paths
-  const imagePaths = [
-    "https://brysonnoble.github.io/Programming Projects/Rush Manager/Images/IMG_1130.jpg",
-    "https://brysonnoble.github.io/Programming Projects/Rush Manager/Images/IMG_1491.jpg",
-    "https://brysonnoble.github.io/Programming Projects/Rush Manager/Images/IMG_1721.jpg",
-    "https://brysonnoble.github.io/Programming Projects/Rush Manager/Images/IMG_2135.JPG",
-    "https://brysonnoble.github.io/Programming Projects/Rush Manager/Images/IMG_2385.JPG",
-    "https://brysonnoble.github.io/Programming Projects/Rush Manager/Images/IMG_2410.JPG",
-    "https://brysonnoble.github.io/Programming Projects/Rush Manager/Images/IMG_2931.JPG",
-    "https://brysonnoble.github.io/Programming Projects/Rush Manager/Images/IMG_3129.JPG",
-    "https://brysonnoble.github.io/Programming Projects/Rush Manager/Images/IMG_3159.JPG",
-    "https://brysonnoble.github.io/Programming Projects/Rush Manager/Images/IMG_3380.JPG",
-    "https://brysonnoble.github.io/Programming Projects/Rush Manager/Images/IMG_3381.JPG",
-    "https://brysonnoble.github.io/Programming Projects/Rush Manager/Images/IMG_3436.JPG",
-    "https://brysonnoble.github.io/Programming Projects/Rush Manager/Images/IMG_3475.JPG",
-    "https://brysonnoble.github.io/Programming Projects/Rush Manager/Images/IMG_3570.JPG",
-    "https://brysonnoble.github.io/Programming Projects/Rush Manager/Images/IMG_3617.JPG",
-    "https://brysonnoble.github.io/Programming Projects/Rush Manager/Images/IMG_5013.JPG",
-    "https://brysonnoble.github.io/Programming Projects/Rush Manager/Images/IMG_5158.JPG",
-    "https://brysonnoble.github.io/Programming Projects/Rush Manager/Images/IMG_5173.JPG",
-    "https://brysonnoble.github.io/Programming Projects/Rush Manager/Images/IMG_7254.jpg"
-  ];
+section {
+  margin-top: 2rem;
+  text-align: center;
+  background-color: #242424; /* Darker gray for sections */
+  color: #FFF; /* White text color for contrast */
+  padding: 2rem;
+  border: 2px solid #FFD700;
+  border-radius: 8px;
+}
 
-  imagePaths.forEach(path => {
-    const img = document.createElement('img');
-    img.src = path;
-    img.alt = 'Gallery Image';
-    img.addEventListener('click', () => {
-      img.classList.toggle('enlarged'); // Toggle enlargement on click
-    });
-    gallery.appendChild(img);
-  });
-});
+.event-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.event {
+  border: 2px solid #FFD700;
+  border-radius: 8px;
+  padding: 1rem;
+  background: #3A3A3A; /* Medium gray for events */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+  max-height: 120px;
+}
+
+.event.expanded {
+  max-height: 300px; /* Height for expanded state */
+  padding: 1.5rem;
+}
+
+.event h3 {
+  margin-top: 0;
+  color: #FFD700;
+}
+
+.event p {
+  margin: 0.5rem 0;
+}
+
+.event .description {
+  display: none; /* Initially hidden */
+  margin-top: 1rem;
+}
+
+.event.expanded .description {
+  display: block; /* Displayed when expanded */
+}
+
+.add-to-calendar {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.icloud-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #007aff;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.icloud-button:hover {
+  background-color: #005bb5;
+}
+
+.apple-logo {
+  width: 24px;
+  height: 24px;
+  margin-right: 0.5rem;
+}
+
+/* Gallery Layout */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-items: center;
+}
+
+.gallery img {
+  width: 100px; /* Thumbnail size */
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.gallery img.enlarged {
+  transform: scale(2); /* Double size on click */
+  z-index: 10;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.content-section iframe {
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 9 / 16;
+}
+
+.content-section h2 {
+  color: #FFD700;
+  margin-bottom: 1rem;
+}
+
+.content-section h3 {
+  color: #FFD700;
+  margin-bottom: 0.5rem;
+}
+
+.mission-vision-section h2 {
+  color: #FFD700;
+  margin-bottom: 1.5rem;
+}
+
+.statements {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.statement h3 {
+  color: #FFD700;
+  margin-bottom: 0.5rem;
+}
+
+.statement p {
+  color: #FFF;
+  max-width: 600px;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+footer {
+  text-align: center;
+  background: #002D62;
+  color: #FFD700;
+  padding: 1rem;
+  margin-top: 1rem;
+}
