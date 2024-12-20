@@ -9,7 +9,7 @@ body {
 
 header {
   background-color: #002D62; /* Chi Phi's blue color */
-  color: #FFD700; /* Chi Phi's gold color */
+  color: #fff; /* Chi Phi's gold color */
   text-align: center;
   padding: 1rem;
 }
@@ -45,7 +45,7 @@ section {
   background-color: #242424; /* Darker gray for sections */
   color: #FFF; /* White text color for contrast */
   padding: 2rem;
-  border: 2px solid #FFD700;
+  border: 2px solid #fff;
   border-radius: 8px;
 }
 
@@ -57,7 +57,7 @@ section {
 }
 
 .event {
-  border: 2px solid #FFD700;
+  border: 2px solid #fff;
   border-radius: 8px;
   padding: 1rem;
   background: #3A3A3A; /* Medium gray for events */
@@ -75,7 +75,7 @@ section {
 
 .event h3 {
   margin-top: 0;
-  color: #FFD700;
+  color: #fff;
 }
 
 .event p {
@@ -177,7 +177,7 @@ section {
 }
 
 .statement h3 {
-  color: #FFD700;
+  color: #fff;
   margin-bottom: 0.5rem;
 }
 
