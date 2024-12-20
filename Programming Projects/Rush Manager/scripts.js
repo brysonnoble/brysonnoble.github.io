@@ -79,10 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     eventList.appendChild(eventDiv);
   });
-});
 
-// Load gallery images dynamically
-document.addEventListener('DOMContentLoaded', () => {
+  // Load gallery images dynamically
   const gallery = document.getElementById('gallery');
 
   // Image paths
