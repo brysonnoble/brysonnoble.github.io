@@ -138,55 +138,24 @@ section {
 }
 
 .gallery img.enlarged {
-  transform: scale(5); /* Grow 5x on click */
+  position: fixed; /* Fix the position to cover the screen */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(2.5); /* Center and enlarge */
   z-index: 10;
+  max-width: 90%; /* Ensure the image doesn't overflow */
+  max-height: 90%;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
 }
 
-.content-section iframe {
-  width: 100%;
-  max-width: 600px;
-  aspect-ratio: 9 / 16;
+/* Placeholder for enlarged image */
+.gallery img.enlarged-placeholder {
+  border: 2px solid #FFD700; /* Add a border around the placeholder */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Light shadow to signify an enlarged image */
 }
 
-.content-section h2 {
-  color: #FFD700;
-  margin-bottom: 1rem;
-}
-
-.content-section h3 {
-  color: #FFD700;
-  margin-bottom: 0.5rem;
-}
-
-.mission-vision-section h2 {
-  color: #FFD700;
-  margin-bottom: 1.5rem;
-}
-
-.statements {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.statement h3 {
-  color: #FFD700;
-  margin-bottom: 0.5rem;
-}
-
-.statement p {
-  color: #FFF;
-  max-width: 600px;
-  line-height: 1.6;
-  font-size: 1rem;
-}
-
-footer {
-  text-align: center;
-  background: #002D62;
-  color: #FFD700;
-  padding: 1rem;
-  margin-top: 1rem;
+/* When the enlarged image is clicked again, revert back */
+.gallery img.enlarged:active {
+  cursor: zoom-out; /* Indicate user can click to zoom out */
 }
