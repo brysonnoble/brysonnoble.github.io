@@ -111,7 +111,15 @@ document.addEventListener('DOMContentLoaded', () => {
     img.src = path;
     img.alt = 'Gallery Image';
     img.addEventListener('click', () => {
-      img.classList.toggle('enlarged'); // Toggle enlargement on click
+      if (img.classList.contains('enlarged')) {
+        // If image is enlarged, it will revert to a placeholder with border and shadow
+        img.classList.remove('enlarged');
+        img.classList.add('enlarged-placeholder');
+      } else {
+        // If image is not enlarged, it will enlarge
+        img.classList.add('enlarged');
+        img.classList.remove('enlarged-placeholder');
+      }
     });
     gallery.appendChild(img);
   });
