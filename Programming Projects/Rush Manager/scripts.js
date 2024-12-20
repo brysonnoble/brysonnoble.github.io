@@ -87,25 +87,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Image paths
   const imagePaths = [
-    "/Images/IMG_1130.HEIC",
-    "/Images/IMG_1491.HEIC",
-    "/Images/IMG_1721.HEIC",
-    "/Images/IMG_2135.JPG",
-    "/Images/IMG_2385.JPG",
-    "/Images/IMG_2410.JPG",
-    "/Images/IMG_2931.JPG",
-    "/Images/IMG_3129.JPG",
-    "/Images/IMG_3159.JPG",
-    "/Images/IMG_3380.JPG",
-    "/Images/IMG_3381.JPG",
-    "/Images/IMG_3436.JPG",
-    "/Images/IMG_3475.JPG",
-    "/Images/IMG_3570.JPG",
-    "/Images/IMG_3617.JPG",
-    "/Images/IMG_5013.JPG",
-    "/Images/IMG_5158.JPG",
-    "/Images/IMG_5173.JPG",
-    "/Images/IMG_7254.HEIC"
+    "Programming Projects/Rush Manager/Images/IMG_1130.HEIC",
+    "Programming Projects/Rush Manager/Images/IMG_1491.HEIC",
+    "Programming Projects/Rush Manager/Images/IMG_1721.HEIC",
+    "Programming Projects/Rush Manager/Images/IMG_2135.JPG",
+    "Programming Projects/Rush Manager/Images/IMG_2385.JPG",
+    "Programming Projects/Rush Manager/Images/IMG_2410.JPG",
+    "Programming Projects/Rush Manager/Images/IMG_2931.JPG",
+    "Programming Projects/Rush Manager/Images/IMG_3129.JPG",
+    "Programming Projects/Rush Manager/Images/IMG_3159.JPG",
+    "Programming Projects/Rush Manager/Images/IMG_3380.JPG",
+    "Programming Projects/Rush Manager/Images/IMG_3381.JPG",
+    "Programming Projects/Rush Manager/Images/IMG_3436.JPG",
+    "Programming Projects/Rush Manager/Images/IMG_3475.JPG",
+    "Programming Projects/Rush Manager/Images/IMG_3570.JPG",
+    "Programming Projects/Rush Manager/Images/IMG_3617.JPG",
+    "Programming Projects/Rush Manager/Images/IMG_5013.JPG",
+    "Programming Projects/Rush Manager/Images/IMG_5158.JPG",
+    "Programming Projects/Rush Manager/Images/IMG_5173.JPG",
+    "Programming Projects/Rush Manager/Images/IMG_7254.HEIC"
   ];
 
   imagePaths.forEach(path => {
