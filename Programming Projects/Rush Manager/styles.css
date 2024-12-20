@@ -89,7 +89,7 @@ section {
 }
 
 .event .description {
-  display: none; /* Initially hidden */
+  display: block; /* Initially hidden */
   margin-top: 1rem;
 }
 
