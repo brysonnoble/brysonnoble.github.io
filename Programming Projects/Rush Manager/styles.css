@@ -3,8 +3,8 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  color: #ffffff;
-  background: #1a1a1a; /* Dark background */
+  color: #FFF;
+  background-color: #1A1A1A; /* Dark background for the page */
 }
 
 header {
@@ -40,12 +40,11 @@ h2 {
 section {
   margin-top: 2rem;
   text-align: center;
-  background: rgba(255, 255, 255, 0.1); /* Glassy effect */
-  backdrop-filter: blur(10px);
+  background-color: #2E2E2E; /* Solid dark gray background */
+  color: #FFF; /* White text color for contrast */
   padding: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid #FFD700;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .event-list {
@@ -56,11 +55,11 @@ section {
 }
 
 .event {
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid #FFD700;
   border-radius: 8px;
   padding: 1rem;
-  background: rgba(0, 0, 0, 0.5); /* Glassy effect */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  background: #3A3A3A; /* Solid medium gray background */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   cursor: pointer;
   overflow: hidden;
@@ -135,13 +134,13 @@ section {
   border-radius: 8px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .gallery img.enlarged {
   transform: scale(2); /* Double size on click */
   z-index: 10;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .content-section iframe {
@@ -178,7 +177,7 @@ section {
 }
 
 .statement p {
-  color: #ffffff;
+  color: #FFF;
   max-width: 600px;
   line-height: 1.6;
   font-size: 1rem;
