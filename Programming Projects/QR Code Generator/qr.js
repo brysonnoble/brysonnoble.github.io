@@ -135,20 +135,34 @@ function encode (str) {
 
 // resize QR code based on version
 function resize (V) {
-  const size = (((V - 1) * 4) + 21);
-  const pixelSize = 1 / size;
+  const size = (((V - 1) * 4) + 21); // Calculate the QR code size based on the version
+  const container = document.getElementById("QRContainer");
 
-  for (let i = 0; i < size; i++) {
-    var pixel = document.createElement("div");
-    if (i % 2 != 0) {
-      pixel.style.background = "red";
-    } else {
-      pixel.style.background = "blue";
+  // clear grid
+  container.innerHTML = "";
+
+  // set dimensions
+  container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+  container.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+
+  // instantiate pixels
+  for (let row = 0; row < size; row++) {
+    for (let col = 0; col < size; col++) {
+      const pixel = document.createElement("div");
+      pixel.classList.add("pixel");
+
+      // Alternate colors based on position
+      if ((row + col) % 2 === 0) {
+        pixel.style.backgroundColor = "red";
+      } else {
+        pixel.style.backgroundColor = "blue";
+      }
+
+      container.appendChild(pixel);
     }
-    
-    document.getElementById("QRContainer").appendChild(pixel);
   }
 }
+
 
 // calls functions to add all function patterns
 function functionPatterns (input, V) {
