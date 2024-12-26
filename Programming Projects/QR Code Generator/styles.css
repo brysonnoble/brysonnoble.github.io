@@ -1,5 +1,5 @@
 #QRContainer {
-  height: 50%;
+  width: 50%;
   aspect-ratio: 1;
   border: 1px solid black;
 }
