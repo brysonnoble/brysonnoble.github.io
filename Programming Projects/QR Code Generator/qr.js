@@ -10,9 +10,9 @@ Finder Patterns: (0, 0) ([(((V-1)*4)+21) - 7], 0) (0,[(((V-1)*4)+21) - 7])
 // calls all functions to update qr
 function dynamic () {
   const byteMode = 0100;
-  const charCount = generateCharCount(version, input.length);
   const input = document.getElementById("QRString").value;
   const version = versionCheck(input.length);
+  const charCount = generateCharCount(version, input.length);
   const encodedInput = encode(input);
   
   document.getElementById("QRCharCount").innerHTML = charCount;
