@@ -173,7 +173,7 @@ function paint (V, matrix) {
 // turns input into array to apply to qr
 function dataToArr (byteMode, charCount, QRData, V) {
   const size = (((V - 1) * 4) + 21);
-  const data = byteMode + charCount + QRData;
+  const data = byteMode.concat(charCount.concat(QRData));
   
   return data;
 }
