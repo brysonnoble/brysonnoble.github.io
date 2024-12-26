@@ -129,7 +129,7 @@ function encode (str) {
   let output = "";
   for (let i = 0; i < str.length; i++) {
     const binaryChar = str[i].charCodeAt(0).toString(2);
-    output += pad(binaryChar, 8) + " ";
+    output += pad(binaryChar, 8);
   }
   return output.trim();
 }
