@@ -144,7 +144,7 @@ function resize (V) {
     pixel.style.height = "${pixelSize}%";
     pixel.style.background = "red";
     
-    document.getElementById("main").appendChild(div);
+    document.getElementById("QRContainer").appendChild(div);
   }
 }
 
