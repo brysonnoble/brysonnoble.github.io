@@ -174,28 +174,58 @@ function paint (V, matrix) {
 function dataToArr (byteMode, charCount, QRData, V) {
   const size = (((V - 1) * 4) + 21);
   const data = byteMode + charCount + QRData;
+  let matrix = generateArr(size);
+
+  // apply function patterns to get rid of blank space
+  matrix = functionPatterns(matrix, V);
   
-  return data;
+  return matrix;
+}
+
+function generateArr (size) {
+  const rows = size;
+  const cols = size;
+  const matrix = [];
+  
+  for (let i = 0; i < rows; i++) {
+    matrix[i] = [];
+    for (let j = 0; j < cols; j++) {
+      matrix[i][j] = -1; // blank cells will be denoted by -1
+    }
+  }
+
+  return matrix;
 }
 
 // calls functions to add all function patterns
-function functionPatterns (input, V) {
-  finderPatterns(V);
-  V >= 2 && alignmentPatterns(V);
-  timingPatterns(V);
+function functionPatterns (matrix, V) {
+  matrix = finderPatterns(matrix, V);
+  V >= 2 && matrix = alignmentPatterns(matrix, V);
+  matrix = timingPatterns(matrix, V);
+  matrix = darkModule(matrix, V);
+
+  console.log(matrix);
+  return matrix;
 }
 
 // add finder patterns, incl. seperators, dark module
-function finderPatterns (V) {
-
+function finderPatterns (matrix, V) {
+  return matrix;
 }
 
 // add alignment pattern(s)
-function alignmentPatterns (V) {
-
+function alignmentPatterns (matrix, V) {
+  return matrix;
 }
 
 // add timing patterns
-function timingPatterns (V) {
+function timingPatterns (matrix, V) {
+  return matrix;
+}
 
+// add dark module
+function darkModule (matrix, V) {
+  matrix[(4 * V) + 9][8] = 1;
+  
+  return matrix;
 }
