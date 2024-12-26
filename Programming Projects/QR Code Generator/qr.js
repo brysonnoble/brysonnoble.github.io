@@ -13,7 +13,7 @@ function dynamic () {
   
   document.getElementById("QRCharCount").innerHTML = generateCharCount(versionCheck(input.length), input.length);
   document.getElementById("QRData").innerHTML = encode(input);
-  resize(versionCheck(input.length));
+  resize(versionCheck(input.length), dataToArray(encode(input));
   functionPatterns(input, versionCheck(input.length));
 }
 
@@ -123,6 +123,54 @@ function pad (n, width, z) {
   return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
 }
 
+// convert binary data to matrix to be used to fill pixels in QR
+function dataToArray(data, V) {
+  const size = (((V - 1) * 4) + 21); // Calculate matrix size based on the version
+  const matrix = Array.from({ length: size }, () => Array(size).fill(null)); // Initialize empty matrix
+
+  let bitIndex = 0; // Tracks current bit in `data`
+  let col = size - 1; // Start at the rightmost column
+  let row = size - 1; // Start at the bottom row
+  let directionUp = true; // Tracks vertical direction (up or down)
+
+  while (col > 0) {
+    // Skip timing pattern column
+    if (col === 6) {
+      col -= 1;
+    }
+
+    // Place bits in the two adjacent columns
+    for (let i = 0; i < size; i++) {
+      // Fill right column
+      if (matrix[row][col] === null) {
+        matrix[row][col] = bitIndex < data.length ? parseInt(data[bitIndex], 10) : 0;
+        bitIndex++;
+      }
+
+      // Move to left column
+      if (matrix[row][col - 1] === null) {
+        matrix[row][col - 1] = bitIndex < data.length ? parseInt(data[bitIndex], 10) : 0;
+        bitIndex++;
+      }
+
+      // Move vertically
+      row += directionUp ? -1 : 1;
+
+      // Reverse direction at the top or bottom
+      if (row < 0 || row >= size) {
+        directionUp = !directionUp;
+        row += directionUp ? 1 : -1; // Adjust row after reversing
+        break; // Move to the next column
+      }
+    }
+
+    // Move left to the next pair of columns
+    col -= 2;
+  }
+
+  return matrix;
+}
+
 // convert input to binary
 function encode (str) {
   let output = "";
@@ -134,36 +182,30 @@ function encode (str) {
 }
 
 // resize QR code based on version
-function resize (V) {
-  const size = (((V - 1) * 4) + 21); // Calculate the QR code size based on the version
+function resize(V, matrix) {
+  const size = matrix.length;
   const container = document.getElementById("QRContainer");
 
-  // clear grid
+  // Clear grid
   container.innerHTML = "";
 
-  // set dimensions
+  // Set grid dimensions
   container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
   container.style.gridTemplateRows = `repeat(${size}, 1fr)`;
 
-  // instantiate pixels
+  // Create grid cells
   for (let row = 0; row < size; row++) {
     for (let col = 0; col < size; col++) {
       const pixel = document.createElement("div");
       pixel.classList.add("pixel");
 
-      if ((row + col) % 2 === 0) {
-        pixel.style.backgroundColor = "red";
-      } else {
-        pixel.style.backgroundColor = "blue";
-      }
-
-      pixel.innerHTML = `${row}\n${col}`;
+      // Set pixel color based on matrix value
+      pixel.style.backgroundColor = matrix[row][col] === 1 ? "black" : "white";
 
       container.appendChild(pixel);
     }
   }
 }
-
 
 // calls functions to add all function patterns
 function functionPatterns (input, V) {
