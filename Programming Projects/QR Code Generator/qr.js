@@ -155,7 +155,7 @@ function paint (V, matrix) {
       const pixel = document.createElement("div");
       pixel.classList.add("pixel");
 
-      if ((row + col) % 2 === 0) {
+      if (data[row] === 0) {
         pixel.style.backgroundColor = "red";
       } else {
         pixel.style.backgroundColor = "blue";
@@ -173,7 +173,7 @@ function dataToArr (byteMode, charCount, QRData, V) {
   const size = (((V - 1) * 4) + 21);
   const data = byteMode + charCount + QRData;
   
-  return matrix;
+  return data;
 }
 
 // calls functions to add all function patterns
