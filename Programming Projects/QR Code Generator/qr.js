@@ -225,18 +225,20 @@ function finderPatterns (matrix, V) {
 
   for (let i = 0; i < 3; i++) {
     switch (i) {
-      case 0 {
+      case 0:
         let y = 0;
         let x = 0;
-      }
-      case 1 {
+        break;
+      case 1:
         let y = (((V-1)*4)+21) - 7;
         let x = 0;
-      }
-      case 2 {
+        break;
+      case 2:
         let y = 0;
         let x = (((V-1)*4)+21) - 7;
-      }
+        break;
+      default:
+        break;
     }
     
     for (let j = 0; j < 8; j++) {
