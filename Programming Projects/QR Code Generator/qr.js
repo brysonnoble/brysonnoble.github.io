@@ -140,8 +140,8 @@ function resize (V) {
 
   for (let i = 0; i < size ** 2; i++) {
     var pixel = document.createElement("div");
-    pixel.style.width = "${pixelSize}%";
-    pixel.style.height = "${pixelSize}%";
+    pixel.style.width = "${pixelSize}";
+    pixel.style.height = "${pixelSize}";
     pixel.style.background = "red";
     
     document.getElementById("QRContainer").appendChild(pixel);
