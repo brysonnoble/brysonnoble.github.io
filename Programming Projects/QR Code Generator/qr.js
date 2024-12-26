@@ -10,11 +10,15 @@ Finder Patterns: (0, 0) ([(((V-1)*4)+21) - 7], 0) (0,[(((V-1)*4)+21) - 7])
 // calls all functions to update qr
 function dynamic () {
   const input = document.getElementById("QRString").value;
-  const version = versionCheck(input.length);
   
+  const version = versionCheck(input.length);
   document.getElementById("QRCharCount").innerHTML = generateCharCount(version, input.length);
-  document.getElementById("QRData").innerHTML = encode(input);
-  resize(version, dataToArray(encode(input), version));
+  const binaryData = encode(input);
+  document.getElementById("QRData").innerHTML = binaryData;
+  
+  const matrix = dataToArray(binaryData, version);
+  console.log("Matrix:", matrix); // Debugging log
+  resize(version, matrix);
   functionPatterns(input, version);
 }
 
@@ -125,7 +129,9 @@ function pad (n, width, z) {
 }
 
 // convert binary data to matrix to be used to fill pixels in QR
-function dataToArray(data, V) {
+function dataToArray (data, V) {
+  console.log("Data received by dataToArray:", data); // Debugging log
+
   const size = (((V - 1) * 4) + 21); // Calculate matrix size based on the version
   const matrix = Array.from({ length: size }, () => Array(size).fill(null)); // Initialize empty matrix
 
@@ -135,12 +141,8 @@ function dataToArray(data, V) {
   let directionUp = true; // Tracks vertical direction (up or down)
 
   while (col > 0) {
-    // Skip timing pattern column
-    if (col === 6) {
-      col -= 1;
-    }
+    if (col === 6) col -= 1; // Skip timing pattern column
 
-    // Place bits in the two adjacent columns
     for (let i = 0; i < size; i++) {
       // Fill right column
       if (matrix[row][col] === null) {
@@ -148,7 +150,7 @@ function dataToArray(data, V) {
         bitIndex++;
       }
 
-      // Move to left column
+      // Fill left column
       if (matrix[row][col - 1] === null) {
         matrix[row][col - 1] = bitIndex < data.length ? parseInt(data[bitIndex], 10) : 0;
         bitIndex++;
@@ -157,18 +159,17 @@ function dataToArray(data, V) {
       // Move vertically
       row += directionUp ? -1 : 1;
 
-      // Reverse direction at the top or bottom
       if (row < 0 || row >= size) {
         directionUp = !directionUp;
         row += directionUp ? 1 : -1; // Adjust row after reversing
-        break; // Move to the next column
+        break;
       }
     }
 
-    // Move left to the next pair of columns
-    col -= 2;
+    col -= 2; // Move to the next column pair
   }
 
+  console.log("Generated Matrix in dataToArray:", matrix); // Debugging log
   return matrix;
 }
 
@@ -177,13 +178,13 @@ function encode (str) {
   let output = "";
   for (let i = 0; i < str.length; i++) {
     const binaryChar = str[i].charCodeAt(0).toString(2);
-    output += pad(binaryChar, 8) + " ";
+    output += pad(binaryChar, 8);
   }
-  return output.trim();
+  return output;
 }
 
 // resize QR code based on version
-function resize(V, matrix) {
+function resize (V, matrix) {
   const size = matrix.length;
   const container = document.getElementById("QRContainer");
 
