@@ -151,12 +151,13 @@ function resize (V) {
       const pixel = document.createElement("div");
       pixel.classList.add("pixel");
 
-      // Alternate colors based on position
       if ((row + col) % 2 === 0) {
         pixel.style.backgroundColor = "red";
       } else {
         pixel.style.backgroundColor = "blue";
       }
+
+      pixel.innerHTML = "${row} , ${col}";
 
       container.appendChild(pixel);
     }
