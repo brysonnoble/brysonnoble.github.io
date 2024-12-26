@@ -10,11 +10,12 @@ Finder Patterns: (0, 0) ([(((V-1)*4)+21) - 7], 0) (0,[(((V-1)*4)+21) - 7])
 // calls all functions to update qr
 function dynamic () {
   const input = document.getElementById("QRString").value;
+  const version = versionCheck(input.length);
   
-  document.getElementById("QRCharCount").innerHTML = generateCharCount(versionCheck(input.length), input.length);
+  document.getElementById("QRCharCount").innerHTML = generateCharCount(version, input.length);
   document.getElementById("QRData").innerHTML = encode(input);
-  resize(versionCheck(input.length));
-  functionPatterns(input, versionCheck(input.length));
+  resize(version);
+  functionPatterns(input, version);
 }
 
 // change between versions depending on character count
@@ -157,7 +158,7 @@ function resize (V) {
         pixel.style.backgroundColor = "blue";
       }
 
-      pixel.innerHTML = `${row}\n${col}`;
+      pixel.innerHTML = `${col}\n${row}`;
 
       container.appendChild(pixel);
     }
