@@ -19,7 +19,6 @@ function dynamic () {
   document.getElementById("QRCharCount").innerHTML = charCount;
   document.getElementById("QRData").innerHTML = encodedInput;
   paint(version, dataToArr(byteMode, charCount, encodedInput, version));
-  functionPatterns(input, version);
 }
 
 // change between versions depending on character count
