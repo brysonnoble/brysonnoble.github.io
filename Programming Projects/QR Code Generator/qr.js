@@ -157,10 +157,10 @@ function paint (V, matrix) {
       const pixel = document.createElement("div");
       pixel.classList.add("pixel");
 
-      if (matrix[row][col] == 0) {
-        pixel.style.backgroundColor = "white";
-      } else {
+      if (matrix[row][col] == 1) {
         pixel.style.backgroundColor = "red";
+      } else {
+        pixel.style.backgroundColor = "white";
       }
 
       pixel.innerHTML = `${row}\n${col}`;
