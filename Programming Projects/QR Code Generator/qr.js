@@ -159,11 +159,13 @@ function paint (V, matrix) {
 
       if (matrix[row][col] == 1) {
         pixel.style.backgroundColor = "red";
-      } else {
+      } else if (matrix[row][col] == 0) {
         pixel.style.backgroundColor = "white";
+      } else {
+        pixel.style.backgroundColor = "lightgrey";
       }
 
-      pixel.innerHTML = `${row}\n${col}`;
+      pixel.innerHTML = `${row}, ${col}`;
 
       container.appendChild(pixel);
     }
