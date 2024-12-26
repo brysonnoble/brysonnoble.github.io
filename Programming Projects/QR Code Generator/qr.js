@@ -9,7 +9,7 @@ Finder Patterns: (0, 0) ([(((V-1)*4)+21) - 7], 0) (0,[(((V-1)*4)+21) - 7])
 
 // calls all functions to update qr
 function dynamic () {
-  const byteMode = 0100;
+  const byteMode = "0100";
   const input = document.getElementById("QRString").value;
   const version = versionCheck(input.length);
   const charCount = generateCharCount(version, input.length);
@@ -173,7 +173,7 @@ function paint (V, matrix) {
 // turns input into array to apply to qr
 function dataToArr (byteMode, charCount, QRData, V) {
   const size = (((V - 1) * 4) + 21);
-  const data = byteMode.concat(charCount.concat(QRData));
+  const data = byteMode + charCount + QRData);
   
   return data;
 }
