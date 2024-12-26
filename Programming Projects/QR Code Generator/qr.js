@@ -222,20 +222,22 @@ function finderPatterns (matrix, V) {
     [1, 1, 1, 1, 1, 1, 1, 0],
     [0, 0, 0, 0, 0, 0, 0, 0],
   ];
-
+  let y = null;
+  let x = null;
+  
   for (let i = 0; i < 3; i++) {
     switch (i) {
       case 0:
-        let y = 0;
-        let x = 0;
+        y = 0;
+        x = 0;
         break;
       case 1:
-        let y = (((V-1)*4)+21) - 7;
-        let x = 0;
+        y = (((V-1)*4)+21) - 7;
+        x = 0;
         break;
       case 2:
-        let y = 0;
-        let x = (((V-1)*4)+21) - 7;
+        y = 0;
+        x = (((V-1)*4)+21) - 7;
         break;
       default:
         break;
