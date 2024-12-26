@@ -8,14 +8,19 @@ Finder Patterns: (0, 0) ([(((V-1)*4)+21) - 7], 0) (0,[(((V-1)*4)+21) - 7])
 */
 
 // calls all functions to update qr
-function dynamic () {
+function dynamic() {
   const input = document.getElementById("QRString").value;
-  
+
   const version = versionCheck(input.length);
   document.getElementById("QRCharCount").innerHTML = generateCharCount(version, input.length);
-  const binaryData = encode(input);
+
+  let binaryData = encode(input);
+  const requiredBits = (((version - 1) * 4) + 21) ** 2; // Total bits for the version
+  binaryData = padBinaryData(binaryData, requiredBits); // Ensure length matches version
+
+  console.log("Binary Data Length:", binaryData.length); // Debugging log
   document.getElementById("QRData").innerHTML = binaryData;
-  
+
   const matrix = dataToArray(binaryData, version);
   console.log("Matrix:", matrix); // Debugging log
   resize(version, matrix);
@@ -128,9 +133,20 @@ function pad (n, width, z) {
   return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
 }
 
+function padBinaryData (data, requiredLength) {
+  return data.length >= requiredLength
+    ? data.slice(0, requiredLength)
+    : data + "0".repeat(requiredLength - data.length);
+}
+
 // convert binary data to matrix to be used to fill pixels in QR
-function dataToArray (data, V) {
+function dataToArray(data, V) {
   console.log("Data received by dataToArray:", data); // Debugging log
+
+  // Ensure `data` contains only '0' and '1'
+  if (!/^[01]+$/.test(data)) {
+    throw new Error("Invalid binary data. Data must contain only '0' and '1'.");
+  }
 
   const size = (((V - 1) * 4) + 21); // Calculate matrix size based on the version
   const matrix = Array.from({ length: size }, () => Array(size).fill(null)); // Initialize empty matrix
