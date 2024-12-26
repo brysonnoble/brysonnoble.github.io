@@ -157,7 +157,7 @@ function resize (V) {
         pixel.style.backgroundColor = "blue";
       }
 
-      pixel.innerHTML = "${row} , ${col}";
+      pixel.innerHTML = `${row} , ${col}`;
 
       container.appendChild(pixel);
     }
