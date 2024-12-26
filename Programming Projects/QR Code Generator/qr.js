@@ -17,7 +17,7 @@ function dynamic () {
   
   document.getElementById("QRCharCount").innerHTML = charCount;
   document.getElementById("QRData").innerHTML = encodedInput;
-  paint(version, dataToArr(byteMode, charCount, encodedInput));
+  paint(version, dataToArr(byteMode, charCount, encodedInput, version));
   functionPatterns(input, version);
 }
 
@@ -139,7 +139,7 @@ function encode (str) {
 
 // generate QR code with data
 function paint (V, matrix) {
-  const size = (((V - 1) * 4) + 21); // Calculate the QR code size based on the version
+  const size = (((V - 1) * 4) + 21);
   const container = document.getElementById("QRContainer");
 
   // clear grid
@@ -161,7 +161,7 @@ function paint (V, matrix) {
         pixel.style.backgroundColor = "blue";
       }
 
-      pixel.innerHTML = `${col}\n${row}`;
+      pixel.innerHTML = `${row}\n${col}`;
 
       container.appendChild(pixel);
     }
@@ -169,9 +169,11 @@ function paint (V, matrix) {
 }
 
 // turns input into array to apply to qr
-function dataToArr (data) {
-
-  return;
+function dataToArr (byteMode, charCount, QRData, V) {
+  const size = (((V - 1) * 4) + 21);
+  const data = byteMode + charCount + QRData;
+  
+  return matrix;
 }
 
 // calls functions to add all function patterns
