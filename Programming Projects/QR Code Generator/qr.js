@@ -5,6 +5,7 @@ Encoded Data: convert to ISO 8859-1, then to binary
 Required Bits: version max * 8
 Size: (((V-1)*4)+21)
 Finder Patterns: (0, 0) ([(((V-1)*4)+21) - 7], 0) (0,[(((V-1)*4)+21) - 7])
+Dark Module: ([(4 * V) + 9], 8)
 */
 
 // calls all functions to update qr
