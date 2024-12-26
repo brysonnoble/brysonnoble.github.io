@@ -8,23 +8,13 @@ Finder Patterns: (0, 0) ([(((V-1)*4)+21) - 7], 0) (0,[(((V-1)*4)+21) - 7])
 */
 
 // calls all functions to update qr
-function dynamic() {
+function dynamic () {
   const input = document.getElementById("QRString").value;
-
-  const version = versionCheck(input.length);
-  document.getElementById("QRCharCount").innerHTML = generateCharCount(version, input.length);
-
-  let binaryData = encode(input);
-  const requiredBits = (((version - 1) * 4) + 21) ** 2; // Total bits for the version
-  binaryData = padBinaryData(binaryData, requiredBits); // Ensure length matches version
-
-  console.log("Binary Data Length:", binaryData.length); // Debugging log
-  document.getElementById("QRData").innerHTML = binaryData;
-
-  const matrix = dataToArray(binaryData, version);
-  console.log("Matrix:", matrix); // Debugging log
-  resize(version, matrix);
-  functionPatterns(input, version);
+  
+  document.getElementById("QRCharCount").innerHTML = generateCharCount(versionCheck(input.length), input.length);
+  document.getElementById("QRData").innerHTML = encode(input);
+  resize(versionCheck(input.length));
+  functionPatterns(input, versionCheck(input.length));
 }
 
 // change between versions depending on character count
@@ -133,97 +123,47 @@ function pad (n, width, z) {
   return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
 }
 
-function padBinaryData (data, requiredLength) {
-  return data.length >= requiredLength
-    ? data.slice(0, requiredLength)
-    : data + "0".repeat(requiredLength - data.length);
-}
-
-// convert binary data to matrix to be used to fill pixels in QR
-function dataToArray(data, V) {
-  console.log("Data received by dataToArray:", data); // Debugging log
-
-  // Ensure `data` contains only '0' and '1'
-  if (!/^[01]+$/.test(data)) {
-    throw new Error("Invalid binary data. Data must contain only '0' and '1'.");
-  }
-
-  const size = (((V - 1) * 4) + 21); // Calculate matrix size based on the version
-  const matrix = Array.from({ length: size }, () => Array(size).fill(null)); // Initialize empty matrix
-
-  let bitIndex = 0; // Tracks current bit in `data`
-  let col = size - 1; // Start at the rightmost column
-  let row = size - 1; // Start at the bottom row
-  let directionUp = true; // Tracks vertical direction (up or down)
-
-  while (col > 0) {
-    if (col === 6) col -= 1; // Skip timing pattern column
-
-    for (let i = 0; i < size; i++) {
-      // Fill right column
-      if (matrix[row][col] === null) {
-        matrix[row][col] = bitIndex < data.length ? parseInt(data[bitIndex], 10) : 0;
-        bitIndex++;
-      }
-
-      // Fill left column
-      if (matrix[row][col - 1] === null) {
-        matrix[row][col - 1] = bitIndex < data.length ? parseInt(data[bitIndex], 10) : 0;
-        bitIndex++;
-      }
-
-      // Move vertically
-      row += directionUp ? -1 : 1;
-
-      if (row < 0 || row >= size) {
-        directionUp = !directionUp;
-        row += directionUp ? 1 : -1; // Adjust row after reversing
-        break;
-      }
-    }
-
-    col -= 2; // Move to the next column pair
-  }
-
-  console.log("Generated Matrix in dataToArray:", matrix); // Debugging log
-  return matrix;
-}
-
 // convert input to binary
 function encode (str) {
   let output = "";
   for (let i = 0; i < str.length; i++) {
     const binaryChar = str[i].charCodeAt(0).toString(2);
-    output += pad(binaryChar, 8);
+    output += pad(binaryChar, 8) + " ";
   }
-  return output;
+  return output.trim();
 }
 
 // resize QR code based on version
-function resize (V, matrix) {
-  const size = matrix.length;
+function resize (V) {
+  const size = (((V - 1) * 4) + 21); // Calculate the QR code size based on the version
   const container = document.getElementById("QRContainer");
 
-  // Clear grid
+  // clear grid
   container.innerHTML = "";
 
-  // Set grid dimensions
+  // set dimensions
   container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
   container.style.gridTemplateRows = `repeat(${size}, 1fr)`;
 
-  // Create grid cells
+  // instantiate pixels
   for (let row = 0; row < size; row++) {
     for (let col = 0; col < size; col++) {
       const pixel = document.createElement("div");
       pixel.classList.add("pixel");
 
-      // Set pixel color based on matrix value
-      pixel.style.backgroundColor = matrix[row][col] === 1 ? "black" : "white";
+      if ((row + col) % 2 === 0) {
+        pixel.style.backgroundColor = "red";
+      } else {
+        pixel.style.backgroundColor = "blue";
+      }
+
+      pixel.innerHTML = `${row}\n${col}`;
 
       container.appendChild(pixel);
     }
   }
 }
+
 
 // calls functions to add all function patterns
 function functionPatterns (input, V) {
