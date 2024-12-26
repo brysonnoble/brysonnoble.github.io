@@ -210,8 +210,43 @@ function functionPatterns (matrix, V) {
   return matrix;
 }
 
-// add finder patterns, incl. seperators, dark module
+// add finder patterns, seperators (0, 0) ([(((V-1)*4)+21) - 7], 0) (0,[(((V-1)*4)+21) - 7])
 function finderPatterns (matrix, V) {
+  const pattern = [
+    [1, 1, 1, 1, 1, 1, 1, 0],
+    [1, 0, 0, 0, 0, 0, 1, 0],
+    [1, 0, 1, 1, 1, 0, 1, 0],
+    [1, 0, 1, 1, 1, 0, 1, 0],
+    [1, 0, 1, 1, 1, 0, 1, 0],
+    [1, 0, 0, 0, 0, 0, 1, 0],
+    [1, 1, 1, 1, 1, 1, 1, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+  ];
+
+  for (let i = 0; i < 3; i++) {
+    switch (i) {
+      case 0 {
+        let y = 0;
+        let x = 0;
+      }
+      case 1 {
+        let y = (((V-1)*4)+21) - 7;
+        let x = 0;
+      }
+      case 2 {
+        let y = 0;
+        let x = (((V-1)*4)+21) - 7;
+      }
+    }
+    
+    for (let j = 0; j < 8; j++) {
+      for (let k = 0; k < 8; k++) {
+        matrix[j + y][k + x] = pattern[j][k]
+      }
+    }
+  }
+    
+  
   return matrix;
 }
 
