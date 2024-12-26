@@ -9,12 +9,15 @@ Finder Patterns: (0, 0) ([(((V-1)*4)+21) - 7], 0) (0,[(((V-1)*4)+21) - 7])
 
 // calls all functions to update qr
 function dynamic () {
+  const byteMode = 0100;
+  const charCount = generateCharCount(version, input.length);
   const input = document.getElementById("QRString").value;
   const version = versionCheck(input.length);
+  const encodedInput = encode(input);
   
-  document.getElementById("QRCharCount").innerHTML = generateCharCount(version, input.length);
-  document.getElementById("QRData").innerHTML = encode(input);
-  resize(version);
+  document.getElementById("QRCharCount").innerHTML = charCount;
+  document.getElementById("QRData").innerHTML = encodedInput;
+  paint(version, dataToArr(byteMode, charCount, encodedInput));
   functionPatterns(input, version);
 }
 
@@ -134,8 +137,8 @@ function encode (str) {
   return output.trim();
 }
 
-// resize QR code based on version
-function resize (V) {
+// generate QR code with data
+function paint (V, matrix) {
   const size = (((V - 1) * 4) + 21); // Calculate the QR code size based on the version
   const container = document.getElementById("QRContainer");
 
@@ -165,6 +168,11 @@ function resize (V) {
   }
 }
 
+// turns input into array to apply to qr
+function dataToArr (data) {
+
+  return;
+}
 
 // calls functions to add all function patterns
 function functionPatterns (input, V) {
