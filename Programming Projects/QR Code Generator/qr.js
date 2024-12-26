@@ -138,7 +138,7 @@ function resize (V) {
   const size = (((V - 1) * 4) + 21);
   const pixelSize = 1 / size;
 
-  for (let i = 0; i < size ** 2; i++) {
+  for (let i = 0; i < size; i++) {
     var pixel = document.createElement("div");
     if (i % 2 != 0) {
       pixel.style.background = "red";
