@@ -200,7 +200,7 @@ function generateArr (size) {
 // calls functions to add all function patterns
 function functionPatterns (matrix, V) {
   matrix = finderPatterns(matrix, V);
-  V >= 2 && matrix = alignmentPatterns(matrix, V);
+  if (V >= 2) {matrix = alignmentPatterns(matrix, V);}
   matrix = timingPatterns(matrix, V);
   matrix = darkModule(matrix, V);
 
