@@ -136,7 +136,16 @@ function encode (str) {
 // resize QR code based on version
 function resize (V) {
   const size = (((V - 1) * 4) + 21);
-  document.getElementById('QRContainer').setAttribute("style", `width:${size}px; height:${size}px;`);
+  const pixelSize = 1 / size;
+
+  for (let i = 0; i < size ** 2; i++) {
+    var pixel = document.createElement("div");
+    pixel.style.width = "${pixelSize}%";
+    pixel.style.height = "${pixelSize}%";
+    pixel.style.background = "red";
+    
+    document.getElementById("main").appendChild(div);
+  }
 }
 
 // calls functions to add all function patterns
