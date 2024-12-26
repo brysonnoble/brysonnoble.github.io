@@ -13,7 +13,7 @@ function dynamic () {
   
   document.getElementById("QRCharCount").innerHTML = generateCharCount(versionCheck(input.length), input.length);
   document.getElementById("QRData").innerHTML = encode(input);
-  resize(versionCheck(input.length), dataToArray(encode(input)));
+  resize(versionCheck(input.length), dataToArray(encode(input), versionCheck(input.length)));
   functionPatterns(input, versionCheck(input.length));
 }
 
