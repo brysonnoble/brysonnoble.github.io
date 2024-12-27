@@ -326,11 +326,11 @@ function alignmentPatterns (matrix, V) {
 
       matrix[locations[V][i]][locations[V][j]] = 2;
       
-      //for (let k = 0; k < 5; k++) {
-      //  for (let l = 0; l < 5; l++) {
-      //    matrix[locations[V][i]][locations[V][j]] = pattern[k][l];
-      //  }
-      //}
+      for (let k = 0; k < 5; k++) {
+        for (let l = 0; l < 5; l++) {
+          matrix[k + locations[V][i]][l + locations[V][j]] = pattern[k][l];
+        }
+      }
     }
   }
   
