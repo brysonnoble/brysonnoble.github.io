@@ -245,7 +245,7 @@ function finderPatterns (matrix, V) {
     
     for (let j = 0; j < 8; j++) {
       for (let k = 0; k < 8; k++) {
-        matrix[j + y][k + x] = pattern[j][k]
+        matrix[j + y][k + x] = pattern[j][k];
       }
     }
   }
