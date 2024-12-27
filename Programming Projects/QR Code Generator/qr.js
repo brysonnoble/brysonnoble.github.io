@@ -319,7 +319,7 @@ function alignmentPatterns (matrix, V) {
 
   for (let i = 0; i < 5; i++) {
     for (let j = 0; j < 5; j++) {
-      for (let k = 0; k < locations[V].length - 1; k++) {
+      for (let k = 0; k < locations[V].length; k++) {
         matrix[i + locations[V][k]][j + locations[V][k]] = pattern[i][j];
       }
     }
