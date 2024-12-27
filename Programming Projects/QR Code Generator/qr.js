@@ -314,7 +314,8 @@ function reservedAreas (matrix, V) {
     for (let i = 0; i < 8; i++) {
       matrix[i][8] = 2;
       matrix[8][i] = 2;
-      matrix[i + (((V-1)*4)+21) - 9][8] = 2;
+      matrix[i + (((V-1)*4)+21) - 8][8] = 2;
+      matrix[8][i + (((V-1)*4)+21) - 8] = 2;
     }
   }
   
