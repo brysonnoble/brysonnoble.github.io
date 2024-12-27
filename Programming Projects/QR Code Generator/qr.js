@@ -257,6 +257,7 @@ function finderPatterns (matrix, V) {
         matrix[j + y][k + x] = pattern[j + yp][k + xp];
       }
     }
+    console.log("success");
   }
     
   console.log(matrix);
