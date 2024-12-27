@@ -223,8 +223,6 @@ function finderPatterns (matrix, V) {
   ];
   let y = null;
   let x = null;
-
-  console.log(matrix);
   
   for (let i = 0; i < 3; i++) {
     switch (i) {
@@ -251,6 +249,7 @@ function finderPatterns (matrix, V) {
     }
   }
     
+  console.log(matrix);
   
   return matrix;
 }
