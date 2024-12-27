@@ -316,13 +316,10 @@ function alignmentPatterns (matrix, V) {
     [1, 0, 0, 0, 1],
     [1, 1, 1, 1, 1],
   ]
-  
+
   for (let i = 0; i < locations[V].length; i++) {
-    for (let j = 0; j < 5; j++) {
-      for (let k = 0; k < 5; k++) {
-        matrix[j + locations[V][i] - 2][k + locations[V][i] - 2] = pattern[j][k];
-        console.log(matrix);
-      }
+    for (let j = 0; j < selectedArray.length; j++) {
+      matrix[j + locations[V][i]][k + locations[V][i]] = pattern[j][k];
     }
   }
   
