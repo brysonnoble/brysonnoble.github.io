@@ -268,6 +268,7 @@ function finderPatterns (matrix, V) {
 // add alignment pattern(s)
 function alignmentPatterns (matrix, V) {
   const locations = [
+    [],
     [6, 18], // version 2
     [6, 22],
     [6, 26],
@@ -315,6 +316,12 @@ function alignmentPatterns (matrix, V) {
     [1, 0, 0, 0, 1],
     [1, 1, 1, 1, 1],
   ]
+
+  for (let i = 0; i < 5; i++) {
+    for (let j = 0; j < 5; k++) {
+      matrix[i][j] = pattern[i][j];
+    }
+  }
   
   return matrix;
 }
@@ -367,4 +374,10 @@ function reservedAreas (matrix, V) {
   }
   
   return matrix;
+}
+
+// checks if cell is occupied
+function isOccupied (cell) {
+  if (cell != -1) {return false;}
+  return true;
 }
