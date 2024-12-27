@@ -213,38 +213,48 @@ function functionPatterns (matrix, V) {
 // add finder patterns, seperators (0, 0) ([(((V-1)*4)+21) - 7], 0) (0,[(((V-1)*4)+21) - 7])
 function finderPatterns (matrix, V) {
   const pattern = [
-    [1, 1, 1, 1, 1, 1, 1],
-    [1, 0, 0, 0, 0, 0, 1],
-    [1, 0, 1, 1, 1, 0, 1],
-    [1, 0, 1, 1, 1, 0, 1],
-    [1, 0, 1, 1, 1, 0, 1],
-    [1, 0, 0, 0, 0, 0, 1],
-    [1, 1, 1, 1, 1, 1, 1],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 1, 1, 1, 1, 1, 1, 1, 0],
+    [0, 1, 0, 0, 0, 0, 0, 1, 0],
+    [0, 1, 0, 1, 1, 1, 0, 1, 0],
+    [0, 1, 0, 1, 1, 1, 0, 1, 0],
+    [0, 1, 0, 1, 1, 1, 0, 1, 0],
+    [0, 1, 0, 0, 0, 0, 0, 1, 0],
+    [0, 1, 1, 1, 1, 1, 1, 1, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
   ];
   let y = null;
   let x = null;
+  let yp = null;
+  let xp = null;
   
   for (let i = 0; i < 3; i++) {
     switch (i) {
       case 0:
         y = 0;
         x = 0;
+        yp = 1;
+        xp = 1;
         break;
       case 1:
         y = (((V-1)*4)+21) - 7;
         x = 0;
+        yp = 0;
+        xp = 1;
         break;
       case 2:
         y = 0;
         x = (((V-1)*4)+21) - 7;
+        yp = 1;
+        xp = 0;
         break;
       default:
         break;
     }
     
-    for (let j = 0; j < 7; j++) {
-      for (let k = 0; k < 7; k++) {
-        matrix[j + y][k + x] = pattern[j][k];
+    for (let j = 0; j < 8; j++) {
+      for (let k = 0; k < 8; k++) {
+        matrix[j + y][k + x] = pattern[j + yp][k + yx];
       }
     }
   }
