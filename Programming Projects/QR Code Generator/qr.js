@@ -170,7 +170,7 @@ function paint (V, matrix) {
         pixel.style.backgroundColor = "lightgrey";
       }
 
-      pixel.innerHTML = `${row}, ${col}`;
+      pixel.innerHTML = `${row}\n${col}`;
 
       container.appendChild(pixel);
     }
