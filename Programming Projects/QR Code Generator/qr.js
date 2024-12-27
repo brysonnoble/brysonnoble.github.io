@@ -237,14 +237,14 @@ function finderPatterns (matrix, V) {
         xp = 1;
         break;
       case 1:
-        y = (((V-1)*4)+21) - 8;
+        y = (((V-1)*4)+21) - 8; // changed to -8 to offset for seperators
         x = 0;
         yp = 0;
         xp = 1;
         break;
       case 2:
         y = 0;
-        x = (((V-1)*4)+21) - 8;
+        x = (((V-1)*4)+21) - 8; // changed to -8 to offset for seperators
         yp = 1;
         xp = 0;
         break;
