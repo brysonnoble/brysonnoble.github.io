@@ -327,7 +327,7 @@ function alignmentPatterns (matrix, V) {
           console.log(j - 2);
           console.log(k);
           console.log(l);
-          matrix[i - 2][j - 2] = pattern[k][l];
+          matrix[i][j] = pattern[k][l];
         }
       }
     }
