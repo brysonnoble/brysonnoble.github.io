@@ -311,11 +311,11 @@ function reservedAreas (matrix, V) {
     }
   } else {
     for (let i = 0; i < 9; i++) {
-      matrix[i][j + (((V-1)*4)+21) - 9] = 2;
+      matrix[i][(((V-1)*4)+21) - 9] = 2;
     }
     for (let i = 0; i < 8; i++) {
-      matrix[i + (((V-1)*4)+21) - 9][j] = 2;
-      matrix[i + (((V-1)*4)+21) - 9][j + (((V-1)*4)+21) - 9] = 2;
+      matrix[i + (((V-1)*4)+21) - 9][0] = 2;
+      matrix[i + (((V-1)*4)+21) - 9][(((V-1)*4)+21) - 9] = 2;
     }
   }
   
