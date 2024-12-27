@@ -202,11 +202,10 @@ function generateArr (size) {
 // calls functions to add all function patterns
 function functionPatterns (matrix, V) {
   matrix = finderPatterns(matrix, V);
-  if (V >= 2) {matrix = alignmentPatterns(matrix, V);}
   matrix = timingPatterns(matrix, V);
+  if (V >= 2) {matrix = alignmentPatterns(matrix, V);}
   matrix = darkModule(matrix, V);
 
-  console.log(matrix);
   return matrix;
 }
 
@@ -257,10 +256,7 @@ function finderPatterns (matrix, V) {
         matrix[j + y][k + x] = pattern[j + yp][k + xp];
       }
     }
-    console.log(matrix);
   }
-    
-  console.log(matrix);
   
   return matrix;
 }
@@ -272,6 +268,18 @@ function alignmentPatterns (matrix, V) {
 
 // add timing patterns
 function timingPatterns (matrix, V) {
+  const size = (((V - 1) * 4) + 21);
+
+  for (let i = 0; i < size - 16; i++) {
+    if (i % 2 == 0) {
+      matrix[i + 7][7] = 1;
+      matrix[7][i + 7] = 1;
+    } else {
+      matrix[i + 7][7] = 0;
+      matrix[7][i + 7] = 0;
+    }
+  }
+  
   return matrix;
 }
 
