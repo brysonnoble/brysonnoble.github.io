@@ -239,14 +239,14 @@ function finderPatterns (matrix, V) {
       case 1:
         y = (((V-1)*4)+21) - 7;
         x = 0;
-        yp = 0;
-        xp = 1;
+        yp = 1;
+        xp = 0;
         break;
       case 2:
         y = 0;
         x = (((V-1)*4)+21) - 7;
-        yp = 1;
-        xp = 0;
+        yp = 0;
+        xp = 1;
         break;
       default:
         break;
