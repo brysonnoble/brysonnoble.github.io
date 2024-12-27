@@ -323,6 +323,8 @@ function alignmentPatterns (matrix, V) {
 
       for (let k = 0; k < 5; k++) {
         for (let l = 0; l < 5; l++) {
+          console.log(k);
+          console.log(l);
           matrix[i - 2][j - 2] = pattern[k][l];
         }
       }
