@@ -271,6 +271,7 @@ function finderPatterns (matrix, V) {
 function alignmentPatterns (matrix, V) {
   const locations = [
     [],
+    [],
     [6, 18], // version 2
     [6, 22],
     [6, 26],
