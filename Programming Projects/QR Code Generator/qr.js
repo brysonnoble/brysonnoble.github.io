@@ -272,11 +272,11 @@ function timingPatterns (matrix, V) {
 
   for (let i = 0; i < size - 16; i++) {
     if (i % 2 == 0) {
-      matrix[i + 8][8] = 1;
-      matrix[8][i + 8] = 1;
+      matrix[i + 8][6] = 1;
+      matrix[6][i + 8] = 1;
     } else {
-      matrix[i + 8][8] = 0;
-      matrix[8][i + 8] = 0;
+      matrix[i + 8][6] = 0;
+      matrix[6][i + 8] = 0;
     }
   }
   
