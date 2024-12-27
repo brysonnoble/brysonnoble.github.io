@@ -157,10 +157,15 @@ function paint (V, matrix) {
       const pixel = document.createElement("div");
       pixel.classList.add("pixel");
 
-      if (matrix[row][col] == 1) {
-        pixel.style.backgroundColor = "red";
-      } else if (matrix[row][col] == 0) {
+      if (matrix[row][col] == 0) {
         pixel.style.backgroundColor = "white";
+        pixel.style.color = "black";
+      } else if (matrix[row][col] == 1) {
+        pixel.style.backgroundColor = "black";
+        pixel.style.color = "white";
+      } else if (matrix[row][col] == 2) {
+        pixel.style.backgroundColor = "blue";
+        pixel.style.color = "white";
       } else {
         pixel.style.backgroundColor = "lightgrey";
       }
@@ -202,6 +207,7 @@ function generateArr (size) {
 // calls functions to add all function patterns
 function functionPatterns (matrix, V) {
   matrix = finderPatterns(matrix, V);
+  matrix = reservedAreas(matrix, V);
   matrix = timingPatterns(matrix, V);
   if (V >= 2) {matrix = alignmentPatterns(matrix, V);}
   matrix = darkModule(matrix, V);
@@ -286,6 +292,32 @@ function timingPatterns (matrix, V) {
 // add dark module
 function darkModule (matrix, V) {
   matrix[(4 * V) + 9][8] = 1;
+  
+  return matrix;
+}
+
+// add reserved areas
+function reservedAreas (matrix, V) {
+  if (V >= 7) {
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 6; j++) {
+        matrix[i + (((V-1)*4)+21) - 11][j] = 2;
+      }
+    }
+    for (let i = 0; i < 6; i++) {
+      for (let j = 0; j < 3; j++) {
+        matrix[i][j + (((V-1)*4)+21) - 11] = 2;
+      }
+    }
+  } else {
+    for (let i = 0; i < 9; i++) {
+      matrix[i][j + (((V-1)*4)+21) - 9] = 2;
+    }
+    for (let i = 0; i < 8; i++) {
+      matrix[i + (((V-1)*4)+21) - 9][j] = 2;
+      matrix[i + (((V-1)*4)+21) - 9][j + (((V-1)*4)+21) - 9] = 2;
+    }
+  }
   
   return matrix;
 }
