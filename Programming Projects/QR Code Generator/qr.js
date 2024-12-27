@@ -310,10 +310,10 @@ function reservedAreas (matrix, V) {
       }
     }
   } else {
-    matrix[9][9] = 2;
+    matrix[8][8] = 2;
     for (let i = 0; i < 8; i++) {
-      matrix[i][9] = 2;
-    //  matrix[i + (((V-1)*4)+21) - 9][0] = 2;
+      matrix[i][8] = 2;
+      matrix[8][i] = 2;
     //  matrix[i + (((V-1)*4)+21) - 9][(((V-1)*4)+21) - 9] = 2;
     }
   }
