@@ -239,14 +239,14 @@ function finderPatterns (matrix, V) {
       case 1:
         y = (((V-1)*4)+21) - 7;
         x = 0;
-        yp = 1;
-        xp = 0;
+        yp = 0;
+        xp = 1;
         break;
       case 2:
         y = 0;
         x = (((V-1)*4)+21) - 7;
-        yp = 0;
-        xp = 1;
+        yp = 1;
+        xp = 0;
         break;
       default:
         break;
@@ -254,10 +254,10 @@ function finderPatterns (matrix, V) {
     
     for (let j = 0; j < 8; j++) {
       for (let k = 0; k < 8; k++) {
-        matrix[j + y][k + x] = pattern[j + yp][k + xp];
+        matrix[j + y - yp][k + x - xp] = pattern[j + yp][k + xp];
       }
     }
-    console.log("success");
+    console.log(matrix);
   }
     
   console.log(matrix);
