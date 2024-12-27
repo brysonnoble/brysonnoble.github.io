@@ -313,10 +313,10 @@ function reservedAreas (matrix, V) {
     for (let i = 0; i < 9; i++) {
       matrix[i][(((V-1)*4)+21) - 9] = 2;
     }
-    for (let i = 0; i < 8; i++) {
-      matrix[i + (((V-1)*4)+21) - 9][0] = 2;
-      matrix[i + (((V-1)*4)+21) - 9][(((V-1)*4)+21) - 9] = 2;
-    }
+    //for (let i = 0; i < 8; i++) {
+    //  matrix[i + (((V-1)*4)+21) - 9][0] = 2;
+    //  matrix[i + (((V-1)*4)+21) - 9][(((V-1)*4)+21) - 9] = 2;
+    //}
   }
   
   return matrix;
