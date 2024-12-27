@@ -15,6 +15,8 @@ function dynamic () {
   const version = versionCheck(input.length);
   const charCount = generateCharCount(version, input.length);
   const encodedInput = encode(input);
+
+  console.log(version);
   
   document.getElementById("QRCharCount").innerHTML = charCount;
   document.getElementById("QRData").innerHTML = encodedInput;
