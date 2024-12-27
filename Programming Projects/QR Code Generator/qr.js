@@ -142,8 +142,6 @@ function paint (V, matrix) {
   const size = (((V - 1) * 4) + 21);
   const container = document.getElementById("QRContainer");
 
-  console.log(matrix);
-
   // clear grid
   container.innerHTML = "";
 
