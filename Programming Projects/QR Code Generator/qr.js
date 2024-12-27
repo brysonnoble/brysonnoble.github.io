@@ -322,7 +322,7 @@ function alignmentPatterns (matrix, V) {
 
   for (let i = 0; i < locations[V].length; i++) {
     for (let j = 0; j < locations[V].length; j++) {
-      if ((i == 0 && j == 0) || (i == 0 && j == locations[V].length) || (i == locations[V].length && j == 0)) continue; // skip finder patterns
+      if ((i == 0 && j == 0) || (i == 0 && j == locations[V].length - 1) || (i == locations[V].length - 1 && j == 0)) continue; // skip finder patterns
       
       for (let k = 0; k < 5; k++) {
         for (let l = 0; l < 5; l++) {
