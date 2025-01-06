@@ -51,8 +51,8 @@ const events = [
   {
     title: "Invite-Only Event",
     date: "2025-01-17",
-    time: "",
-    location: "",
+    time: "INVITE ONLY",
+    location: "INVITE ONLY",
     description: "INVITE ONLY event."
   }
 ];
