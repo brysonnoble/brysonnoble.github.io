@@ -38,7 +38,7 @@ const events = [
     title: "Glizzys with the Boys",
     date: "2025-01-15",
     time: "6:00 PM - 7:30 PM",
-    location: "Chi Phi Manor",
+    location: "Mustard's Last Stand",
     description: "Relax and grab some glizzys with the Chi Phi brothers."
   },
   {
