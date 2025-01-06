@@ -51,9 +51,9 @@ const events = [
   {
     title: "Invite-Only Event",
     date: "2025-01-17",
-    time: "4:00 PM - 6:00 PM",
-    location: "Spessard Holland South Beach Park",
-    description: "INVITE ONLY at Spessard Holland South Beach Park."
+    time: "",
+    location: "",
+    description: "INVITE ONLY event."
   }
 ];
 
