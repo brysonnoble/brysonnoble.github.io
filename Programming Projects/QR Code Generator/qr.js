@@ -185,7 +185,20 @@ function dataToArr (byteMode, charCount, QRData, V) {
 
   // apply function patterns to get rid of blank space
   matrix = functionPatterns(matrix, V);
+
+  // encode data & error correction bits
+  matrix = dataBits(matrix);
   
+  return matrix;
+}
+
+// encodes data bits
+function dataBits (matrix) {
+  return matrix;
+}
+
+// encodes error correction bits
+function ECBits (matrix) {
   return matrix;
 }
 
