@@ -187,13 +187,20 @@ function dataToArr (byteMode, charCount, QRData, V) {
   matrix = functionPatterns(matrix, V);
 
   // encode data & error correction bits
-  matrix = dataBits(matrix);
+  matrix = dataBits(matrix, size);
   
   return matrix;
 }
 
 // encodes data bits
-function dataBits (matrix) {
+function dataBits (matrix, size) {  
+  let shift = false;
+  let y = 0;
+  
+  //for (let i = size; i > 0; i--) {
+  //  matrix[y][x]
+  //  
+  //}
   return matrix;
 }
 
