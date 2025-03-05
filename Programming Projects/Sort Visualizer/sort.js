@@ -283,6 +283,8 @@ async function quickSortVisualizer(containerId) {
     let pivot = arr[Math.floor((left + right) / 2)];
     let i = left, j = right;
 
+    bars[Math.floor((left + right) / 2)].style.background = "blue"; // Highlight the key element
+
     while (i <= j) {
       while (arr[i] < pivot) i++;
       while (arr[j] > pivot) j--;
