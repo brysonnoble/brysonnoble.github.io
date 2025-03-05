@@ -464,60 +464,6 @@ async function cycleSortVisualizer(containerId) {
   await cycleSort(arr);
 }
 
-// 3-Way Merge Sort Visualization
-async function threeWayMergeSortVisualizer(containerId) {
-  const container = document.getElementById(containerId);
-  const display = container.querySelector(".display");
-  const bars = Array.from(display.children);
-  let arr = bars.map(bar => parseFloat(bar.style.height));
-
-  async function merge(arr, left, mid1, mid2, right) {
-    let n1 = mid1 - left + 1;
-    let n2 = mid2 - mid1;
-    let n3 = right - mid2;
-
-    let L = arr.slice(left, mid1 + 1);
-    let M = arr.slice(mid1 + 1, mid2 + 1);
-    let R = arr.slice(mid2 + 1, right + 1);
-
-    let i = 0, j = 0, k = 0, l = left;
-
-    while (i < n1 && j < n2 && k < n3) {
-      if (L[i] <= M[j] && L[i] <= R[k]) {
-        arr[l] = L[i++];
-      } else if (M[j] <= L[i] && M[j] <= R[k]) {
-        arr[l] = M[j++];
-      } else {
-        arr[l] = R[k++];
-      }
-      l++;
-    }
-
-    while (i < n1) arr[l++] = L[i++];
-    while (j < n2) arr[l++] = M[j++];
-    while (k < n3) arr[l++] = R[k++];
-
-    for (let x = left; x <= right; x++) {
-      bars[x].style.height = `${arr[x]}px`;
-    }
-  }
-
-  async function threeWayMergeSort(arr, left, right) {
-    if (left >= right) return;
-
-    let mid1 = Math.floor((2 * left + right) / 3);
-    let mid2 = Math.floor((left + 2 * right) / 3);
-
-    await threeWayMergeSort(arr, left, mid1);
-    await threeWayMergeSort(arr, mid1 + 1, mid2);
-    await threeWayMergeSort(arr, mid2 + 1, right);
-
-    await merge(arr, left, mid1, mid2, right);
-  }
-
-  await threeWayMergeSort(arr, 0, arr.length - 1);
-}
-
 // Event listeners for "Run" buttons
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelector("#selectionSort input[value='Run']").addEventListener("click", () => {
@@ -546,9 +492,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelector("#cycleSort input[value='Run']").addEventListener("click", () => {
     cycleSortVisualizer("cycleSort");
-  });
-
-  document.querySelector("#threeWayMergeSort input[value='Run']").addEventListener("click", () => {
-    threeWayMergeSortVisualizer("threeWayMergeSort");
   });
 });
