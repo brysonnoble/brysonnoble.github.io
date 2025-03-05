@@ -296,6 +296,13 @@ async function quickSortVisualizer(containerId) {
 
     await quickSort(arr, left, j);
     await quickSort(arr, i, right);
+
+    // Mark sorted bars purple
+    if (left === 0 && right === arr.length - 1) {
+      for (let k = 0; k < arr.length; k++) {
+        bars[k].style.background = "purple";
+      }
+    }
   }
 
   await quickSort(arr, 0, arr.length - 1);
