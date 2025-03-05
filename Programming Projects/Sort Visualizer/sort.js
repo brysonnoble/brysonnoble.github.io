@@ -413,6 +413,8 @@ async function cycleSortVisualizer(containerId) {
       let item = arr[cycleStart];
       let pos = cycleStart;
 
+      item.style.background = "blue";
+
       for (let i = cycleStart + 1; i < n; i++) {
         if (arr[i] < item) pos++;
       }
