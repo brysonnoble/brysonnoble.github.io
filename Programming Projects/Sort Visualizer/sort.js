@@ -56,20 +56,67 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-function selectionSort(arr) {
-  let n = arr.length;
-  for (let i = 0; i < n - 1; i++) {
-    
-    let min_idx = i;
-        
-    for (let j = i + 1; j < n; j++) {
-        if (arr[j] < arr[min_idx]) {
-            min_idx = j;
-        }
-    }
-        
-    let temp = arr[i];
-    arr[i] = arr[min_idx];
-    arr[min_idx] = temp;
+function selectionSortVisualize(containerId) {
+  const container = document.getElementById(containerId);
+  const display = container.querySelector(".display");
+  const bars = Array.from(display.children);
+  const n = bars.length;
+
+  let arr = bars.map(bar => parseFloat(bar.style.height));
+
+  async function swap(i, j) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        // Swap elements in the array
+        let temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+
+        // Swap the heights of the bars visually
+        bars[i].style.height = `${arr[i]}px`;
+        bars[j].style.height = `${arr[j]}px`;
+
+        bars[i].style.background = "green";
+        bars[j].style.background = "green";
+
+        setTimeout(() => {
+          bars[i].style.background = "red";
+          bars[j].style.background = "red";
+          resolve();
+        }, 300);
+      }, 500);
+    });
   }
+
+  async function selectionSort() {
+    for (let i = 0; i < n - 1; i++) {
+      let minIdx = i;
+
+      for (let j = i + 1; j < n; j++) {
+        bars[j].style.background = "blue";
+        await new Promise(resolve => setTimeout(resolve, 200));
+        if (arr[j] < arr[minIdx]) {
+          minIdx = j;
+        }
+        bars[j].style.background = "red";
+      }
+
+      if (minIdx !== i) {
+        await swap(i, minIdx);
+      }
+
+      bars[i].style.background = "purple";
+    }
+    bars[n - 1].style.background = "purple";
+  }
+
+  selectionSort();
 }
+
+// Event listener for "Run" button
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelector("#selectionSort input[value='Run']").addEventListener("click", () => {
+    selectionSortVisualizer("selectionSort");
+  });
+});
+
