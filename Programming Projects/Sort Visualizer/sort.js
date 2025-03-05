@@ -415,10 +415,7 @@ async function cycleSortVisualizer(containerId) {
       let pos = cycleStart;
 
       for (let i = cycleStart + 1; i < n; i++) {
-        bars[i].style.background = "blue";
-        await new Promise(resolve => setTimeout(resolve, 50));
         if (arr[i] < item) pos++;
-        bars[i].style.background = "red";
       }
 
       if (pos === cycleStart) {
@@ -433,7 +430,7 @@ async function cycleSortVisualizer(containerId) {
       item = temp;
 
       await swap(pos, cycleStart);
-      bars[pos].style.background = "blue";  // Highlight current key item
+      bars[pos].style.background = "blue";  // Keep key item highlighted
 
       while (pos !== cycleStart) {
         pos = cycleStart;
@@ -449,9 +446,10 @@ async function cycleSortVisualizer(containerId) {
         item = temp;
 
         await swap(pos, cycleStart);
+        bars[pos].style.background = "blue";  // Keep key item highlighted
       }
 
-      bars[cycleStart].style.background = "green";  // Mark sorted item
+      bars[cycleStart].style.background = "green";  // Mark sorted items
     }
     bars[bars.length - 1].style.background = "green";  // Mark last item as sorted
   }
