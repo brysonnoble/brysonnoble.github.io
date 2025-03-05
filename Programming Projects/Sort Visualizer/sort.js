@@ -449,8 +449,9 @@ async function cycleSortVisualizer(containerId) {
         bars[pos].style.background = "blue";  // Keep key item highlighted
       }
 
-      bars[cycleStart].style.background = "red";  // Reset key item color
+      bars[cycleStart].style.background = "purple";  // Mark sorted items
     }
+    bars[bars.length - 1].style.background = "purple";  // Mark last item as sorted
   }
 
   await cycleSort(arr);
