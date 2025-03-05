@@ -14,6 +14,8 @@
 .visualizer {
   margin-top: 20px;
   padding: 30px;
+  display: flex;
+  flex-direction: column;
   flex: 0 1 calc(33.33% - 20px);
   max-width: 400px;
   height: 400px;
@@ -33,6 +35,7 @@
 }
 
 .display {
+  margin-bottom: 30px;
   width: 100%;
   height: 50%;
   border: 1px solid magenta;
