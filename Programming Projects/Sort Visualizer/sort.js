@@ -419,7 +419,7 @@ async function cycleSortVisualizer(containerId) {
       }
 
       if (pos === cycleStart) {
-        bars[cycleStart].style.background = "red";  // Reset key item color
+        bars[cycleStart].style.background = "green";  // Mark skipped item as sorted
         continue;
       }
 
@@ -430,7 +430,7 @@ async function cycleSortVisualizer(containerId) {
       item = temp;
 
       await swap(pos, cycleStart);
-      bars[pos].style.background = "red";  // Reset key item color
+      bars[pos].style.background = "blue";  // Keep key item highlighted
 
       while (pos !== cycleStart) {
         pos = cycleStart;
