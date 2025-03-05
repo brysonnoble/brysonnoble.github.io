@@ -82,8 +82,8 @@ function selectionSortVisualizer(containerId) {
           bars[i].style.background = "red";
           bars[j].style.background = "red";
           resolve();
-        }, 300);
-      }, 500);
+        }, 50);
+      }, 50);
     });
   }
 
@@ -93,7 +93,7 @@ function selectionSortVisualizer(containerId) {
 
       for (let j = i + 1; j < n; j++) {
         bars[j].style.background = "blue";
-        await new Promise(resolve => setTimeout(resolve, 200));
+        await new Promise(resolve => setTimeout(resolve, 50));
         if (arr[j] < arr[minIdx]) {
           minIdx = j;
         }
@@ -138,8 +138,8 @@ function bubbleSortVisualizer(containerId) {
           bars[i].style.background = "red";
           bars[j].style.background = "red";
           resolve();
-        }, 300);
-      }, 500);
+        }, 50);
+      }, 50);
     });
   }
 
@@ -151,7 +151,7 @@ function bubbleSortVisualizer(containerId) {
         bars[j].style.background = "blue";
         bars[j + 1].style.background = "blue";
 
-        await new Promise(resolve => setTimeout(resolve, 200));
+        await new Promise(resolve => setTimeout(resolve, 50));
 
         if (arr[j] > arr[j + 1]) {
           await swap(j, j + 1);
@@ -187,7 +187,7 @@ function insertionSortVisualizer(containerId) {
 
       bars[i].style.background = "blue"; // Highlight the key element
 
-      await new Promise(resolve => setTimeout(resolve, 300));
+      await new Promise(resolve => setTimeout(resolve, 50));
 
       while (j >= 0 && arr[j] > key) {
         arr[j + 1] = arr[j];
@@ -195,7 +195,7 @@ function insertionSortVisualizer(containerId) {
 
         bars[j].style.background = "green"; // Mark the shifting elements
 
-        await new Promise(resolve => setTimeout(resolve, 300));
+        await new Promise(resolve => setTimeout(resolve, 50));
 
         bars[j].style.background = "red";
         j = j - 1;
@@ -206,7 +206,7 @@ function insertionSortVisualizer(containerId) {
 
       bars[i].style.background = "red"; // Reset key color
 
-      await new Promise(resolve => setTimeout(resolve, 300));
+      await new Promise(resolve => setTimeout(resolve, 50));
     }
 
     for (let i = 0; i < n; i++) {
@@ -215,6 +215,72 @@ function insertionSortVisualizer(containerId) {
   }
 
   insertionSort();
+}
+
+// Merge Sort Visualization
+async function mergeSortVisualizer(containerId) {
+  const container = document.getElementById(containerId);
+  const display = container.querySelector(".display");
+  const bars = Array.from(display.children);
+  let arr = bars.map(bar => parseFloat(bar.style.height));
+
+  async function merge(arr, left, mid, right) {
+    let n1 = mid - left + 1;
+    let n2 = right - mid;
+
+    let L = arr.slice(left, mid + 1);
+    let R = arr.slice(mid + 1, right + 1);
+
+    let i = 0, j = 0, k = left;
+
+    while (i < n1 && j < n2) {
+      bars[k].style.background = "blue"; // Highlight comparing bars
+      await new Promise(resolve => setTimeout(resolve, 50));
+
+      if (L[i] <= R[j]) {
+        arr[k] = L[i];
+        bars[k].style.height = `${L[i]}px`;
+        i++;
+      } else {
+        arr[k] = R[j];
+        bars[k].style.height = `${R[j]}px`;
+        j++;
+      }
+      bars[k].style.background = "red"; // Reset color
+      k++;
+    }
+
+    while (i < n1) {
+      arr[k] = L[i];
+      bars[k].style.height = `${L[i]}px`;
+      i++;
+      k++;
+      await new Promise(resolve => setTimeout(resolve, 50));
+    }
+
+    while (j < n2) {
+      arr[k] = R[j];
+      bars[k].style.height = `${R[j]}px`;
+      j++;
+      k++;
+      await new Promise(resolve => setTimeout(resolve, 50));
+    }
+
+    for (let x = left; x <= right; x++) {
+      bars[x].style.background = "purple"; // Mark sorted elements
+    }
+  }
+
+  async function mergeSort(arr, left, right) {
+    if (left >= right) return;
+
+    let mid = Math.floor((left + right) / 2);
+    await mergeSort(arr, left, mid);
+    await mergeSort(arr, mid + 1, right);
+    await merge(arr, left, mid, right);
+  }
+
+  await mergeSort(arr, 0, arr.length - 1);
 }
 
 // Event listeners for "Run" buttons
@@ -229,5 +295,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelector("#insertionSort input[value='Run']").addEventListener("click", () => {
     insertionSortVisualizer("insertionSort");
+  });
+
+  document.querySelector("#mergeSort input[value='Run']").addEventListener("click", () => {
+    mergeSortVisualizer("mergeSort");
   });
 });
