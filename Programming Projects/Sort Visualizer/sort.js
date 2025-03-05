@@ -548,7 +548,7 @@ document.addEventListener("DOMContentLoaded", () => {
     cycleSortVisualizer("cycleSort");
   });
 
-  document.querySelector("#\\33 WayMergeSort input[value='Run']").addEventListener("click", () => {
-    threeWayMergeSortVisualizer("#\\33 WayMergeSort");
+  document.querySelector("threeWayMergeSort input[value='Run']").addEventListener("click", () => {
+    threeWayMergeSortVisualizer("threeWayMergeSort");
   });
 });
