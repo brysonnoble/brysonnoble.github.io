@@ -16,46 +16,6 @@ function randomize(id, n) {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  // Event listener for "Randomize All" button
-  const randomizeAllBtn = document.querySelector("input[value='Randomize All']");
-  if (randomizeAllBtn) {
-    randomizeAllBtn.addEventListener("click", () => {
-      const n = parseInt(document.getElementById("n")?.value || 20, 10);
-      const sortIds = [
-        "selectionSort",
-        "bubbleSort",
-        "insertionSort",
-        "mergeSort",
-        "quickSort",
-        "heapSort",
-        "cycleSort",
-        "threeWayMergeSort",
-        "countingSort",
-        "radixSort",
-        "bucketSort",
-        "timSort",
-        "combSort",
-        "pigeonholeSort",
-        "introSort",
-        "timSortHybrid"
-      ];
-      sortIds.forEach(id => randomize(id, n));
-    });
-  }
-
-  document.querySelectorAll(".visualizer").forEach(container => {
-    const randomizeBtn = container.querySelector("input[value='Randomize']");
-    if (randomizeBtn) {
-      randomizeBtn.addEventListener("click", () => {
-        const id = container.id;
-        const n = parseInt(document.getElementById("n")?.value || 20, 10);
-        randomize(id, n);
-      });
-    }
-  });
-});
-
 // Selection Sort Visualization
 function selectionSortVisualizer(containerId) {
   const container = document.getElementById(containerId);
@@ -523,6 +483,63 @@ async function threeWayMergeSortVisualizer(containerId) {
 
   await threeWayMergeSort(arr, 0, arr.length - 1);
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Event listener for "Randomize All" button
+  const randomizeAllBtn = document.querySelector("input[value='Randomize All']");
+  if (randomizeAllBtn) {
+    randomizeAllBtn.addEventListener("click", () => {
+      const n = parseInt(document.getElementById("n")?.value || 20, 10);
+      const sortIds = [
+        "selectionSort",
+        "bubbleSort",
+        "insertionSort",
+        "mergeSort",
+        "quickSort",
+        "heapSort",
+        "cycleSort",
+        "threeWayMergeSort",
+        "countingSort",
+        "radixSort",
+        "bucketSort",
+        "timSort",
+        "combSort",
+        "pigeonholeSort",
+        "introSort",
+        "timSortHybrid"
+      ];
+      sortIds.forEach(id => randomize(id, n));
+    });
+  }
+
+  // Event listener for "Run All" button
+  const runAllBtn = document.querySelector("input[value='Run All']");
+  if (runAllBtn) {
+    runAllBtn.addEventListener("click", async () => {
+      // Run all visualizations sequentially
+      await selectionSortVisualizer("selectionSort");
+      await bubbleSortVisualizer("bubbleSort");
+      await insertionSortVisualizer("insertionSort");
+      await mergeSortVisualizer("mergeSort");
+      await quickSortVisualizer("quickSort");
+      await heapSortVisualizer("heapSort");
+      await cycleSortVisualizer("cycleSort");
+      await threeWayMergeSortVisualizer("threeWayMergeSort");
+      // Add more visualizations here if needed
+    });
+  }
+
+  document.querySelectorAll(".visualizer").forEach(container => {
+    const randomizeBtn = container.querySelector("input[value='Randomize']");
+    if (randomizeBtn) {
+      randomizeBtn.addEventListener("click", () => {
+        const id = container.id;
+        const n = parseInt(document.getElementById("n")?.value || 20, 10);
+        randomize(id, n);
+      });
+    }
+  });
+});
 
 // Event listeners for "Run" buttons
 document.addEventListener("DOMContentLoaded", () => {
