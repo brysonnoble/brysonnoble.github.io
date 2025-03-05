@@ -380,81 +380,53 @@ async function heapSortVisualizer(containerId) {
 }
 
 // Cycle Sort Visualization
-async function cycleSortVisualizer(containerId) {
+function cycleSortVisualizer(containerId) {
   const container = document.getElementById(containerId);
   const display = container.querySelector(".display");
   const bars = Array.from(display.children);
+  const n = bars.length;
+
   let arr = bars.map(bar => parseFloat(bar.style.height));
 
-  async function swap(i, j) {
-    return new Promise(resolve => {
-      let temp = arr[i];
-      arr[i] = arr[j];
-      arr[j] = temp;
-  
-      bars[i].style.height = `${arr[i]}px`;
-      bars[j].style.height = `${arr[j]}px`;
-  
-      bars[i].style.background = "yellow";
-      bars[j].style.background = "yellow";
-  
-      setTimeout(() => {
-        bars[i].style.background = "red";
-        bars[j].style.background = "red";
-        resolve();
-      }, 50);
-    });
-  }
-
-  async function cycleSort(arr) {
-    let n = arr.length;
-
+  async function cycleSort() {
     for (let cycleStart = 0; cycleStart < n - 1; cycleStart++) {
       let item = arr[cycleStart];
-      bars[cycleStart].style.background = "blue";  // Highlight key item
       let pos = cycleStart;
 
       for (let i = cycleStart + 1; i < n; i++) {
         if (arr[i] < item) pos++;
       }
 
-      if (pos === cycleStart) {
-        bars[cycleStart].style.background = "green";  // Mark skipped item as sorted
-        continue;
-      }
+      if (pos === cycleStart) continue;
 
       while (item === arr[pos]) pos++;
-
-      let temp = arr[pos];
-      arr[pos] = item;
-      item = temp;
-
-      await swap(pos, cycleStart);
-      bars[pos].style.background = "blue";  // Keep key item highlighted
+      [arr[pos], item] = [item, arr[pos]];
+      bars[pos].style.height = `${arr[pos]}px`;
+      bars[pos].style.background = "yellow";
+      await new Promise(resolve => setTimeout(resolve, 50));
+      bars[pos].style.background = "red";
 
       while (pos !== cycleStart) {
         pos = cycleStart;
-
         for (let i = cycleStart + 1; i < n; i++) {
           if (arr[i] < item) pos++;
         }
 
         while (item === arr[pos]) pos++;
-
-        temp = arr[pos];
-        arr[pos] = item;
-        item = temp;
-
-        await swap(pos, cycleStart);
-        bars[pos].style.background = "blue";  // Keep key item highlighted
+        [arr[pos], item] = [item, arr[pos]];
+        bars[pos].style.height = `${arr[pos]}px`;
+        bars[pos].style.background = "yellow";
+        await new Promise(resolve => setTimeout(resolve, 50));
+        bars[pos].style.background = "red";
       }
-
-      bars[cycleStart].style.background = "green";  // Mark sorted items
     }
-    bars[bars.length - 1].style.background = "green";  // Mark last item as sorted
+
+    for (let i = 0; i < n; i++) {
+      bars[i].style.background = "green"; // Mark sorted elements
+    }
   }
 
-  await cycleSort(arr);
+  cycleSort();
 }
 
 // 3-Way Merge Sort Visualization
