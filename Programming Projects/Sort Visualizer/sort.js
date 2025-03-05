@@ -35,8 +35,8 @@ function selectionSortVisualizer(containerId) {
         bars[i].style.height = `${arr[i]}px`;
         bars[j].style.height = `${arr[j]}px`;
 
-        bars[i].style.background = "green";
-        bars[j].style.background = "green";
+        bars[i].style.background = "yellow";
+        bars[j].style.background = "yellow";
 
         setTimeout(() => {
           bars[i].style.background = "red";
@@ -91,8 +91,8 @@ function bubbleSortVisualizer(containerId) {
         bars[i].style.height = `${arr[i]}px`;
         bars[j].style.height = `${arr[j]}px`;
 
-        bars[i].style.background = "green";
-        bars[j].style.background = "green";
+        bars[i].style.background = "yellow";
+        bars[j].style.background = "yellow";
 
         setTimeout(() => {
           bars[i].style.background = "red";
@@ -158,7 +158,7 @@ function insertionSortVisualizer(containerId) {
         arr[j + 1] = arr[j];
         bars[j + 1].style.height = `${arr[j]}px`;
 
-        bars[j].style.background = "green"; // Mark the shifting elements
+        bars[j].style.background = "yellow"; // Mark the shifting elements
 
         await new Promise(resolve => setTimeout(resolve, 50));
 
@@ -265,8 +265,8 @@ async function quickSortVisualizer(containerId) {
         bars[i].style.height = `${arr[i]}px`;
         bars[j].style.height = `${arr[j]}px`;
 
-        bars[i].style.background = "green";
-        bars[j].style.background = "green";
+        bars[i].style.background = "yellow";
+        bars[j].style.background = "yellow";
 
         setTimeout(() => {
           bars[i].style.background = "red";
@@ -327,8 +327,8 @@ async function heapSortVisualizer(containerId) {
         bars[i].style.height = `${arr[i]}px`;
         bars[j].style.height = `${arr[j]}px`;
 
-        bars[i].style.background = "green";
-        bars[j].style.background = "green";
+        bars[i].style.background = "yellow";
+        bars[j].style.background = "yellow";
 
         setTimeout(() => {
           bars[i].style.background = "red";
@@ -395,8 +395,8 @@ async function cycleSortVisualizer(containerId) {
       bars[i].style.height = `${arr[i]}px`;
       bars[j].style.height = `${arr[j]}px`;
   
-      bars[i].style.background = "green";
-      bars[j].style.background = "green";
+      bars[i].style.background = "yellow";
+      bars[j].style.background = "yellow";
   
       setTimeout(() => {
         bars[i].style.background = "red";
