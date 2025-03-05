@@ -124,7 +124,12 @@ function bubbleSortVisualizer(containerId) {
 
       bars[n - i - 1].style.background = "purple"; // Mark sorted elements
 
-      if (!swapped) break;
+      if (!swapped) {
+        for (let k = 0; k < n - i; k++) {
+          bars[k].style.background = "purple"; // Mark remaining sorted elements
+        }
+        break;
+      }
     }
   }
 
