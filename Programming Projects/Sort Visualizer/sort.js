@@ -354,7 +354,11 @@ async function heapSortVisualizer(containerId) {
     for (let i = n - 1; i > 0; i--) {
       await swap(0, i);
       await heapify(arr, i, 0);
+
+      bars[i].style.background = "purple"; // Mark sorted elements
     }
+
+    bars[0].style.background = "purple"; // Mark the remaining element as sorted
   }
 
   await heapSort(arr);
