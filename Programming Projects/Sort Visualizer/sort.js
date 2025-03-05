@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "quickSort",
         "heapSort",
         "cycleSort",
-        "3WayMergeSort",
+        "threeWayMergeSort",
         "countingSort",
         "radixSort",
         "bucketSort",
@@ -464,6 +464,66 @@ async function cycleSortVisualizer(containerId) {
   await cycleSort(arr);
 }
 
+// 3-Way Merge Sort Visualization
+async function threeWayMergeSortVisualizer(containerId) {
+  const container = document.getElementById(containerId);
+  const display = container.querySelector(".display");
+  const bars = Array.from(display.children);
+  let arr = bars.map(bar => parseFloat(bar.style.height));
+
+  async function merge(arr, left, mid1, mid2, right) {
+    let size1 = mid1 - left + 1;
+    let size2 = mid2 - mid1;
+    let size3 = right - mid2;
+
+    let leftArr = arr.slice(left, left + size1);
+    let midArr = arr.slice(mid1 + 1, mid1 + 1 + size2);
+    let rightArr = arr.slice(mid2 + 1, mid2 + 1 + size3);
+
+    let i = 0, j = 0, k = 0, index = left;
+
+    while (i < size1 || j < size2 || k < size3) {
+      bars[index].style.background = "blue"; // Highlight comparing bars
+      await new Promise(resolve => setTimeout(resolve, 50));
+
+      if (i < size1 && (j >= size2 || leftArr[i] <= midArr[j]) && (k >= size3 || leftArr[i] <= rightArr[k])) {
+        arr[index] = leftArr[i];
+        bars[index].style.height = `${arr[index]}px`;
+        i++;
+      } else if (j < size2 && (k >= size3 || midArr[j] <= rightArr[k])) {
+        arr[index] = midArr[j];
+        bars[index].style.height = `${arr[index]}px`;
+        j++;
+      } else {
+        arr[index] = rightArr[k];
+        bars[index].style.height = `${arr[index]}px`;
+        k++;
+      }
+      bars[index].style.background = "red"; // Reset color
+      index++;
+    }
+
+    for (let x = left; x <= right; x++) {
+      bars[x].style.background = "purple"; // Mark sorted elements
+    }
+  }
+
+  async function threeWayMergeSort(arr, left, right) {
+    if (left >= right) return;
+
+    let mid1 = Math.floor(left + (right - left) / 3);
+    let mid2 = Math.floor(mid1 + (right - left) / 3);
+
+    await threeWayMergeSort(arr, left, mid1);
+    await threeWayMergeSort(arr, mid1 + 1, mid2);
+    await threeWayMergeSort(arr, mid2 + 1, right);
+
+    await merge(arr, left, mid1, mid2, right);
+  }
+
+  await threeWayMergeSort(arr, 0, arr.length - 1);
+}
+
 // Event listeners for "Run" buttons
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelector("#selectionSort input[value='Run']").addEventListener("click", () => {
@@ -492,5 +552,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelector("#cycleSort input[value='Run']").addEventListener("click", () => {
     cycleSortVisualizer("cycleSort");
+  });
+
+  document.querySelector("#threeWayMergeSort input[value='Run']").addEventListener("click", () => {
+    threeWayMergeSortVisualizer("threeWayMergeSort");
   });
 });
