@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-function selectionSortVisualize(containerId) {
+function selectionSortVisualizer(containerId) {
   const container = document.getElementById(containerId);
   const display = container.querySelector(".display");
   const bars = Array.from(display.children);
@@ -113,10 +113,12 @@ function selectionSortVisualize(containerId) {
   selectionSort();
 }
 
-// Event listener for "Run" button
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelector("#selectionSort input[value='Run']").addEventListener("click", () => {
-    selectionSortVisualizer("selectionSort");
-  });
+document.querySelectorAll(".visualizer").forEach(container => {
+  const runBtn = container.querySelector("input[value='Run']");
+  if (runBtn) {
+    randomizeBtn.addEventListener("click", () => {
+      const id = container.id;
+      selectionSortVisualizer(id);
+    });
+  }
 });
-
