@@ -38,8 +38,8 @@ function randomize(id, n) {
 
   for (let i = 0; i < n; i++) {
     const bar = document.createElement('div');
-    bar.style.width = `${320 / n}px`;
-    bar.style.height = `${Math.random() * 160}px`;
+    bar.style.width = `${400 / n}px`;
+    bar.style.height = `${Math.random() * 200}px`;
     bar.style.background = "red";
     bar.style.display = "inline-block";
     bar.style.margin = "1px";
