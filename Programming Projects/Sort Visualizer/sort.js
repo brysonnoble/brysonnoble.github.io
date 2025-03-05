@@ -360,6 +360,8 @@ async function heapSortVisualizer(containerId) {
       bars[i].style.background = "blue"; // Highlight the key element
       
       await heapify(arr, n, i);
+
+      bars[i].style.background = "red";
     }
 
     for (let i = n - 1; i > 0; i--) {
