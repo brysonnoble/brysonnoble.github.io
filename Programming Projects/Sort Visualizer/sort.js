@@ -113,12 +113,9 @@ function selectionSortVisualizer(containerId) {
   selectionSort();
 }
 
-document.querySelectorAll(".visualizer").forEach(container => {
-  const runBtn = container.querySelector("input[value='Run']");
-  if (runBtn) {
-    randomizeBtn.addEventListener("click", () => {
-      const id = container.id;
-      selectionSortVisualizer(id);
-    });
-  }
+// Event listener for "Run" button
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelector("#selectionSort input[value='Run']").addEventListener("click", () => {
+    selectionSortVisualizer("selectionSort");
+  });
 });
