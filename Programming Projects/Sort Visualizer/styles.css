@@ -36,7 +36,9 @@
 
 .display {
   margin-bottom: 30px;
-  width: 320px;
-  height: 160px;
+  width: 400px;
+  height: 200px;
+  display: flex;
+  align-items: flex-end;
   border: 1px solid magenta;
 }
