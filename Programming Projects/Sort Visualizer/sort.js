@@ -64,9 +64,9 @@ function selectionSortVisualizer(containerId) {
         await swap(i, minIdx);
       }
 
-      bars[i].style.background = "purple";
+      bars[i].style.background = "green";
     }
-    bars[n - 1].style.background = "purple";
+    bars[n - 1].style.background = "green";
   }
 
   selectionSort();
@@ -122,11 +122,11 @@ function bubbleSortVisualizer(containerId) {
         bars[j + 1].style.background = "red";
       }
 
-      bars[n - i - 1].style.background = "purple"; // Mark sorted elements
+      bars[n - i - 1].style.background = "green"; // Mark sorted elements
 
       if (!swapped) {
         for (let k = 0; k < n - i; k++) {
-          bars[k].style.background = "purple"; // Mark remaining sorted elements
+          bars[k].style.background = "green"; // Mark remaining sorted elements
         }
         break;
       }
@@ -175,7 +175,7 @@ function insertionSortVisualizer(containerId) {
     }
 
     for (let i = 0; i < n; i++) {
-      bars[i].style.background = "purple"; // Mark sorted elements
+      bars[i].style.background = "green"; // Mark sorted elements
     }
   }
 
@@ -232,7 +232,7 @@ async function mergeSortVisualizer(containerId) {
     }
 
     for (let x = left; x <= right; x++) {
-      bars[x].style.background = "purple"; // Mark sorted elements
+      bars[x].style.background = "green"; // Mark sorted elements
     }
   }
 
@@ -299,10 +299,10 @@ async function quickSortVisualizer(containerId) {
     await quickSort(arr, left, j);
     await quickSort(arr, i, right);
 
-    // Mark sorted bars purple
+    // Mark sorted bars green
     if (left === 0 && right === arr.length - 1) {
       for (let k = 0; k < arr.length; k++) {
-        bars[k].style.background = "purple";
+        bars[k].style.background = "green";
       }
     }
   }
@@ -370,10 +370,10 @@ async function heapSortVisualizer(containerId) {
       await swap(0, i);
       await heapify(arr, i, 0);
 
-      bars[i].style.background = "purple"; // Mark sorted elements
+      bars[i].style.background = "green"; // Mark sorted elements
     }
 
-    bars[0].style.background = "purple"; // Mark the remaining element as sorted
+    bars[0].style.background = "green"; // Mark the remaining element as sorted
   }
 
   await heapSort(arr);
@@ -488,7 +488,7 @@ async function threeWayMergeSortVisualizer(containerId) {
     }
 
     for (let x = left; x <= right; x++) {
-      bars[x].style.background = "purple"; // Mark sorted elements
+      bars[x].style.background = "green"; // Mark sorted elements
     }
   }
 
