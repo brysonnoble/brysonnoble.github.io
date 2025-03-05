@@ -12,6 +12,7 @@
 }
 
 .visualizer {
+  margin-top: 20px;
   flex: 0 1 calc(33.33% - 20px);
   max-width: 400px;
   height: 400px;
