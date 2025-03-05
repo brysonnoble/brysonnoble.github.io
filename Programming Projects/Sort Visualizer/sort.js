@@ -339,7 +339,7 @@ async function heapSortVisualizer(containerId) {
     });
   }
 
-  async function heapify(arr, n, i) {
+  async function heapify(arr, n, i) {    
     let largest = i;
     let left = 2 * i + 1;
     let right = 2 * i + 2;
@@ -357,10 +357,14 @@ async function heapSortVisualizer(containerId) {
     let n = arr.length;
 
     for (let i = Math.floor(n / 2) - 1; i >= 0; i--) {
+      bars[i].style.background = "blue"; // Highlight the key element
+      
       await heapify(arr, n, i);
     }
 
     for (let i = n - 1; i > 0; i--) {
+      bars[i].style.background = "blue"; // Highlight the key element
+      
       await swap(0, i);
       await heapify(arr, i, 0);
 
