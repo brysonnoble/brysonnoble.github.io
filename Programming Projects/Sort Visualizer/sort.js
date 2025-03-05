@@ -1,15 +1,6 @@
 function randomize(id, n) {
   const container = document.getElementById(id);
-  if (!container) {
-    console.error(`Element with id '${id}' not found.`);
-    return;
-  }
-
   const display = container.querySelector(".display");
-  if (!display) {
-    console.error(`Display div not found for '${id}'.`);
-    return;
-  }
 
   display.innerHTML = "";
 
