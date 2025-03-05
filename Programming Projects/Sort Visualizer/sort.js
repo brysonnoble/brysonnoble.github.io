@@ -515,17 +515,17 @@ document.addEventListener("DOMContentLoaded", () => {
   // Event listener for "Run All" button
   const runAllBtn = document.querySelector("input[value='Run All']");
   if (runAllBtn) {
-    runAllBtn.addEventListener("click", async () => {
-      // Run all visualizations sequentially
-      await selectionSortVisualizer("selectionSort");
-      await bubbleSortVisualizer("bubbleSort");
-      await insertionSortVisualizer("insertionSort");
-      await mergeSortVisualizer("mergeSort");
-      await quickSortVisualizer("quickSort");
-      await heapSortVisualizer("heapSort");
-      await cycleSortVisualizer("cycleSort");
-      await threeWayMergeSortVisualizer("threeWayMergeSort");
-      // Add more visualizations here if needed
+    runAllBtn.addEventListener("click", () => {
+      Promise.all([
+        selectionSortVisualizer("selectionSort"),
+        bubbleSortVisualizer("bubbleSort"),
+        insertionSortVisualizer("insertionSort"),
+        mergeSortVisualizer("mergeSort"),
+        quickSortVisualizer("quickSort"),
+        heapSortVisualizer("heapSort"),
+        cycleSortVisualizer("cycleSort"),
+        threeWayMergeSortVisualizer("threeWayMergeSort")
+      ]);
     });
   }
 
