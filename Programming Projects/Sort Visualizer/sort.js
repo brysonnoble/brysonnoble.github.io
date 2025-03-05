@@ -430,9 +430,9 @@ async function cycleSortVisualizer(containerId) {
       item = temp;
 
       await swap(pos, cycleStart);
-      bars[pos].style.background = "blue";  // Keep key item highlighted
 
       while (pos !== cycleStart) {
+        bars[pos].style.background = "blue";  // Highlight key item
         pos = cycleStart;
 
         for (let i = cycleStart + 1; i < n; i++) {
@@ -446,10 +446,10 @@ async function cycleSortVisualizer(containerId) {
         item = temp;
 
         await swap(pos, cycleStart);
-        bars[pos].style.background = "red";  // Reset key item color
+        bars[cycleStart].style.background = "red";  // Reset the previous key item color
       }
 
-      bars[cycleStart].style.background = "green";  // Mark sorted items
+      bars[cycleStart].style.background = "green";  // Mark sorted item
     }
     bars[bars.length - 1].style.background = "green";  // Mark last item as sorted
   }
