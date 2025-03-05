@@ -44,7 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Attach event listeners to each individual "Randomize" button
   document.querySelectorAll(".visualizer").forEach(container => {
     const randomizeBtn = container.querySelector("input[value='Randomize']");
     if (randomizeBtn) {
