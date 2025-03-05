@@ -51,6 +51,6 @@ function randomize(id, n) {
 document.addEventListener("DOMContentLoaded", () => {
   const randomizeAllBtn = document.querySelector("input[value='Randomize All']");
   if (randomizeAllBtn) {
-    randomizeAllBtn.addEventListener("click", () => randomizeAll(20)); // Default 20 elements
+    randomizeAllBtn.addEventListener("click", () => randomizeAll(document.getElementById("n").value));
   }
 });
