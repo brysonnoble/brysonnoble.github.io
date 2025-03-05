@@ -548,7 +548,7 @@ document.addEventListener("DOMContentLoaded", () => {
     cycleSortVisualizer("cycleSort");
   });
 
-  document.querySelector("threeWayMergeSort input[value='Run']").addEventListener("click", () => {
+  document.querySelector("#threeWayMergeSort input[value='Run']").addEventListener("click", () => {
     threeWayMergeSortVisualizer("threeWayMergeSort");
   });
 });
