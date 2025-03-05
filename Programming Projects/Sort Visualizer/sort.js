@@ -402,6 +402,26 @@ async function cycleSortVisualizer(containerId) {
   const bars = Array.from(display.children);
   let arr = bars.map(bar => parseFloat(bar.style.height));
 
+  async function swap(i, j) {
+    return new Promise(resolve => {
+      let temp = arr[i];
+      arr[i] = arr[j];
+      arr[j] = temp;
+  
+      bars[i].style.height = `${arr[i]}px`;
+      bars[j].style.height = `${arr[j]}px`;
+  
+      bars[i].style.background = "green";
+      bars[j].style.background = "green";
+  
+      setTimeout(() => {
+        bars[i].style.background = "red";
+        bars[j].style.background = "red";
+        resolve();
+      }, 50);
+    });
+  }
+
   async function cycleSort(arr) {
     let n = arr.length;
 
