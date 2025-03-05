@@ -549,6 +549,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   document.querySelector("#\\33 WayMergeSort input[value='Run']").addEventListener("click", () => {
-    threeWayMergeSortVisualizer("3WayMergeSort");
+    threeWayMergeSortVisualizer("#\\33 WayMergeSort");
   });
 });
