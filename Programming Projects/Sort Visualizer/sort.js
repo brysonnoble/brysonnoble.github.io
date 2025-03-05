@@ -411,7 +411,8 @@ async function cycleSortVisualizer(containerId) {
 
     for (let cycleStart = 0; cycleStart < n - 1; cycleStart++) {
       let item = arr[cycleStart];
-      bars[cycleStart].style.background = "blue";  // Highlight key item
+      bars.forEach(bar => (bar.style.background = "red")); // Reset colors
+      bars[cycleStart].style.background = "blue"; // Highlight key item
       let pos = cycleStart;
 
       for (let i = cycleStart + 1; i < n; i++) {
@@ -419,7 +420,7 @@ async function cycleSortVisualizer(containerId) {
       }
 
       if (pos === cycleStart) {
-        bars[cycleStart].style.background = "green";  // Mark skipped item as sorted
+        bars[cycleStart].style.background = "green"; // Mark skipped item as sorted
         continue;
       }
 
@@ -429,8 +430,9 @@ async function cycleSortVisualizer(containerId) {
       arr[pos] = item;
       item = temp;
 
+      bars.forEach(bar => (bar.style.background = "red")); // Reset colors
+      bars[pos].style.background = "blue"; // Highlight key item
       await swap(pos, cycleStart);
-      bars[pos].style.background = "blue";  // Keep key item highlighted
 
       while (pos !== cycleStart) {
         pos = cycleStart;
@@ -445,13 +447,14 @@ async function cycleSortVisualizer(containerId) {
         arr[pos] = item;
         item = temp;
 
+        bars.forEach(bar => (bar.style.background = "red")); // Reset colors
+        bars[pos].style.background = "blue"; // Highlight key item
         await swap(pos, cycleStart);
-        bars[pos].style.background = "blue";  // Keep key item highlighted
       }
 
-      bars[cycleStart].style.background = "green";  // Mark sorted items
+      bars[cycleStart].style.background = "green"; // Mark sorted items
     }
-    bars[bars.length - 1].style.background = "green";  // Mark last item as sorted
+    bars[bars.length - 1].style.background = "green"; // Mark last item as sorted
   }
 
   await cycleSort(arr);
