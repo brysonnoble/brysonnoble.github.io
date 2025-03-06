@@ -399,7 +399,7 @@ async function cycleSortVisualizer(containerId) {
       // Count positions where item should go
       for (let i = cycleStart + 1; i < n; i++) {
         if (arr[i] < item) pos++;
-        await new Promise(resolve => setTimeout(resolve, 10)); // Pause for each comparison
+        await new Promise(resolve => setTimeout(resolve, 50)); // Pause for each comparison
       }
 
       if (pos === cycleStart) continue;
@@ -422,7 +422,7 @@ async function cycleSortVisualizer(containerId) {
 
         for (let i = cycleStart + 1; i < n; i++) {
           if (arr[i] < item) pos++;
-          await new Promise(resolve => setTimeout(resolve, 10)); // Pause for each comparison
+          await new Promise(resolve => setTimeout(resolve, 50)); // Pause for each comparison
         }
 
         while (item === arr[pos]) pos++;
