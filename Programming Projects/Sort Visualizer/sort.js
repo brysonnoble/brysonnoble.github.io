@@ -517,6 +517,49 @@ async function threeWayMergeSortVisualizer(containerId) {
   await threeWayMergeSort(arr, 0, arr.length - 1);
 }
 
+// Counting Sort Visualization
+async function countingSortVisualizer(containerId) {
+  const container = document.getElementById(containerId);
+  const display = container.querySelector(".display");
+  const bars = Array.from(display.children);
+  let arr = bars.map(bar => parseFloat(bar.style.height));
+
+  let max = Math.max(...arr);
+  let min = Math.min(...arr);
+  let range = max - min + 1;
+  let count = new Array(range).fill(0);
+  let output = new Array(arr.length);
+
+  // Count occurrences
+  for (let i = 0; i < arr.length; i++) {
+    count[arr[i] - min]++;
+    bars[i].style.background = "blue"; // Highlight counting phase
+    await new Promise(resolve => setTimeout(resolve, 50));
+    bars[i].style.background = "red";
+  }
+
+  // Accumulate counts
+  for (let i = 1; i < count.length; i++) {
+    count[i] += count[i - 1];
+  }
+
+  // Build output array
+  for (let i = arr.length - 1; i >= 0; i--) {
+    output[count[arr[i] - min] - 1] = arr[i];
+    count[arr[i] - min]--;
+    bars[i].style.background = "yellow"; // Highlight sorting phase
+    await new Promise(resolve => setTimeout(resolve, 50));
+  }
+
+  // Copy sorted values back to bars
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] = output[i];
+    bars[i].style.height = `${arr[i]}px`;
+    bars[i].style.background = "green"; // Mark sorted elements
+    await new Promise(resolve => setTimeout(resolve, 50));
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   // Event listener for "Randomize All" button
   const randomizeAllBtn = document.querySelector("input[value='Randomize All']");
@@ -557,7 +600,8 @@ document.addEventListener("DOMContentLoaded", () => {
         quickSortVisualizer("quickSort"),
         heapSortVisualizer("heapSort"),
         cycleSortVisualizer("cycleSort"),
-        threeWayMergeSortVisualizer("threeWayMergeSort")
+        threeWayMergeSortVisualizer("threeWayMergeSort"),
+        countingSortVisualizer("countingSort")
       ]);
     });
   }
@@ -606,5 +650,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelector("#threeWayMergeSort input[value='Run']").addEventListener("click", () => {
     threeWayMergeSortVisualizer("threeWayMergeSort");
+  });
+
+  document.querySelector("#countingSort input[value='Run']").addEventListener("click", () => {
+    threeWayMergeSortVisualizer("countingSort");
   });
 });
