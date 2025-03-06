@@ -399,12 +399,10 @@ async function cycleSortVisualizer(containerId) {
 
       // Count correct position for the item
       for (let i = cycleStart + 1; i < n; i++) {
-        if (arr[i] < item) {
-          bars[i].style.background = "yellow"; // Highlight comparison
-          await new Promise(resolve => setTimeout(resolve, 50)); // Pause for visibility
-          pos++;
-          bars[i].style.background = "red"; // Restore color after comparison
-        }
+        bars[i].style.background = "yellow"; // Highlight comparison
+        await new Promise(resolve => setTimeout(resolve, 50)); // Pause for visibility
+        if (arr[i] < item) pos++;
+        bars[i].style.background = "red"; // Restore color after comparison
       }
 
       if (pos === cycleStart) {
@@ -416,9 +414,11 @@ async function cycleSortVisualizer(containerId) {
       while (item === arr[pos]) pos++;
 
       // Swap item into position
+      bars[cycleStart].style.background = "red"; // Restore previous key item
+      bars[pos].style.background = "blue"; // New key item in blue
+
       [arr[pos], item] = [item, arr[pos]];
       bars[pos].style.height = `${arr[pos]}px`;
-      bars[pos].style.background = "blue"; // Keep key item blue
 
       await new Promise(resolve => setTimeout(resolve, 50)); // Pause for swap visualization
 
@@ -427,12 +427,10 @@ async function cycleSortVisualizer(containerId) {
         pos = cycleStart;
 
         for (let i = cycleStart + 1; i < n; i++) {
-          if (arr[i] < item) {
-            bars[i].style.background = "yellow"; // Highlight comparison
-            await new Promise(resolve => setTimeout(resolve, 50)); // Pause for visibility
-            pos++;
-            bars[i].style.background = "red"; // Restore color after comparison
-          }
+          bars[i].style.background = "yellow"; // Highlight comparison
+          await new Promise(resolve => setTimeout(resolve, 50)); // Pause for visibility
+          if (arr[i] < item) pos++;
+          bars[i].style.background = "red"; // Restore color after comparison
         }
 
         while (item === arr[pos]) pos++;
