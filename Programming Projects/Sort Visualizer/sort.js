@@ -552,7 +552,7 @@ async function countingSortVisualizer(containerId) {
   for (let i = arr.length - 1; i >= 0; i--) {
     output[count[arr[i] - min] - 1] = arr[i];
     count[arr[i] - min]--;
-    bars[i].style.background = "yellow"; // Highlight sorting phase
+    bars[i].style.background = "blue"; // Highlight sorting phase
     await new Promise(resolve => setTimeout(resolve, 50));
     bars[i].style.background = "red";
   }
