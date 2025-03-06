@@ -567,6 +567,28 @@ async function countingSortVisualizer(containerId) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Randomize all onload
+  const n = parseInt(document.getElementById("n")?.value || 20, 10);
+  const sortIds = [
+    "selectionSort",
+    "bubbleSort",
+    "insertionSort",
+    "mergeSort",
+    "quickSort",
+    "heapSort",
+    "cycleSort",
+    "threeWayMergeSort",
+    "countingSort",
+    "radixSort",
+    "bucketSort",
+    "timSort",
+    "combSort",
+    "pigeonholeSort",
+    "introSort",
+    "timSortHybrid"
+  ];
+  sortIds.forEach(id => randomize(id, n));
+  
   // Event listener for "Randomize All" button
   const randomizeAllBtn = document.querySelector("input[value='Randomize All']");
   if (randomizeAllBtn) {
