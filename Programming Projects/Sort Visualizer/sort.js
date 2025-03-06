@@ -522,7 +522,7 @@ async function countingSortVisualizer(containerId) {
   const container = document.getElementById(containerId);
   const display = container.querySelector(".display");
   const bars = Array.from(display.children);
-  let arr = bars.map(bar => parseFloat(bar.style.height));
+  let arr = bars.map(bar => Math.round(parseFloat(bar.style.height)));
 
   let max = Math.max(...arr);
   let min = Math.min(...arr);
