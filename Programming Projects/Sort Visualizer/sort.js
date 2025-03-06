@@ -653,6 +653,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   document.querySelector("#countingSort input[value='Run']").addEventListener("click", () => {
-    threeWayMergeSortVisualizer("countingSort");
+    countingSortVisualizer("countingSort");
   });
 });
