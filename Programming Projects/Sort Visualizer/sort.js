@@ -380,6 +380,7 @@ async function heapSortVisualizer(containerId) {
 }
 
 // Cycle Sort Visualization
+// Cycle Sort with fair visualization and only one key item in blue at any time
 async function cycleSortVisualizer(containerId) {
   const container = document.getElementById(containerId);
   const display = container.querySelector(".display");
@@ -393,13 +394,14 @@ async function cycleSortVisualizer(containerId) {
       let item = arr[cycleStart];
       let pos = cycleStart;
 
-      bars[cycleStart].style.background = "blue"; // Highlight key item
-      await new Promise(resolve => setTimeout(resolve, 50)); // Pause before counting
+      // Highlight the current key item in blue
+      bars[cycleStart].style.background = "blue";
+      await new Promise(resolve => setTimeout(resolve, 50)); // Pause for visibility
 
-      // Count positions where item should go
+      // Count correct position for the item
       for (let i = cycleStart + 1; i < n; i++) {
         if (arr[i] < item) pos++;
-        await new Promise(resolve => setTimeout(resolve, 10)); // Pause for each comparison
+        await new Promise(resolve => setTimeout(resolve, 50)); // Pause for each comparison
       }
 
       if (pos === cycleStart) {
@@ -407,17 +409,17 @@ async function cycleSortVisualizer(containerId) {
         continue;
       }
 
-      // Find correct position for the item
+      // Ensure correct position isn't already occupied
       while (item === arr[pos]) pos++;
 
       // Swap item into position
+      bars[cycleStart].style.background = "red"; // Restore previous key item
+      bars[pos].style.background = "blue"; // New key item in blue
+
       [arr[pos], item] = [item, arr[pos]];
       bars[pos].style.height = `${arr[pos]}px`;
-      bars[pos].style.background = "yellow";
 
       await new Promise(resolve => setTimeout(resolve, 50)); // Pause for swap visualization
-
-      bars[pos].style.background = "red";
 
       // Rotate rest of the cycle
       while (pos !== cycleStart) {
@@ -425,23 +427,22 @@ async function cycleSortVisualizer(containerId) {
 
         for (let i = cycleStart + 1; i < n; i++) {
           if (arr[i] < item) pos++;
-          await new Promise(resolve => setTimeout(resolve, 10)); // Pause for each comparison
+          await new Promise(resolve => setTimeout(resolve, 50)); // Pause for each comparison
         }
 
         while (item === arr[pos]) pos++;
 
-        // Highlight the key item again
-        bars[pos].style.background = "blue";
+        // Switch key item highlight
+        bars.forEach(bar => bar.style.background = "red"); // Reset all bars to red
+        bars[pos].style.background = "blue"; // Highlight the new key item
 
         [arr[pos], item] = [item, arr[pos]];
         bars[pos].style.height = `${arr[pos]}px`;
 
         await new Promise(resolve => setTimeout(resolve, 50)); // Pause for swap visualization
-
-        bars[pos].style.background = "red";
       }
 
-      bars[cycleStart].style.background = "red"; // Restore original color
+      bars[cycleStart].style.background = "red"; // Restore initial color after cycle ends
     }
 
     // Final coloring for sorted elements
