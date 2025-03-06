@@ -379,7 +379,7 @@ async function heapSortVisualizer(containerId) {
   await heapSort(arr);
 }
 
-// Cycle Sort Visualization
+// Cycle Sort Visualization with 50ms pause for every operation
 function cycleSortVisualizer(containerId) {
   const container = document.getElementById(containerId);
   const display = container.querySelector(".display");
@@ -400,10 +400,13 @@ function cycleSortVisualizer(containerId) {
       if (pos === cycleStart) continue;
 
       while (item === arr[pos]) pos++;
+
       [arr[pos], item] = [item, arr[pos]];
       bars[pos].style.height = `${arr[pos]}px`;
       bars[pos].style.background = "yellow";
-      await new Promise(resolve => setTimeout(resolve, 50));
+
+      await new Promise(resolve => setTimeout(resolve, 50)); // Added delay
+
       bars[pos].style.background = "red";
 
       while (pos !== cycleStart) {
@@ -413,10 +416,13 @@ function cycleSortVisualizer(containerId) {
         }
 
         while (item === arr[pos]) pos++;
+
         [arr[pos], item] = [item, arr[pos]];
         bars[pos].style.height = `${arr[pos]}px`;
         bars[pos].style.background = "yellow";
-        await new Promise(resolve => setTimeout(resolve, 50));
+
+        await new Promise(resolve => setTimeout(resolve, 50)); // Added delay
+
         bars[pos].style.background = "red";
       }
     }
