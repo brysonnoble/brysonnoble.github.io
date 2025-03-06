@@ -540,10 +540,12 @@ async function countingSortVisualizer(containerId) {
     bars[i].style.background = "red";
   }
 
-  // Accumulate counts
+  // Accumulate counts with animation
   for (let i = 1; i < count.length; i++) {
     count[i] += count[i - 1];
+    bars[i % bars.length].style.background = "yellow"; // Temporary highlight
     await new Promise(resolve => setTimeout(resolve, 50));
+    bars[i % bars.length].style.background = "red";
   }
 
   // Build output array
@@ -552,6 +554,7 @@ async function countingSortVisualizer(containerId) {
     count[arr[i] - min]--;
     bars[i].style.background = "yellow"; // Highlight sorting phase
     await new Promise(resolve => setTimeout(resolve, 50));
+    bars[i].style.background = "red";
   }
 
   // Copy sorted values back to bars
