@@ -379,8 +379,8 @@ async function heapSortVisualizer(containerId) {
   await heapSort(arr);
 }
 
-// Cycle Sort Visualization with 50ms pause for every operation
-async function cycleSortVisualizer(containerId) {
+// Cycle Sort Visualization
+function cycleSortVisualizer(containerId) {
   const container = document.getElementById(containerId);
   const display = container.querySelector(".display");
   const bars = Array.from(display.children);
@@ -393,53 +393,37 @@ async function cycleSortVisualizer(containerId) {
       let item = arr[cycleStart];
       let pos = cycleStart;
 
-      // Pause before starting a cycle
-      await new Promise(resolve => setTimeout(resolve, 50));
-
-      // Count positions where item should go
       for (let i = cycleStart + 1; i < n; i++) {
         if (arr[i] < item) pos++;
-        await new Promise(resolve => setTimeout(resolve, 10)); // Pause for each comparison
       }
 
       if (pos === cycleStart) continue;
 
-      // Find correct position for the item
       while (item === arr[pos]) pos++;
-
-      // Swap item into position
       [arr[pos], item] = [item, arr[pos]];
-      bars[pos].style.height = `${arr[pos]}px`;
+      bars[pos].style.height = \`${arr[pos]}px\`;
       bars[pos].style.background = "yellow";
-
-      await new Promise(resolve => setTimeout(resolve, 50)); // Pause for swap visualization
-
+      await new Promise(resolve => setTimeout(resolve, 50));
       bars[pos].style.background = "red";
 
-      // Rotate rest of the cycle
       while (pos !== cycleStart) {
         pos = cycleStart;
-
         for (let i = cycleStart + 1; i < n; i++) {
           if (arr[i] < item) pos++;
-          await new Promise(resolve => setTimeout(resolve, 10)); // Pause for each comparison
         }
 
         while (item === arr[pos]) pos++;
-
         [arr[pos], item] = [item, arr[pos]];
-        bars[pos].style.height = `${arr[pos]}px`;
+        bars[pos].style.height = \`${arr[pos]}px\`;
         bars[pos].style.background = "yellow";
-
-        await new Promise(resolve => setTimeout(resolve, 50)); // Pause for swap visualization
-
+        await new Promise(resolve => setTimeout(resolve, 50));
         bars[pos].style.background = "red";
       }
+      await new Promise(resolve => setTimeout(resolve, 50)); // Add pause after internal while loop
     }
 
-    // Final coloring for sorted elements
     for (let i = 0; i < n; i++) {
-      bars[i].style.background = "green";
+      bars[i].style.background = "green"; // Mark sorted elements
     }
   }
 
