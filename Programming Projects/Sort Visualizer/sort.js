@@ -403,7 +403,6 @@ async function cycleSortVisualizer(containerId) {
         await new Promise(resolve => setTimeout(resolve, 50)); // Pause for visibility
         if (arr[i] < item) pos++;
         bars[i].style.background = "red"; // Restore color after comparison
-        bars[cycleStart].style.background = "blue"; // Restore key color after comparison
       }
 
       if (pos === cycleStart) {
