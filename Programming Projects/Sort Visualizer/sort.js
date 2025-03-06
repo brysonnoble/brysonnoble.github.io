@@ -380,7 +380,6 @@ async function heapSortVisualizer(containerId) {
 }
 
 // Cycle Sort Visualization
-// Cycle Sort with fair visualization and only one key item in blue at any time
 async function cycleSortVisualizer(containerId) {
   const container = document.getElementById(containerId);
   const display = container.querySelector(".display");
@@ -400,8 +399,10 @@ async function cycleSortVisualizer(containerId) {
 
       // Count correct position for the item
       for (let i = cycleStart + 1; i < n; i++) {
+        bars[i].style.background = "yellow"; // Highlight comparison
+        await new Promise(resolve => setTimeout(resolve, 50)); // Pause for visibility
         if (arr[i] < item) pos++;
-        await new Promise(resolve => setTimeout(resolve, 50)); // Pause for each comparison
+        bars[i].style.background = "red"; // Restore color after comparison
       }
 
       if (pos === cycleStart) {
@@ -426,8 +427,10 @@ async function cycleSortVisualizer(containerId) {
         pos = cycleStart;
 
         for (let i = cycleStart + 1; i < n; i++) {
+          bars[i].style.background = "yellow"; // Highlight comparison
+          await new Promise(resolve => setTimeout(resolve, 50)); // Pause for visibility
           if (arr[i] < item) pos++;
-          await new Promise(resolve => setTimeout(resolve, 50)); // Pause for each comparison
+          bars[i].style.background = "red"; // Restore color after comparison
         }
 
         while (item === arr[pos]) pos++;
