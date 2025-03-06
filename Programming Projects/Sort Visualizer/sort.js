@@ -401,7 +401,7 @@ function cycleSortVisualizer(containerId) {
 
       while (item === arr[pos]) pos++;
       [arr[pos], item] = [item, arr[pos]];
-      bars[pos].style.height = \`${arr[pos]}px\`;
+      bars[pos].style.height = `${arr[pos]}px`;
       bars[pos].style.background = "yellow";
       await new Promise(resolve => setTimeout(resolve, 50));
       bars[pos].style.background = "red";
@@ -414,7 +414,7 @@ function cycleSortVisualizer(containerId) {
 
         while (item === arr[pos]) pos++;
         [arr[pos], item] = [item, arr[pos]];
-        bars[pos].style.height = \`${arr[pos]}px\`;
+        bars[pos].style.height = `${arr[pos]}px`;
         bars[pos].style.background = "yellow";
         await new Promise(resolve => setTimeout(resolve, 50));
         bars[pos].style.background = "red";
