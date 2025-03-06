@@ -522,11 +522,13 @@ async function countingSortVisualizer(containerId) {
   const container = document.getElementById(containerId);
   const display = container.querySelector(".display");
   const bars = Array.from(display.children);
-  let arr = bars.map(bar => Math.round(parseFloat(bar.style.height)));
+  
+  let arr = bars.map(bar => Math.round(parseFloat(bar.style.height))); // Convert to integers
 
   let max = Math.max(...arr);
   let min = Math.min(...arr);
   let range = max - min + 1;
+
   let count = new Array(range).fill(0);
   let output = new Array(arr.length);
 
@@ -541,6 +543,7 @@ async function countingSortVisualizer(containerId) {
   // Accumulate counts
   for (let i = 1; i < count.length; i++) {
     count[i] += count[i - 1];
+    await new Promise(resolve => setTimeout(resolve, 50));
   }
 
   // Build output array
