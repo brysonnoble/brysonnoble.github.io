@@ -395,6 +395,7 @@ function cycleSortVisualizer(containerId) {
 
       for (let i = cycleStart + 1; i < n; i++) {
         if (arr[i] < item) pos++;
+        await new Promise(resolve => setTimeout(resolve, 50));
       }
 
       if (pos === cycleStart) continue;
@@ -410,6 +411,7 @@ function cycleSortVisualizer(containerId) {
         pos = cycleStart;
         for (let i = cycleStart + 1; i < n; i++) {
           if (arr[i] < item) pos++;
+          await new Promise(resolve => setTimeout(resolve, 50));
         }
 
         while (item === arr[pos]) pos++;
