@@ -12,43 +12,51 @@ document.addEventListener('DOMContentLoaded', () => {
     const addLine = (input = "") => {
         const time = getCurrentTime();
         
-        // Create prompt element
+        // Create the prompt element
         const prompt = document.createElement("span");
         prompt.className = "prompt";
         prompt.textContent = "~/home > ";
 
-        // Create rprompt element
+        // Create the rprompt element
         const rprompt = document.createElement("span");
         rprompt.className = "rprompt";
         rprompt.textContent = time;
 
-        // Create a new line element
+        // Create the new line container
         const line = document.createElement("div");
         line.className = "line";
         line.appendChild(prompt);
-        line.appendChild(document.createTextNode(input));
+
+        // Add the user's input (if any) between prompt and rprompt
+        if (input) {
+            const inputNode = document.createTextNode(input);
+            line.appendChild(inputNode);
+        }
+
         line.appendChild(rprompt);
 
         // Append the new line to the terminal
         terminal.appendChild(line);
-        terminal.scrollTop = terminal.scrollHeight;
+        terminal.scrollTop = terminal.scrollHeight; // Scroll to the bottom
     };
 
+    // Event listener for keydown
     terminal.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
             event.preventDefault();
 
-            // Get input text (current line)
-            const inputText = terminal.textContent.trim();
+            // Get the current line's input
+            const inputText = terminal.lastElementChild.textContent.replace("~/home > ", "").trim();
 
-            // Add the input text to the terminal as a line
-            addLine(inputText);
+            // Freeze the current line by disabling contentEditable
+            const currentLine = terminal.lastElementChild;
+            currentLine.contentEditable = "false";
 
-            // Clear terminal input for the next command
-            terminal.innerHTML = ""; // Clear only the editable content
+            // Append a new prompt and rprompt
+            addLine();
         }
     });
 
-    // Initialize the first prompt on page load
-    addLine();
+    // Initialize the terminal with the first line
+    addLine(); // Add the initial line with just the prompt
 });
