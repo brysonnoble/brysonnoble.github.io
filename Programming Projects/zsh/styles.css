@@ -36,6 +36,11 @@ body {
     border-top-right-radius: 7px;
 }
 
+[contenteditable] ~ grammarly-extension,
+textarea ~ grammarly-extension {
+  display: none;
+}
+
 textarea {
     flex-grow: 1;
     border: none;
