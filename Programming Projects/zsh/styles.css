@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Cascadia Mono";
-    src: url(brysonnoble.github.io/fonts/CascadiaMono-Regular.otf) format("otf");
+    src: url("https://brysonnoble.github.io/fonts/CascadiaMono-Regular.otf") format("otf");
 }
 * {
     margin: 0;
