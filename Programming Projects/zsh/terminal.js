@@ -1,7 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const terminal = document.querySelector('.terminal');
     const textarea = document.getElementById('terminal');
-    
-    // prompt & rprompt
+
+    const rprompt = document.createElement('div');
+    rprompt.id = 'rprompt';
+    rprompt.style.position = 'absolute';
+    rprompt.style.right = '10px';
+    rprompt.style.top = '10px';
+    rprompt.style.color = 'red';
+    rprompt.style.fontFamily = 'Cascadia Mono';
+    rprompt.style.fontSize = '12px';
+
+    terminal.appendChild(rprompt);
+
     const getCurrentTime = () => {
         const now = new Date();
         const hours = String(now.getHours()).padStart(2, '0');
@@ -11,18 +22,16 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const updateRPROMPT = () => {
-        const time = getCurrentTime();
-        textarea.value = `~/home > ${time}`;
+        rprompt.textContent = getCurrentTime();
     };
 
-    updateRPROMPT();
+    setInterval(updateRPROMPT, 1000);
 
     textarea.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
             event.preventDefault();
             const currentText = textarea.value;
-            const time = getCurrentTime();
-            textarea.value = `${currentText}\n~/home > ${time}`;
+            textarea.value = `${currentText}\n~/home > `;
             textarea.scrollTop = textarea.scrollHeight;
         }
     });
