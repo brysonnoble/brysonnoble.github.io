@@ -18,6 +18,10 @@ body {
     background-color: darkgray;
 }
 
+h1 {
+    align: center;
+}
+
 .terminal {
     width: 90vw;
     height: 90vh;
