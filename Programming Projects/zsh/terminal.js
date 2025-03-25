@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const textarea = document.getElementById('terminal');
+
+    // prompt & rprompt
     
     textarea.value = '~/ > ';
     
@@ -9,5 +11,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const currentText = textarea.value;
             textarea.value = currentText + '\n~/ > ';
         }
+    });
+
+    // cursor blinking
+
+    textarea.addEventListener('focus', () => {
+        textarea.style.caretColor = 'white';
+    });
+    
+    textarea.addEventListener('blur', () => {
+        textarea.style.caretColor = 'transparent';
     });
 });
