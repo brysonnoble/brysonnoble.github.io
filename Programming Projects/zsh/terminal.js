@@ -3,31 +3,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const addLine = (input = "") => {
         const fullPath = " ~/home/user ";
-    
-        // Create the prompt element with color-coded boxes
+
+        // stylng
         const box1 = document.createElement("span");
-        box1.style.color = "white"; // White box
+        box1.style.color = "white";
         box1.textContent = "■";
     
         const box2 = document.createElement("span");
-        box2.style.color = "blue"; // Blue box
+        box2.style.color = "blue";
         box2.textContent = "■";
     
         const box3 = document.createElement("span");
-        box3.style.color = "red"; // Red box
+        box3.style.color = "red";
         box3.textContent = "■";
     
         const path = document.createElement("span");
-        path.style.color = "gold"; // Yellow path
+        path.style.color = "gold";
         path.textContent = " user ";
     
         const arrow = document.createElement("span");
-        arrow.style.color = "white"; // White arrow
+        arrow.style.color = "white";
         arrow.textContent = "➧ ";
-    
-        // Create RPROMPT with the full path
+
+        // rprompt
         const leftBracket = document.createElement("span");
-        leftBracket.style.color = "white"; // White bracket
+        leftBracket.style.color = "white";
         leftBracket.textContent = "[";
     
         const fullPathElement = document.createElement("span");
@@ -38,27 +38,24 @@ document.addEventListener('DOMContentLoaded', () => {
         rightBracket.style.color = "white"; // White bracket
         rightBracket.textContent = "]";
     
-        // Create RPROMPT container
         const rprompt = document.createElement("span");
         rprompt.className = "rprompt";
         rprompt.appendChild(leftBracket);
         rprompt.appendChild(fullPathElement);
         rprompt.appendChild(rightBracket);
     
-        // Create the new line container
         const line = document.createElement("div");
         line.className = "line";
-        line.contentEditable = "true"; // Make the div editable
-        line.tabIndex = 0; // Make the div focusable
+        line.contentEditable = "true";
+        line.tabIndex = 0;
     
-        // Append the prompt components
+        // prompt
         line.appendChild(box1);
         line.appendChild(box2);
         line.appendChild(box3);
         line.appendChild(path);
         line.appendChild(arrow);
     
-        // Insert user's input between prompt and rprompt (if any)
         if (input) {
             const inputNode = document.createTextNode(input);
             line.appendChild(inputNode);
@@ -66,16 +63,14 @@ document.addEventListener('DOMContentLoaded', () => {
     
         line.appendChild(rprompt);
     
-        // Append the new line to the terminal
         terminal.appendChild(line);
-        terminal.scrollTop = terminal.scrollHeight; // Scroll to the bottom
+        terminal.scrollTop = terminal.scrollHeight;
     
-        // Automatically focus and set the caret position
         line.focus();
         const range = document.createRange();
         const selection = window.getSelection();
-        range.setStart(line, line.childNodes.length - 1); // Set caret position after the prompt
-        range.collapse(true); // Collapse range to the caret position
+        range.setStart(line, line.childNodes.length - 1);
+        range.collapse(true);
         selection.removeAllRanges();
         selection.addRange(range);
     };
@@ -85,18 +80,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (event.key === 'Enter') {
             event.preventDefault();
 
-            // Get the current line's input text
             const inputText = terminal.lastElementChild.textContent.replace("■■■ user ➧ ", "").trim();
 
-            // Freeze the current line
             const currentLine = terminal.lastElementChild;
-            currentLine.contentEditable = "false"; // Make it uneditable
+            currentLine.contentEditable = "false";
 
-            // Append a new prompt and rprompt
             addLine();
         }
     });
 
-    // Initialize the terminal with the first line
-    addLine(); // Add the initial line
+    addLine();
 });
