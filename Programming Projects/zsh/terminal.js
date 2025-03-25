@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const addLine = (input = "") => {
-        const time = getCurrentTime();
+        const fullPath = " ~/home/user ";
     
         // Create the prompt element with color-coded boxes
         const box1 = document.createElement("span");
@@ -27,20 +27,20 @@ document.addEventListener('DOMContentLoaded', () => {
     
         const path = document.createElement("span");
         path.style.color = "gold"; // Yellow path
-        path.textContent = " home ";
+        path.textContent = " user ";
     
         const arrow = document.createElement("span");
         arrow.style.color = "white"; // White arrow
         arrow.textContent = "➧ ";
     
-        // Create RPROMPT elements: brackets (white) and time (red)
+        // Create RPROMPT with the full path
         const leftBracket = document.createElement("span");
         leftBracket.style.color = "white"; // White bracket
         leftBracket.textContent = "[";
     
-        const timeElement = document.createElement("span");
-        timeElement.style.color = "red"; // Red time
-        timeElement.textContent = time.substring(1, time.length - 1); // Remove brackets from time string
+        const fullPathElement = document.createElement("span");
+        fullPathElement.style.color = "red"; // Red full path
+        fullPathElement.textContent = fullPath;
     
         const rightBracket = document.createElement("span");
         rightBracket.style.color = "white"; // White bracket
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const rprompt = document.createElement("span");
         rprompt.className = "rprompt";
         rprompt.appendChild(leftBracket);
-        rprompt.appendChild(timeElement);
+        rprompt.appendChild(fullPathElement);
         rprompt.appendChild(rightBracket);
     
         // Create the new line container
@@ -88,12 +88,13 @@ document.addEventListener('DOMContentLoaded', () => {
         selection.addRange(range);
     };
 
+
     terminal.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
             event.preventDefault();
 
             // Get the current line's input text
-            const inputText = terminal.lastElementChild.textContent.replace("■■■ home ➧ ", "").trim();
+            const inputText = terminal.lastElementChild.textContent.replace("■■■ user ➧ ", "").trim();
 
             // Freeze the current line
             const currentLine = terminal.lastElementChild;
