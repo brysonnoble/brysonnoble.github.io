@@ -55,3 +55,7 @@ textarea {
     overflow-wrap: anywhere;
     white-space: pre-wrap;
 }
+
+textarea::selection {
+    color: red;
+}
