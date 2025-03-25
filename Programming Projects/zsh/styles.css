@@ -84,6 +84,26 @@ textarea ~ grammarly-extension {
     outline: none;
 }
 
+.box1 {
+    color: white;
+}
+
+.box2 {
+    color: blue;
+}
+
+.box3 {
+    color: red;
+}
+
+.path {
+    color: yellow;
+}
+
+.arrow {
+    color: white;
+}
+
 .line {
     display: block;
     white-space: pre-wrap;
