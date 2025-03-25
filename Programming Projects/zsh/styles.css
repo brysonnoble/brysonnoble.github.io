@@ -41,6 +41,10 @@ h1 {
     align: center;
 }
 
+p {
+    align: justify;
+}
+
 .terminal {
     width: 90vw;
     height: 90vh;
