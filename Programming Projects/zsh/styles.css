@@ -36,3 +36,6 @@ input {
     border: none;
     background: transparent;
 }
+input:active {
+    border: none;
+}
