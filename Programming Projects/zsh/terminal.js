@@ -4,22 +4,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // prompt & rprompt
     
     textarea.value = '~/ > ';
-    
+
     textarea.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
             event.preventDefault();
             const currentText = textarea.value;
             textarea.value = currentText + '\n~/ > ';
+            textarea.scrollTop = textarea.scrollHeight;
         }
-    });
-
-    // cursor blinking
-
-    textarea.addEventListener('focus', () => {
-        textarea.style.caretColor = 'white';
-    });
-    
-    textarea.addEventListener('blur', () => {
-        textarea.style.caretColor = 'transparent';
     });
 });
