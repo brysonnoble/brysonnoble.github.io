@@ -19,7 +19,15 @@
       <br>
       <div class="code">
         <pre>
-          a
+FLAG_COLOR_1=<span style="color:cornflowerblue">"white"</span>
+FLAG_COLOR_2=<span style="color:cornflowerblue">"blue"</span>
+FLAG_COLOR_3=<span style="color:cornflowerblue">"red"</span>
+PATH_COLOR=<span style="color:cornflowerblue">"yellow"</span>
+FULL_PATH_COLOR=<span style="color:cornflowerblue">"red"</span>
+BRACKET_COLOR=<span style="color:cornflowerblue">"white"</span>
+
+PROMPT=<span style="color:cornflowerblue">'%{$fg[$FLAG_COLOR_1]%}■%{$fg[$FLAG_COLOR_2]%}■%{$fg[$FLAG_COLOR_3]%}■%{$reset_color%} %{$fg[$PATH_COLOR]%}%1~ %{$fg[$FLAG_COLOR_1]%}➧ '</span>
+RPROMPT=<span style="color:cornflowerblue">'%{$fg[$BRACKET_COLOR]%}[ %{$fg[$FULL_PATH_COLOR]%}%~%{$fg[$BRACKET_COLOR]%} ]%{$reset_color%}'</span>
         </pre>
       </div>
       <br>
