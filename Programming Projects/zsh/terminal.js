@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         box3.textContent = "■";
     
         const path = document.createElement("span");
-        path.style.color = "yellow"; // Yellow path
+        path.style.color = "gold"; // Yellow path
         path.textContent = " home ";
     
         const arrow = document.createElement("span");
