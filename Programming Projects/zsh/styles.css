@@ -51,6 +51,7 @@ textarea ~ grammarly-extension {
     line-height: 1.5;
     overflow-y: auto;
     background: transparent;
+    outline: none;
 }
 
 .prompt {
