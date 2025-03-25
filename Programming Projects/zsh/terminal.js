@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Create prompt element
         const prompt = document.createElement("span");
         prompt.className = "prompt";
-        prompt.textContent = "~/home > ";
+        prompt.textContent = "■■■ home ➧ ";
 
         // Create rprompt element
         const rprompt = document.createElement("span");
