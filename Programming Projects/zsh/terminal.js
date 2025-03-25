@@ -33,10 +33,25 @@ document.addEventListener('DOMContentLoaded', () => {
         arrow.style.color = "white"; // White arrow
         arrow.textContent = "➧ ";
     
-        // Create rprompt element
+        // Create RPROMPT elements: brackets (white) and time (red)
+        const leftBracket = document.createElement("span");
+        leftBracket.style.color = "white"; // White bracket
+        leftBracket.textContent = "[";
+    
+        const timeElement = document.createElement("span");
+        timeElement.style.color = "red"; // Red time
+        timeElement.textContent = time.substring(1, time.length - 1); // Remove brackets from time string
+    
+        const rightBracket = document.createElement("span");
+        rightBracket.style.color = "white"; // White bracket
+        rightBracket.textContent = "]";
+    
+        // Create RPROMPT container
         const rprompt = document.createElement("span");
         rprompt.className = "rprompt";
-        rprompt.textContent = time;
+        rprompt.appendChild(leftBracket);
+        rprompt.appendChild(timeElement);
+        rprompt.appendChild(rightBracket);
     
         // Create the new line container
         const line = document.createElement("div");
