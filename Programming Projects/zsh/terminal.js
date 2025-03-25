@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Create the new line container
         const line = document.createElement("div");
         line.className = "line";
-        line.contentEditable = "true"; // Allow user input
+        line.contentEditable = "true"; // Make the div editable
         line.tabIndex = 0; // Make the div focusable
         line.appendChild(prompt);
 
@@ -41,8 +41,14 @@ document.addEventListener('DOMContentLoaded', () => {
         terminal.appendChild(line);
         terminal.scrollTop = terminal.scrollHeight; // Scroll to the bottom
 
-        // Automatically focus on the new line
+        // Automatically focus and set the caret position
         line.focus();
+        const range = document.createRange();
+        const selection = window.getSelection();
+        range.selectNodeContents(line);
+        range.collapse(false); // Move caret to the end
+        selection.removeAllRanges();
+        selection.addRange(range);
     };
 
     terminal.addEventListener('keydown', (event) => {
