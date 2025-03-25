@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // prompt & rprompt
     
-    textarea.value = '~/ > ';
+    textarea.value = '~/home > ';
 
     textarea.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
