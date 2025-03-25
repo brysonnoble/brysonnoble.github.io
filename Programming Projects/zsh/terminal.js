@@ -12,14 +12,4 @@ document.addEventListener('DOMContentLoaded', () => {
             textarea.value = currentText + '\n~/ > ';
         }
     });
-
-    // cursor blinking
-
-    textarea.addEventListener('focus', () => {
-        textarea.style.caretColor = 'white';
-    });
-    
-    textarea.addEventListener('blur', () => {
-        textarea.style.caretColor = 'transparent';
-    });
 });
