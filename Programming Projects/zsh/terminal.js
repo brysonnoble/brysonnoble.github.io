@@ -1,73 +1,63 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const terminal = document.getElementById('terminal');
+const addLine = (input = "") => {
+    const time = getCurrentTime();
 
-    const getCurrentTime = () => {
-        const now = new Date();
-        const hours = String(now.getHours()).padStart(2, '0');
-        const minutes = String(now.getMinutes()).padStart(2, '0');
-        const seconds = String(now.getSeconds()).padStart(2, '0');
-        return `[${hours}:${minutes}:${seconds}]`;
-    };
+    // Create the prompt element with color-coded boxes
+    const box1 = document.createElement("span");
+    box1.style.color = "white"; // White box
+    box1.textContent = "■";
 
-    const addLine = (input = "") => {
-        const time = getCurrentTime();
+    const box2 = document.createElement("span");
+    box2.style.color = "blue"; // Blue box
+    box2.textContent = "■";
 
-        // Create prompt element
-        const prompt = document.createElement("span");
-        prompt.className = "prompt";
-        prompt.textContent = "■■■ home ➧ ";
+    const box3 = document.createElement("span");
+    box3.style.color = "red"; // Red box
+    box3.textContent = "■";
 
-        // Create rprompt element
-        const rprompt = document.createElement("span");
-        rprompt.className = "rprompt";
-        rprompt.textContent = time;
+    const path = document.createElement("span");
+    path.style.color = "yellow"; // Yellow path
+    path.textContent = " home ";
 
-        // Create the new line container
-        const line = document.createElement("div");
-        line.className = "line";
-        line.contentEditable = "true"; // Make the div editable
-        line.tabIndex = 0; // Make the div focusable
+    const arrow = document.createElement("span");
+    arrow.style.color = "white"; // White arrow
+    arrow.textContent = "➧ ";
 
-        line.appendChild(prompt);
+    // Create rprompt element
+    const rprompt = document.createElement("span");
+    rprompt.className = "rprompt";
+    rprompt.textContent = time;
 
-        // Insert user's input between prompt and rprompt (if any)
-        if (input) {
-            const inputNode = document.createTextNode(input);
-            line.appendChild(inputNode);
-        }
+    // Create the new line container
+    const line = document.createElement("div");
+    line.className = "line";
+    line.contentEditable = "true"; // Make the div editable
+    line.tabIndex = 0; // Make the div focusable
 
-        line.appendChild(rprompt);
+    // Append the prompt components
+    line.appendChild(box1);
+    line.appendChild(box2);
+    line.appendChild(box3);
+    line.appendChild(path);
+    line.appendChild(arrow);
 
-        // Append the new line to the terminal
-        terminal.appendChild(line);
-        terminal.scrollTop = terminal.scrollHeight; // Scroll to the bottom
+    // Insert user's input between prompt and rprompt (if any)
+    if (input) {
+        const inputNode = document.createTextNode(input);
+        line.appendChild(inputNode);
+    }
 
-        // Automatically focus and set the caret position
-        line.focus();
-        const range = document.createRange();
-        const selection = window.getSelection();
-        range.setStart(line, 1); // Set caret position after the prompt (node index 1)
-        range.collapse(true); // Collapse range to the caret position
-        selection.removeAllRanges();
-        selection.addRange(range);
-    };
+    line.appendChild(rprompt);
 
-    terminal.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter') {
-            event.preventDefault();
+    // Append the new line to the terminal
+    terminal.appendChild(line);
+    terminal.scrollTop = terminal.scrollHeight; // Scroll to the bottom
 
-            // Get the current line's input text
-            const inputText = terminal.lastElementChild.textContent.replace("■■■ home ➧ ", "").trim();
-
-            // Freeze the current line
-            const currentLine = terminal.lastElementChild;
-            currentLine.contentEditable = "false"; // Make it uneditable
-
-            // Append a new prompt and rprompt
-            addLine();
-        }
-    });
-
-    // Initialize the terminal with the first line
-    addLine(); // Add the initial line
-});
+    // Automatically focus and set the caret position
+    line.focus();
+    const range = document.createRange();
+    const selection = window.getSelection();
+    range.setStart(line, line.childNodes.length - 1); // Set caret position after the prompt
+    range.collapse(true); // Collapse range to the caret position
+    selection.removeAllRanges();
+    selection.addRange(range);
+};
