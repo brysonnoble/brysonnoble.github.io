@@ -11,13 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const addLine = (input = "") => {
         const time = getCurrentTime();
-        
-        // Create the prompt element
+
+        // Create prompt element
         const prompt = document.createElement("span");
         prompt.className = "prompt";
         prompt.textContent = "~/home > ";
 
-        // Create the rprompt element
+        // Create rprompt element
         const rprompt = document.createElement("span");
         rprompt.className = "rprompt";
         rprompt.textContent = time;
@@ -25,9 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
         // Create the new line container
         const line = document.createElement("div");
         line.className = "line";
+        line.tabIndex = 0; // Make the div focusable
+        line.contentEditable = "true"; // Allow user input
         line.appendChild(prompt);
 
-        // Add the user's input (if any) between prompt and rprompt
+        // Add the user's input (if any)
         if (input) {
             const inputNode = document.createTextNode(input);
             line.appendChild(inputNode);
@@ -38,17 +40,19 @@ document.addEventListener('DOMContentLoaded', () => {
         // Append the new line to the terminal
         terminal.appendChild(line);
         terminal.scrollTop = terminal.scrollHeight; // Scroll to the bottom
+
+        // Automatically focus on the new line
+        line.focus();
     };
 
-    // Event listener for keydown
     terminal.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
             event.preventDefault();
 
-            // Get the current line's input
+            // Get the current line's input text
             const inputText = terminal.lastElementChild.textContent.replace("~/home > ", "").trim();
 
-            // Freeze the current line by disabling contentEditable
+            // Freeze the current line
             const currentLine = terminal.lastElementChild;
             currentLine.contentEditable = "false";
 
@@ -58,5 +62,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Initialize the terminal with the first line
-    addLine(); // Add the initial line with just the prompt
+    addLine(); // Add the initial line
 });
