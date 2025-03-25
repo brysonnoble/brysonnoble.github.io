@@ -25,8 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Create the new line container
         const line = document.createElement("div");
         line.className = "line";
-        line.tabIndex = 0; // Make the div focusable
         line.contentEditable = "true"; // Allow user input
+        line.tabIndex = 0; // Make the div focusable
         line.appendChild(prompt);
 
         // Add the user's input (if any)
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Freeze the current line
             const currentLine = terminal.lastElementChild;
-            currentLine.contentEditable = "false";
+            currentLine.contentEditable = "false"; // Make it uneditable
 
             // Append a new prompt and rprompt
             addLine();
