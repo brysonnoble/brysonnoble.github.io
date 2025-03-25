@@ -51,24 +51,8 @@ textarea {
     padding: 10px;
     outline: none;
     resize: none;
+    overflow: hidden;
     overflow-wrap: anywhere;
     white-space: pre-wrap;
     caret-color: transparent;
-    position: relative;
-}
-
-textarea::after {
-    content: '';
-    display: inline-block;
-    width: 1px;
-    height: 1em;
-    background-color: white;
-    position: absolute;
-    animation: blink 1s step-end infinite;
-}
-
-@keyframes blink {
-    50% {
-        opacity: 0;
-    }
 }
