@@ -31,11 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
         leftBracket.textContent = "[";
     
         const fullPathElement = document.createElement("span");
-        fullPathElement.style.color = "red"; // Red full path
+        fullPathElement.style.color = "red";
         fullPathElement.textContent = fullPath;
     
         const rightBracket = document.createElement("span");
-        rightBracket.style.color = "white"; // White bracket
+        rightBracket.style.color = "white";
         rightBracket.textContent = "]";
     
         const rprompt = document.createElement("span");
