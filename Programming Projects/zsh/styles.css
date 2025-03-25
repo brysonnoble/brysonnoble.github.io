@@ -10,11 +10,11 @@
 }
 
 body {
+    margin: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     background-color: darkgray;
 }
 
@@ -80,7 +80,7 @@ textarea ~ grammarly-extension {
     padding: 4px;
     background-color: #1f1f1f;
     color: white;
-    width: 80%;
+    width: 90vw;
     overflow-x: auto;
     overflow-y: hidden;
     text-align: justify;
