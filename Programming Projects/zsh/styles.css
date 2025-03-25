@@ -109,6 +109,7 @@ textarea ~ grammarly-extension {
 }
 
 .explanation {
+    width: 90vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
