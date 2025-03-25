@@ -24,11 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Create a new line element
         const line = document.createElement("div");
+        line.className = "line";
         line.appendChild(prompt);
         line.appendChild(document.createTextNode(input));
         line.appendChild(rprompt);
 
-        // Append line to terminal
+        // Append the new line to the terminal
         terminal.appendChild(line);
         terminal.scrollTop = terminal.scrollHeight;
     };
@@ -36,12 +37,18 @@ document.addEventListener('DOMContentLoaded', () => {
     terminal.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
             event.preventDefault();
-            const currentText = terminal.textContent.trim();
-            addLine(currentText);
-            terminal.textContent = ""; // Clear input for next line
+
+            // Get input text (current line)
+            const inputText = terminal.textContent.trim();
+
+            // Add the input text to the terminal as a line
+            addLine(inputText);
+
+            // Clear terminal input for the next command
+            terminal.innerHTML = ""; // Clear only the editable content
         }
     });
 
-    // Initialize the first prompt
+    // Initialize the first prompt on page load
     addLine();
 });
