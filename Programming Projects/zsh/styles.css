@@ -1,3 +1,22 @@
+::-webkit-scrollbar {
+    width: 1px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+ 
+::-webkit-scrollbar-thumb {
+    background: #e6e6e6; 
+    border-radius: 10px;
+    transition: .2s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #c7c7c7;
+}
+
 @font-face {
     font-family: "Cascadia Code";
     src: url("https://brysonnoble.github.io/fonts/CascadiaCode.woff2") format("woff2");
