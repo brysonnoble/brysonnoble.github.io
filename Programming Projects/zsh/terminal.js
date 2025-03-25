@@ -27,9 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
         line.className = "line";
         line.contentEditable = "true"; // Make the div editable
         line.tabIndex = 0; // Make the div focusable
+
         line.appendChild(prompt);
 
-        // Add the user's input (if any)
+        // Insert user's input between prompt and rprompt (if any)
         if (input) {
             const inputNode = document.createTextNode(input);
             line.appendChild(inputNode);
@@ -45,8 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
         line.focus();
         const range = document.createRange();
         const selection = window.getSelection();
-        range.selectNodeContents(line);
-        range.collapse(false); // Move caret to the end
+        range.setStart(line, 1); // Set caret position after the prompt (node index 1)
+        range.collapse(true); // Collapse range to the caret position
         selection.removeAllRanges();
         selection.addRange(range);
     };
