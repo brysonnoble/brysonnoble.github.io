@@ -31,7 +31,7 @@ body {
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
 }
-input {
+textarea {
     flex-grow: 1;
     border: none;
     background: transparent;
