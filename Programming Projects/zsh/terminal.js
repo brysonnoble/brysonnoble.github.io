@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             event.preventDefault();
 
             // Get the current line's input text
-            const inputText = terminal.lastElementChild.textContent.replace("~/home > ", "").trim();
+            const inputText = terminal.lastElementChild.textContent.replace("■■■ home ➧ ", "").trim();
 
             // Freeze the current line
             const currentLine = terminal.lastElementChild;
