@@ -4,10 +4,10 @@ function turnKey (direction) {
   const output = [];
 
   for (const e of passwords) {
-    output.push(rotatingCesar(toAscii(e), toAscii(key), direction));
+    output.push(rotatingCesar(toAscii(e), toAscii(key), direction).join(""));
   }
 
-  document.getElementById("passwords").value = output;
+  document.getElementById("passwords").value = output.join("\n");
 }
 
 function toAscii (input) {
