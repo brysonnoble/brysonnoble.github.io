@@ -89,8 +89,17 @@ function importData () {
 }
 
 function exportData () {
-  const data = ['foo'];
+  const data = [];
   
+  const apps = document.getElementsByClassName('app-name');
+  Array.from(apps).forEach(e => {
+    data.push(e.value);
+  });
+
+  const passwords = document.getElementsByClassName('password');
+  Array.from(passwords).forEach(e => {
+    data.push(e.value);
+  });
 
   download(data);
 }
