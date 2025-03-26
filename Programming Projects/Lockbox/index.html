@@ -8,16 +8,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Wallpoet&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <script src="box.js"></script>
+    <script defer src="box.js"></script>
   </head>
   <body>
     <h1>L🔒CKBOX</h1>
-    <input id="key" type="text"/>
+    <input id="key" type="text" />
     <label for="key">Master Key</label>
-    <!-- also make key strength checker -->
-    <textarea id="passwords" spellcheck="false"></textarea>
-    <label for="passwords">Passwords</label>
-    <input type="button" onclick="turnKey(true)" value="lock"/>
-    <input type="button" onclick="turnKey(false)" value="unlock"/>
+    <!-- Key strength checker placeholder -->
+    <div id="password-container">
+      <div class="password-row">
+        <input type="text" class="app-name" placeholder="App/Website" />
+        <input type="text" class="password" placeholder="Password" />
+      </div>
+    </div>
+    <button id="add-row">Add More</button>
+    <br />
+    <input type="button" onclick="turnKey(true)" value="lock" />
+    <input type="button" onclick="turnKey(false)" value="unlock" />
   </body>
 </html>
