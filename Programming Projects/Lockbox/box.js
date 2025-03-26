@@ -1,6 +1,6 @@
 function encrypt() {
   const key = document.getElementById("key").value;
-  var passwords = $('#textAreaID').val().split('\n');
+  var passwords = $('#passwords').val().split('\n');
 
   alert(key);
   alert(passwords);
