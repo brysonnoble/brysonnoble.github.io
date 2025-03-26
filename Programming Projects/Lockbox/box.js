@@ -1,4 +1,10 @@
-document.getElementById("add-row").addEventListener("click", () => {
+document.addEventListener("DOMContentLoaded", () => {
+  addRow();
+
+  document.getElementById("add-row").addEventListener("click", addRow);
+});
+
+function addRow() {
   const container = document.getElementById("password-container");
   const row = document.createElement("div");
   row.className = "password-row";
@@ -22,7 +28,7 @@ document.getElementById("add-row").addEventListener("click", () => {
   row.appendChild(passwordInput);
   row.appendChild(removeButton);
   container.appendChild(row);
-});
+}
 
 function turnKey (direction) {
   const key = document.getElementById("key").value;
