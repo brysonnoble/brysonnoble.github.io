@@ -35,6 +35,8 @@ function addRow () {
 
   row.appendChild(appInput);
   row.appendChild(passwordInput);
+  row.appendChild(lockButton);
+  row.appendChild(unlockButton);
   row.appendChild(removeButton);
   container.appendChild(row);
 }
