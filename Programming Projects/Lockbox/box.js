@@ -1,3 +1,23 @@
+document.getElementById("add-row").addEventListener("click", () => {
+  const container = document.getElementById("password-container");
+  const row = document.createElement("div");
+  row.className = "password-row";
+
+  const appInput = document.createElement("input");
+  appInput.type = "text";
+  appInput.className = "app-name";
+  appInput.placeholder = "App/Website";
+
+  const passwordInput = document.createElement("input");
+  passwordInput.type = "text";
+  passwordInput.className = "password";
+  passwordInput.placeholder = "Password";
+
+  row.appendChild(appInput);
+  row.appendChild(passwordInput);
+  container.appendChild(row);
+});
+
 function turnKey (direction) {
   const key = document.getElementById("key").value;
   const passwords = document.getElementById("passwords").value.replace(/\r\n/g,"\n").split("\n");
