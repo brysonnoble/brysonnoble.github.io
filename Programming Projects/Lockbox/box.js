@@ -1,6 +1,6 @@
 function encrypt() {
   const key = document.getElementById("key").value;
-  var passwords = $('#passwords').val().split('\n');
+  var passwords = document.getElementById("passwords").value.replace(/\r\n/g,"\n").split("\n");
 
   alert(key);
   alert(passwords);
