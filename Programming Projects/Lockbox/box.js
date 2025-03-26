@@ -1,10 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   addRow();
-
   document.getElementById("add-row").addEventListener("click", addRow);
 });
 
-function addRow() {
+function addRow () {
   const container = document.getElementById("password-container");
   const row = document.createElement("div");
   row.className = "password-row";
