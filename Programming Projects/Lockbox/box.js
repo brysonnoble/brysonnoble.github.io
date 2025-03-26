@@ -34,7 +34,7 @@ function encrypt (password, key) {
       j = 0;
     }
 
-    encrypted.push(pAscii[i] + kAscii[j]);
+    encrypted.push(String.fromCharCode(pAscii[i] + kAscii[j]));
     
     j++;
   }
