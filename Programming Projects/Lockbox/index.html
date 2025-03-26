@@ -20,7 +20,9 @@
     <input type="button" onclick="turnKey(true)" value="Lock All 🔒"/>
     <input type="button" onclick="turnKey(false)" value="Unlock All 🗝️"/>
     <br>
-    <input type="checkbox" id="save">
+    <button onclick="importData()">Import</button>
+    <button onclick="exportData()">Export</button>
+    <input type="checkbox" id="save"/>
     <label for="save"> Save my locked passwords to localStorage</label>
   </body>
 </html>
