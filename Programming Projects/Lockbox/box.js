@@ -44,7 +44,7 @@ function rotatingCesar (password, key, direction) {
       j = 0;
     }
 
-    if (direction == True) {
+    if (direction == true) {
       cipher.push(String.fromCharCode(pAscii[i] + kAscii[j]));
     } else {
       cipher.push(String.fromCharCode(pAscii[i] - kAscii[j]));
