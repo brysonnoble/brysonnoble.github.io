@@ -83,3 +83,29 @@ function rotatingCesar (password, key, direction) {
 
   return cipher;
 }
+
+function importData () {
+  
+}
+
+function exportData () {
+  // const data = [];
+  const file = new File(['foo'], 'new-note.txt', {
+    type: 'text/plain',
+  })
+
+  download(file);
+}
+
+function download(file) {
+  const link = document.createElement('a')
+  const url = URL.createObjectURL(file)
+
+  link.href = url
+  link.download = file.name
+  document.body.appendChild(link)
+  link.click()
+
+  document.body.removeChild(link)
+  window.URL.revokeObjectURL(url)
+}
