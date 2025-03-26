@@ -13,8 +13,14 @@ document.getElementById("add-row").addEventListener("click", () => {
   passwordInput.className = "password";
   passwordInput.placeholder = "Password";
 
+  const removeButton = document.createElement("button");
+  removeButton.className = "remove-row";
+  removeButton.textContent = "X";
+  removeButton.onclick = () => container.removeChild(row);
+
   row.appendChild(appInput);
   row.appendChild(passwordInput);
+  row.appendChild(removeButton);
   container.appendChild(row);
 });
 
