@@ -95,19 +95,19 @@ function exportData () {
   download(data);
 }
 
-function download(data) {
-  const file = new File([data], 'new-note.txt', {
+function download (data) {
+  const file = new File([data], 'exported-data.L🔒CKBOX', {
     type: 'text/plain',
-  })
-  
-  const link = document.createElement('a')
-  const url = URL.createObjectURL(file)
+  });
 
-  link.href = url
-  link.download = file.name
-  document.body.appendChild(link)
-  link.click()
+  const link = document.createElement('a');
+  const url = URL.createObjectURL(file);
 
-  document.body.removeChild(link)
-  window.URL.revokeObjectURL(url)
+  link.href = url;
+  link.download = file.name;
+  document.body.appendChild(link);
+  link.click();
+
+  document.body.removeChild(link);
+  window.URL.revokeObjectURL(url);
 }
