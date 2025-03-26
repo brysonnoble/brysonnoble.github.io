@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   addRow();
-  document.getElementById("add-row").addEventListener("click", addRow);
+  document.getElementById("add").addEventListener("click", addRow);
 });
 
 function addRow () {
@@ -18,9 +18,19 @@ function addRow () {
   passwordInput.className = "password";
   passwordInput.placeholder = "Password";
 
+  const lockButton = document.createElement("button");
+  lockButton.className = "lock-row";
+  lockButton.textContent = "🔒";
+  // make it lock row
+  
+  const unlockButton = document.createElement("button");
+  unlockButton.className = "unlock-row";
+  unlockButton.textContent = "🗝️";
+  // make it unlock row
+  
   const removeButton = document.createElement("button");
   removeButton.className = "remove-row";
-  removeButton.textContent = "X";
+  removeButton.textContent = "🗑️";
   removeButton.onclick = () => container.removeChild(row);
 
   row.appendChild(appInput);
