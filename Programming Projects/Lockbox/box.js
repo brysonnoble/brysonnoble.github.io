@@ -16,15 +16,8 @@ function lock () {
 }
 
 function encrypt (password, key) {
-  pAscii = []
-  for (const c of password) {
-    pAscii.push(c.charCodeAt(0));
-  }
-  
-  kAscii = []
-  for (const c of key) {
-    kAscii.push(c.charCodeAt(0));
-  }
+  pAscii = toAscii(password);
+  kAscii = toAscii(key);
 
   let encrypted = [];
   
@@ -44,4 +37,13 @@ function encrypt (password, key) {
 
 function unlock () {
 
+}
+
+function toAscii (input) {
+  const ascii = [];
+  for (const c of input) {
+    ascii.push(c.charCodeAt(0));
+  }
+
+  return ascii;
 }
