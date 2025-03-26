@@ -36,7 +36,7 @@ function toAscii (input) {
 }
 
 function rotatingCesar (password, key, direction) {
-  let cipher = [];
+  const cipher = [];
   
   let j = 0;
   for (let i = 0; i < pAscii.length; i++) {
