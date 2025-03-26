@@ -44,20 +44,17 @@ function addRow () {
 function turnKey (direction, element) {
   const key = document.getElementById("key").value;
   const output = [];
-  
-  if (password != null) {
+
+  if (element != null) { // individual
     output.push(rotatingCesar(toAscii(element.value), toAscii(key), direction).join(""));
     element.value = output.join("\n");
     return;
-  }
-  
-  // const passwords = document.getElementById("passwords").value.replace(/\r\n/g,"\n").split("\n");
-
-  for (const e of passwords) {
-    output.push(rotatingCesar(toAscii(e), toAscii(key), direction).join(""));
-  }
-
-  document.getElementById("passwords").value = output.join("\n");
+  } else { // all
+    const passwords = document.getElementsByClassName('password');
+    Array.from(passwords).forEach(e => {
+      e.value = (rotatingCesar(toAscii(e), toAscii(key), direction).join(""));
+    });
+  }  
 }
 
 function toAscii (input) {
