@@ -19,20 +19,7 @@ function encrypt (password, key) {
   pAscii = toAscii(password);
   kAscii = toAscii(key);
 
-  let encrypted = [];
-  
-  let j = 0;
-  for (let i = 0; i < pAscii.length; i++) {
-    if (j == kAscii.length) {
-      j = 0;
-    }
-
-    encrypted.push(String.fromCharCode(pAscii[i] + kAscii[j]));
-    
-    j++;
-  }
-
-  return encrypted;
+  return rotatingCesar(pAscii, kAscii, true);;
 }
 
 function unlock () {
@@ -46,4 +33,25 @@ function toAscii (input) {
   }
 
   return ascii;
+}
+
+function rotatingCesar (password, key, direction) {
+  let cipher = [];
+  
+  let j = 0;
+  for (let i = 0; i < pAscii.length; i++) {
+    if (j == kAscii.length) {
+      j = 0;
+    }
+
+    if (direction == True) {
+      cipher.push(String.fromCharCode(pAscii[i] + kAscii[j]));
+    } else {
+      cipher.push(String.fromCharCode(pAscii[i] - kAscii[j]));
+    }
+    
+    j++;
+  }
+
+  return cipher;
 }
