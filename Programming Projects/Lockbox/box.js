@@ -104,8 +104,9 @@ function exportData () {
   download(data);
 }
 
-function download (data) {
-  const file = new File([data], 'exported-data.L🔒CKBOX', {
+function download(data) {
+  const formattedData = data.join('\n');
+  const file = new File([formattedData], 'exported-data.L🔒CKBOX', {
     type: 'text/plain',
   });
 
