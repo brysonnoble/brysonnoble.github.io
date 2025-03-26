@@ -24,7 +24,7 @@ function encrypt (password, key) {
   
   kAscii = []
   for (const c of key) {
-    kAscii.push(key.charCodeAt(0));
+    kAscii.push(c.charCodeAt(0));
   }
   console.log(kAscii);
 
