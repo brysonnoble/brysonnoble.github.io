@@ -26,18 +26,20 @@ function encrypt (password, key) {
     kAscii.push(c.charCodeAt(0));
   }
 
-  let i = 0;
-  for (const e of pAscii) {
-    if (i - 1 > kAscii.length) {
-      i = 0;
+  let encrypted = [];
+  
+  let j = 0;
+  for (let i = 0; i < pAscii.length; i++) {
+    if (j == kAscii.length) {
+      j = 0;
     }
 
-    e += kAscii[i];
+    encrypted.push(pAscii[i] + kAscii[j]);
     
-    i++;
+    j++;
   }
 
-  return pAscii;
+  return encrypted;
 }
 
 function unlock () {
