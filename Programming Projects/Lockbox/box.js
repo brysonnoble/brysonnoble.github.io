@@ -20,15 +20,24 @@ function encrypt (password, key) {
   for (const c of password) {
     pAscii.push(c.charCodeAt(0));
   }
-  console.log(pAscii);
   
   kAscii = []
   for (const c of key) {
     kAscii.push(c.charCodeAt(0));
   }
-  console.log(kAscii);
 
-  return "hi";
+  let i = 0;
+  for (const e of pAscii) {
+    if (i - 1 > kAscii.length) {
+      i = 0;
+    }
+
+    e += kAscii[i];
+    
+    i++;
+  }
+
+  return pAscii;
 }
 
 function unlock () {
