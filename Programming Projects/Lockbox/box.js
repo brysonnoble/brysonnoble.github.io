@@ -1,33 +1,13 @@
-function lock () {
+function turnKey (direction) {
   const key = document.getElementById("key").value;
   const passwords = document.getElementById("passwords").value.replace(/\r\n/g,"\n").split("\n");
   const output = [];
 
   for (const e of passwords) {
-    output.push(encrypt(toAscii(e), toAscii(key)));
+    output.push(rotatingCesar(toAscii(e), toAscii(key), direction));
   }
 
   console.log(output);
-}
-
-function encrypt (password, key) {
-  return rotatingCesar(pAscii, kAscii, true);
-}
-
-function unlock () {
-  const key = document.getElementById("key").value;
-  const passwords = document.getElementById("passwords").value.replace(/\r\n/g,"\n").split("\n");
-  const output = [];
-
-  for (const e of passwords) {
-    output.push(decrypt(toAscii(e), toAscii(key)));
-  }
-
-  console.log(output);
-}
-
-function decrypt (password, key) {
-  return rotatingCesar(pAscii, kAscii, false);
 }
 
 function toAscii (input) {
@@ -43,15 +23,15 @@ function rotatingCesar (password, key, direction) {
   const cipher = [];
   
   let j = 0;
-  for (let i = 0; i < pAscii.length; i++) {
-    if (j == kAscii.length) {
+  for (let i = 0; i < password.length; i++) {
+    if (j == key.length) {
       j = 0;
     }
 
     if (direction == true) {
-      cipher.push(String.fromCharCode(pAscii[i] + kAscii[j]));
+      cipher.push(String.fromCharCode(password[i] + key[j]));
     } else {
-      cipher.push(String.fromCharCode(pAscii[i] - kAscii[j]));
+      cipher.push(String.fromCharCode(password[i] - key[j]));
     }
     
     j++;
