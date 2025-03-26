@@ -52,7 +52,8 @@ function turnKey (direction, element) {
   } else { // all
     const passwords = document.getElementsByClassName('password');
     Array.from(passwords).forEach(e => {
-      e.value = (rotatingCesar(toAscii(e), toAscii(key), direction).join(""));
+      output.push(rotatingCesar(toAscii(e.value), toAscii(key), direction).join(""));
+      e.value = output.join("\n");
     });
   }  
 }
