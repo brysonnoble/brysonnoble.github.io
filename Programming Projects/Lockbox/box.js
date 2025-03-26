@@ -7,7 +7,7 @@ function turnKey (direction) {
     output.push(rotatingCesar(toAscii(e), toAscii(key), direction));
   }
 
-  console.log(output);
+  document.getElementById("passwords").value = output;
 }
 
 function toAscii (input) {
