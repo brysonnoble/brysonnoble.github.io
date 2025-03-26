@@ -21,12 +21,12 @@ function addRow () {
   const lockButton = document.createElement("button");
   lockButton.className = "lock-row";
   lockButton.textContent = "🔒";
-  // make it lock row
+  lockButton.onclick = () => turnKey(true, passwordInput);
   
   const unlockButton = document.createElement("button");
   unlockButton.className = "unlock-row";
   unlockButton.textContent = "🗝️";
-  // make it unlock row
+  unlockButton.onclick = () => turnKey(false, passwordInput);
   
   const removeButton = document.createElement("button");
   removeButton.className = "remove-row";
@@ -41,10 +41,17 @@ function addRow () {
   container.appendChild(row);
 }
 
-function turnKey (direction) {
+function turnKey (direction, element) {
   const key = document.getElementById("key").value;
-  const passwords = document.getElementById("passwords").value.replace(/\r\n/g,"\n").split("\n");
   const output = [];
+  
+  if (password != null) {
+    output.push(rotatingCesar(toAscii(element.value), toAscii(key), direction).join(""));
+    element.value = output.join("\n");
+    return;
+  }
+  
+  // const passwords = document.getElementById("passwords").value.replace(/\r\n/g,"\n").split("\n");
 
   for (const e of passwords) {
     output.push(rotatingCesar(toAscii(e), toAscii(key), direction).join(""));
