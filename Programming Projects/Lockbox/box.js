@@ -3,27 +3,31 @@ function lock () {
   const passwords = document.getElementById("passwords").value.replace(/\r\n/g,"\n").split("\n");
   const output = [];
 
-  console.log(key);
-  console.log(passwords);
-
   for (const e of passwords) {
-    output.push(encrypt(e, key));
+    output.push(encrypt(toAscii(e), toAscii(key)));
   }
 
   console.log(output);
-  
-  // document.getElementById("passwords").value = whatever
 }
 
 function encrypt (password, key) {
-  pAscii = toAscii(password);
-  kAscii = toAscii(key);
-
-  return rotatingCesar(pAscii, kAscii, true);;
+  return rotatingCesar(pAscii, kAscii, true);
 }
 
 function unlock () {
+  const key = document.getElementById("key").value;
+  const passwords = document.getElementById("passwords").value.replace(/\r\n/g,"\n").split("\n");
+  const output = [];
 
+  for (const e of passwords) {
+    output.push(decrypt(toAscii(e), toAscii(key)));
+  }
+
+  console.log(output);
+}
+
+function decrypt (password, key) {
+  return rotatingCesar(pAscii, kAscii, false);
 }
 
 function toAscii (input) {
