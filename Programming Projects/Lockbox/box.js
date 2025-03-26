@@ -89,15 +89,17 @@ function importData () {
 }
 
 function exportData () {
-  // const data = [];
-  const file = new File(['foo'], 'new-note.txt', {
-    type: 'text/plain',
-  })
+  const data = ['foo'];
+  
 
-  download(file);
+  download(data);
 }
 
-function download(file) {
+function download(data) {
+  const file = new File([data], 'new-note.txt', {
+    type: 'text/plain',
+  })
+  
   const link = document.createElement('a')
   const url = URL.createObjectURL(file)
 
