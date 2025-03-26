@@ -43,17 +43,13 @@ function addRow () {
 
 function turnKey (direction, element) {
   const key = document.getElementById("key").value;
-  const output = [];
 
   if (element != null) { // individual
-    output.push(rotatingCesar(toAscii(element.value), toAscii(key), direction).join(""));
-    element.value = output.join("\n");
-    return;
+    element.value = rotatingCesar(toAscii(element.value), toAscii(key), direction).join("");
   } else { // all
     const passwords = document.getElementsByClassName('password');
     Array.from(passwords).forEach(e => {
-      output.push(rotatingCesar(toAscii(e.value), toAscii(key), direction).join(""));
-      e.value = output.join("\n");
+      e.value = rotatingCesar(toAscii(e.value), toAscii(key), direction).join("");
     });
   }  
 }
