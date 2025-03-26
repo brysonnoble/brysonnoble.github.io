@@ -26,9 +26,18 @@ h1 {
 }
 
 .app-name,
+.password,
+button {
+  /* style */
+}
+
+.app-name,
 .password {
-  width: 45%;
   padding: 5px;
+}
+
+.password {
+  width: -webkit-fill-available;
 }
 
 button {
