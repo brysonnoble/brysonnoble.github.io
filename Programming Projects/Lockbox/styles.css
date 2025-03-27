@@ -38,8 +38,21 @@ input[type=text]:focus {
   outline: none;
 }
 
+button,
+input[type=file] {
+  height: 40px;
+}
+
+.break {
+  flex-basis: 100%;
+}
+
 #key {
   width: -webkit-fill-available;
+}
+
+#controlContainer {
+  display: flex;
 }
 
 #password-container {
