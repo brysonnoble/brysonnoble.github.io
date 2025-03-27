@@ -90,17 +90,11 @@ button:hover,
 }
 
 #controlContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 10px;
-}
-
-#controlContainer > * {
-  flex: 1 1 calc(50% - 10px);
-  min-width: 200px;
-  max-width: 50%;
-  text-align: center;
+  width: 100%;
+  max-width: 800px;
 }
 
 #password-container {
