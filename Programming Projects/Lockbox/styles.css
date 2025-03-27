@@ -91,11 +91,11 @@ button:hover,
 #controlContainer {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  gap: 20px;
 }
 
 #controlContainer > * {
-  width: calc(100% / 2);
+  flex-grow: 1;
   min-width: 400px;
 }
 
