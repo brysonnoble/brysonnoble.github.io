@@ -101,7 +101,6 @@ importData.addEventListener('change', (event) => {
       });
 
       const passwords = document.getElementsByClassName('password');
-      let i = data.length - 1;
       Array.from(passwords).forEach(e => {
         e.value = data[i]
         i++
