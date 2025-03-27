@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     addRow();
     saveCheckbox.checked = false;
   } else {
-    fillData(localStorage.getItem("data"));
+    fillData(localStorage.getItem("data").split('\n'));
     saveCheckbox.checked = true;
   }
   
