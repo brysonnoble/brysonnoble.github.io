@@ -84,9 +84,37 @@ function rotatingCesar (password, key, direction) {
   return cipher;
 }
 
-function importData () {
-  
-}
+const importData = document.getElementById('importData');
+importData.addEventListener('change', (event) => {
+  const file = event.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+      const data = e.target.result.split(/\r?\n/);
+
+      const apps = document.getElementsByClassName('app-name');
+      let i = 0;
+      Array.from(apps).forEach(e => {
+        e.value = data[i];
+        i++
+      });
+
+      const passwords = document.getElementsByClassName('password');
+      let i = data.length - 1;
+      Array.from(passwords).forEach(e => {
+        e.value = data[i]
+        i++
+      });
+    };
+
+    reader.onerror = (e) => {
+      console.error('Error reading file:', e);
+    };
+
+    reader.readAsText(file);
+  }
+});
 
 function exportData () {
   const data = [];
