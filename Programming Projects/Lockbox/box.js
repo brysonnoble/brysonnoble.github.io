@@ -2,7 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const saveCheckbox = document.getElementById("save");
   
   if (localStorage.getItem("data") == null) {
-    addRow();
+    for (let i = 0; i < 5; i++) {
+      addRow();
+    }
     saveCheckbox.checked = false;
   } else {
     fillData(localStorage.getItem("data").split('\n'));
