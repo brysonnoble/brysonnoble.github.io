@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("lockAll").addEventListener("click", () => turnKey(true));
   document.getElementById("unlockAll").addEventListener("click", () => turnKey(false));
   document.getElementById("export").addEventListener("click", exportData);
-  document.getElementById("save").addEventListener("click", () => localStorage.setItem("data", save([])););
+  document.getElementById("save").addEventListener("click", (event) => {localStorage.setItem("data", save([]));});
   document.getElementById("unsave").addEventListener("click", (event) => {localStorage.removeItem("data");});
   
   importData();
