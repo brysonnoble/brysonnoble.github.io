@@ -68,7 +68,8 @@ button,
   align-items: center;
   justify-content: center;
   background: transparent;
-  border: 2px solid gray;
+  border: none;
+  border-bottom: 2px solid gray;
   color: gray;
   cursor: pointer;
   font-size: 16px;
@@ -79,7 +80,7 @@ button,
 button:hover,
 .button:hover {
   color: white;
-  border: 2px solid #11998e;
+  border-bottom: 2px solid #11998e;
 }
 
 .break {
@@ -118,19 +119,17 @@ button:hover,
   margin-bottom: 5px;
 }
 
-.password-row input[type="text"] {
+.app-name {
   flex-grow: 1;
-  min-width: 0;
 }
 
 .password {
-  flex-grow: 2;
+  flex-grow: 4;
 }
 
 .password-row button {
   width: 100px;
-  min-width: 80px;
-  flex-shrink: 0;
+  flex-shrink: 1;
 }
 
 @media (max-width: 600px) {
