@@ -127,7 +127,7 @@ function exportData () {
 }
 
 function download (data) {
-  const file = new File([data.join('\n')], 'exported-data.L🔒CKBOX', {
+  const file = new File([data], 'exported-data.L🔒CKBOX', {
     type: 'text/plain',
   });
 
@@ -154,7 +154,7 @@ function save (data) {
     data.push(e.value);
   });
   
-  return data;
+  return data.join('\n');
 }
 
 function fillData (data) {
