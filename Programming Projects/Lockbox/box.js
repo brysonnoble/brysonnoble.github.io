@@ -1,13 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const saveCheckbox = document.getElementById("save");
   if (localStorage.getItem("data") == null) {
     addRow();
+    document.getElementById("saveCheckbox").checked = false;
   } else {
     fillData(localStorage.getItem("data"));
+    document.getElementById("saveCheckbox").checked = true;
   }
   
   document.getElementById("add").addEventListener("click", addRow);
   
-  const saveCheckbox = document.getElementById("save");
   saveCheckbox.addEventListener("change", (event) => {
     if (event.target.checked) {
       localStorage.setItem("data", save([]));
