@@ -89,6 +89,7 @@ button:hover,
 
 #key {
   width: -webkit-fill-available;
+  margin-bottom: 5px;
 }
 
 #controlContainer {
@@ -97,6 +98,7 @@ button:hover,
   gap: 10px;
   width: 100%;
   max-width: --webkit-fill-available;
+  margin-top: 5px;
   text-align: center;
 }
 
@@ -111,6 +113,8 @@ button:hover,
   align-items: center;
   gap: 10px;
   width: 100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .password-row input[type="text"] {
