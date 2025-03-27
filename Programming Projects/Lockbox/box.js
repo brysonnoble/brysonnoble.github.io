@@ -10,6 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   
   document.getElementById("add").addEventListener("click", addRow);
+  document.getElementById("clear").addEventListener("click", clear);
+  document.getElementById("lockAll").addEventListener("click", () => turnKey(true));
+  document.getElementById("unlockAll").addEventListener("click", () => turnKey(false));
   
   saveCheckbox.addEventListener("change", (event) => {
     if (event.target.checked) {
@@ -161,10 +164,7 @@ function save (data) {
 }
 
 function fillData (data) {
-  const container = document.getElementById("password-container");
-  while (container.firstChild) {
-    container.removeChild(container.firstChild);
-  }
+  clear();
 
   for (let i = 0; i < data.length; i += 2) {
     addRow();
@@ -182,4 +182,11 @@ function fillData (data) {
     e.value = data[i]
     i++
   });
+}
+
+function clear () {
+  const container = document.getElementById("password-container");
+  while (container.firstChild) {
+    container.removeChild(container.firstChild);
+  }
 }
