@@ -14,14 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("lockAll").addEventListener("click", () => turnKey(true));
   document.getElementById("unlockAll").addEventListener("click", () => turnKey(false));
   document.getElementById("export").addEventListener("click", exportData);
-  
-  saveCheckbox.addEventListener("change", (event) => {
-    if (event.target.checked) {
-      localStorage.setItem("data", save([]));
-    } else {
-      localStorage.removeItem("data");
-    }
-  });
+  document.getElementById("save").addEventListener("click", () => save([]));
+  document.getElementById("unsave").addEventListener("click", (event) => {localStorage.removeItem("data");});
   
   importData();
 });
