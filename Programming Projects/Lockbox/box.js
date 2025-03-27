@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("clear").addEventListener("click", clear);
   document.getElementById("lockAll").addEventListener("click", () => turnKey(true));
   document.getElementById("unlockAll").addEventListener("click", () => turnKey(false));
+  document.getElementById("export").addEventListener("click", exportData);
   
   saveCheckbox.addEventListener("change", (event) => {
     if (event.target.checked) {
