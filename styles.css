@@ -112,6 +112,7 @@ a {
   display: inline-block;
   font-size: -webkit-xxx-large;
   cursor: pointer;
+  border-bottom: 1px solid transparent;
 }
 
 #option:hover {
