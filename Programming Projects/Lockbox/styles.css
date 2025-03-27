@@ -107,22 +107,41 @@ button:hover,
 }
 
 .password-row {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 5px;
+  width: 100%;
+}
+
+.password-row input[type="text"] {
+  flex-grow: 1;
+  min-width: 0;
 }
 
 .password {
-  width: -webkit-fill-available;
+  flex-grow: 2;
+}
+
+.password-row button {
+  width: 100px;
+  min-width: 80px;
+  flex-shrink: 0;
 }
 
 @media (max-width: 600px) {
   #controlContainer {
     grid-template-columns: 1fr;
   }
-  #passwordContainer {
-    grid-template-columns: repeat(2, 1fr);
+  
+  .password-row {
+    flex-wrap: wrap; /* Allows elements to wrap */
+  }
+
+  .password-row input[type="text"] {
+    flex: 1 1 100%; /* Makes inputs take full width */
+  }
+
+  .password-row button {
+    flex: 1 1 100px; /* Ensures buttons stay aligned below */
   }
 }
