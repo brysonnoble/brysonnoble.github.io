@@ -1,3 +1,10 @@
+* {
+  font-family: "Source Code Pro", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
 body {
   display: flex;
   flex-direction: column;
