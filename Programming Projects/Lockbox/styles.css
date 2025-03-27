@@ -51,7 +51,8 @@ input[type=text]::placeholder {
   transition: 0.2s;
 }
 
-input[type=text]:focus::placeholder {
+input[type=text]:focus::placeholder,
+input[type=text]:hover::placeholder {
   color: white;
 }
 
