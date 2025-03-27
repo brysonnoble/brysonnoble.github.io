@@ -95,6 +95,15 @@ function importData () {
   
       reader.onload = (e) => {
         const data = e.target.result.split(/\r?\n/);
+
+        const container = document.getElementById("password-container");
+        while (container.firstChild) {
+          container.removeChild(container.firstChild);
+        }
+
+        for (let i = 0; i < data.length; i += 2) {
+          addRow();
+        }
   
         const apps = document.getElementsByClassName('app-name');
         let i = 0;
