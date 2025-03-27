@@ -92,10 +92,17 @@ button:hover,
 
 #controlContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   width: 100%;
-  max-width: 800px;
+  max-width: --webkit-fill-available;
+  text-align: center;
+}
+
+@media (max-width: 500px) {
+  #controlContainer {
+    grid-template-columns: 1fr;
+  }
 }
 
 #password-container {
