@@ -63,7 +63,7 @@ function addRow () {
 function turnKey (direction, element) {
   const key = document.getElementById("key").value;
 
-  if (key == null) {
+  if (key == null || key == "") {
     alert("Please Enter Your Master Key");
     return;
   }
