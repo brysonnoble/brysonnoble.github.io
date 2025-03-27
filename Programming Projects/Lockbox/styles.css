@@ -13,12 +13,12 @@ body {
   font-family: Arial, sans-serif;
   background-color: #222222;
   color: white;
-  font-size: 1.5rem;
 }
 
 h1 {
   font-family: "Wallpoet", sans-serif;
   font-weight: 400;
+  font-size: 70px;
   font-style: normal;
 }
 
@@ -68,8 +68,7 @@ button,
   align-items: center;
   justify-content: center;
   background: transparent;
-  border: none;
-  border-bottom: 2px solid gray;
+  border: 2px solid gray;
   color: gray;
   cursor: pointer;
   font-size: 16px;
@@ -80,7 +79,7 @@ button,
 button:hover,
 .button:hover {
   color: white;
-  border-bottom: 2px solid #11998e;
+  border: 2px solid #11998e;
 }
 
 .break {
@@ -119,17 +118,19 @@ button:hover,
   margin-bottom: 5px;
 }
 
-.app-name {
+.password-row input[type="text"] {
   flex-grow: 1;
+  min-width: 0;
 }
 
 .password {
-  flex-grow: 4;
+  flex-grow: 2;
 }
 
 .password-row button {
   width: 100px;
-  flex-shrink: 1;
+  min-width: 80px;
+  flex-shrink: 0;
 }
 
 @media (max-width: 600px) {
