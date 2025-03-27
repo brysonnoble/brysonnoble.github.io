@@ -100,12 +100,6 @@ button:hover,
   text-align: center;
 }
 
-@media (max-width: 500px) {
-  #controlContainer {
-    grid-template-columns: 1fr;
-  }
-}
-
 #password-container {
   display: flex;
   flex-direction: column;
@@ -113,12 +107,22 @@ button:hover,
 }
 
 .password-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   align-items: center;
-  justify-content: space-between;
+  gap: 10px;
   margin-bottom: 5px;
 }
 
 .password {
-  flex-basis: 60%;
+  width: -webkit-fill-available;
+}
+
+@media (max-width: 600px) {
+  #controlContainer {
+    grid-template-columns: 1fr;
+  }
+  #passwordContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
