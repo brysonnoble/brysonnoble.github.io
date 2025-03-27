@@ -63,6 +63,11 @@ function addRow () {
 function turnKey (direction, element) {
   const key = document.getElementById("key").value;
 
+  if (key == null) {
+    alert("Please Enter Your Master Key");
+    return;
+  }
+
   if (element != null) { // individual
     element.value = rotatingCesar(toAscii(element.value), toAscii(key), direction).join("");
   } else { // all
