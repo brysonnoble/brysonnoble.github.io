@@ -1,7 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
-  addRow();
+  if (localStorage.getItem("data") == null) {
+    addRow();
+  } else {
+    fillData(localStorage.getItem("data"));
+  }
+  
   document.getElementById("add").addEventListener("click", addRow);
-
+  
+  const saveCheckbox = document.getElementById("save");
+  saveCheckbox.addEventListener("change", (event) => {
+    if (event.target.checked) {
+      localStorage.setItem("data", save([]));
+    } else {
+      localStorage.removeItem("data");
+    }
+  });
+  
   importData();
 });
 
@@ -95,28 +109,7 @@ function importData () {
   
       reader.onload = (e) => {
         const data = e.target.result.split(/\r?\n/);
-
-        const container = document.getElementById("password-container");
-        while (container.firstChild) {
-          container.removeChild(container.firstChild);
-        }
-
-        for (let i = 0; i < data.length; i += 2) {
-          addRow();
-        }
-  
-        const apps = document.getElementsByClassName('app-name');
-        let i = 0;
-        Array.from(apps).forEach(e => {
-          e.value = data[i];
-          i++
-        });
-  
-        const passwords = document.getElementsByClassName('password');
-        Array.from(passwords).forEach(e => {
-          e.value = data[i]
-          i++
-        });
+        fillData(data);
       };
   
       reader.onerror = (e) => {
@@ -130,18 +123,7 @@ function importData () {
 
 function exportData () {
   const data = [];
-  
-  const apps = document.getElementsByClassName('app-name');
-  Array.from(apps).forEach(e => {
-    data.push(e.value);
-  });
-
-  const passwords = document.getElementsByClassName('password');
-  Array.from(passwords).forEach(e => {
-    data.push(e.value);
-  });
-
-  download(data);
+  download(save(data));
 }
 
 function download (data) {
@@ -159,4 +141,42 @@ function download (data) {
 
   document.body.removeChild(link);
   window.URL.revokeObjectURL(url);
+}
+
+function save (data) {
+  const apps = document.getElementsByClassName('app-name');
+  Array.from(apps).forEach(e => {
+    data.push(e.value);
+  });
+
+  const passwords = document.getElementsByClassName('password');
+  Array.from(passwords).forEach(e => {
+    data.push(e.value);
+  });
+  
+  return data;
+}
+
+function fillData (data) {
+  const container = document.getElementById("password-container");
+  while (container.firstChild) {
+    container.removeChild(container.firstChild);
+  }
+
+  for (let i = 0; i < data.length; i += 2) {
+    addRow();
+  }
+
+  const apps = document.getElementsByClassName('app-name');
+  let i = 0;
+  Array.from(apps).forEach(e => {
+    e.value = data[i];
+    i++
+  });
+
+  const passwords = document.getElementsByClassName('password');
+  Array.from(passwords).forEach(e => {
+    e.value = data[i]
+    i++
+  });
 }
