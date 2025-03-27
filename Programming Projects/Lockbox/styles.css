@@ -42,6 +42,7 @@ input[type=text] {
   border: none;
   border-bottom: 2px solid gray;
   color: white;
+  font-size: 16px;
   outline: none;
   transition: 0.2s;
 }
@@ -91,12 +92,15 @@ button:hover,
 #controlContainer {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  justify-content: center;
+  gap: 10px;
 }
 
 #controlContainer > * {
-  flex-grow: 1;
-  min-width: 400px;
+  flex: 1 1 calc(50% - 10px);
+  min-width: 200px;
+  max-width: 50%;
+  text-align: center;
 }
 
 #password-container {
