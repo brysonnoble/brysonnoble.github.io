@@ -220,3 +220,8 @@ a {
 #footer > span {
   font-size: 30px;
 }
+
+.copyright {
+  font-size: 16px;
+  text-align: center;
+}
