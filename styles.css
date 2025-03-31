@@ -223,5 +223,7 @@ a {
 
 #footer > .copyright {
   font-size: 16px;
+  margin-top: 40px;
   text-align: center;
+  width: 100%;
 }
