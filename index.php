@@ -41,7 +41,7 @@
         <h1>ABOUT ME</h1>
         <div id="break"></div>
         <img src="/Images/headshot.jpg" alt="Headshot">
-        <span style="font-size:24px;">My name is Bryson, and my journey as a software engineer began in fourth grade when I began teaching myself basic HTML, CSS, and JavaScript. From there, I went on to improve my skills in these languages through personal projects, as well as learn new programming languages like Ruby, C#, Python, Java, and more.<br><br>Studying at Florida Tech, I have had so many new opportunities to grow as a person. At school, I have a leadership position in every organization I am affiliated with, and my prior positions at my previous jobs all require strong leadership capabilities, prioritization, and quick problem-solving skills.</span>
+        <span style="font-size:24px;">My name is Bryson, and my journey as a software engineer began in fourth grade when I began teaching myself basic HTML, CSS, and JavaScript. From there, I went on to improve my skills in these languages through personal projects, as well as learn new programming languages like Ruby, C#, Python, Java, and more.<br><br>Studying at Florida Tech, I have had so many new opportunities to grow as a person. At school, I have a leadership position in every organization I am affiliated with, and my prior positions at my previous jobs all require strong leadership capabilities, prioritization, and quick problem-solving skills.<br><br>Outside of work and school, I enjoy refereeing soccer and traveling to new places. I have been a USSF certified referee for <?php echo date("Y") - 2019;?> years and a NISOA certified referee for <?php echo date("Y") - 2019;?> years, where I refereed everything from youth, to semi-pro, to D1 NCAA matches.</span>
       </div>
       <div id="projects">
         <h1>PROJECTS</h1>
@@ -100,6 +100,7 @@
         <span><b>Email:</b> noblebryson@gmail.com</span>
         <div id="break"></div>
         <span><b>LinkedIn:</b> <a href="https://www.linkedin.com/in/bryson-noble/"><u>in/bryson-noble/</u></a></span>
+        <span class="copyright">© Bryson Noble <?php echo date("Y");?></span>
       </div>
     </div>
   </body>
