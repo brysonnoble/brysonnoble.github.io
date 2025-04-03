@@ -131,7 +131,7 @@ a {
   background-position: center center; 
   background-blend-mode: overlay;
   background-attachment: fixed;
-  scroll-snap-align: center;
+  scroll-snap-align: start;
 }
 
 .splashContent {
@@ -199,7 +199,7 @@ a {
   flex-wrap: wrap;
   display: flex;
   border-bottom: 5px solid white;
-  scroll-snap-align: center;
+  scroll-snap-align: start;
 }
 
 #about > span {
@@ -219,7 +219,7 @@ a {
   flex-flow: row wrap;
   display: flex;
   border-bottom: 5px solid white;
-  scroll-snap-align: center;
+  scroll-snap-align: start;
 }
 
 #demo {
@@ -269,7 +269,7 @@ a {
 #skills {
   padding-bottom: 20px;
   border-bottom: 5px solid white;
-  scroll-snap-align: center;
+  scroll-snap-align: start;
 }
 
 .skillContainerContainer {
@@ -318,7 +318,7 @@ a {
 #footer {
   flex-flow: row wrap;
   display: flex;
-  scroll-snap-align: center;
+  scroll-snap-align: start;
 }
 
 #footer > span {
