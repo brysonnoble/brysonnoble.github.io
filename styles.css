@@ -35,6 +35,11 @@ h1, #projectTitle {
   font-weight: 900;
 }
 
+h2 {
+  font-size: 25px;
+  margin-top: -65px;
+}
+
 a {
   color: inherit;
   text-decoration: inherit;
