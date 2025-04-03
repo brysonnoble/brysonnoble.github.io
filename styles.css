@@ -30,6 +30,11 @@ body {
   background-color: black;
 }
 
+.splashcontent > * > h1 {
+  margin: 0;
+  line-height: 0;
+}
+
 h1,
 #projectTitle,
 .skillTitle {
@@ -42,6 +47,7 @@ h2 {
   border-right: .15em solid white;
   white-space: nowrap;
   margin: 0 auto;
+  margin-top: 57px;
   letter-spacing: .15em;
   animation: 
     typing 3.5s steps(40, end),
@@ -113,7 +119,7 @@ a {
 }
 
 #splash {
-  padding-top: 250px;
+  padding-top: 150px;
   padding-bottom: 150px;
   width: 100%;
   background-size: cover;
@@ -128,9 +134,8 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 20px;
-  padding-bottom: 110px;
-  padding-top: 20px;
+  gap: 65px;
+  padding: 100px 20px 100px 20px;
   position: relative;
   width: 80%;
   font-size: -webkit-xxx-large;
