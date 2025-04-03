@@ -27,6 +27,16 @@ function dates() {
 }
 
 function hideLoader() {
-  document.getElementById("load").style.display = "none";
-  document.body.style.overflow = 'scroll';
+  const loader = document.getElementById("load");
+  loader.style.opacity = 1;
+
+  const fadeOut = setInterval(() => {
+    if (loader.style.opacity > 0) {
+      loader.style.opacity -= 0.05;
+    } else {
+      clearInterval(fadeOut);
+      loader.style.display = "none";
+      document.body.style.overflow = 'scroll';
+    }
+  }, 50);
 }
