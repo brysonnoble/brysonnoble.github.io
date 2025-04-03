@@ -28,6 +28,7 @@ body {
   text-align: justify;
   color: white;
   background-color: black;
+  scroll-snap-type: y mandatory;
 }
 
 .splashcontent > * > h1 {
@@ -130,6 +131,7 @@ a {
   background-position: center center; 
   background-blend-mode: overlay;
   background-attachment: fixed;
+  scroll-snap-align: center;
 }
 
 .splashContent {
@@ -197,6 +199,7 @@ a {
   flex-wrap: wrap;
   display: flex;
   border-bottom: 5px solid white;
+  scroll-snap-align: center;
 }
 
 #about > span {
@@ -216,6 +219,7 @@ a {
   flex-flow: row wrap;
   display: flex;
   border-bottom: 5px solid white;
+  scroll-snap-align: center;
 }
 
 #demo {
@@ -265,6 +269,7 @@ a {
 #skills {
   padding-bottom: 20px;
   border-bottom: 5px solid white;
+  scroll-snap-align: center;
 }
 
 .skillContainerContainer {
@@ -311,9 +316,9 @@ a {
 }
 
 #footer {
-  padding-bottom: 20px;
   flex-flow: row wrap;
   display: flex;
+  scroll-snap-align: center;
 }
 
 #footer > span {
