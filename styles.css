@@ -8,13 +8,13 @@
 }
  
 ::-webkit-scrollbar-thumb {
-  background: #white; 
+  background: #e6e6e6; 
   border-radius: 10px;
   transition: .2s;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #lightgray;
+  background: #c7c7c7;
 }
 
 html {
@@ -40,6 +40,7 @@ h1,
 h2 {
   font-size: 25px;
   margin-top: -65px;
+  font-weight: 300;
 }
 
 a {
