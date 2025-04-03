@@ -53,13 +53,13 @@ h1,
 h2 {
   font-size: 24px;
   overflow: hidden;
-  border-right: .15em solid white;
+  border-right: .15em solid transparent;
+  border-left: .15em solid transparent;
   white-space: nowrap;
   margin: 0 auto;
   letter-spacing: .15em;
-  animation: 
-    typing 3.5s steps(40, end),
-    blink-caret .75s step-end infinite;
+  animation: typing 3.5s steps(40, end),
+    blink-caret 0.75s step-end 5;
 }
 
 @keyframes typing {
@@ -68,8 +68,8 @@ h2 {
 }
 
 @keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: white; }
+  from, to { border-right-color: transparent }
+  50% { border-right-color: white; }
 }
 
 h2,
