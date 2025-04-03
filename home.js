@@ -3,7 +3,7 @@ window.addEventListener('load', function() {
   dates();
 });
 
-function loadSplash() {
+function loadSplash () {
   const splashElement = document.getElementById("splash");
   const image = new Image();
   const randomSplash = splashImages[Math.floor(Math.random() * splashImages.length)];
@@ -16,7 +16,7 @@ function loadSplash() {
   };
 }
 
-function dates() {
+function dates () {
   const dateElements = document.getElementsByClassName("date");
   const currentYear = new Date().getFullYear();
 
@@ -26,7 +26,7 @@ function dates() {
   }
 }
 
-function hideLoader() {
+function hideLoader () {
   const loader = document.getElementById("load");
   const h2 = document.querySelector("h2");
   
@@ -42,7 +42,11 @@ function hideLoader() {
       
       h2.style.animation = "typing 3.5s steps(40, end), blink-caret 0.75s step-end 5";
       h2.style.color = "white";
-      h2.style.whiteSpace= "wrap";
+      setTimeout(enableWrap, 3500);
     }
   }, 50);
+}
+
+function enableWrap () {
+  h2.style.whiteSpace= "wrap";
 }
