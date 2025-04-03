@@ -28,6 +28,8 @@ function dates() {
 
 function hideLoader() {
   const loader = document.getElementById("load");
+  const h2 = document.querySelector("h2");
+  
   loader.style.opacity = 1;
 
   const fadeOut = setInterval(() => {
@@ -37,6 +39,8 @@ function hideLoader() {
       clearInterval(fadeOut);
       loader.style.display = "none";
       document.body.style.overflow = 'scroll';
+      
+      h2.style.animation = "typing 3.5s steps(40, end), blink-caret 0.75s step-end 5";
     }
   }, 50);
 }
