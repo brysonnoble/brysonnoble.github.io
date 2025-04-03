@@ -8,7 +8,7 @@ function loadSplash () {
   const image = new Image();
   const randomSplash = splashImages[Math.floor(Math.random() * splashImages.length)];
   
-  image.src = randomSplash; // Set the image source
+  image.src = randomSplash;
   
   image.onload = function() {
     splashElement.style.backgroundImage = `url(${randomSplash}), linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)`;
@@ -40,6 +40,7 @@ function hideLoader () {
       loader.style.display = "none";
 
       document.documentElement.style.marginRight = 0;
+      document.getElementById("splash").style.backgroundPosition = "calc(100% - 8px) 0px";
       document.body.style.overflow = 'scroll';
       
       h2.style.animation = "typing 3.5s steps(40, end), blink-caret 0.75s step-end 5";
@@ -50,5 +51,5 @@ function hideLoader () {
 }
 
 function enableWrap () {
-  h2.style.whiteSpace= "wrap";
+  document.querySelector("h2").style.whiteSpace= "wrap";
 }
