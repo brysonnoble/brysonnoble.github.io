@@ -43,6 +43,7 @@ body {
   background-color: black;
   position: fixed;
   z-index: 1;
+  transition: opacity 0.5s ease-out;
 }
 
 .loader {
