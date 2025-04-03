@@ -216,7 +216,7 @@ a {
   font-size: 30px;
 }
 
-#skills {
+.skillContainer {
   display: grid;
 }
 
