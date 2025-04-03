@@ -42,6 +42,7 @@ function hideLoader() {
       
       h2.style.animation = "typing 3.5s steps(40, end), blink-caret 0.75s step-end 5";
       h2.style.color = "white";
+      h2.style.white-space= "wrap";
     }
   }, 50);
 }
