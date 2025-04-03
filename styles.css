@@ -91,6 +91,7 @@ h1,
 }
 
 h2 {
+  color: transparent;
   font-size: 24px;
   overflow: hidden;
   border-right: 0.15em solid transparent;
