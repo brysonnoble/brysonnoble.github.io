@@ -28,7 +28,7 @@ body {
   text-align: justify;
   color: white;
   background-color: black;
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
 }
 
 .splashcontent > * > h1 {
