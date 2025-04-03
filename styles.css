@@ -38,7 +38,7 @@ h1,
 }
 
 h2 {
-  font-size: 25px;
+  font-size: 24px;
   margin-top: -65px;
   font-weight: 300;
 }
@@ -117,7 +117,7 @@ a {
 }
 
 .selectContainer > button {
-  font-size: 25px;
+  font-size: 24px;
   padding: 20px;
   background-color: transparent;
   border-radius: 2px;
