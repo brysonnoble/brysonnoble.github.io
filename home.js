@@ -40,7 +40,7 @@ function hideLoader () {
       loader.style.display = "none";
 
       document.documentElement.style.marginRight = 0;
-      document.getElementById("splash").style.backgroundPosition = "initial";
+      document.getElementById("splash").style.backgroundPosition = "center center";
       document.body.style.overflow = 'scroll';
       
       h2.style.animation = "typing 3.5s steps(40, end), blink-caret 0.75s step-end 5";
