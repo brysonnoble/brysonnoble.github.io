@@ -228,10 +228,13 @@ a {
 
 .skillContainer {
   display: grid;
+  gap: 20px;
 }
 
 .skill {
-
+  padding: 20px;
+  border-radius: 2px;
+  border: 1px solid white;
 }
 
 #footer {
