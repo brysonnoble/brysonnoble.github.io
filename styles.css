@@ -48,10 +48,6 @@ h2 {
     blink-caret .75s step-end infinite;
 }
 
-h2 {
-  margin-top: -65px;
-}
-
 @keyframes typing {
   from { width: 0 }
   to { width: 100% }
@@ -128,6 +124,10 @@ a {
 }
 
 .splashContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 20px;
   padding-bottom: 110px;
   padding-top: 20px;
@@ -135,6 +135,13 @@ a {
   width: 80%;
   font-size: -webkit-xxx-large;
   backdrop-filter: blur(8px);
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .selectContainer > button {
