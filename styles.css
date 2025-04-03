@@ -30,7 +30,9 @@ body {
   background-color: black;
 }
 
-h1, #projectTitle {
+h1,
+#projectTitle,
+.skillTitle {
   font-family: 'Lovelo', sans-serif;
   font-weight: 900;
 }
@@ -208,7 +210,8 @@ a {
   top: calc(100% - 150px);
 }
 
-#projectTitle, .skillTitle {
+#projectTitle,
+.skillTitle {
   font-size: 50px;
 }
 
