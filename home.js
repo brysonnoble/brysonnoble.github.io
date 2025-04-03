@@ -1,6 +1,7 @@
 window.addEventListener('load', function() {
   loadSplash();
   dates();
+  hideLoader();
 });
 
 function loadSplash () {
@@ -13,4 +14,9 @@ function dates () {
     const year = date.getFullYear();
     document.getElementsByClassName("date")[i].textContent = year - document.getElementsByClassName("date")[i].getAttribute('subtractTime');
   }
+}
+
+function hideLoader () {
+  document.getElementById("load").style.display = "none";
+  document.body.style.overflow = 'scroll';
 }
