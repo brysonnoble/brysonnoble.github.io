@@ -215,7 +215,8 @@ a {
   font-size: 50px;
 }
 
-#projectDesc {
+#projectDesc,
+.skill {
   font-size: 30px;
 }
 
@@ -245,6 +246,20 @@ a {
   padding: 20px;
   border-radius: 2px;
   border: 1px solid white;
+  transition: 0.2s;
+}
+
+.skill:hover {
+  background-color: white;
+  color: black;
+}
+
+.skill > img[src$=".svg"] {
+  filter: saturate(0) invert(1) contrast(1.5);
+}
+
+.skill:hover > img[src$=".svg"] {
+  filter: none;
 }
 
 #footer {
