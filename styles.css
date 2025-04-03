@@ -8,13 +8,15 @@
 }
  
 ::-webkit-scrollbar-thumb {
-  background: #e6e6e6; 
+  background: white; 
+  border: 1px solid black;
   border-radius: 10px;
   transition: .2s;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #c7c7c7;
+  background: black;
+  border: 1px solid white;
 }
 
 html {
