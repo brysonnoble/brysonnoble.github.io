@@ -208,7 +208,7 @@ a {
   top: calc(100% - 150px);
 }
 
-#projectTitle {
+#projectTitle, .skillTitle {
   font-size: 50px;
 }
 
