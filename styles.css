@@ -221,13 +221,17 @@ a {
 
 #skills {
   padding-bottom: 20px;
-  flex-wrap: wrap;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+
+  gap: 20px;
   border-bottom: 5px solid white;
 }
 
 .skillContainer {
+  
+}
+
+.skillCardContainer {
   display: flex;
   gap: 20px;
 }
