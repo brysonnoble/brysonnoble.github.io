@@ -42,6 +42,7 @@ body {
   height: 100vh;
   background-color: black;
   position: fixed;
+  z-index: 1;
 }
 
 .loader {
