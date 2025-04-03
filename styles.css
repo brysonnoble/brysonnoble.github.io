@@ -197,8 +197,15 @@ a {
   height: 0;
 }
 
+#about,
+#projects,
+#skills,
+#footer {
+  padding-top: 50px;
+}
+
 #about {
-  padding-bottom: 20px;
+  padding-bottom: 50px;
   flex-wrap: wrap;
   display: flex;
   border-bottom: 5px solid white;
@@ -270,7 +277,7 @@ a {
 }
 
 #skills {
-  padding-bottom: 20px;
+  padding-bottom: 50px;
   border-bottom: 5px solid white;
   scroll-snap-align: start;
 }
