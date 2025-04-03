@@ -39,7 +39,7 @@ function hideLoader () {
       clearInterval(fadeOut);
       loader.style.display = "none";
 
-      document.document.documentElement.style.marginRight = 0;
+      document.documentElement.style.marginRight = 0;
       document.body.style.overflow = 'scroll';
       
       h2.style.animation = "typing 3.5s steps(40, end), blink-caret 0.75s step-end 5";
