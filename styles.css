@@ -50,6 +50,7 @@ h2 {
   font-size: 24px;
   overflow: hidden;
   border-right: .15em solid white;
+  white-space: nowrap;
   margin: 0 auto;
   letter-spacing: .15em;
   animation: 
@@ -59,7 +60,7 @@ h2 {
 
 @keyframes typing {
   from { width: 0 }
-  to { width: 90% }
+  to { width: 561.77px }
 }
 
 @keyframes blink-caret {
