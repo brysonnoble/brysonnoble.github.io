@@ -25,11 +25,11 @@
 
 html {
   scroll-behavior: smooth;
+  margin-right: 8px;
 }
 
 body {
   margin: 0;
-  margin-right: 8px;
   padding: 0;
   font-family: "Lato", sans-serif;
   text-align: justify;
