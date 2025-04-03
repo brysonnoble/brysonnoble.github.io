@@ -219,6 +219,13 @@ a {
   font-size: 30px;
 }
 
+#skills {
+  padding-bottom: 20px;
+  flex-wrap: wrap;
+  display: flex;
+  border-bottom: 5px solid white;
+}
+
 .skillContainer {
   display: grid;
 }
