@@ -101,7 +101,7 @@ a {
   background-attachment: fixed;
 }
 
-#splashContent {
+.splashContent {
   padding: 20px;
   padding-bottom: 110px;
   padding-top: 20px;
@@ -111,30 +111,23 @@ a {
   backdrop-filter: blur(8px);
 }
 
-#selectContainer {
+.selectContainer {
   font-family: 'Lovelo', sans-serif;
+  font-weight: 300;
 }
 
-#option {
-  position: relative;
-  display: inline-block;
-  font-size: -webkit-xxx-large;
-  cursor: pointer;
-  border-bottom: 1px solid transparent;
+.selectContainer > button {
+  font-size: 30px;
+  padding: 20px;
+  border-radius: 2px;
+  border: 1px solid white;
+  transition: 0.2s;
 }
 
-#option:hover {
-  border-bottom: 1px solid white;
-}
-
-#divider {
-  position: relative;
-  display: inline-block;
+.selectContainer > button:hover {
   background-color: white;
-  width: 3px;
-  height: 80px;
-  position: relative;
-  top: 20px;
+  color: black;
+  scale: 1.1;
 }
 
 #content {
