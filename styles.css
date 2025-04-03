@@ -21,8 +21,6 @@
 
 html {
   scroll-behavior: smooth;
-  padding-right: 8px;
-  overflow: hidden;
 }
 
 body {
@@ -33,6 +31,7 @@ body {
   color: white;
   background-color: black;
   scroll-snap-type: y proximity;
+  overflow: hidden;
 }
 
 #load {
