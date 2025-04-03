@@ -34,7 +34,7 @@ body {
   margin: -40px 0 0 0;
 }
 
-.splashcontent > * > button {
+.splashcontent > * > .selector {
   margin: 0;
   line-height: 0;
 }
@@ -69,7 +69,7 @@ h2 {
 }
 
 h2,
-.selectContainer > button {
+.selectContainer > .selector {
   font-family: "Lato", sans-serif;
   font-weight: 300;
 }
@@ -152,7 +152,7 @@ a {
   justify-content: center;
 }
 
-.selectcontainer {
+.selectContainer {
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
@@ -160,7 +160,7 @@ a {
   justify-content: center;
 }
 
-.selectContainer > button {
+.selectContainer > .selector {
   font-size: 24px;
   padding: 24px;
   background-color: transparent;
@@ -172,7 +172,7 @@ a {
   width: 200px;
 }
 
-.selectContainer > button:hover {
+.selectContainer > .selector:hover {
   background-color: white;
   color: black;
   scale: 1.1;
