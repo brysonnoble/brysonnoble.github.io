@@ -229,6 +229,12 @@ a {
   grid-template-columns: 1fr 1fr;
 }
 
+.skillContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .skillCardContainer {
   display: flex;
   flex-wrap: wrap;
