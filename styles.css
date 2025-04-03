@@ -93,22 +93,21 @@ h1,
 h2 {
   font-size: 24px;
   overflow: hidden;
-  border-right: .15em solid transparent;
-  border-left: .15em solid transparent;
+  border-right: 0.15em solid transparent;
+  border-left: 0.15em solid transparent;
   white-space: nowrap;
   margin: 0 auto;
-  letter-spacing: .15em;
-  animation: typing 3.5s steps(40, end),
-    blink-caret 0.75s step-end 5;
+  letter-spacing: 0.15em;
+  animation: none;
 }
 
 @keyframes typing {
-  from { width: 0 }
-  to { width: 561.77px }
+  from { width: 0; }
+  to { width: 561.77px; }
 }
 
 @keyframes blink-caret {
-  from, to { border-right-color: transparent }
+  from, to { border-right-color: transparent; }
   50% { border-right-color: white; }
 }
 
