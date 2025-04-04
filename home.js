@@ -37,7 +37,7 @@ function hideLoader () {
 
     h2.style.animation = "typing 3.5s steps(40, end), blink-caret 0.75s step-end 5";
     h2.style.color = "white";
-    setTimeout(enableWrap, 3500);
+    setTimeout(enableWrap, 4250);
     
     if (loader.style.opacity > 0) {
       loader.style.opacity -= 0.05;
