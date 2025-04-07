@@ -283,7 +283,8 @@ a {
   background-repeat: no-repeat;
   border-top: 1px solid white;
   cursor: pointer;
-  transition: .3s;
+  transition: .2s;
+  text-align: left;
 }
 
 #demo:hover {
@@ -309,9 +310,25 @@ a {
   top: calc(100% - 150px);
 }
 
+#projectTitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-inline-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
 #projectTitle,
 .skillTitle {
   font-size: 50px;
+}
+
+#projectDesc {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-inline-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 #projectDesc,
