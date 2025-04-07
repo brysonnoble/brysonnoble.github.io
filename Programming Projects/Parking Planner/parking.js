@@ -1,10 +1,7 @@
-const spaces = [];
-
-function addCar() {
+function addCar () {
     const carCard = document.createElement('div');
-
     carCard.setAttribute('id', 'carCard');
-        
+    
     const name = document.createElement('input');
     const monTime = document.createElement('select');
     const tueTime = document.createElement('select');
@@ -13,7 +10,7 @@ function addCar() {
     const friTime = document.createElement('select');
     const satTime = document.createElement('select');
     const sunTime = document.createElement('select');
-    
+
     name.setAttribute('id', 'carName');
     monTime.setAttribute('id', 'monTime');
     tueTime.setAttribute('id', 'tueTime');
@@ -22,7 +19,7 @@ function addCar() {
     friTime.setAttribute('id', 'friTime');
     satTime.setAttribute('id', 'satTime');
     sunTime.setAttribute('id', 'sunTime');
-    
+
     carCard.appendChild(name);
     carCard.appendChild(monTime);
     carCard.appendChild(tueTime);
@@ -31,6 +28,8 @@ function addCar() {
     carCard.appendChild(friTime);
     carCard.appendChild(satTime);
     carCard.appendChild(sunTime);
-    
-    document.getElementById("content").appendChild(carCard);
+
+    const carsContainer = document.getElementById("cars");
+    const addButton = document.querySelector(".add-car");
+    carsContainer.insertBefore(carCard, addButton);
 }
