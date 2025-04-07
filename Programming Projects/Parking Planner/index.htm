@@ -1,49 +1,9 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parking Planner</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Space+Mono|Muli">
-    <link rel="stylesheet" href="styles.css">
-    <script src="parking.js"></script>
-    <script src="display.js"></script>
+    
   </head>
   <body>
-    <h1 class="splash">PARKING PLANNER</h1>
-    <div id="form">
-      <form onsubmit="processForm(event)">
-        <label>How many rows of parking?</label>
-        <input type="number" id="numRows" name="numRows" min="0" oninput="generateRows()"><br>
     
-        <div id="rowContainer"></div>
-    
-        <label>Is there any unblocked parking?</label>
-        <input type="radio" name="unblocked" value="yes" onclick="toggleUnblockedParking()"> Yes
-        <input type="radio" name="unblocked" value="no" onclick="toggleUnblockedParking()"> No<br>
-    
-        <div id="unblockedContainer" style="display:none;">
-          <label>How many spaces of unblocked parking?</label>
-          <input type="number" name="unblockedSpaces" min="0"><br>
-        </div>
-    
-        <label>How many cars will be parked?</label>
-        <input type="number" id="numCars" name="numCars" min="0" oninput="generateCars()"><br>
-    
-        <div id="carContainer"></div>
-    
-        <button type="submit">Submit</button>
-      </form>
-    </div>
-    <div id="visualization">
-      <div id="day-navigation">
-        <button onclick="navigateDay(-1)">Previous</button>
-        <button onclick="navigateDay(1)">Next</button>
-      </div>
-      <div id="day-view">
-        <div id="previous-day" class="day-small"></div>
-        <div id="current-day" class="day-large"></div>
-        <div id="next-day" class="day-small"></div>
-      </div>
-    </div>
   </body>
 </html>
