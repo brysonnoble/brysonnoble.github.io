@@ -1,0 +1,34 @@
+== UPGRADE TRACKER ==
+- games needed for upgrade
+- games per week needed
+
+== IMPORT ==
+- Arbiter
+- Assignr
+  > https://assignr-api.readme.io/reference/getv2currentaccountgames
+- Demosphere
+- RefInsight??
+- RefQuest+
+- [enter manually]
+- [exported data from RefLog]
+
+== DETAILS ==
+- Date
+- Time
+- Game #
+- Location
+- League & Level
+- Home
+- Away
+- CR
+- AR1
+- AR2
+- 4th
+- Notes
+
+== ACCOUNT MANAGEMENT ==
+- Google form for sign-up
+  > this sucks ass
+- Manually add account info to JS array, SHA256 hash pw
+- LocalStorage save for guests
+- Export data
