@@ -1,3 +1,7 @@
+function addRow () {
+
+}
+
 function addCar () {
     const carCard = document.createElement('div');
     carCard.setAttribute('id', 'carCard');
