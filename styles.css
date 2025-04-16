@@ -351,11 +351,7 @@ a {
   border-radius: 2px;
   border: 1px solid white;
   transition: 0.2s;
-}
-
-.projskills > div:hover {
   background-color: rgb(0, 0, 0, 0.4);
-  color: white;
 }
 
 .projSkills > div > img[src$=".svg"] {
