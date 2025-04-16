@@ -1,4 +1,4 @@
-window.addEventListener('load', function() {
+window.addEventListener ('load', function() {
   loadSplash();
   dates();
 });
@@ -10,7 +10,7 @@ function loadSplash () {
   
   image.src = randomSplash;
   
-  image.onload = function() {
+  image.onload = function () {
     splashElement.style.backgroundImage = `url(${randomSplash}), linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)`;
     hideLoader();
   };
@@ -52,7 +52,7 @@ function enableWrap () {
   document.querySelector("h2").style.whiteSpace= "wrap";
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener ("DOMContentLoaded", () => {
   const projects = [
     {
       id: "gravity-sim",
