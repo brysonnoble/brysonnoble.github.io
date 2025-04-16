@@ -307,7 +307,7 @@ a {
   padding-left: 20px;
   padding-right: 20px;
   position: relative;
-  top: calc(100% - 150px);
+  top: calc(100% - 190px);
   display: flex;
   flex-direction: column;
 }
@@ -333,9 +333,19 @@ a {
   -webkit-line-clamp: 1;
 }
 
+.projskills {
+  margin-top: 14px;
+  display: flex;
+  gap: 20px;
+}
+
 .projSkills > div {
+  height: 10px;
+  font-size: 20px;
   display: flex;
   gap: 10px;
+  align-items: center;
+  justify-content: center;
   padding: 20px;
   border-radius: 2px;
   border: 1px solid white;
