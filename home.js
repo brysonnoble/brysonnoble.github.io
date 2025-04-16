@@ -59,6 +59,11 @@ document.addEventListener("DOMContentLoaded", () => {
       gif: "https://brysonnoble.github.io/Images/Project_Previews/genRelSim.gif",
       thumbnail: "https://brysonnoble.github.io/Images/Project_Thumbnails/gravity.PNG"
     },
+    {
+      id: "studentSpeak",
+      gif: "https://brysonnoble.github.io/Images/Project_Previews/speak.gif",
+      thumbnail: "https://brysonnoble.github.io/Images/Project_Thumbnails/studentspeak.PNG"
+    },
   ];
 
   projects.forEach(project => {
