@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
           elem.style.backgroundImage = `url('${project.gif}')`;
           elem.classList.remove("fade");
-        }, 300);
+        }, 200);
       }, 2000);
     });
 
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => {
         elem.style.backgroundImage = `url('${project.thumbnail}')`;
         elem.classList.remove("fade");
-      }, 300);
+      }, 200);
     });
   });
 });
