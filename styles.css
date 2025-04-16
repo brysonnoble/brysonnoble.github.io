@@ -337,6 +337,7 @@ a {
   margin-top: 14px;
   display: flex;
   gap: 20px;
+  overflow: hidden;
 }
 
 .projSkills > div {
