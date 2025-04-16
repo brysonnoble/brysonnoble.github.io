@@ -51,3 +51,29 @@ function hideLoader () {
 function enableWrap () {
   document.querySelector("h2").style.whiteSpace= "wrap";
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const projects = [
+    {
+      id: "gravity-sim",
+      gif: "https://brysonnoble.github.io/Images/Project_Previews/genRelSim.gif",
+      thumbnail: "https://brysonnoble.github.io/Images/Project_Thumbnails/gravity.PNG"
+    },
+  ];
+
+  projects.forEach(project => {
+    const elem = document.getElementById(project.id);
+    let hoverTimeout;
+
+    elem.addEventListener("mouseenter", () => {
+      hoverTimeout = setTimeout(() => {
+        elem.style.backgroundImage = `url('${project.gif}')`;
+      }, 2000);
+    });
+
+    elem.addEventListener("mouseleave", () => {
+      clearTimeout(hoverTimeout);
+      elem.style.backgroundImage = `url('${project.thumbnail}')`;
+    });
+  });
+});
