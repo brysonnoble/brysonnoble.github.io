@@ -55,12 +55,12 @@ function enableWrap () {
 document.addEventListener ("DOMContentLoaded", () => {
   const projects = [
     {
-      id: "gravity-sim",
+      id: "gravity",
       gif: "https://brysonnoble.github.io/Images/Project_Previews/genRelSim.gif",
       thumbnail: "https://brysonnoble.github.io/Images/Project_Thumbnails/gravity.PNG"
     },
     {
-      id: "studentSpeak",
+      id: "speak",
       gif: "https://brysonnoble.github.io/Images/Project_Previews/speak.gif",
       thumbnail: "https://brysonnoble.github.io/Images/Project_Thumbnails/studentspeak.PNG"
     },
