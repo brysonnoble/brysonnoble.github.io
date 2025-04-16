@@ -52,7 +52,7 @@ function enableWrap () {
   document.querySelector("h2").style.whiteSpace= "wrap";
 }
 
-document.addEventListener ("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
   const projects = [
     {
       id: "gravity",
@@ -68,17 +68,27 @@ document.addEventListener ("DOMContentLoaded", () => {
 
   projects.forEach(project => {
     const elem = document.getElementById(project.id);
+    if (!elem) return;
+
     let hoverTimeout;
 
     elem.addEventListener("mouseenter", () => {
       hoverTimeout = setTimeout(() => {
-        elem.style.backgroundImage = `url('${project.gif}')`;
+        elem.classList.add("fade");
+        setTimeout(() => {
+          elem.style.backgroundImage = `url('${project.gif}')`;
+          elem.classList.remove("fade");
+        }, 300);
       }, 2000);
     });
 
     elem.addEventListener("mouseleave", () => {
       clearTimeout(hoverTimeout);
-      elem.style.backgroundImage = `url('${project.thumbnail}')`;
+      elem.classList.add("fade");
+      setTimeout(() => {
+        elem.style.backgroundImage = `url('${project.thumbnail}')`;
+        elem.classList.remove("fade");
+      }, 300);
     });
   });
 });
