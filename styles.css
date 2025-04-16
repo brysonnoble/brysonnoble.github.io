@@ -328,7 +328,7 @@ a {
   text-overflow: ellipsis;
   display: -webkit-inline-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
 }
 
 #projectDesc,
