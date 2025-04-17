@@ -1,4 +1,4 @@
-window.addEventListener ('load', function() {
+window.addEventListener('load', function() {
   loadSplash();
   dates();
 });
@@ -71,6 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!elem) return;
 
     let hoverTimeout;
+    let showingGif = false;
 
     elem.addEventListener("mouseenter", () => {
       hoverTimeout = setTimeout(() => {
@@ -78,17 +79,22 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
           elem.style.backgroundImage = `url('${project.gif}')`;
           elem.classList.remove("fade");
+          showingGif = true;
         }, 200);
       }, 2000);
     });
 
     elem.addEventListener("mouseleave", () => {
       clearTimeout(hoverTimeout);
-      elem.classList.add("fade");
-      setTimeout(() => {
-        elem.style.backgroundImage = `url('${project.thumbnail}')`;
-        elem.classList.remove("fade");
-      }, 200);
+
+      if (showingGif) {
+        elem.classList.add("fade");
+        setTimeout(() => {
+          elem.style.backgroundImage = `url('${project.thumbnail}')`;
+          elem.classList.remove("fade");
+          showingGif = false;
+        }, 200);
+      }
     });
   });
 });
