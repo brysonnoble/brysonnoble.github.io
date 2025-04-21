@@ -233,6 +233,7 @@ a {
   padding-bottom: 50px;
   flex-wrap: wrap;
   display: flex;
+  flex-direction: column;
   border-bottom: 5px solid white;
   scroll-snap-align: start;
 }
