@@ -223,10 +223,16 @@ a {
   border-left: 5px solid white;
   transition: .2s;
   padding-left: 20px;
+  display: flex;
+  flex-direction: row;
 }
 
 .node:hover {
   border-left: 20px solid white;
+}
+
+.node > div > h3 {
+  margin: 0;
 }
 
 #projects {
