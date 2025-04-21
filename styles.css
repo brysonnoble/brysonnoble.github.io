@@ -241,14 +241,14 @@ a {
   height: 0;
 }
 
-#about,
+#experience,
 #projects,
 #skills,
 #footer {
   padding-top: 50px;
 }
 
-#about {
+#experience {
   padding-bottom: 50px;
   flex-wrap: wrap;
   display: flex;
@@ -256,12 +256,12 @@ a {
   scroll-snap-align: start;
 }
 
-#about > span {
+#experience > span {
   flex: 5;
   display: block;
 }
 
-#about > img {
+#experience > img {
   flex: 1;
   align-self: center;
   margin-right: 20px;
