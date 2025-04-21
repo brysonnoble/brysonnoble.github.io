@@ -224,15 +224,27 @@ a {
   transition: .2s;
   padding-left: 20px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  padding-top: 30px;
+  padding-bottom: 30px
 }
 
 .node:hover {
   border-left: 20px solid white;
 }
 
-.node > div > h3 {
+.node > div > * {
   margin: 0;
+  font-weight: 300;
+}
+
+.node > div > h4 {
+  font-size: 24px;
+  margin-bottom: 14px;
+}
+
+.node > div > h5 {
+  font-size: 20px;
 }
 
 #projects {
@@ -355,7 +367,7 @@ a {
 
 #projectDesc,
 .skill {
-  font-size: 30px;
+  font-size: 24px;
 }
 
 #skills {
