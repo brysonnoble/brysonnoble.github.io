@@ -190,10 +190,11 @@ a {
 #content {
   padding: 30px;
   padding-top: 0;
-}
-
-#content > * > h1 {
-  font-size: 75px;
+  * {
+    h1 {
+      font-size: 75px;
+    }
+  }
 }
 
 #break {
