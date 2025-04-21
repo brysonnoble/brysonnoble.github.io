@@ -209,22 +209,12 @@ a {
   justify-content: center;
 }
 
-.selectContainer > .selector {
-  font-size: 24px;
-  padding: 24px;
-  background-color: transparent;
-  border-radius: 2px;
-  border: 1px solid white;
-  color: white;
-  cursor: pointer;
-  transition: 0.2s;
-  width: 200px;
+.mainCTA {
+  
 }
 
-.selectContainer > .selector:hover {
-  background-color: white;
-  color: black;
-  scale: 1.1;
+.secondaryCTA {
+  
 }
 
 #content {
