@@ -89,7 +89,8 @@ body {
 
 h1,
 #projectTitle,
-.skillTitle {
+.skillTitle,
+.node > div > h3 {
   font-family: 'Lovelo', sans-serif;
   font-weight: 900;
 }
@@ -294,7 +295,8 @@ a {
   flex-direction: column;
 }
 
-#projectTitle {
+#projectTitle,
+.node > div > h3 {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-inline-box;
@@ -303,7 +305,8 @@ a {
 }
 
 #projectTitle,
-.skillTitle {
+.skillTitle,
+.node > div > h3 {
   font-size: 50px;
 }
 
