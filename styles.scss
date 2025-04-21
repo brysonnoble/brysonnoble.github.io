@@ -165,15 +165,14 @@ a {
   gap: 40px;
   align-items: center;
   justify-content: center;
-}
-
-.selectContainer > a {
-  font-size: 24px;
-  cursor: pointer;
-  padding: 20px;
-  border-radius: 2px;
-  border: 1px solid white;
-  transition: 0.2s;
+  a {
+    font-size: 24px;
+    cursor: pointer;
+    padding: 20px;
+    border-radius: 2px;
+    border: 1px solid white;
+    transition: 0.2s;
+  }
 }
 
 .mainCTA,
@@ -226,7 +225,6 @@ a {
   flex-direction: column;
   padding-top: 30px;
   padding-bottom: 30px;
-  
   div {
     * {
       margin: 0;
