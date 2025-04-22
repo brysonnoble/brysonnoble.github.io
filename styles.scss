@@ -227,27 +227,36 @@ a {
     margin: 0;
     font-weight: 300;
   }
-  h3 {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-inline-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
-    font-size: 50px;
-    font-family: 'Lovelo', sans-serif;
-    font-weight: 900;
-  }
-  h4 {
-    font-size: 24px;
-    margin-bottom: 14px;
-  }
-  h5 {
-    font-weight: 300;
-    font-size: 20px;
-  }
-  .material-symbols-outlined {
-    font-size: inherit;
-    font-weight: inherit;
+  > div:not(.projSkills) {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    div {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        .material-symbols-outlined {
+          font-size: 24px;
+          font-weight: 300;
+        }
+      h3 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-inline-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        font-size: 50px;
+        font-family: 'Lovelo', sans-serif;
+        font-weight: 900;
+      }
+      h4 {
+        font-size: 24px;
+      }
+      h5 {
+        font-weight: 300;
+        font-size: 20px;
+      }
+    }
   }
 }
 
