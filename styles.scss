@@ -1,6 +1,6 @@
 ::-webkit-scrollbar {
   width: 8px;
-  height: 8px;
+  height: 0px;
 }
 
 ::-webkit-scrollbar-track {
@@ -24,7 +24,6 @@
 }
 
 html {
-  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
