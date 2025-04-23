@@ -28,16 +28,11 @@ function dates () {
 
 function hideLoader () {
   const loader = document.getElementById("load");
-  const h2 = document.querySelector("h2");
   
   loader.style.opacity = 1;
 
   const fadeOut = setInterval(() => {
     document.body.style.overflow = 'scroll';
-
-    h2.style.animation = "typing 2s steps(40, end), blink-caret 0.75s step-end 4";
-    h2.style.color = "white";
-    setTimeout(enableWrap, 3500);
     
     if (loader.style.opacity > 0) {
       loader.style.opacity -= 0.05;
@@ -46,10 +41,6 @@ function hideLoader () {
       loader.style.display = "none";
     }
   }, 50);
-}
-
-function enableWrap () {
-  document.querySelector("h2").style.whiteSpace= "wrap";
 }
 
 document.addEventListener("DOMContentLoaded", () => {
