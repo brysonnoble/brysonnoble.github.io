@@ -96,26 +96,12 @@ h1,
 h2 {
   color: transparent;
   font-size: 24px;
-  overflow: hidden;
+  overflow: wrap;
   border-right: 0.15em solid transparent;
   border-left: 0.15em solid transparent;
   white-space: nowrap;
   margin: 0 auto;
   letter-spacing: 0.15em;
-  animation: none;
-}
-
-@keyframes typing {
-  from { width: 0; }
-  to { width: 561.77px; }
-}
-
-@keyframes blink-caret {
-  from, to { border-right-color: transparent; }
-  50% { border-right-color: white; }
-}
-
-h2 {
   font-family: "Lato", sans-serif;
   font-weight: 300;
 }
