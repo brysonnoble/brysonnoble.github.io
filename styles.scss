@@ -231,13 +231,16 @@ a {
     flex-direction: column;
     gap: 14px;
     div {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        .material-symbols-outlined {
-          font-size: 24px;
-          font-weight: 300;
-        }
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      img {
+        width: 24px;
+      }
+      .material-symbols-outlined {
+        font-size: 24px;
+        font-weight: 300;
+      }
       h4 {
         font-size: 24px;
       }
