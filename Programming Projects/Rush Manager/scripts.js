@@ -15,15 +15,15 @@ const events = [
   },
   {
     title: "Glizzys With The Boys",
-    date: "2025-08-17",
-    time: "6:30 PM - 7:30 PM",
+    date: "2025-08-18",
+    time: "5:00 PM - 6:00 PM",
     location: "Mustard's Last Stand",
     description: "Chill and grab some glizzys with the Chi Phi brothers."
   },
   {
     title: "Volleyball",
     date: "2025-08-18",
-    time: "6:00 PM - 8:00 PM",
+    time: "6:30 PM - 8:30 PM",
     location: "Brownlie Sand Court",
     description: "Beach volleyball with the brothers."
   },
@@ -38,7 +38,7 @@ const events = [
     title: "Sports Day",
     date: "2025-08-20",
     time: "4:00 PM - 6:30 PM",
-    location: "Paradise Beach",
+    location: "Ocean Ave. Beach",
     description: "Come out for a fun day of beach sports with the brothers."
   },
   {
