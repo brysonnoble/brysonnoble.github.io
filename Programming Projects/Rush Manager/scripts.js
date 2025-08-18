@@ -42,11 +42,11 @@ const events = [
     description: "Come out for a fun day of beach sports with the brothers."
   },
   {
-    title: "Football / Rage Room",
+    title: "House Tours",
     date: "2025-08-21",
     time: "5:00 PM - 7:30 PM",
     location: "Chi Phi Manor",
-    description: "Watch football and smash pianos at the Chi Phi Manor."
+    description: "Watch football and get a tour of the Chi Phi Manor."
   },
   {
     title: "Invite-Only Event",
