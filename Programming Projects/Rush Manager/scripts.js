@@ -35,11 +35,11 @@ const events = [
     description: "Poker, blackjack, and other casino games hosted at the Chi Phi Manor."
   },
   {
-    title: "Sports Day",
+    title: "Free Pizza + Games at the Rat",
     date: "2025-08-20",
-    time: "4:00 PM - 6:30 PM",
+    time: "6:00 PM - 8:00 PM",
     location: "Ocean Ave. Beach",
-    description: "Come out for a fun day of beach sports with the brothers."
+    description: "Grub up on free pizza and play some pool at the Rathskeller (under Evans Hall)."
   },
   {
     title: "House Tours",
