@@ -1,58 +1,58 @@
 const events = [
   {
     title: "Meet the Greeks",
-    date: "2025-08-15",
-    time: "2:30 PM - 4:00 PM",
-    location: "Crawford Green",
+    date: "2026-08-14",
+    time: "10:00 AM - 2:00 PM",
+    location: "Crawford Greens",
     description: "Connect with all fraternities and learn more about Greek life on campus."
   },
   {
+    title: "Greek Life Beach Day",
+    date: "2026-08-15",
+    time: "10:00 AM - 1:00 PM",
+    location: "Paradise Beach",
+    description: "Join Greek Life for a day at the beach and meet the brothers of Chi Phi."
+  },
+  {
     title: "Lawn Games",
-    date: "2025-08-17",
-    time: "4:30 PM - 6:00 PM",
-    location: "Crawford Green",
-    description: "Spikeball, cornhole, and other lawn games on Crawford Green."
+    date: "2026-08-17",
+    time: "6:00 PM - 8:00 PM",
+    location: "Crawford Greens",
+    description: "Spikeball, cornhole, and other lawn games on Crawford Greens with the Chi Phi brothers."
+  },
+  {
+    title: "Casino Night & House Tours",
+    date: "2026-08-18",
+    time: "6:00 PM - 8:00 PM",
+    location: "Chi Phi Manor - 4060 Dairy Road",
+    description: "Play poker, blackjack, and other casino games while getting a tour of the Chi Phi Manor."
   },
   {
     title: "Glizzys With The Boys",
-    date: "2025-08-18",
-    time: "5:00 PM - 6:00 PM",
-    location: "Mustard's Last Stand",
-    description: "Chill and grab some glizzys with the Chi Phi brothers."
+    date: "2026-08-19",
+    time: "6:00 PM - 7:00 PM",
+    location: "Mustard's - 415 E New Haven Ave",
+    description: "Chill and grab some glizzys with the boys at Mustard's."
   },
   {
     title: "Volleyball",
-    date: "2025-08-18",
-    time: "6:30 PM - 8:30 PM",
-    location: "Brownlie Sand Court",
-    description: "Beach volleyball with the brothers."
+    date: "2026-08-19",
+    time: "7:30 PM - 8:00 PM",
+    location: "Brownlie Hall",
+    description: "Play volleyball with the Chi Phi brothers at Brownlie Hall."
   },
   {
-    title: "Casino Night",
-    date: "2025-08-19",
-    time: "5:30 PM - 7:00 PM",
-    location: "Chi Phi Manor",
-    description: "Poker, blackjack, and other casino games hosted at the Chi Phi Manor."
-  },
-  {
-    title: "Free Pizza + Games at the Rat",
-    date: "2025-08-20",
+    title: "Highland Games & House Tours",
+    date: "2026-08-20",
     time: "6:00 PM - 8:00 PM",
-    location: "Ocean Ave. Beach",
-    description: "Grub up on free pizza and play some pool at the Rathskeller (under Evans Hall)."
+    location: "Chi Phi Manor - 4060 Dairy Road",
+    description: "Take part in Highland Games and get a tour of the Chi Phi Manor."
   },
   {
-    title: "House Tours",
-    date: "2025-08-21",
-    time: "5:00 PM - 7:30 PM",
-    location: "Chi Phi Manor",
-    description: "Watch football and get a tour of the Chi Phi Manor."
-  },
-  {
-    title: "Invite-Only Event",
-    date: "2025-08-22",
-    time: "6:00 PM - 8:00 PM",
-    location: "INVITE ONLY",
+    title: "Invite Only",
+    date: "2026-08-21",
+    time: "TBD",
+    location: "Invite Only",
     description: "Exclusive invite-only event with Chi Phi."
   },
 ];
