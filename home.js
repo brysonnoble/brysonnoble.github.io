@@ -1,39 +1,60 @@
-window.addEventListener('load', function() {
-  loadSplash();
+window.addEventListener('DOMContentLoaded', function () {
   dates();
+  loadSplash();
+  hideLoader();
 });
 
-function loadSplash () {
+
+function loadSplash() {
   const splashElement = document.getElementById("splash");
+
+  if (!splashElement || !splashImages || splashImages.length === 0) {
+    return;
+  }
+
   const image = new Image();
-  const randomSplash = splashImages[Math.floor(Math.random() * splashImages.length)];
-  
-  image.src = randomSplash;
-  
+  const randomSplash =
+    splashImages[Math.floor(Math.random() * splashImages.length)];
+
   image.onload = function () {
-    splashElement.style.backgroundImage = `url(${randomSplash}), linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5))`;
-    hideLoader();
+    splashElement.style.backgroundImage =
+      `url("${randomSplash}"), linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5))`;
+
+    splashElement.classList.add("loaded");
   };
+
+  image.onerror = function () {
+    splashElement.classList.add("loaded");
+  };
+
+  image.src = randomSplash;
 }
 
-function dates () {
+
+function dates() {
   const dateElements = document.getElementsByClassName("date");
   const currentYear = new Date().getFullYear();
 
   for (let i = 0; i < dateElements.length; i++) {
-    const subtractTime = dateElements[i].getAttribute('subtractTime');
+    const subtractTime = dateElements[i].getAttribute("subtractTime");
     dateElements[i].textContent = currentYear - subtractTime;
   }
 }
 
-function hideLoader () {
+
+function hideLoader() {
   const loader = document.getElementById("load");
-  
+
+  if (!loader) {
+    document.body.style.overflow = "scroll";
+    return;
+  }
+
   loader.style.opacity = 1;
 
   const fadeOut = setInterval(() => {
-    document.body.style.overflow = 'scroll';
-    
+    document.body.style.overflow = "scroll";
+
     if (loader.style.opacity > 0) {
       loader.style.opacity -= 0.05;
     } else {
@@ -42,6 +63,7 @@ function hideLoader () {
     }
   }, 50);
 }
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const projects = [
@@ -54,12 +76,15 @@ document.addEventListener("DOMContentLoaded", () => {
       id: "speak",
       gif: "https://brysonnoble.github.io/Images/Project_Previews/speak.gif",
       thumbnail: "https://brysonnoble.github.io/Images/Project_Thumbnails/studentspeak.PNG"
-    },
+    }
   ];
 
   projects.forEach(project => {
     const elem = document.getElementById(project.id);
-    if (!elem) return;
+
+    if (!elem) {
+      return;
+    }
 
     let hoverTimeout;
     let showingGif = false;
@@ -67,11 +92,13 @@ document.addEventListener("DOMContentLoaded", () => {
     elem.addEventListener("mouseenter", () => {
       hoverTimeout = setTimeout(() => {
         elem.classList.add("fade");
+
         setTimeout(() => {
           elem.style.backgroundImage = `url('${project.gif}')`;
           elem.classList.remove("fade");
           showingGif = true;
         }, 200);
+
       }, 2000);
     });
 
@@ -80,6 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (showingGif) {
         elem.classList.add("fade");
+
         setTimeout(() => {
           elem.style.backgroundImage = `url('${project.thumbnail}')`;
           elem.classList.remove("fade");
