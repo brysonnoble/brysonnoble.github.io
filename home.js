@@ -11,7 +11,7 @@ function loadSplash () {
   image.src = randomSplash;
   
   image.onload = function () {
-    splashElement.style.backgroundImage = `url(${randomSplash}), linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)`;
+    splashElement.style.backgroundImage = `url(${randomSplash}), linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5))`;
     hideLoader();
   };
 }
