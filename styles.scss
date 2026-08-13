@@ -172,31 +172,18 @@ a {
    ========================= */
 
 #splash {
-  position: relative;
-
   padding-top: 225px;
   padding-bottom: 225px;
-
   width: 100%;
 
-  /* Fallback while splash image is loading */
   background-color: #111;
-
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-
-  background-blend-mode: overlay;
   background-attachment: fixed;
 
   scroll-snap-align: start;
-
-  /*
-   * The image is applied by JavaScript.
-   * This keeps the page usable while it downloads.
-   */
 }
-
 
 .splashContent {
   display: flex;
