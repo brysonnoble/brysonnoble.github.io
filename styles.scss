@@ -11,9 +11,9 @@
 ::-webkit-scrollbar-track {
   background: transparent;
 }
- 
+
 ::-webkit-scrollbar-thumb {
-  background: white; 
+  background: white;
   border: 1px solid black;
   border-radius: 10px;
   transition: .2s;
@@ -28,9 +28,11 @@
   background: black;
 }
 
+
 html {
   scroll-behavior: smooth;
 }
+
 
 body {
   margin: 0;
@@ -42,17 +44,30 @@ body {
   overflow: hidden;
 }
 
+
+/* =========================
+   LOADING SCREEN
+   ========================= */
+
 #load {
   display: flex;
   align-items: center;
   justify-content: center;
+
   width: 100vw;
   height: 100vh;
+
   background-color: black;
+
   position: fixed;
-  z-index: 1;
+  top: 0;
+  left: 0;
+
+  z-index: 9999;
+
   transition: opacity 0.5s ease-out;
 }
+
 
 .loader {
   width: 40px;
@@ -60,43 +75,80 @@ body {
   display: grid;
 }
 
+
 .loader::before,
 .loader::after {
   content: "";
   grid-area: 1/1;
+
   background: white;
-  clip-path: polygon(0 0,101% 0, 0 100%);
+
+  clip-path: polygon(
+    0 0,
+    101% 0,
+    0 100%
+  );
+
   animation: l13 2s infinite;
 }
 
+
 .loader::after {
-  --s:-1,-1;
+  --s: -1, -1;
 }
 
+
 @keyframes l13 {
-    0%,
-    10%  {transform:scale(var(--s,1)) translate(0,0)        rotate(0deg)}
-    33%  {transform:scale(var(--s,1)) translate(20px,-20px) rotate(0deg)}
-    66%  {transform:scale(var(--s,1)) translate(20px,-20px) rotate(180deg)}
-    90%,
-    100% {transform:scale(var(--s,1)) translate(0px,0px)    rotate(180deg)}
+  0%,
+  10% {
+    transform: scale(var(--s, 1))
+      translate(0, 0)
+      rotate(0deg);
+  }
+
+  33% {
+    transform: scale(var(--s, 1))
+      translate(20px, -20px)
+      rotate(0deg);
+  }
+
+  66% {
+    transform: scale(var(--s, 1))
+      translate(20px, -20px)
+      rotate(180deg);
+  }
+
+  90%,
+  100% {
+    transform: scale(var(--s, 1))
+      translate(0px, 0px)
+      rotate(180deg);
+  }
 }
+
+
+/* =========================
+   GENERAL
+   ========================= */
 
 .splashcontent > * > h1 {
   margin: -40px 0 0 0;
 }
+
 
 .splashcontent > * > .selector {
   margin: 0;
   line-height: 0;
 }
 
+
 h1,
 #projectTitle,
 .skillTitle {
-  font-family: 'Lovelo', sans-serif;
+  font-family: "Lovelo", sans-serif;
   font-weight: 900;
 }
+
 
 h2 {
   color: white;
@@ -108,35 +160,63 @@ h2 {
   font-weight: 300;
 }
 
+
 a {
   color: inherit;
   text-decoration: inherit;
 }
 
+
+/* =========================
+   SPLASH / HERO
+   ========================= */
+
 #splash {
+  position: relative;
+
   padding-top: 225px;
   padding-bottom: 225px;
+
   width: 100%;
+
+  /* Fallback while splash image is loading */
+  background-color: #111;
+
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center; 
+  background-position: center center;
+
   background-blend-mode: overlay;
   background-attachment: fixed;
+
   scroll-snap-align: start;
+
+  /*
+   * The image is applied by JavaScript.
+   * This keeps the page usable while it downloads.
+   */
 }
+
 
 .splashContent {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
   gap: 80px;
+
   padding: 125px 20px 125px 20px;
+
   position: relative;
+
   width: 80%;
+
   font-size: -webkit-xxx-large;
+
   backdrop-filter: blur(8px);
 }
+
 
 .title {
   display: flex;
@@ -145,21 +225,29 @@ a {
   justify-content: center;
 }
 
+
 .selectContainer {
   display: flex;
   flex-wrap: wrap;
+
   gap: 40px;
+
   align-items: center;
   justify-content: center;
+
   a {
     font-size: 24px;
     cursor: pointer;
+
     padding: 20px;
+
     border-radius: 2px;
     border: 1px solid white;
+
     transition: 0.2s;
   }
 }
+
 
 .mainCTA,
 .secondarycta:hover {
@@ -167,19 +255,27 @@ a {
   color: black;
 }
 
+
 .secondaryCTA,
 .mainCTA:hover {
   background-color: transparent;
   color: white;
 }
 
+
+/* =========================
+   CONTENT
+   ========================= */
+
 #content {
   padding: 30px;
   padding-top: 0;
+
   h1 {
     font-size: 75px;
   }
 }
+
 
 #experience,
 #projects,
@@ -188,250 +284,364 @@ a {
   padding-top: 50px;
 }
 
+
+/* =========================
+   EXPERIENCE
+   ========================= */
+
 #experience {
   padding-bottom: 50px;
+
   flex-wrap: wrap;
   display: flex;
   flex-direction: column;
+
   border-bottom: 5px solid white;
+
   scroll-snap-align: start;
 }
 
+
 .node {
   border-left: 5px solid white;
+
   transition: .2s;
+
   padding-left: 20px;
-  display: flex;
-  flex-direction: column;
   padding-top: 30px;
   padding-bottom: 30px;
+
+  display: flex;
+  flex-direction: column;
+
   * {
     margin: 0;
     font-weight: 300;
   }
+
   > div:not(.projSkills) {
     display: flex;
     flex-direction: column;
     gap: 14px;
+
     div {
       display: flex;
       align-items: center;
       gap: 10px;
+
       img {
         width: 24px;
       }
+
       .material-symbols-outlined {
         font-size: 24px;
         font-weight: 300;
       }
+
       h4 {
         font-size: 24px;
       }
+
       h5 {
         font-weight: 300;
         font-size: 20px;
       }
     }
+
     .positionTitle {
       .material-symbols-outlined {
         font-size: 50px;
         font-weight: 900;
       }
+
       h3 {
         overflow: hidden;
         text-overflow: ellipsis;
+
         display: -webkit-inline-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 1;
+
         font-size: 50px;
-        font-family: 'Lovelo', sans-serif;
+
+        font-family: "Lovelo", sans-serif;
         font-weight: 900;
       }
     }
   }
 }
 
+
 .node:hover {
   border-left: 20px solid white;
 }
 
+
+/* =========================
+   PROJECTS
+   ========================= */
+
 #projects {
   flex-flow: row wrap;
   display: flex;
+
   border-bottom: 5px solid white;
+
   scroll-snap-align: start;
 }
 
+
 .demo {
   overflow: hidden;
+
   z-index: 0;
   position: relative;
+
   width: 100%;
   height: 300px;
+
   background-size: cover;
   background-repeat: no-repeat;
+
   border-top: 1px solid white;
+
   cursor: pointer;
+
   transition: .2s;
+
   text-align: left;
 }
+
 
 .demo:hover {
   width: 100%;
   height: 600px;
 }
 
+
 .demo::before {
-  content: '';
+  content: "";
+
   position: absolute;
   inset: 0;
+
   background: black;
+
   opacity: 0;
+
   pointer-events: none;
+
   transition: opacity 0.2s ease-in-out;
+
   z-index: 0;
 }
+
 
 .demo.fade::before {
   opacity: 1;
 }
 
+
 #overlay {
   position: relative;
+
   z-index: 1;
+
   height: 100%;
   width: 100%;
+
   background-color: rgba(0, 0, 0, 0.8);
+
   transition: .3s;
 }
+
 
 #overlay:hover {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
+
 .demoText {
   padding-left: 20px;
   padding-right: 20px;
+
   position: relative;
   top: calc(100% - 190px);
+
   display: flex;
   flex-direction: column;
 }
 
+
 #projectTitle {
   overflow: hidden;
   text-overflow: ellipsis;
+
   display: -webkit-inline-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
 }
+
 
 #projectTitle,
 .skillTitle {
   font-size: 50px;
 }
 
+
 #projectDesc {
   overflow: hidden;
   text-overflow: ellipsis;
+
   display: -webkit-inline-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
 }
 
+
 .projSkills {
   margin-top: 14px;
+
   display: flex;
+
   gap: 20px;
+
   overflow: hidden;
+
   div {
     height: 10px;
+
     font-size: 20px;
+
     display: flex;
     gap: 10px;
+
     align-items: center;
     justify-content: center;
+
     padding: 20px;
+
     border-radius: 2px;
     border: 1px solid white;
+
     transition: 0.2s;
+
     img[src$=".svg"] {
       transition: 0.2s;
       filter: saturate(0) invert(1) contrast(1.5);
     }
   }
+
   div:hover {
     background-color: rgb(0, 0, 0, 0.8);
+
     img[src$=".svg"] {
       filter: none;
     }
   }
 }
 
+
 #projectDesc,
 .skill {
   font-size: 24px;
 }
 
+
+/* =========================
+   SKILLS
+   ========================= */
+
 #skills {
   padding-bottom: 50px;
+
   border-bottom: 5px solid white;
+
   scroll-snap-align: start;
 }
 
+
 .skillContainerContainer {
   display: grid;
+
   gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(500px, 1fr));
 }
+
 
 .skillContainer {
   display: flex;
   flex-direction: column;
+
   gap: 20px;
 }
+
 
 .skillCardContainer {
   display: flex;
   flex-wrap: wrap;
+
   gap: 20px;
 }
 
+
 .skill {
   display: flex;
+
   gap: 10px;
+
   align-items: center;
   justify-content: center;
+
   padding: 20px;
+
   border-radius: 2px;
   border: 1px solid white;
+
   transition: 0.2s;
+
   img[src$=".svg"] {
     filter: saturate(0) invert(1) contrast(1.5);
   }
 }
 
+
 .skill:hover {
   background-color: white;
   color: black;
+
   scale: 1.1;
+
   img[src$=".svg"] {
     filter: none;
   }
 }
 
+
+/* =========================
+   FOOTER
+   ========================= */
+
 #footer {
   display: flex;
   flex-direction: column;
+
   scroll-snap-align: start;
+
   > span {
     font-size: 24px;
     line-height: 40px;
   }
+
   .copyright {
     font-size: 16px;
+
     margin-top: 40px;
+
     text-align: center;
+
     width: 100%;
   }
 }
