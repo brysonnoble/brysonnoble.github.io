@@ -18,7 +18,7 @@ function loadSplash() {
 
   image.onload = function () {
     splashElement.style.backgroundImage =
-      `url("${randomSplash}"), linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5))`;
+      `url("${randomSplash}"), linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25))`;
 
     splashElement.classList.add("loaded");
   };
